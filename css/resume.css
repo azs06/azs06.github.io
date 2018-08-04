@@ -146,3 +146,56 @@ section.resume-section .resume-item .resume-date {
     padding-bottom: 3rem !important;
   }
 }
+
+.feather {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.svg-icon {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.icon.is-medium.social-icons {
+  margin: 0.5rem;
+}
+
+.icon.is-medium .feather {
+  height: 2rem;
+  width: 2rem;
+}
+
+.social-profile-link:hover .social-icons.twitter {
+  color: #55acee;
+}
+
+.social-profile-link:hover .social-icons.twitter .feather {
+  fill: #55acee;
+}
+
+.social-profile-link:hover .social-icons.linkedin {
+  color: #0077B5;
+}
+
+.social-profile-link:hover .social-icons.linkedin .feather {
+  fill: #0077B5;
+}
+
+.social-profile-link:hover .social-icons.github {
+  color: #333;
+}
+
+.social-profile-link:hover .social-icons.github .feather {
+  fill: #333;
+}

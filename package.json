@@ -28,6 +28,7 @@
     "dependencies": {
         "bulma": "^0.7.1",
         "devicons": "^1.8.0",
+        "feather-icons": "^4.7.3",
         "font-awesome": "^4.7.0",
         "simple-line-icons": "^2.4.1"
     },

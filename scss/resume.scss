@@ -7,3 +7,52 @@
 @import "nav.scss";
 @import "resume-item.scss";
 // Components
+.feather {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+.svg-icon{
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;	
+}
+.icon.is-medium{
+	&.social-icons{
+		margin: 0.5rem;
+	}
+	.feather{
+		height: 2rem;
+		width: 2rem;
+	}
+}
+.social-profile-link:hover{
+.social-icons{
+	&.twitter{
+		color: #55acee;
+		.feather{
+			fill: #55acee;
+		}
+	}
+	&.linkedin{
+		color: #0077B5;
+		.feather{
+			fill: #0077B5;
+		}
+	}
+	&.github{
+		color: #333;
+		.feather{
+			fill: #333;
+		}
+	}
+}	
+}

@@ -17,6 +17,10 @@ gulp.task('vendor', function() {
       './node_modules/bulma/css/**/*'
     ])
     .pipe(gulp.dest('./vendor/bulma'))
+    gulp.src([
+    './node_modules/feather-icons/dist/**/*'
+  ])
+  .pipe(gulp.dest('./vendor/feather-icons'))
 
   // Devicons
   gulp.src([
@@ -30,28 +34,6 @@ gulp.task('vendor', function() {
     ])
     .pipe(gulp.dest('./vendor/devicons'))
 
-  // Font Awesome
-  gulp.src([
-      './node_modules/font-awesome/**/*',
-      '!./node_modules/font-awesome/{less,less/*}',
-      '!./node_modules/font-awesome/{scss,scss/*}',
-      '!./node_modules/font-awesome/.*',
-      '!./node_modules/font-awesome/*.{txt,json,md}'
-    ])
-    .pipe(gulp.dest('./vendor/font-awesome'))
-
-  // Simple Line Icons
-  gulp.src([
-      './node_modules/simple-line-icons/fonts/**',
-    ])
-    .pipe(gulp.dest('./vendor/simple-line-icons/fonts'))
-
-  gulp.src([
-      './node_modules/simple-line-icons/css/**',
-    ])
-    .pipe(gulp.dest('./vendor/simple-line-icons/css'))
-
-});
 
 // Compile SCSS
 gulp.task('css:compile', function() {

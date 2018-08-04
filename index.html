@@ -14,9 +14,7 @@
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="vendor/devicons/css/devicons.min.css" rel="stylesheet">
-    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/resume.min.css" rel="stylesheet">
@@ -66,33 +64,39 @@
           <h4 class="title is-5 secondary-title">
             UI, UX &nbsp; & <span class="profession">undefined is not a function</span> </h4>
           <div class="subtitle is-5">
-            <i class="fa fa-phone"></i> <a href="tel:8801726207822">8801726207822</a> &nbsp;
-            <i class="fa fa-envelope"></i> <a href="mailto:name@email.com">atik.aiub@gmail.com</a>       
+            <i data-feather="phone"></i> 
+            <a href="tel:8801726207822">8801726207822</a> &nbsp;
+            <i data-feather="mail"></i></i> 
+            <a href="mailto:name@email.com">atik.aiub@gmail.com</a>       
           </div>
           <p class="is-size-4">I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
           <ul class="list-inline list-social-icons">
             <li class="list-inline-item">
-              <a href="https://twitter.com/soikat">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              <a class="social-profile-link" href="https://twitter.com/soikat">
+                <span class="icon is-medium social-icons twitter">
+                 <svg class="feather">
+                  <use xlink:href="./vendor/feather-icons/feather-sprite.svg#twitter"/>
+                  </svg>             
                 </span>
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="https://github.com/azs06/">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                </span>
+              <a class="social-profile-link" href="https://github.com/azs06/">
+               <span class="icon is-medium social-icons github">
+                <svg class="feather">
+                  <use xlink:href="./vendor/feather-icons/feather-sprite.svg#github"/>
+                </svg>     
+               </span> 
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="https://www.linkedin.com/in/md-atiquzzaman-soikat-275628145/">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              <a class="social-profile-link" href="https://www.linkedin.com/in/md-atiquzzaman-soikat-275628145/">
+                <span class="icon is-medium social-icons linkedin">
+                  <svg class="feather">
+                    <use xlink:href="./vendor/feather-icons/feather-sprite.svg#linkedin"/>
+                  </svg>             
                 </span>
+
               </a>
             </li>
           </ul>
@@ -193,11 +197,15 @@
             <li class="list-inline-item">
               <i class="devicons devicons-react"></i>
             </li>
-             <li class="list-inline-item">
-              <i class="devicons devicons-gulp"></i>
+            <li class="list-inline-item">
+              <span class="icon">
+                <svg class="feather">
+                  <use xlink:href="./vendor/dev-icons.svg#webpack"/>
+                </svg> 
+              </span>
             </li>
              <li class="list-inline-item">
-              <i class="devicons devicons-webpack"></i>
+              <i class="devicons devicons-gulp"></i>
             </li>
             <li class="list-inline-item">
               <i class="devicons devicons-sass"></i>
@@ -220,6 +228,10 @@
         </div>
       </section>
     </div>
+    <script type="text/javascript" src="vendor/feather-icons/feather.min.js"></script>
+    <script type="text/javascript">
+      feather.replace();
+    </script>
   </body>
 
 </html>
