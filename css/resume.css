@@ -147,16 +147,6 @@ section.resume-section .resume-item .resume-date {
   }
 }
 
-.feather {
-  width: 24px;
-  height: 24px;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
-}
-
 .svg-icon {
   width: 24px;
   height: 24px;
@@ -167,20 +157,44 @@ section.resume-section .resume-item .resume-date {
   fill: none;
 }
 
+[class^="icon-"] {
+  display: inline-flex;
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
 .icon.is-medium.social-icons {
   margin: 0.5rem;
 }
 
-.icon.is-medium .feather {
+.icon.is-medium .icon {
   height: 2rem;
   width: 2rem;
+}
+
+.social-icons {
+  width: 3rem;
+  height: 3rem;
+  background: #495057;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.social-icons .icon {
+  fill: #fff;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .social-profile-link:hover .social-icons.twitter {
   color: #55acee;
 }
 
-.social-profile-link:hover .social-icons.twitter .feather {
+.social-profile-link:hover .social-icons.twitter .icon {
   fill: #55acee;
 }
 
@@ -188,7 +202,7 @@ section.resume-section .resume-item .resume-date {
   color: #0077B5;
 }
 
-.social-profile-link:hover .social-icons.linkedin .feather {
+.social-profile-link:hover .social-icons.linkedin .icon {
   fill: #0077B5;
 }
 
@@ -196,6 +210,6 @@ section.resume-section .resume-item .resume-date {
   color: #333;
 }
 
-.social-profile-link:hover .social-icons.github .feather {
+.social-profile-link:hover .social-icons.github .icon {
   fill: #333;
 }

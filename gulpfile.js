@@ -16,23 +16,7 @@ gulp.task('vendor', function() {
   gulp.src([
       './node_modules/bulma/css/**/*'
     ])
-    .pipe(gulp.dest('./vendor/bulma'))
-    gulp.src([
-    './node_modules/feather-icons/dist/**/*'
-  ])
-  .pipe(gulp.dest('./vendor/feather-icons'))
-
-  // Devicons
-  gulp.src([
-      './node_modules/devicons/**/*',
-      '!./node_modules/devicons/*.json',
-      '!./node_modules/devicons/*.md',
-      '!./node_modules/devicons/!PNG',
-      '!./node_modules/devicons/!PNG/**/*',
-      '!./node_modules/devicons/!SVG',
-      '!./node_modules/devicons/!SVG/**/*'
-    ])
-    .pipe(gulp.dest('./vendor/devicons'))
+    .pipe(gulp.dest('./vendor/bulma'));
 
 
 // Compile SCSS

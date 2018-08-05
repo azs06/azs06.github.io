@@ -1,21 +1,14 @@
 {
     "title": "Resume",
     "name": "soikat-resume",
-    "version": "4.1.1",
-    "description": "Resume is a simple, yet elegant resume and CV theme for Bootstrap 4.",
+    "version": "1.0.1",
+    "description": "Resume of Md. Atiquzzaman Soikat",
     "keywords": [
         "css",
         "sass",
-        "html",
-        "responsive",
-        "theme",
-        "template"
+        "html"
     ],
-    "homepage": "https://startbootstrap.com/template-overviews/resume",
-    "bugs": {
-        "url": "https://github.com/BlackrockDigital/startbootstrap-resume/issues",
-        "email": "feedback@startbootstrap.com"
-    },
+    "homepage": "https://azs06.github.io",
     "license": "MIT",
     "author": "Start Bootstrap",
     "contributors": [
@@ -23,14 +16,10 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/BlackrockDigital/startbootstrap-resume.git"
+        "url": "https://github.com/azs06/azs06.github.io"
     },
     "dependencies": {
         "bulma": "^0.7.1",
-        "devicons": "^1.8.0",
-        "feather-icons": "^4.7.3",
-        "font-awesome": "^4.7.0",
-        "simple-line-icons": "^2.4.1"
     },
     "devDependencies": {
         "browser-sync": "2.24.5",
