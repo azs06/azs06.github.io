@@ -10,7 +10,7 @@
     ],
     "homepage": "https://azs06.github.io",
     "license": "MIT",
-    "author": "Start Bootstrap",
+    "author": "Md. Atiquzzaman Soikat",
     "contributors": [
         "David Miller (http://davidmiller.io/)"
     ],
@@ -19,7 +19,7 @@
         "url": "https://github.com/azs06/azs06.github.io"
     },
     "dependencies": {
-        "bulma": "^0.7.1",
+        "bulma": "^0.7.1"
     },
     "devDependencies": {
         "browser-sync": "2.24.5",
