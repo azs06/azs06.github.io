@@ -7,3 +7,8 @@
 - `gulp vendor` copies dependencies from node_modules to the vendor directory
 
 You must have npm and Gulp installed globally on your machine in order to use these features.
+
+#### Todo
+	1. Remove bulma
+	2. Remove gulp
+	3. Update content
