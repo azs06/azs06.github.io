@@ -10,9 +10,9 @@ var browserSync = require('browser-sync').create();
 gulp.task('vendor', function() {
   //Bulma
   gulp.src([
-      './node_modules/bulma/css/**/*'
+      './node_modules/normalize.css/normalize.css'
     ])
-  .pipe(gulp.dest('./vendor/bulma'));
+  .pipe(gulp.dest('./vendor/normalize.css/'));
 
 });
 

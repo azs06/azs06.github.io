@@ -9,22 +9,19 @@
     <meta name="author" content="">
 
     <title>Resume - Md. Atiquzzaman Soikat</title>
-
-    <link rel="stylesheet" href="vendor/bulma/bulma.min.css">
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
     <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="vendor/normalize.css/normalize.css">
     <link href="css/resume.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/custom.min.css">
 
   </head>
 
   <body id="page-top">
-
     <nav class="navbar  bg-primary" id="sideNav">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <span class="title is-3 is-hidden">Start Bootstrap</span>
         <span class="d-none d-lg-block">
           <figure class="image">
              <img class="img-fluid img-profile" src="./img/avatar_github.jpeg" alt="My name is not slim shaddy">
@@ -52,8 +49,7 @@
       </div>
     </nav>
 
-    <div class="container is-fluid">
-
+    <div class="container">
       <section class="resume-section" id="about">
         <div class="content">
           <h1 class="title is-1">Md. Atiquzzaman
@@ -61,20 +57,25 @@
           </h1>
           <h4 class="title is-5 secondary-title">
             UI, UX &nbsp; & <span class="profession">undefined is not a function</span> </h4>
-          <div class="subtitle is-5">
-            <span>
-              <svg class="icon icon-phone is-small"><use xlink:href="vendor/icons.svg#icon-phone"></use></svg>
-            </span>
-
-            <a href="tel:8801726207822">8801726207822</a> &nbsp;
-
-             <span>
-              <svg class="icon icon-envelope is-small"><use xlink:href="vendor/icons.svg#icon-envelope"></use></svg>
-            </span> 
-
-            <a href="atik.aiub@gmail.com">atik.aiub@gmail.com</a>       
+          <div class="contact-icons">
+            <ul class="contact-icons__list">
+              <li class="contact-icons__iconContainer">
+                <span class="contact-icons__icon">
+                    <svg class="icon icon-phone is-small"><use xlink:href="vendor/icons.svg#icon-phone"></use></svg>
+                  </span>
+                  <a href="tel:8801726207822">8801726207822</a> &nbsp;
+              </li>
+              <li class="contact-icons__iconContainer">
+                  <span class="contact-icons__icon">
+                      <svg class="icon icon-envelope is-small"><use xlink:href="vendor/icons.svg#icon-envelope"></use></svg>
+                    </span> 
+                    <a href="atik.aiub@gmail.com">atik.aiub@gmail.com</a> 
+              </li>
+            </ul>      
           </div>
-          <p class="is-size-4">I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
+          <article class="article-container">
+              <p>I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
+          </article>
           <ul class="list-inline list-social-icons">
             <li class="list-inline-item">
               <a class="social-profile-link" href="https://twitter.com/soikat">
@@ -102,14 +103,16 @@
       </section>
 
       <section class="resume-section" id="experience">
-        <div class="">
-          <h2 class="title is-2">Experience</h2>
+        <div>
+          <h2 class="block-title">Experience</h2>
 
           <div class="resume-item">
             <div class="resume-content mr-auto">
-              <h3 class="">Frontend Developer</h3>
-              <div class="subheading">Jetaport</div>
-              <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
+              <h3 class="heading">Frontend Developer</h3>
+              <h4 class="subheading">Jetaport</h4>
+              <article class="article-container">
+                  <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
+              </article>
             </div>
             <div class="resume-date">
               <span class="text-primary">Nov 2015 - May 2018</span>
@@ -118,9 +121,11 @@
 
           <div class="resume-item">
             <div class="resume-content">
-              <h3 class="">Lead Frontend developer</h3>
-              <div class="subheading">SchoolBee Inc.</div>
-              <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.</p>
+              <h3 class="heading">Lead Frontend developer</h3>
+              <h4 class="subheading">SchoolBee Inc.</h4>
+              <article class="article-container">
+                  <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.</p>
+              </article>
             </div>
             <div class="resume-date">
               <span class="text-primary">Feb 2015 - Nov 2015</span>
@@ -129,9 +134,11 @@
 
           <div class="resume-item">
             <div class="resume-content">
-              <h3 class="">Web Developer</h3>
-              <div class="subheading">ASBD SOFT</div>
-              <p>Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration.</p>
+              <h3 class="heading">Web Developer</h3>
+              <h4 class="subheading">ASBD SOFT</h4>
+              <article class="article-container">
+                  <p>Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration.</p>
+              </article>
             </div>
             <div class="resume-date">
               <span class="text-primary">July 2012 - December 2014</span>
@@ -143,12 +150,11 @@
 
       <section class="resume-section" id="education">
         <div class="my-auto">
-          <h2 class="mb-5">Education</h2>
-
+          <h2 class="block-title">Education</h2>
           <div class="resume-item">
             <div class="resume-content">
-              <h3 class="">American International University Bangladesh</h3>
-              <div class="subheading">Bachelor of Computer Science and Software Engineering</div>
+              <h3 class="heading">American International University Bangladesh</h3>
+              <h4 class="subheading">Bachelor of Computer Science and Software Engineering</h4>
             </div>
             <div class="resume-date">
               <span class="text-primary">March 2008 - July 2012</span>
@@ -157,8 +163,8 @@
           <br/>          
           <div class="resume-item">
             <div class="resume-content">
-              <h3 class="">Birshreshtha Munshi Abdur Rouf Public College</h3>
-              <div class="subheading">H.S.C</div>
+              <h3 class="heading">Birshreshtha Munshi Abdur Rouf Public College</h3>
+              <h4 class="subheading">H.S.C</h4>
             </div>
             <div class="resume-date">
               <span class="text-primary">August 2006 - October 2007</span>
@@ -170,7 +176,7 @@
 
       <section class="resume-section" id="skills">
         <div class="my-auto">
-          <h2 class="">Skills</h2>
+          <h2 class="block-title">Skills</h2>
 
           <div class="subheading">Programming Languages &amp; Tools</div>
           <ul class="list-inline list-icons">
@@ -246,8 +252,10 @@
       <section class="resume-section" id="interests">
         <div class="my-auto">
           <h2>Interests</h2>
-          <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skiier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
-          <p>When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technolgy advancements in the front-end web development world.</p>
+          <article class="article-container">
+              <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skiier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
+              <p>When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technolgy advancements in the front-end web development world.</p>
+          </article>
         </div>
       </section>
     </div>

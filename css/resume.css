@@ -1,3 +1,82 @@
+/*! minireset.css v0.0.3 | MIT License | github.com/jgthms/minireset.css */
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+img,
+audio,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+  text-align: left;
+}
+
 .bg-primary {
   background-color: #20c997 !important;
 }
@@ -15,7 +94,11 @@ a:hover, a:focus, a:active {
 }
 
 body {
-  font-family: 'Open Sans', serif;
+  font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  color: #2c3e50;
   padding-top: 54px;
   color: #868e96;
 }
@@ -75,9 +158,17 @@ h2 {
   color: #20c997;
 }
 
+.container {
+  margin-left: 64px;
+  margin-right: 64px;
+  max-width: none;
+  width: auto;
+}
+
 #sideNav .navbar-nav .nav-item .nav-link {
   font-weight: 600;
   text-transform: uppercase;
+  text-decoration: none;
 }
 
 @media (min-width: 992px) {
@@ -147,16 +238,6 @@ section.resume-section .resume-item .resume-date {
   }
 }
 
-.svg-icon {
-  width: 24px;
-  height: 24px;
-  stroke: currentColor;
-  stroke-width: 1;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
-}
-
 [class^="icon-"] {
   display: inline-flex;
   stroke: currentColor;
@@ -212,4 +293,44 @@ section.resume-section .resume-item .resume-date {
 
 .social-profile-link:hover .social-icons.github .icon {
   fill: #333;
+}
+
+/* header icons section css */
+.contact-icons {
+  margin-bottom: 1rem;
+}
+
+.contact-icons__list {
+  display: inline-flex;
+}
+
+.contact-icons__iconContainer a {
+  text-decoration: none;
+}
+
+.contact-icons__icon .icon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+/* header icons section css end */
+.article-container {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.list-icons span .icon {
+  max-width: 50px;
+}
+
+.heading {
+  margin-bottom: 0.5rem;
+}
+
+.subheading {
+  margin-bottom: 0.5rem;
+}
+
+.block-title {
+  margin-bottom: 1rem;
 }

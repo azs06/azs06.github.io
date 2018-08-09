@@ -7,7 +7,12 @@
   background-size: cover;
 }
 @mixin body-font {
-  font-family: 'Open Sans', serif;
+  font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  color: #2c3e50;
+  
 }
 @mixin heading-font {
   font-family: 'Saira Extra Condensed', serif;

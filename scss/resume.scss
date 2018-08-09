@@ -1,4 +1,5 @@
 // Core variables and mixins
+@import "minireset";
 @import "variables.scss";
 @import "bootstrap-overrides";
 @import "mixins.scss";
@@ -7,15 +8,6 @@
 @import "nav.scss";
 @import "resume-item.scss";
 // Components
-.svg-icon{
-  width: 24px;
-  height: 24px;
-  stroke: currentColor;
-  stroke-width: 1;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;	
-}
 [class^="icon-"]{
   display: inline-flex;
   stroke: currentColor;
@@ -67,4 +59,45 @@
 		}
 	}
 }	
+}
+/* header icons section css */
+.contact-icons{
+	margin-bottom: 1rem;
+	&__list{
+		display: inline-flex;
+	}
+	&__iconContainer{
+		a{
+			text-decoration: none;
+		}
+	}
+	&__icon{
+		.icon{
+			height: 1.5rem;
+			width: 1.5rem;
+		}
+	}
+}
+/* header icons section css end */
+.article-container{
+	margin-bottom: 1rem;
+	line-height: 1.5;
+}
+.list-icons{
+	span{
+		.icon{
+			max-width: 50px;
+		}
+	}
+
+}
+
+.heading{
+	margin-bottom: 0.5rem;
+}
+.subheading{
+	margin-bottom: 0.5rem;
+}
+.block-title{
+	margin-bottom: 1rem;
 }

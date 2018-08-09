@@ -12,14 +12,14 @@
     "license": "MIT",
     "author": "Md. Atiquzzaman Soikat",
     "contributors": [
-        "David Miller (http://davidmiller.io/)"
+        "Md. Atiquzzaman Soikat"
     ],
     "repository": {
         "type": "git",
         "url": "https://github.com/azs06/azs06.github.io"
     },
     "dependencies": {
-        "bulma": "^0.7.1"
+        "normalize.css": "^8.0.0"
     },
     "devDependencies": {
         "browser-sync": "2.24.5",
