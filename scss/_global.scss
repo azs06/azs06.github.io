@@ -1,15 +1,12 @@
 // Global styling for this template
-
+:root{
+  --gradientOne : #fdcd3b;
+  --gradientTwo: #ffed4b;
+  --start: 110deg;
+}
 body {
   @include body-font;
-  padding-top: 54px;
   color: $gray-600;
-}
-@media (min-width: 992px) {
-  body {
-    padding-top: 0;
-    padding-left: $sidebar-base-width;
-  }
 }
 
 h1,
@@ -38,31 +35,4 @@ h2 {
   font-weight: 500;
   @include heading-font;
   font-size: 1.35rem;
-}
-
-.list-social-icons {
-  a {
-    color: $gray-700;
-    &:hover {
-      color: $primary;
-    }
-    .fa-lg {
-      font-size: 1.75rem;
-    }
-  }
-}
-
-.list-icons {
-  font-size: 3rem;
-  .list-inline-item i {
-    &:hover {
-      color: $primary;
-    }
-  }
-}
-.container{
-  margin-left: 64px;
-  margin-right: 64px;
-  max-width: none;
-  width: auto
 }

@@ -1,0 +1,21 @@
+// Core variables and mixins
+@import "minireset";
+@import "variables.scss";
+@import "mixins.scss";
+// Global CSS
+@import "global.scss";
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    border: 3px solid;
+    border-image: linear-gradient(var(--start), var(--gradientOne) 60%, var(--gradientTwo) 60%) 1;
+    border-radius: 2px;
+}
+.warning{
+    color: orangered;
+}
