@@ -3,54 +3,54 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://www.example.com/categories/</loc>
+    <loc>http://azs06.github.io/categories/</loc>
     <lastmod>2018-12-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://www.example.com/posts/dummy/</loc>
+    <loc>http://azs06.github.io/posts/dummy/</loc>
     <lastmod>2018-12-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/</loc>
-    <lastmod>2018-12-31T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.example.com/posts/</loc>
+    <loc>http://azs06.github.io/</loc>
     <lastmod>2018-12-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://www.example.com/tags/</loc>
+    <loc>http://azs06.github.io/posts/</loc>
     <lastmod>2018-12-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://www.example.com/categories/blog/</loc>
+    <loc>http://azs06.github.io/tags/</loc>
     <lastmod>2018-12-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://www.example.com/tags/hugo/</loc>
+    <loc>http://azs06.github.io/categories/blog/</loc>
     <lastmod>2018-12-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://www.example.com/tags/i18n/</loc>
+    <loc>http://azs06.github.io/tags/hugo/</loc>
     <lastmod>2018-12-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://www.example.com/about/</loc>
+    <loc>http://azs06.github.io/tags/i18n/</loc>
+    <lastmod>2018-12-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://azs06.github.io/about/</loc>
   </url>
   
 </urlset>

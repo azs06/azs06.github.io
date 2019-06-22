@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Md. Atiquzzaman Soikat</title>
-    <link>http://www.example.com/</link>
+    <link>http://azs06.github.io/</link>
     <description>Recent content on Md. Atiquzzaman Soikat</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 31 Dec 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://www.example.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://azs06.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Dummy</title>
-      <link>http://www.example.com/posts/dummy/</link>
+      <link>http://azs06.github.io/posts/dummy/</link>
       <pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/posts/dummy/</guid>
+      <guid>http://azs06.github.io/posts/dummy/</guid>
       <description>Nada para ver aqui!</description>
     </item>
     
     <item>
       <title>About Hugo</title>
-      <link>http://www.example.com/about/</link>
+      <link>http://azs06.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/about/</guid>
+      <guid>http://azs06.github.io/about/</guid>
       <description>Lorem Ipsum..</description>
     </item>
     
