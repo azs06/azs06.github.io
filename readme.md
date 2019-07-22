@@ -1,1 +1,0 @@
-## Static site generated using hugo
