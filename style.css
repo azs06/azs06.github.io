@@ -142,3 +142,27 @@ span.wave {
    50% { transform: rotate(  0.0deg) }
   100% { transform: rotate(  0.0deg) }
 }
+
+.blog h2{
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+.blog a{
+  font-size: 1.6rem;
+}
+.blog p{
+  font-size: 1rem;
+}
+.markdown-body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+}
+
+@media (max-width: 767px) {
+  .markdown-body {
+    padding: 15px;
+  }
+}
