@@ -66,6 +66,9 @@ body.dark-mode{
 body.border-mode{
   border: 10px solid rgba(239, 131, 94, 0.57);
 }
+.landing-page-body p{
+  max-width: 30em;
+}
 h1 {
   font-size: 4.5em;
   font-weight: 500;
@@ -75,7 +78,6 @@ p {
   font-size: 1.6em;
   font-weight: 300;
   line-height: 1.5;
-  max-width: 30em;
 }
 p:not(last-child){
   margin-bottom: 1em;
