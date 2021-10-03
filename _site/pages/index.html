@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Blog Name</title>
+    <meta name="description" content="I am writing about my experiences as a naval navel-gazer.">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.css"> 
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Your Blog Name">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Your Blog Name">
+  </head>
+  <body class="layout blog markdown-body">
+    <header>
+      <h1 class="home"><a href="/">Your Blog Name</a></h1>
+      <ul class="nav">
+        <li class="nav-item nav-item-active"><a href="/pages/">Home</a></li>
+        <li class="nav-item"><a href="/posts/">Archive</a></li>
+        <li class="nav-item"><a href="/contact/">Contact Page</a></li>
+        <li class="nav-item"><a href="/pages/about/">About Me</a></li>
+      </ul>
+    </header>
+
+    <main  class="tmpl-home">
+      
+<h1>Latest 3 Posts</h1>
+
+
+
+<ol reversed class="postlist" style="counter-reset: start-from 4">
+
+  <li class="postlist-item">
+    <a href="/posts/vue-context-api-with-observable-and-provide-inject/" class="postlist-link"><code>/posts/vue-context-api-with-observable-and-provide-inject/</code></a>
+    <time class="postlist-date" datetime="2021-10-03">03 Oct 2021</time>
+    
+  </li>
+
+  <li class="postlist-item">
+    <a href="/posts/css-values-in-javascript/" class="postlist-link"><code>/posts/css-values-in-javascript/</code></a>
+    <time class="postlist-date" datetime="2021-10-03">03 Oct 2021</time>
+    
+  </li>
+
+  <li class="postlist-item">
+    <a href="/posts/ajax-calls-with-generator/" class="postlist-link"><code>/posts/ajax-calls-with-generator/</code></a>
+    <time class="postlist-date" datetime="2021-10-03">03 Oct 2021</time>
+    
+  </li>
+
+</ol>
+
+
+<p>More posts can be found in <a href="/posts/">the archive</a>.</p>
+
+<section class="landing-page-body">
+  <button role="button" aria-label="Toggle dark/light" class="toggle-theme">
+    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+  </button>
+  <h1>Hi <span class="wave-hand wave">👋</span> </h1>  
+  <p style="font-weight:500; font-size:2.5em">
+    I am Md. Atiquzzaman Soikat
+  </p>
+  <p>
+    I am a Software Engineer from Dhaka, Bangladesh. Currently working as a Software Engineer(Frontend) at
+    <a href="https://www.butlerhospitality.com/" target="_blank">Butler Hospitality</a>.
+  </p>
+  <p>
+    I have been dabbling on the web for more than seven years. JavaScript is the language of the web, also my primary language of choice for programming. My primary choice of frontend frameworks are <a href="https://reactjs.org/" target="_blank">React</a> and <a href="https://vuejs.org/" target="_blank">Vue</a>( I know contradiction right!)
+  </p>
+  <p>
+    I also occassionally works on <a href="https://nodejs.org/en/" target="_blank">Node.js</a>, happen to know how to develop fullstack JavaScript application using express and MongoDB/MySQL. Though I enjoy working on the frontend more!
+  </p>
+  <p>
+    While not programming I enjoy video games, cooking and spending time with my friends and family.
+  </p>
+
+  <ul class="social-links">
+    <li><a href="https://twitter.com/soikat">Twitter</a></li> 
+    <li><a href="https://github.com/azs06">Github</a></li>
+    <li><a href="https://stackoverflow.com/users/946131/azs06">StackOverflow</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <!-- add portfolio page -->
+  </ul>
+</section>
+<script>
+  var toggleThemeBtn = document.querySelector('.toggle-theme');
+  var waveEmoji = document.querySelector('.wave-hand');
+  toggleThemeBtn.addEventListener('click', function(event){
+    event.stopPropagation();
+    document.body.classList.toggle('dark-mode');
+  })
+  waveEmoji.addEventListener('click', function(event){
+    event.stopPropagation();
+    waveEmoji.classList.add('wave');
+    setTimeout(function(){
+      waveEmoji.classList.remove('wave');
+    }, 3000)
+  })
+  setTimeout(function(){
+    waveEmoji.classList.remove('wave');
+  }, 3000)
+</script> 
+    </main>
+
+    <footer></footer>
+    <script>
+      //console.log(page);
+    </script>
+    <!-- Current page: /pages/ -->
+  </body>
+</html>
