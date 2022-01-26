@@ -1,5 +1,5 @@
 ---
-layout: layouts/post.njk
+layout: post.njk
 pageTitle: Using Generators to simplify ajax calls
 ---
 Let's first get familiar with generator, generator is special type of function which you can pause and resume at will. Here is a simple generaor

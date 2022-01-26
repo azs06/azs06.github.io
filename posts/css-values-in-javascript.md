@@ -1,5 +1,5 @@
 ---
-layout: layouts/post.njk
+layout: post.njk
 pageTitle: Ways to get CSS values in JavaScript
 ---
 Occassionally while working with the dom(document object model) in JavaScript you might have to access CSS values of a certain dom element. There are couple of ways to do it. Let's check them out.

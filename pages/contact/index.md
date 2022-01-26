@@ -1,5 +1,5 @@
 ---
-layout: layouts/post.njk
+layout: post.njk
 title: Contact Page
 templateClass: tmpl-post
 permalink: "contact/index.html"
