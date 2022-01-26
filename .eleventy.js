@@ -5,9 +5,6 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
-const moment = require('moment');
- 
-moment.locale('en');
 
 module.exports = function(eleventyConfig) {
   // Add plugins
@@ -50,11 +47,11 @@ module.exports = function(eleventyConfig) {
   })
 
   eleventyConfig.addFilter('dateIso', date => {
-    return moment(date).toISOString();
+    return new Date(date).toISOString();
   });
  
   eleventyConfig.addFilter('dateReadable', date => {
-    return moment(date).format('LL'); // E.g. May 31, 2019
+    return new Date(date).toDateString();
   });
 
   // Create an array of all tags
@@ -136,10 +133,10 @@ module.exports = function(eleventyConfig) {
 
     // These are all optional (defaults are shown):
     dir: {
-      input: ".",
-      includes: "_includes",
-      data: "_data",
-      output: "_site"
-    }
+      output: 'build',
+      input: 'pages',
+      layouts: '_layouts',
+      includes: '_includes'
+  }
   };
 };

@@ -8,7 +8,8 @@
     "watch": "eleventy --watch",
     "serve": "eleventy --serve",
     "start": "eleventy --serve",
-    "debug": "DEBUG=* eleventy"
+    "debug": "DEBUG=* eleventy",
+    "start-vite": "concurrently 'eleventy --watch --incremental' 'vite build'"
   },
   "repository": {
     "type": "git",
@@ -22,13 +23,17 @@
   },
   "homepage": "https://github.com/azs06/azs06.github.io#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy": "^1.0.0",
     "@11ty/eleventy-navigation": "^0.1.6",
     "@11ty/eleventy-plugin-rss": "^1.1.1",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.0",
     "luxon": "^1.26.0",
     "markdown-it": "^12.0.4",
     "markdown-it-anchor": "^7.1.0",
-    "moment": "^2.24.0"
+    "require-from-string": "^2.0.2"
+  },
+  "dependencies": {
+    "concurrently": "^7.0.0",
+    "vite": "^2.7.13"
   }
 }
