@@ -4,7 +4,7 @@ title: Contact Page
 templateClass: tmpl-post
 permalink: "contact/index.html"
 eleventyNavigation:
-  key: Contact Page
+  key: Contact
   order: 2
 ---
 
