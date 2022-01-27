@@ -1,3 +1,6 @@
 readme.md
 tooling
 node_modules
+.eleventy.js
+config.js
+vite.config.js
