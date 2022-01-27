@@ -33,7 +33,10 @@
     "require-from-string": "^2.0.2"
   },
   "dependencies": {
+    "@vitejs/plugin-legacy": "^1.6.4",
     "concurrently": "^7.0.0",
+    "postcss": "^8.4.5",
+    "postcss-preset-env": "^7.2.3",
     "vite": "^2.7.13"
   }
 }
