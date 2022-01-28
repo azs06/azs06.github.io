@@ -21,6 +21,7 @@ export default defineConfig({
         sourcemap: isDev,
         // This is critical: generate manifest.json in outDir
         manifest: true,
+        publicDir: './assets',
         rollupOptions: {
             // This is critical: overwrite default .html entry
             input: './tooling/index.js',

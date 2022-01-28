@@ -3,8 +3,12 @@
 ### Todos
 
 - [ ] Add proper css to blog page
-- [ ] Convert whole website to eleventy
+- [x] Convert whole website to eleventy
 - [ ] Add pagination support
-- [ ] Add 404 page
-- [ ] Use PostCSS
-- [ ] Add proper blog features
+- [x] Add 404 page
+- [x] Use PostCSS
+- [x] Add proper blog features
+
+### Version 1.0.0
+- [ ] Load css from css folder, js from scripts folder, assets from assets folder
+- [ ] Add new blog design
