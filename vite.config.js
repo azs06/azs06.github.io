@@ -23,7 +23,12 @@ export default defineConfig({
         manifest: true,
         rollupOptions: {
             // This is critical: overwrite default .html entry
-            input: '.tooling/index.js',
+            input: './tooling/index.js',
+            output: {
+                entryFileNames: `assets/[name].js`,
+                chunkFileNames: `assets/[name].js`,
+                assetFileNames: `assets/[name].[ext]`                
+            }
         },
         terserOptions: { ecma: '5' },
     },
