@@ -21,14 +21,17 @@ export default defineConfig({
         sourcemap: isDev,
         // This is critical: generate manifest.json in outDir
         manifest: true,
-        publicDir: './assets',
+        assetsDir: 'assets',
         rollupOptions: {
             // This is critical: overwrite default .html entry
-            input: './tooling/index.js',
+            input: {
+                'css/style': './styles/style.css',
+                'js/index': './scripts/index.js',
+            },
             output: {
-                entryFileNames: `assets/[name].js`,
-                chunkFileNames: `assets/[name].js`,
-                assetFileNames: `assets/[name].[ext]`                
+                entryFileNames: `[name].js`,
+                chunkFileNames: `[name].js`,
+                assetFileNames: `[name].[ext]`                
             }
         },
         terserOptions: { ecma: '5' },
