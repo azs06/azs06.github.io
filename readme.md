@@ -10,5 +10,5 @@
 - [x] Add proper blog features
 
 ### Version 1.0.0
-- [ ] Load css from css folder, js from scripts folder, assets from assets folder
+- [x] Load css from css folder, js from scripts folder, assets from assets folder
 - [ ] Add new blog design
