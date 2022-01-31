@@ -181,7 +181,6 @@ module.exports = function(eleventyConfig) {
     }
 
     // TODO: Consider caching this call, to avoid going to the filesystem every time
-    console.log(path.resolve(process.cwd(), config.buildDir, config.manifest));
     const manifest = fs.readFileSync(path.resolve(process.cwd(), config.buildDir, config.manifest), 'utf-8');
     const parsed = JSON.parse(manifest);
 
