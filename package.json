@@ -4,15 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "eleventy",
-    "watch": "eleventy --watch",
-    "serve": "eleventy --serve",
-    "start": "eleventy --serve",
-    "debug": "DEBUG=* eleventy",
-    "start-vite": "concurrently 'eleventy --watch --incremental' 'vite build'",
-    "vite-build": "vite build",
-    "vite-dev": "vite",
-    "vite-preview": "vite preview"
+    "start": "npm run dev",
+    "dev": "concurrently npm:dev:*",
+    "dev:eleventy": "eleventy --serve",
+    "dev:vite": "vite",
+    "build": "npm run build:vite && npm run build:eleventy",
+    "build:eleventy": "NODE_ENV=production eleventy",
+    "build:vite": "NODE_ENV=production vite build"
   },
   "repository": {
     "type": "git",

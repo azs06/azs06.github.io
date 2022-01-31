@@ -1,1 +1,2 @@
-console.log('global index file');
+// need to import to make it appear in manifest.json
+import '../styles/style.css';
