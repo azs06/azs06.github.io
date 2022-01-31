@@ -3,9 +3,6 @@ layout: post.njk
 title: Contact Page
 templateClass: tmpl-post
 permalink: "contact/index.html"
-eleventyNavigation:
-  key: Contact
-  order: 2
 ---
 
 This is a contact page
