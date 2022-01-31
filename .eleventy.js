@@ -97,7 +97,16 @@ module.exports = function(eleventyConfig) {
       },
     },
     ui: false,
-    ghostMode: false
+    ghostMode: false,
+    /* to make hotwire work https://scottw.com/blog/turbo-static/ */
+    snippetOptions: {
+      rule: {
+        match: /<\/head>/i,
+        fn: function(snippet, match) {
+          return snippet + match;
+        }
+      }
+    }
   });
 
 

@@ -34,6 +34,7 @@
     "require-from-string": "^2.0.2"
   },
   "dependencies": {
+    "@hotwired/turbo": "^7.1.0",
     "@vitejs/plugin-legacy": "^1.6.4",
     "concurrently": "^7.0.0",
     "cssnano": "^5.0.16",
