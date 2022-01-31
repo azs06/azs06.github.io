@@ -192,7 +192,7 @@ module.exports = function(eleventyConfig) {
         .map((chunk) => `"${chunk.src}"`)
         .join(`, `);
       throw new Error(
-        `No entry for ${entryFilename} found in build/manifest.json. Valid entries in manifest: ${possibleEntries}`
+        `No entry for ${entryFilename} found in build/${config.manifest} Valid entries in manifest: ${possibleEntries}`
       );
     }
 
