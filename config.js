@@ -1,4 +1,6 @@
 module.exports = {
     buildDir: 'build',
-    mainfest: 'manifest.json',
+    manifest: 'manifest.json',
+    path_prefix: '/',
+    output_dir: 'build',
 }

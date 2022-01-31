@@ -1,5 +1,6 @@
 const { DateTime } = require("luxon");
 const fs = require("fs");
+const path = require("path");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
@@ -114,7 +115,7 @@ module.exports = function(eleventyConfig) {
 
   async function viteScriptTag(entryFilename) {
     const entryChunk = await getChunkInformationFor(entryFilename);
-    return `<script type="module" src="${PATH_PREFIX}${entryChunk.file}"></script>`;
+    return `<script type="module" src="${config.path_prefix}${entryChunk.file}"></script>`;
   }
 
   /* Generate link[rel=modulepreload] tags for a script's imports */
@@ -133,7 +134,7 @@ module.exports = function(eleventyConfig) {
     const allPreloadTags = await Promise.all(
       entryChunk.imports.map(async (importEntryFilename) => {
         const chunk = await getChunkInformationFor(importEntryFilename);
-        return `<link rel="modulepreload" href="${PATH_PREFIX}${chunk.file}"></link>`;
+        return `<link rel="modulepreload" href="${config.path_prefix}${chunk.file}"></link>`;
       })
     );
 
@@ -150,17 +151,18 @@ module.exports = function(eleventyConfig) {
     return entryChunk.css
       .map(
         (cssFile) =>
-          `<link rel="stylesheet" href="${PATH_PREFIX}${cssFile}"></link>`
+          `<link rel="stylesheet" href="${config.path_prefix}${cssFile}"></link>`
       )
       .join("\n");
   }
 
   async function viteLegacyScriptTag(entryFilename) {
     const entryChunk = await getChunkInformationFor(entryFilename);
-    return `<script nomodule src="${PATH_PREFIX}${entryChunk.file}"></script>`;
+    return `<script nomodule src="${config.path_prefix}${entryChunk.file}"></script>`;
   }
 
   async function getChunkInformationFor(entryFilename) {
+    console.log(`Getting chunk information for ${entryFilename}`);
     // We want an entryFilename, because in practice you might have multiple entrypoints
     // This is similar to how you specify an entry in development more
     if (!entryFilename) {
@@ -170,9 +172,8 @@ module.exports = function(eleventyConfig) {
     }
 
     // TODO: Consider caching this call, to avoid going to the filesystem every time
-    const manifest = await fs.readFile(
-      path.resolve(process.cwd(), config.buildDir, config.mainfest)
-    );
+    console.log(path.resolve(process.cwd(), config.buildDir, config.manifest));
+    const manifest = fs.readFileSync(path.resolve(process.cwd(), config.buildDir, config.manifest), 'utf-8');
     const parsed = JSON.parse(manifest);
 
     let entryChunk = parsed[entryFilename];

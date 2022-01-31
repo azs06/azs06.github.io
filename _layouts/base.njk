@@ -35,7 +35,7 @@
       {# We must read the production scripts from the Vite manifest. We defer that logic to a custom shortcode #}
       {% viteScriptTag "scripts/index.js" %}
       {% viteLegacyScriptTag "vite/legacy-polyfills" %}
-      {% viteLegacyScriptTag "src/client/main-legacy.js" %}
+      {% viteLegacyScriptTag "scripts/index-legacy.js" %}
     {% else %}
         <script type="module" src="http://localhost:3000/@vite/client"></script>
         <script type="module" src="http://localhost:3000/scripts/index.js"></script>
