@@ -15,7 +15,7 @@
         {% viteLinkModulePreloadTags "scripts/index.js" %}
     {% endif %}
   </head>
-  <body class="layout blog markdown-body">
+  <body class="layout blog">
     <header>
       <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
       {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
@@ -26,7 +26,7 @@
       </ul>
     </header>
 
-    <main {% if templateClass %} class="{{ templateClass }}"{% endif %}>
+    <main class="markdown-body" {% if templateClass %} class="{{ templateClass }}"{% endif %}>
       {{ content | safe }}
     </main>
 

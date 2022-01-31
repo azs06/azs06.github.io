@@ -87,7 +87,7 @@ a {
   color: #ef835e;
   position: relative;
 }
-a:after {
+main a:after {
   content: "";
   position: absolute;
   z-index: -1;
