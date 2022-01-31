@@ -1,5 +1,5 @@
 ---
-layout: layouts/post.njk
+layout: post.njk
 pageTitle: Vue context api with observable and provide inject
 ---
 

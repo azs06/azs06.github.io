@@ -7,13 +7,17 @@
     <meta name="description" content="{{ description or metadata.description }}">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.css"> 
-    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
     <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
+    {% if build.env == "production" %}
+        {# Add any CSS from the main script #}
+        {% viteLinkStylesheetTags "scripts/index.js" %}
+        {% viteLinkModulePreloadTags "scripts/index.js" %}
+    {% endif %}
   </head>
-  <body class="layout blog markdown-body">
+  <body class="layout blog">
     <header>
-      <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
+     {#  <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1> #}
       {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
       <ul class="nav">
       {%- for entry in collections.all | eleventyNavigation %}
@@ -27,9 +31,14 @@
     </main>
 
     <footer></footer>
-    <script>
-      //console.log(page);
-    </script>
-    <!-- Current page: {{ page.url | url }} -->
+    {% if build.env == "production" %}
+      {# We must read the production scripts from the Vite manifest. We defer that logic to a custom shortcode #}
+      {% viteScriptTag "scripts/index.js" %}
+      {% viteLegacyScriptTag "vite/legacy-polyfills" %}
+      {% viteLegacyScriptTag "scripts/index-legacy.js" %}
+    {% else %}
+        <script type="module" src="http://localhost:3000/@vite/client"></script>
+        <script type="module" src="http://localhost:3000/scripts/index.js"></script>
+    {% endif %}
   </body>
 </html>

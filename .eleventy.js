@@ -1,13 +1,12 @@
 const { DateTime } = require("luxon");
 const fs = require("fs");
+const path = require("path");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
-const moment = require('moment');
- 
-moment.locale('en');
+const config = require("./config.js");
 
 module.exports = function(eleventyConfig) {
   // Add plugins
@@ -19,7 +18,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setDataDeepMerge(true);
 
   // Alias `layout: post` to `layout: layouts/post.njk`
-  eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
+  //eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
 
   eleventyConfig.addFilter("readableDate", dateObj => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
@@ -50,11 +49,11 @@ module.exports = function(eleventyConfig) {
   })
 
   eleventyConfig.addFilter('dateIso', date => {
-    return moment(date).toISOString();
+    return new Date(date).toISOString();
   });
  
   eleventyConfig.addFilter('dateReadable', date => {
-    return moment(date).format('LL'); // E.g. May 31, 2019
+    return new Date(date).toDateString();
   });
 
   // Create an array of all tags
@@ -68,11 +67,11 @@ module.exports = function(eleventyConfig) {
   });
 
   // Copy the `img` and `css` folders to the output
-  eleventyConfig.addPassthroughCopy("img");
-  eleventyConfig.addPassthroughCopy("css");
+  //eleventyConfig.addPassthroughCopy("img");
+  //eleventyConfig.addPassthroughCopy("css");
 
   // Customize Markdown library and settings:
-  let markdownLibrary = markdownIt({
+  const markdownLibrary = markdownIt({
     html: true,
     breaks: true,
     linkify: true
@@ -87,7 +86,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
       ready: function(err, browserSync) {
-        const content_404 = fs.readFileSync('_site/404.html');
+        const content_404 = fs.readFileSync('build/404.html');
 
         browserSync.addMiddleware("*", (req, res) => {
           // Provides the 404 content without redirect.
@@ -98,8 +97,107 @@ module.exports = function(eleventyConfig) {
       },
     },
     ui: false,
-    ghostMode: false
+    ghostMode: false,
+    /* to make hotwire work https://scottw.com/blog/turbo-static/ */
+    snippetOptions: {
+      rule: {
+        match: /<\/head>/i,
+        fn: function(snippet, match) {
+          return snippet + match;
+        }
+      }
+    }
   });
+
+
+  // Read Vite's manifest.json, and add script tags for the entry files
+  // You could decide to do more things here, such as adding preload/prefetch tags
+  // for dynamic segments
+  // NOTE: There is some hard-coding going on here, with regard to the assetDir
+  // and location of manifest.json
+  // you could probably read vite.config.js and get that information directly
+  // @see https://vitejs.dev/guide/backend-integration.html
+  eleventyConfig.addNunjucksAsyncShortcode("viteScriptTag", viteScriptTag);
+  eleventyConfig.addNunjucksAsyncShortcode("viteLegacyScriptTag", viteLegacyScriptTag);
+  eleventyConfig.addNunjucksAsyncShortcode("viteLinkStylesheetTags", viteLinkStylesheetTags);
+  eleventyConfig.addNunjucksAsyncShortcode("viteLinkModulePreloadTags", viteLinkModulePreloadTags);
+
+  async function viteScriptTag(entryFilename) {
+    const entryChunk = await getChunkInformationFor(entryFilename);
+    return `<script type="module" src="${config.path_prefix}${entryChunk.file}"></script>`;
+  }
+
+  /* Generate link[rel=modulepreload] tags for a script's imports */
+  /* TODO(fpapado): Consider link[rel=prefetch] for dynamic imports, or some other signifier */
+  async function viteLinkModulePreloadTags(entryFilename) {
+    const entryChunk = await getChunkInformationFor(entryFilename);
+    if (!entryChunk.imports || entryChunk.imports.length === 0) {
+      console.log(
+        `The script for ${entryFilename} has no imports. Nothing to preload.`
+      );
+      return "";
+    }
+    /* There can be multiple import files per entry, so assume many by default */
+    /* Each entry in .imports is a filename referring to a chunk in the manifest; we must resolve it to get the output path on disk.
+     */
+    const allPreloadTags = await Promise.all(
+      entryChunk.imports.map(async (importEntryFilename) => {
+        const chunk = await getChunkInformationFor(importEntryFilename);
+        return `<link rel="modulepreload" href="${config.path_prefix}${chunk.file}"></link>`;
+      })
+    );
+
+    return allPreloadTags.join("\n");
+  }
+
+  async function viteLinkStylesheetTags(entryFilename) {
+    const entryChunk = await getChunkInformationFor(entryFilename);
+    if (!entryChunk.css || entryChunk.css.length === 0) {
+      console.warn(`No css found for ${entryFilename} entry. Is that correct?`);
+      return "";
+    }
+    /* There can be multiple CSS files per entry, so assume many by default */
+    return entryChunk.css
+      .map(
+        (cssFile) =>
+          `<link rel="stylesheet" href="${config.path_prefix}${cssFile}"></link>`
+      )
+      .join("\n");
+  }
+
+  async function viteLegacyScriptTag(entryFilename) {
+    const entryChunk = await getChunkInformationFor(entryFilename);
+    return `<script nomodule src="${config.path_prefix}${entryChunk.file}"></script>`;
+  }
+
+  async function getChunkInformationFor(entryFilename) {
+    console.log(`Getting chunk information for ${entryFilename}`);
+    // We want an entryFilename, because in practice you might have multiple entrypoints
+    // This is similar to how you specify an entry in development more
+    if (!entryFilename) {
+      throw new Error(
+        "You must specify an entryFilename, so that vite-script can find the correct file."
+      );
+    }
+
+    // TODO: Consider caching this call, to avoid going to the filesystem every time
+    const manifest = fs.readFileSync(path.resolve(process.cwd(), config.buildDir, config.manifest), 'utf-8');
+    const parsed = JSON.parse(manifest);
+
+    let entryChunk = parsed[entryFilename];
+
+    if (!entryChunk) {
+      const possibleEntries = Object.values(parsed)
+        .filter((chunk) => chunk.isEntry === true)
+        .map((chunk) => `"${chunk.src}"`)
+        .join(`, `);
+      throw new Error(
+        `No entry for ${entryFilename} found in build/${config.manifest} Valid entries in manifest: ${possibleEntries}`
+      );
+    }
+
+    return entryChunk;
+  }
 
   return {
     // Control which files Eleventy will process
@@ -108,7 +206,8 @@ module.exports = function(eleventyConfig) {
       "md",
       "njk",
       "html",
-      "liquid"
+      "liquid",
+      "js"
     ],
 
     // -----------------------------------------------------------------
@@ -136,10 +235,11 @@ module.exports = function(eleventyConfig) {
 
     // These are all optional (defaults are shown):
     dir: {
-      input: ".",
-      includes: "_includes",
-      data: "_data",
-      output: "_site"
+      output: 'build',
+      input: './',
+      layouts: '_layouts',
+      includes: '_includes',
+      data: '_data',
     }
   };
 };

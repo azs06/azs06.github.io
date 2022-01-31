@@ -66,11 +66,8 @@ body.dark-mode{
 body.border-mode{
   border: 10px solid rgba(239, 131, 94, 0.57);
 }
-.landing-page-body p{
-  max-width: 30em;
-}
 h1 {
-  font-size: 4.5em;
+  font-size: 3.5em;
   font-weight: 500;
   margin-bottom: 0;
 }
@@ -87,7 +84,7 @@ a {
   color: #ef835e;
   position: relative;
 }
-a:after {
+.tmpl-home a:after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -152,6 +149,9 @@ span.wave {
 .blog a{
   font-size: 1.6rem;
 }
+.blog a:hover{
+  text-decoration: underline;
+}
 .blog p{
   font-size: 1rem;
 }
@@ -167,4 +167,31 @@ span.wave {
   .markdown-body {
     padding: 15px;
   }
+}
+
+ul.nav li {
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+ul.nav li:first-child {
+  padding-left: 0;
+}
+
+ul.nav {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+li.postlist-item {
+  padding: 1rem 0;
+}
+.post-body{
+  max-width: inherit;
+  padding: 1rem 0;
+}
+.post-nav a {
+  font-size: 1rem;
+  text-transform: lowercase;
+  margin-left: 0.5rem;
 }
