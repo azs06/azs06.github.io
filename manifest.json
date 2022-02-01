@@ -1,0 +1,32 @@
+{
+  "scripts/index-legacy.js": {
+    "file": "js/index-legacy.js",
+    "src": "scripts/index-legacy.js",
+    "isEntry": true,
+    "imports": [
+      "_vendor-legacy.js"
+    ]
+  },
+  "_vendor-legacy.js": {
+    "file": "vendor-legacy.js"
+  },
+  "vite/legacy-polyfills": {
+    "file": "assets/polyfills-legacy.7a6200b8.js",
+    "src": "vite/legacy-polyfills",
+    "isEntry": true
+  },
+  "scripts/index.js": {
+    "file": "js/index.js",
+    "src": "scripts/index.js",
+    "isEntry": true,
+    "imports": [
+      "_vendor.js"
+    ],
+    "css": [
+      "css/style.css"
+    ]
+  },
+  "_vendor.js": {
+    "file": "vendor.js"
+  }
+}

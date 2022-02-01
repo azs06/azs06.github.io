@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://example.com/about/</loc>
+    <lastmod>2022-02-01</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/</loc>
+    <lastmod>2022-02-01</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/contact/</loc>
+    <lastmod>2022-02-01</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/</loc>
+    <lastmod>2022-02-01</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/page-list/</loc>
+    <lastmod>2022-02-01</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/</loc>
+    <lastmod>2022-02-01</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/ajax-calls-with-generator/</loc>
+    <lastmod>2022-02-01</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/css-values-in-javascript/</loc>
+    <lastmod>2022-02-01</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/vue-context-api-with-observable-and-provide-inject/</loc>
+    <lastmod>2022-02-01</lastmod>
+  </url>
+</urlset>

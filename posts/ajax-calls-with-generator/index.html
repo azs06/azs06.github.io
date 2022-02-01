@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Atiquzzaman Soikat</title>
+    <meta name="description" content="I am writing about my experiences as a naval navel-gazer.">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.css"> 
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Md. Atiquzzaman Soikat">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Md. Atiquzzaman Soikat">
+    
+        
+        <link rel="stylesheet" href="/css/style.css"></link>
+        <link rel="modulepreload" href="/vendor.js"></link>
+    
+  </head>
+  <body class="layout blog">
+    <header>
+     
+      <ul class="nav">
+        <li class="nav-item"><a href="/">Home</a></li>
+        <li class="nav-item"><a href="/posts/">Blog</a></li>
+      </ul>
+    </header>
+
+    <main  class="tmpl-post">
+      <h1></h1>
+
+<time datetime="2022-02-01">01 Feb 2022</time>
+
+<div class="markdown-body post-body">
+<p>Let's first get familiar with generator, generator is special type of function which you can pause and resume at will. Here is a simple generaor</p>
+<p><strong>Simple Generator Function</strong></p>
+<pre><code>function* getNumers() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const iterator = getNumers();
+//This does nothing, as the generator is not stared yet, we have to star it by calling .next
+iterator.next(); // output {value: 1, done: false}
+iterator.next(); // output {value: 2, done: false}
+iterator.next(); // output {value: 3, done: true};
+iterator.next(); // output {value: undefined, done: true}
+/*
+As you can see, generator doesn't just return the
+value, it returns a special kind of object with
+value on it, once the final value is yielded then
+done becomes true and value becomes undefined on
+subsequent runs.
+*/
+
+</code></pre>
+<p>This is not very useful, but later we will see, how we can use generators to simplify our ajax calls.</p>
+<p>Making ajax request has always been tricky in JavaScript. JavaScript is a single threaded language, so we don't want to pause the event loop when we make ajax requests, to solve this previously we used the callback pattern. Though It solved the problem, from time to time we would end up with callback hell.The introduction of Promises solved this to some extent, but sometimes Promise is not enough when we want to make several nested ajax requests, we can end up with Pyramid of doom. Let's explore an example -</p>
+<p><strong>Using Promises</strong></p>
+<pre><code> function getGithubFollowers(userName) {
+  return ajax(`https://api.github.com/users/${userName}`)
+   .then(response =&gt; {
+    const { followers_url } = response
+    return ajax(followers_url)
+   })
+ }
+
+ const followers = getGithubFollowers('azs06')
+ console.log(followers)
+</code></pre>
+<p>This is a very simple example, but we might end up in a situation where we have to make several ajax calls to get the information we need to make another server call, then things could get messy and we could end up with pyramid of doom. We can use generators and coroutine to make it more elegent and avoid pyramid of doom.</p>
+<p><strong>Using Generators and Coroutine</strong></p>
+<pre><code>const bluebird = require('bluebird')
+
+function* getGithubFollowers(userName) {
+  const user = yield ajax(`https://api.github.com/users/${userName}`)
+  const { followers_url } = user
+  const followers = yield ajax(followers_url)
+  return followers;
+}
+
+const ajaxRoutine = bluebird.coroutine(getGithubFollowers)
+
+ajaxRoutine('azs06').catch(error =&gt; console.log(error)).then((response) =&gt; console.log(response))
+
+</code></pre>
+<p>As you can see, from the look of it, it's much more easier to read and reason with.</p>
+<p>I know for this simpler example this seems a overkill, but for a larger application with houndreds of server calls this can do wonders.</p>
+<p>You can also get similar ajax request flow by using <code>async</code> <code>await</code>, Which is built on top of generators.</p>
+<p><strong>Using Async Await</strong></p>
+<pre><code>async function getGithubFollowers(userName) {
+  const user = await ajax(`https://api.github.com/users/${userName}`)
+  const { followers_url } = user
+  const followers = await ajax(followers_url)
+  return followers;
+}
+
+
+getGithubFollowers('azs06').then(response =&gt; console.log(response))
+
+</code></pre>
+<p>This seems a better choice, considering we don't have to use another library(coroutine), but learning and using generators will help you understand how async await working underneath. Also you can't pause and pass parameter at the middle of async await function, which you can do with generators. The power of generator is that you can pause it and resume it at will. This opens up opportunity to use generator many more creative ways.</p>
+<p>To Learn more about Generators -</p>
+<ol>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function</a>*</li>
+<li><a href="https://davidwalsh.name/es6-generators">https://davidwalsh.name/es6-generators</a></li>
+<li><a href="https://richardartoul.github.io/javascript/2015/07/16/promises-generators.html">https://richardartoul.github.io/javascript/2015/07/16/promises-generators.html</a></li>
+<li><a href="https://x.st/javascript-coroutines/">https://x.st/javascript-coroutines/</a></li>
+<li><a href="https://www.youtube.com/watch?v=QOnUcU8U_XE">Generators in JavaScript by Fun Fun Function</a></li>
+<li><a href="https://www.youtube.com/watch?v=Zk_rX2n3Ml8">Generator by Kyle Robinson Young</a></li>
+</ol>
+
+</div>
+<hr>
+<ul class="post-nav"><li>Next: <small><a href="/posts/css-values-in-javascript/">Ways to get CSS values in JavaScript</a></small></li>
+</ul>
+
+    </main>
+
+    <footer></footer>
+    
+      
+      <script type="module" src="/js/index.js"></script>
+      <script nomodule src="/assets/polyfills-legacy.7a6200b8.js"></script>
+      <script nomodule src="/js/index-legacy.js"></script>
+    
+  </body>
+</html>
