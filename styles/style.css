@@ -4,52 +4,8 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/*css reset end*/
+@import 'reset.css';
+@import 'variables.css';
 
 body {
   font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -62,9 +18,6 @@ body {
 body.dark-mode{
   background: #0d2538;
   color: #fff;
-}
-body.border-mode{
-  border: 10px solid rgba(239, 131, 94, 0.57);
 }
 h1 {
   font-size: 3.5em;
@@ -81,19 +34,20 @@ p:not(last-child){
 }
 a {
   text-decoration: none;
-  color: #ef835e;
+  color: var(--primaryColor);
   position: relative;
 }
 .tmpl-home a:after {
   content: "";
   position: absolute;
   z-index: -1;
-  top: 60%;
+  top: 80%;
   left: -0.1em;
   right: -0.1em;
   bottom: 0;
   transition: top 200ms cubic-bezier(0, .8, .13, 1);
-  background-color: rgba(239, 131, 94, 0.57);
+  background-color: var(--primaryColor);
+  opacity: 0.3;
 }
 a:hover:after {
   top: 0%;
@@ -130,16 +84,6 @@ span.wave {
   animation-iteration-count: infinite;
   transform-origin: 70% 70%;
   display: inline-block;
-}
-
-@keyframes wave-animation {
-    0% { transform: rotate(  0.0deg) }
-   10% { transform: rotate(-10.0deg) }
-   20% { transform: rotate( 12.0deg) }
-   30% { transform: rotate(-10.0deg) }
-   40% { transform: rotate(  9.0deg) }
-   50% { transform: rotate(  0.0deg) }
-  100% { transform: rotate(  0.0deg) }
 }
 
 .blog h2{
@@ -194,4 +138,16 @@ li.postlist-item {
   font-size: 1rem;
   text-transform: lowercase;
   margin-left: 0.5rem;
+}
+
+
+/* animation */
+@keyframes wave-animation {
+  0% { transform: rotate(  0.0deg) }
+ 10% { transform: rotate(-10.0deg) }
+ 20% { transform: rotate( 12.0deg) }
+ 30% { transform: rotate(-10.0deg) }
+ 40% { transform: rotate(  9.0deg) }
+ 50% { transform: rotate(  0.0deg) }
+100% { transform: rotate(  0.0deg) }
 }
