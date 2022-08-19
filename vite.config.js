@@ -21,7 +21,7 @@ export default defineConfig({
         sourcemap: isDev,
         // This is critical: generate manifest.json in outDir
         manifest: true,
-        assetsDir: 'assets',
+        assetsDir: 'outputAssets',
         rollupOptions: {
             // This is critical: overwrite default .html entry
             input: {
