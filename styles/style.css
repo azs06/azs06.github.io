@@ -10,6 +10,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   padding: 5vh 10vw;
   color: #121314;
@@ -95,13 +96,14 @@ span.wave {
   margin-bottom: 1rem;
 }
 .blog a{
-  font-size: 1.6rem;
+  font-size: 1.3rem;
 }
 .blog a:hover{
   text-decoration: underline;
 }
 .blog p{
   font-size: 1rem;
+  font-weight: 400;
 }
 .markdown-body {
   box-sizing: border-box;

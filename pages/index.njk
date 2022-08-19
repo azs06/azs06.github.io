@@ -9,13 +9,13 @@ permalink: '/'
   <div class="profile-container">
       <img class="profile-image" src="https://avatars.githubusercontent.com/u/1593663?v=4">
       <div class="profile-infoBlock">
-        <p>
+        <h2>
           Md. Atiquzzaman Soikat
-        </p> 
+        </h2> 
         <p id="typedtext">
         </p>
         <p>
-        <p>
+        <p class="hide">
           Lifelong learner, Opensource Developer, Content Creatror
         </p>
       </div> 
@@ -25,7 +25,7 @@ permalink: '/'
   <div class="intro-container">
     <p><strong>Hi!</strong> 👋</p>
     <p>
-      I am a <a>Frontend Engineer</a> from Dhaka, Bangladesh. Currently working as a Lead Developer(Frontend) at
+      I am a <a id="designation">Frontend Engineer</a> from Dhaka, Bangladesh. Currently working as a Lead Developer(Frontend) at
       <a href="https://www.skipperhospitality.com/" target="_blank">Skipper Hospitality</a>.
     </p>
     <p>I am also a co-founder of <a href="https://reformedtech.org/">ReformedTech</a> and currently serving as the CTO of the company</p>
@@ -44,10 +44,15 @@ permalink: '/'
 
 <script>
 // set up text to print, each item in array is new line
-const designations = ['Web Developer', 'Software Engineer', 'JavaScript Engineer', 'Frontend Engineer']
+const designations = ['Web Developer', 'Software Engineer', 'JavaScript Engineer', 'Frontend Engineer', 'UI Engineer']
 const toUseDesignation = designations[Math.round(Math.random()* designations.length)];
+const designationEl = document.getElementById('designation');
+if(designationEl){
+  designationEl.innerHTML = toUseDesignation;
+}
 var aText = new Array(
-toUseDesignation
+toUseDesignation,
+ 'Lifelong learner, Opensource Developer, Content Creatror',
 );
 var iSpeed = 100; // time delay of print out
 var iIndex = 0; // start printing array at this posision
