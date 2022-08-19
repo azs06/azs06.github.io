@@ -12,12 +12,11 @@ permalink: '/'
         <h2>
           Md. Atiquzzaman Soikat
         </h2> 
-        <p id="typedtext">
+        <p id="typedtext">  
+          Software Engineer<br/>
+          Lifelong learner, Opensource Developer, Content Creatror_
         </p>
         <p>
-        <p class="hide">
-          Lifelong learner, Opensource Developer, Content Creatror
-        </p>
       </div> 
       {# will implrement this https://codepen.io/azs06/pen/eYMxGmg?editors=1010 #}
       </p>
@@ -44,9 +43,9 @@ permalink: '/'
 
 <script>
 // set up text to print, each item in array is new line
-const designations = ['Web Developer', 'Software Engineer', 'JavaScript Engineer', 'Frontend Engineer', 'UI Engineer']
-const toUseDesignation = designations[Math.round(Math.random()* designations.length)];
-const designationEl = document.getElementById('designation');
+var designations = ['Web Developer', 'Software Engineer', 'JavaScript Engineer', 'Frontend Engineer', 'UI Engineer']
+var toUseDesignation = designations[Math.round(Math.random()* designations.length)];
+var designationEl = document.getElementById('designation');
 if(designationEl){
   designationEl.innerHTML = toUseDesignation;
 }
