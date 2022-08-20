@@ -16,6 +16,10 @@ body {
   padding: 5vh 10vw;
   color: #121314;
   transition: border-width 0.3s linear;
+  height: 100%;
+  min-height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
 }
 body.dark-mode{
   background: #0d2538;
@@ -25,25 +29,22 @@ body.dark-mode{
   display: flex;
   justify-content: space-between;
 }
-h1 {
-  font-size: 3.5em;
-  font-weight: 500;
-  margin-bottom: 0;
+.blog-footer{
+  margin-top: auto;
 }
-p {
-  font-size: 1.6em;
-  font-weight: 300;
-  line-height: 1.5;
+.blog-paragraph {
+  font-size: 1.2em;
+  line-height: 2;
 }
-p:not(last-child){
+.blog-paragraph p:not(last-child){
   margin-bottom: 1em;
 }
-a {
+.highlighted-anchor {
   text-decoration: none;
   color: var(--primaryColor);
   position: relative;
 }
-.tmpl-home a:after {
+.highlighted-anchor:after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -54,59 +55,19 @@ a {
   transition: top 200ms cubic-bezier(0, .8, .13, 1);
   background-color: var(--primaryColor);
   opacity: 0.3;
+  width: 100%;
 }
-a:hover:after {
+.highlighted-anchor:hover:after {
   top: 0%;
 }
+
 .social-links li{
   display: inline-block;
 }
 .social-links li:not(last-child){
   padding-right: 1rem;
 }
-.toggle-theme{
-  background-color: transparent;
-  color: #121314;
-  border: 0;
-  position: absolute;
-  right: 30px;
-  top: 30px;
-  outline: none;
-}
-.sun{
-  display: none;
-}
-.dark-mode .moon{
-  display: none;
-}
-.dark-mode .sun {
-  display: block;
-  color: #fff;
-}
 
-span.wave {
-  animation-name: wave-animation;
-  animation-duration: 2.5s;
-  animation-iteration-count: infinite;
-  transform-origin: 70% 70%;
-  display: inline-block;
-}
-
-.blog h2{
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-}
-.blog a{
-  font-size: 1.3rem;
-}
-.blog a:hover{
-  text-decoration: underline;
-}
-.blog p{
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 2rem;
-}
 .markdown-body {
   box-sizing: border-box;
   min-width: 200px;
@@ -138,6 +99,7 @@ ul.nav {
 li.postlist-item {
   padding: 1rem 0;
 }
+
 .post-body{
   max-width: inherit;
   padding: 1rem 0;
@@ -151,17 +113,57 @@ li.postlist-item {
   text-align: center;
   width: 50vw;
   margin: 0 auto;
+  margin-bottom: 5rem;
+  line-height: 2rem;
+  & .profile-infoBlock {
+    h2{
+      font-size: 2.5rem;
+      padding: 1.2rem;
+    }
+    & .profile-infoBlock__heading{
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      & .designation {
+        margin-bottom: 0.5rem;
+        min-height: 2em;
+      }
+    }
+  }
 }
 .profile-image{
   width: 250px;
   height: 250px;
   border-radius: 50%;
 }
+.intro-container{
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+
+/* utility css */
 .hide{
   display: none;
 }
-.intro-container{
-  margin: 0 auto;
+/* end utility css */
+
+.toggle-theme{
+  background-color: transparent;
+  color: #121314;
+  border: 0;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  outline: none;
+}
+.sun{
+  display: none;
+}
+.dark-mode .moon{
+  display: none;
+}
+.dark-mode .sun {
+  display: block;
+  color: #fff;
 }
 
 @-webkit-keyframes blink{
