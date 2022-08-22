@@ -1,12 +1,15 @@
 ---
 layout: blog.njk
-permalink: /posts/
+permalink: /blog/
 eleventyNavigation:
   key: Blog
   order: 2
 ---
 
-<h2>Blog</h2>
-
-{% set postslist = collections.posts %}
-{% include "postslist.njk" %}
+<heading class="blog-page-heading">
+  <h2 class="blog-page-title">Blog</h2>
+</heading>  
+<section class="blog-page-body">
+  {% set postslist = collections.posts %}
+  {% include "postslist.njk" %}
+</section>
