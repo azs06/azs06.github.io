@@ -34,6 +34,7 @@ a{
 }
 .blog-footer{
   margin-top: auto;
+  text-align: center;
 }
 .blog-paragraph {
   font-size: 1.2em;
@@ -87,8 +88,14 @@ ul.nav li {
   display: inline-block;
   padding: 0 1rem;
   transition: all .2s ease-in-out;
+  a{
+    color: #888888;
+
+  }
   &.nav-item-active, &:hover{
-    transform: scale(1.1);
+    a{
+      color: #313131;
+    }
   }
 }
 
@@ -133,6 +140,10 @@ li.postlist-item {
         min-height: 2em;
       }
     }
+    & .profile-infoBlock__subHeading{
+      font-size: 1.2rem;
+      color: var(--colorGray);
+    }
   }
 }
 .profile-image{
@@ -143,6 +154,7 @@ li.postlist-item {
 .tags a{
   color: var(--secondaryColor);
   cursor: pointer;
+  font-size: 1.05rem;
 }
 .intro-container{
   margin: 0 auto;
@@ -152,9 +164,6 @@ header,footer{
   a{
     font-weight: bold;
     text-decoration: none;
-  }
-  & a:hover, .nav-item-active a{
-    text-decoration: underline;
   }
 }
 /* utility css */
@@ -217,6 +226,9 @@ h2.blog-page-title {
   }
   .tag{
     color: #888888;
+    &:hover{
+      color: #313131;
+    }
   }
   time{
     color: #888888;

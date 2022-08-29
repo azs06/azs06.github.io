@@ -35,14 +35,7 @@
       </button>
       {{ content | safe }}
     </main>
-    <footer class="blog-footer">
-      <ul class="social-links">
-        <li><a href="https://twitter.com/soikat">Twitter</a></li> 
-        <li><a href="https://github.com/azs06">Github</a></li>
-        <li><a href="https://stackoverflow.com/users/946131/azs06">StackOverflow</a></li>
-        <!-- add portfolio page -->
-      </ul>
-    </footer>
+    {% include "footer.njk" %}
     {% if build.env == "production" %}
       {# We must read the production scripts from the Vite manifest. We defer that logic to a custom shortcode #}
       {% viteScriptTag "scripts/index.js" %}
