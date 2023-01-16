@@ -6,54 +6,102 @@ eleventyNavigation:
 permalink: '/'  
 ---
 <section class="landing-page-body">
-  <button role="button" aria-label="Toggle dark/light" class="toggle-theme">
-    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-  </button>
-  <h1>Hi <span class="wave-hand wave">👋</span> </h1>  
-  <p style="font-weight:500; font-size:2.5em">
-    I am Md. Atiquzzaman Soikat
-  </p>
-  <p>
-    I am a Software Engineer from Dhaka, Bangladesh. Currently working as a Lead Developer(Frontend) at
-    <a href="https://www.skipperhospitality.com/" target="_blank">Skipper Hospitality</a>.
-  </p>
-  <p>I am also a co-founder of <a href="https://reformedtech.org/">ReformedTech</a> and currently serving as the CTO of the company</p>
-  <p>
-    I have been dabbling on the web for more than a decade. JavaScript is the language of the web, also my primary language of choice for programming. I also have experience in PHP, Python, Ruby, and Java. 
-    My primary choice of frontend frameworks are <a href="https://reactjs.org/" target="_blank">React</a> and <a href="https://vuejs.org/" target="_blank">Vue.js</a>
-  </p>
-  <p>Now a days my focus is on Frontend Infrastructure, I am a huge fan of the Jamstack architecture. Developing performant, user friendly and scaleable websites is a passion of mine.</p>
-  <p>
-    I also occassionally work on <a href="https://nodejs.org/en/" target="_blank">Node.js</a>, happen to know how to develop fullstack JavaScript application using express and MongoDB/MySQL. Though I enjoy working on the frontend more
-  </p>
-  <p>
-    While not programming I enjoy video games, cooking and spending time with my friends and family.
-  </p>
+  <div class="profile-container">
+      <a href="https://github.com/azs06" target="_blank">
+        <img class="profile-image" src="https://avatars.githubusercontent.com/u/1593663?v=4">
+      </a>  
+      <section class="profile-infoBlock">
+        <heading>
+          <h2 class="heading">
+            Md. Atiquzzaman Soikat
+          </h2> 
+        </heading>
+        <div class="profile-infoBlock__heading">  
+          <p class="designation" id="typedtext">Software Engineer</p>
+          <span class="profile-infoBlock__subHeading">Lifelong learner, Tech Enthuasist, Geek for life</span> 
+        </div>
+        
+        <div class="profile-infoBlock__quote hide">
+          
+        </div>
+        <div class="tags">
+          <a>#JavaScript</a> <a>#TypeScript</a>
+          <a>#React</a> <a>#Svelte</a> <a>#Vue</a>
+          <a>#Jamstack</a> <a>#Node.js</a>
+        </div>
+      </section> 
+  </div>
+  <div class="intro-container blog-paragraph">
+    <p><strong>Hi!</strong> 👋</p>
+    <p>
+      I am currently working as a Lead Developer(Frontend) at
+      <a class="highlighted-anchor" href="https://www.skipperhospitality.com/" target="_blank">Skipper Hospitality</a>.
+      I am also a co-founder of <a class="highlighted-anchor" href="https://reformedtech.org/">ReformedTech</a> and currently serving as the CTO of the company.
+    </p>
+    <p>
+      I have been dabbling on the web for more than a decade. JavaScript is the language of the web, also my primary language of choice for programming. I also have experience in PHP, Python, Ruby, and Java. 
+      My primary choice of frontend frameworks are <a class="highlighted-anchor" href="https://reactjs.org/" target="_blank">React</a> and <a class="highlighted-anchor" href="https://vuejs.org/" target="_blank">Vue.js</a>, 
+      although I have rcently fallen in love with <a class="highlighted-anchor" href="#">Svelte</a>
+    </p>
+    <p>
+      Now a days my focus is on Frontend development, tooling and developig tools to make development experience smoother.
+      I am a huge fan of the Jamstack architecture. Developing performant, user friendly and scaleable websites is a passion of mine.</p>
+    <p>
+      While not programming I enjoy video games, cooking and spending time with my friends and family.
+    </p>
+  </div>
+</section> 
 
-  <ul class="social-links">
-    <li><a href="https://twitter.com/soikat">Twitter</a></li> 
-    <li><a href="https://github.com/azs06">Github</a></li>
-    <li><a href="https://stackoverflow.com/users/946131/azs06">StackOverflow</a></li>
-    <li><a href="/blog">Blog</a></li>
-    <!-- add portfolio page -->
-  </ul>
-</section>
 <script>
-  var toggleThemeBtn = document.querySelector('.toggle-theme');
-  var waveEmoji = document.querySelector('.wave-hand');
-  toggleThemeBtn.addEventListener('click', function(event){
-    event.stopPropagation();
-    document.body.classList.toggle('dark-mode');
-  })
-  waveEmoji.addEventListener('click', function(event){
-    event.stopPropagation();
-    waveEmoji.classList.add('wave');
-    setTimeout(function(){
-      waveEmoji.classList.remove('wave');
-    }, 3000)
-  })
-  setTimeout(function(){
-    waveEmoji.classList.remove('wave');
-  }, 3000)
-</script> 
+  function typewriter(destination, aText){
+  // set up text to print, each item in array is new line
+  var iSpeed = 100; // time delay of print out
+  var iIndex = 0; // start printing array at this posision
+  var iArrLength = aText[0].length; // the length of the text array
+  var iScrollAt = 20; // start scrolling up at this many lines
+  
+  var iTextPos = 0; // initialise text position
+  var sContents; // initialise contents variable
+  var iRow; // initialise current row
+
+  function execute(){
+    iRow = Math.max(0, iIndex-iScrollAt);
+    sContents = '';
+    while ( iRow < iIndex ) {
+      sContents += aText[iRow++] + '<br />';
+    }
+  destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos);
+  if ( iTextPos++ == iArrLength ) {
+      iTextPos = 0;
+      iIndex++;
+      if ( iIndex != aText.length ) {
+      iArrLength = aText[iIndex].length;
+      setTimeout(() => {
+        execute();
+      }, 500);
+      }
+    } else {
+      setTimeout(() => {
+        execute();
+      }, iSpeed);
+    }
+  }
+  execute();
+ 
+}
+var designations = ['Web Developer', 'Software Engineer', 'JavaScript Engineer', 'Frontend Engineer', 'UI Engineer', 'Fullstack Developer']
+var toUseDesignation = designations[Math.round(Math.random()* designations.length)] || designations[0];
+
+if(toUseDesignation){
+  var textArray = [toUseDesignation];
+  const el = document.getElementById('typedtext');
+  function animatedFn(){
+    typewriter(el, textArray);
+    /*setTimeout(()=> {
+      requestAnimationFrame(animatedFn);
+    }, 5000)*/
+  }
+  requestAnimationFrame(animatedFn)
+ 
+}
+</script>  

@@ -67,8 +67,8 @@ module.exports = function(eleventyConfig) {
   });
 
   // Copy the `img` and `css` folders to the output
-  //eleventyConfig.addPassthroughCopy("img");
-  //eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy("assets");
+  //eleventyConfig.addPassthroughCopy("styles");
 
   // Customize Markdown library and settings:
   const markdownLibrary = markdownIt({
@@ -128,7 +128,7 @@ module.exports = function(eleventyConfig) {
   }
 
   /* Generate link[rel=modulepreload] tags for a script's imports */
-  /* TODO(fpapado): Consider link[rel=prefetch] for dynamic imports, or some other signifier */
+  /* TODO: Consider link[rel=prefetch] for dynamic imports, or some other signifier */
   async function viteLinkModulePreloadTags(entryFilename) {
     const entryChunk = await getChunkInformationFor(entryFilename);
     if (!entryChunk.imports || entryChunk.imports.length === 0) {
@@ -195,7 +195,6 @@ module.exports = function(eleventyConfig) {
         `No entry for ${entryFilename} found in build/${config.manifest} Valid entries in manifest: ${possibleEntries}`
       );
     }
-
     return entryChunk;
   }
 

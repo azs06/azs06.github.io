@@ -1,14 +1,14 @@
 ---
 layout: base.njk
-templateClass: tmpl-post
+templateClass: blog-post
 ---
 <h1>{{ title }}</h1>
 
 <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
-{# {%- for tag in tags | filterTagList -%}
+{%- for tag in tags | filterTagList -%}
   {%- set tagUrl %}/tags/{{ tag | slug }}/{% endset -%}
   <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
-{%- endfor %} #}
+{%- endfor %}
 <div class="markdown-body post-body">
 {{ content | safe }}
 </div>
