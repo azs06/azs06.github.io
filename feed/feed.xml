@@ -5,7 +5,7 @@
 	
 	<link href="https://example.com/feed/feed.xml" rel="self"/>
 	<link href="https://example.com/"/>
-	<updated>2022-02-01T08:53:05Z</updated>
+	<updated>2023-01-16T18:36:32Z</updated>
 	<id>https://example.com/</id>
 	<author>
 		<name>Your Name Here</name>
@@ -15,7 +15,7 @@
 	<entry>
 		<title></title>
 		<link href="https://example.com/posts/vue-context-api-with-observable-and-provide-inject/"/>
-		<updated>2022-02-01T08:53:05Z</updated>
+		<updated>2023-01-16T18:36:32Z</updated>
 		<id>https://example.com/posts/vue-context-api-with-observable-and-provide-inject/</id>
 		<content type="html">&lt;p&gt;Context api is a mechanism to share state between components popularized by the reac team. Though Vue.js officially doesn&#39;t have anything like that(arguably we don&#39;t need it because of vuex) but we can have something similar using &lt;a href=&quot;https://vuejs.org/v2/api/#Vue-observable&quot;&gt;Vue.observable&lt;/a&gt; and &lt;a href=&quot;https://vuejs.org/v2/api/#provide-inject&quot;&gt;Provide, Inject&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Let&#39;s see how we can do that:&lt;/strong&gt;&lt;/p&gt;
@@ -162,7 +162,7 @@ export default {
 	<entry>
 		<title></title>
 		<link href="https://example.com/posts/css-values-in-javascript/"/>
-		<updated>2022-02-01T08:53:05Z</updated>
+		<updated>2023-01-16T18:36:32Z</updated>
 		<id>https://example.com/posts/css-values-in-javascript/</id>
 		<content type="html">&lt;p&gt;Occassionally while working with the dom(document object model) in JavaScript you might have to access CSS values of a certain dom element. There are couple of ways to do it. Let&#39;s check them out.&lt;/p&gt;
 &lt;h3 id=&quot;getting-inline-css-styles&quot;&gt;Getting inline CSS styles &lt;a class=&quot;direct-link&quot; href=&quot;https://example.com/posts/css-values-in-javascript/#getting-inline-css-styles&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
@@ -217,7 +217,7 @@ export default {
 	<entry>
 		<title></title>
 		<link href="https://example.com/posts/ajax-calls-with-generator/"/>
-		<updated>2022-02-01T08:53:05Z</updated>
+		<updated>2023-01-16T18:36:32Z</updated>
 		<id>https://example.com/posts/ajax-calls-with-generator/</id>
 		<content type="html">&lt;p&gt;Let&#39;s first get familiar with generator, generator is special type of function which you can pause and resume at will. Here is a simple generaor&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Simple Generator Function&lt;/strong&gt;&lt;/p&gt;

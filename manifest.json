@@ -11,7 +11,7 @@
     "file": "vendor-legacy.js"
   },
   "vite/legacy-polyfills": {
-    "file": "assets/polyfills-legacy.7a6200b8.js",
+    "file": "outputAssets/polyfills-legacy.3473c390.js",
     "src": "vite/legacy-polyfills",
     "isEntry": true
   },

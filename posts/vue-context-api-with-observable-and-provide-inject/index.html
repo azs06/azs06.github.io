@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Md. Atiquzzaman Soikat</title>
     <meta name="description" content="I am writing about my experiences as a naval navel-gazer.">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;1,200;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.css"> 
     <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Md. Atiquzzaman Soikat">
     <link rel="alternate" href="/feed/feed.json" type="application/json" title="Md. Atiquzzaman Soikat">
@@ -15,20 +17,24 @@
         <link rel="modulepreload" href="/vendor.js"></link>
     
   </head>
-  <body class="layout blog">
-    <header>
-     
+  <body class="layout">
+    <header class="blog-header">
+      <div id="logo">
+        <a href="/"><img src="/assets/img/logo.svg"></a>
+      </div>
       <ul class="nav">
         <li class="nav-item"><a href="/">Home</a></li>
-        <li class="nav-item"><a href="/posts/">Blog</a></li>
+        <li class="nav-item"><a href="/blog/">Blog</a></li>
       </ul>
     </header>
-
-    <main  class="tmpl-post">
+    <main  class="blog-post">
+      <button role="button" aria-label="Toggle dark/light" class="toggle-theme">
+        <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </button>
       <h1></h1>
 
-<time datetime="2022-02-01">01 Feb 2022</time>
-
+<time datetime="2023-01-16">16 Jan 2023</time>
 <div class="markdown-body post-body">
 <p>Context api is a mechanism to share state between components popularized by the reac team. Though Vue.js officially doesn't have anything like that(arguably we don't need it because of vuex) but we can have something similar using <a href="https://vuejs.org/v2/api/#Vue-observable">Vue.observable</a> and <a href="https://vuejs.org/v2/api/#provide-inject">Provide, Inject</a>.</p>
 <p><strong>Let's see how we can do that:</strong></p>
@@ -182,13 +188,26 @@ export default {
 </ul>
 
     </main>
-
-    <footer></footer>
+    <footer id="footer" class="blog-footer">
+    <ul class="social-links">
+    <li><a href="https://twitter.com/soikat">Twitter</a></li> 
+    <li><a href="https://github.com/azs06">Github</a></li>
+    <li><a href="https://stackoverflow.com/users/946131/azs06">StackOverflow</a></li>
+    <!-- add portfolio page -->
+    </ul>
+</footer>
     
       
       <script type="module" src="/js/index.js"></script>
-      <script nomodule src="/assets/polyfills-legacy.7a6200b8.js"></script>
+      <script nomodule src="/outputAssets/polyfills-legacy.3473c390.js"></script>
       <script nomodule src="/js/index-legacy.js"></script>
     
+    <script>
+      var toggleThemeBtn = document.querySelector('.toggle-theme');
+      toggleThemeBtn && toggleThemeBtn.addEventListener('click', function(event){
+        event.stopPropagation();
+        document.body.classList.toggle('dark-mode');
+      })
+    </script> 
   </body>
 </html>

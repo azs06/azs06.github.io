@@ -3,46 +3,56 @@
   
   <url>
     <loc>https://example.com/about/</loc>
-    <lastmod>2022-02-01</lastmod>
+    <lastmod>2023-01-16</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/</loc>
-    <lastmod>2022-02-01</lastmod>
+    <loc>https://example.com/blog/</loc>
+    <lastmod>2023-01-16</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/contact/</loc>
-    <lastmod>2022-02-01</lastmod>
+    <lastmod>2023-01-16</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/</loc>
-    <lastmod>2022-02-01</lastmod>
+    <lastmod>2023-01-16</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/page-list/</loc>
-    <lastmod>2022-02-01</lastmod>
+    <lastmod>2023-01-16</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/tags/</loc>
-    <lastmod>2022-02-01</lastmod>
+    <lastmod>2023-01-16</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/javascript/</loc>
+    <lastmod>2023-01-16</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/react/</loc>
+    <lastmod>2023-01-16</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/posts/ajax-calls-with-generator/</loc>
-    <lastmod>2022-02-01</lastmod>
+    <lastmod>2023-01-16</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/posts/css-values-in-javascript/</loc>
-    <lastmod>2022-02-01</lastmod>
+    <lastmod>2023-01-16</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/posts/vue-context-api-with-observable-and-provide-inject/</loc>
-    <lastmod>2022-02-01</lastmod>
+    <lastmod>2023-01-16</lastmod>
   </url>
 </urlset>
