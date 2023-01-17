@@ -2,6 +2,7 @@
 layout: post.njk
 pageTitle: Using Generators to simplify ajax calls
 tags: [javascript, react]
+date: 2022-01-23
 ---
 Let's first get familiar with generator, generator is special type of function which you can pause and resume at will. Here is a simple generaor
 
