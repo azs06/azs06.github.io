@@ -5,7 +5,7 @@
 	
 	<link href="https://example.com/feed/feed.xml" rel="self"/>
 	<link href="https://example.com/"/>
-	<updated>2023-01-16T18:36:32Z</updated>
+	<updated>2022-01-23T00:00:00Z</updated>
 	<id>https://example.com/</id>
 	<author>
 		<name>Your Name Here</name>
@@ -14,8 +14,149 @@
 	
 	<entry>
 		<title></title>
+		<link href="https://example.com/posts/css-values-in-javascript/"/>
+		<updated>2022-01-23T00:00:00Z</updated>
+		<id>https://example.com/posts/css-values-in-javascript/</id>
+		<content type="html">&lt;p&gt;Occassionally while working with the dom(document object model) in JavaScript you might have to access CSS values of a certain dom element. There are couple of ways to do it. Let&#39;s check them out.&lt;/p&gt;
+&lt;h3 id=&quot;getting-inline-css-styles&quot;&gt;Getting inline CSS styles &lt;a class=&quot;direct-link&quot; href=&quot;https://example.com/posts/css-values-in-javascript/#getting-inline-css-styles&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Inline CSS are CSS that are directly added to the dom, for example something like this&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;div id=&amp;quot;app&amp;quot; style=&amp;quot;width: 200px; height: 200px; background: rebeccapurple; font-size: 23px;&amp;quot;&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;script&amp;gt;
+	const element = document.querySelector(&#39;#app&#39;);
+	console.log(element.style.width);
+	console.log(element.style.height);
+	console.log(element.fontSize);
+	
+&amp;lt;/script&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As you can see, the inline CSS could be retrived by accessing style property of the element. Don&#39;t be fooled by seemingly decieving &lt;code&gt;style&lt;/code&gt; property. You won&#39;t be able to access external CSS for any element with this.&lt;/p&gt;
+&lt;p&gt;You can also use &lt;code&gt;cssText&lt;/code&gt; property of element&#39;s &lt;code&gt;style&lt;/code&gt; property to get text representation of element&#39;s inline css&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;script&amp;gt;
+	const element = document.querySelector(&#39;#app&#39;);
+	console.log(element.style.cssText);
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;getting-external-css(computed-style)&quot;&gt;Getting external CSS(Computed Style) &lt;a class=&quot;direct-link&quot; href=&quot;https://example.com/posts/css-values-in-javascript/#getting-external-css(computed-style)&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;You can get any element&#39;s computed CSS property using &lt;code&gt;getComputedStyle()&lt;/code&gt; method. This will return all CSS of an element, not only the CSS added in the stylesheets.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;style&amp;gt;
+#app2{
+	width: 200px;
+	height: 200px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+&amp;lt;/style&amp;gt;
+&amp;lt;div id=&amp;quot;app2&amp;quot;&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;script&amp;gt;
+	const app2 = document.querySelector(&#39;#app2&#39;);
+	console.log(window.getComputedStyle(app2));
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This will return all the CSS that element has, including the one you added on Stylesheet, you can use dot(&lt;code&gt;.&lt;/code&gt;) notation or bracket notation to access any specific property you want.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;script&amp;gt;
+	const properties = window.getComputedStyle(app2);
+	constole.log(properties.borderRadius)
+	console.log(properties.width);
+	console.log(properties[&#39;height&#39;])
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title></title>
+		<link href="https://example.com/posts/ajax-calls-with-generator/"/>
+		<updated>2022-01-23T00:00:00Z</updated>
+		<id>https://example.com/posts/ajax-calls-with-generator/</id>
+		<content type="html">&lt;p&gt;Let&#39;s first get familiar with generator, generator is special type of function which you can pause and resume at will. Here is a simple generaor&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Simple Generator Function&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function* getNumers() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const iterator = getNumers();
+//This does nothing, as the generator is not stared yet, we have to star it by calling .next
+iterator.next(); // output {value: 1, done: false}
+iterator.next(); // output {value: 2, done: false}
+iterator.next(); // output {value: 3, done: true};
+iterator.next(); // output {value: undefined, done: true}
+/*
+As you can see, generator doesn&#39;t just return the
+value, it returns a special kind of object with
+value on it, once the final value is yielded then
+done becomes true and value becomes undefined on
+subsequent runs.
+*/
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is not very useful, but later we will see, how we can use generators to simplify our ajax calls.&lt;/p&gt;
+&lt;p&gt;Making ajax request has always been tricky in JavaScript. JavaScript is a single threaded language, so we don&#39;t want to pause the event loop when we make ajax requests, to solve this previously we used the callback pattern. Though It solved the problem, from time to time we would end up with callback hell.The introduction of Promises solved this to some extent, but sometimes Promise is not enough when we want to make several nested ajax requests, we can end up with Pyramid of doom. Let&#39;s explore an example -&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Using Promises&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; function getGithubFollowers(userName) {
+  return ajax(`https://api.github.com/users/${userName}`)
+   .then(response =&amp;gt; {
+    const { followers_url } = response
+    return ajax(followers_url)
+   })
+ }
+
+ const followers = getGithubFollowers(&#39;azs06&#39;)
+ console.log(followers)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is a very simple example, but we might end up in a situation where we have to make several ajax calls to get the information we need to make another server call, then things could get messy and we could end up with pyramid of doom. We can use generators and coroutine to make it more elegent and avoid pyramid of doom.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Using Generators and Coroutine&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;const bluebird = require(&#39;bluebird&#39;)
+
+function* getGithubFollowers(userName) {
+  const user = yield ajax(`https://api.github.com/users/${userName}`)
+  const { followers_url } = user
+  const followers = yield ajax(followers_url)
+  return followers;
+}
+
+const ajaxRoutine = bluebird.coroutine(getGithubFollowers)
+
+ajaxRoutine(&#39;azs06&#39;).catch(error =&amp;gt; console.log(error)).then((response) =&amp;gt; console.log(response))
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As you can see, from the look of it, it&#39;s much more easier to read and reason with.&lt;/p&gt;
+&lt;p&gt;I know for this simpler example this seems a overkill, but for a larger application with houndreds of server calls this can do wonders.&lt;/p&gt;
+&lt;p&gt;You can also get similar ajax request flow by using &lt;code&gt;async&lt;/code&gt; &lt;code&gt;await&lt;/code&gt;, Which is built on top of generators.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Using Async Await&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;async function getGithubFollowers(userName) {
+  const user = await ajax(`https://api.github.com/users/${userName}`)
+  const { followers_url } = user
+  const followers = await ajax(followers_url)
+  return followers;
+}
+
+
+getGithubFollowers(&#39;azs06&#39;).then(response =&amp;gt; console.log(response))
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This seems a better choice, considering we don&#39;t have to use another library(coroutine), but learning and using generators will help you understand how async await working underneath. Also you can&#39;t pause and pass parameter at the middle of async await function, which you can do with generators. The power of generator is that you can pause it and resume it at will. This opens up opportunity to use generator many more creative ways.&lt;/p&gt;
+&lt;p&gt;To Learn more about Generators -&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function&quot;&gt;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function&lt;/a&gt;*&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://davidwalsh.name/es6-generators&quot;&gt;https://davidwalsh.name/es6-generators&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://richardartoul.github.io/javascript/2015/07/16/promises-generators.html&quot;&gt;https://richardartoul.github.io/javascript/2015/07/16/promises-generators.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://x.st/javascript-coroutines/&quot;&gt;https://x.st/javascript-coroutines/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=QOnUcU8U_XE&quot;&gt;Generators in JavaScript by Fun Fun Function&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=Zk_rX2n3Ml8&quot;&gt;Generator by Kyle Robinson Young&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title></title>
 		<link href="https://example.com/posts/vue-context-api-with-observable-and-provide-inject/"/>
-		<updated>2023-01-16T18:36:32Z</updated>
+		<updated>2012-01-23T00:00:00Z</updated>
 		<id>https://example.com/posts/vue-context-api-with-observable-and-provide-inject/</id>
 		<content type="html">&lt;p&gt;Context api is a mechanism to share state between components popularized by the reac team. Though Vue.js officially doesn&#39;t have anything like that(arguably we don&#39;t need it because of vuex) but we can have something similar using &lt;a href=&quot;https://vuejs.org/v2/api/#Vue-observable&quot;&gt;Vue.observable&lt;/a&gt; and &lt;a href=&quot;https://vuejs.org/v2/api/#provide-inject&quot;&gt;Provide, Inject&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Let&#39;s see how we can do that:&lt;/strong&gt;&lt;/p&gt;
@@ -156,147 +297,6 @@ export default {
 &lt;p&gt;Here is working example in action -&lt;/p&gt;
 &lt;iframe src=&quot;https://codesandbox.io/embed/sweet-sanne-0hpcj?fontsize=14&amp;hidenavigation=1&amp;theme=dark&quot; style=&quot;width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;&quot; title=&quot;sweet-sanne-0hpcj&quot; allow=&quot;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking&quot; sandbox=&quot;allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts&quot;&gt;&lt;/iframe&gt;
 &lt;p&gt;What we have achieved could have easily be done using vuex, and I would recommend to use vuex for larger applications, for smaller applications this patten can be used.&lt;/p&gt;
-</content>
-	</entry>
-	
-	<entry>
-		<title></title>
-		<link href="https://example.com/posts/css-values-in-javascript/"/>
-		<updated>2023-01-16T18:36:32Z</updated>
-		<id>https://example.com/posts/css-values-in-javascript/</id>
-		<content type="html">&lt;p&gt;Occassionally while working with the dom(document object model) in JavaScript you might have to access CSS values of a certain dom element. There are couple of ways to do it. Let&#39;s check them out.&lt;/p&gt;
-&lt;h3 id=&quot;getting-inline-css-styles&quot;&gt;Getting inline CSS styles &lt;a class=&quot;direct-link&quot; href=&quot;https://example.com/posts/css-values-in-javascript/#getting-inline-css-styles&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Inline CSS are CSS that are directly added to the dom, for example something like this&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;div id=&amp;quot;app&amp;quot; style=&amp;quot;width: 200px; height: 200px; background: rebeccapurple; font-size: 23px;&amp;quot;&amp;gt;
-&amp;lt;/div&amp;gt;
-
-&amp;lt;script&amp;gt;
-	const element = document.querySelector(&#39;#app&#39;);
-	console.log(element.style.width);
-	console.log(element.style.height);
-	console.log(element.fontSize);
-	
-&amp;lt;/script&amp;gt;
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;As you can see, the inline CSS could be retrived by accessing style property of the element. Don&#39;t be fooled by seemingly decieving &lt;code&gt;style&lt;/code&gt; property. You won&#39;t be able to access external CSS for any element with this.&lt;/p&gt;
-&lt;p&gt;You can also use &lt;code&gt;cssText&lt;/code&gt; property of element&#39;s &lt;code&gt;style&lt;/code&gt; property to get text representation of element&#39;s inline css&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;script&amp;gt;
-	const element = document.querySelector(&#39;#app&#39;);
-	console.log(element.style.cssText);
-&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;getting-external-css(computed-style)&quot;&gt;Getting external CSS(Computed Style) &lt;a class=&quot;direct-link&quot; href=&quot;https://example.com/posts/css-values-in-javascript/#getting-external-css(computed-style)&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;You can get any element&#39;s computed CSS property using &lt;code&gt;getComputedStyle()&lt;/code&gt; method. This will return all CSS of an element, not only the CSS added in the stylesheets.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;style&amp;gt;
-#app2{
-	width: 200px;
-	height: 200px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-}
-&amp;lt;/style&amp;gt;
-&amp;lt;div id=&amp;quot;app2&amp;quot;&amp;gt;
-&amp;lt;/div&amp;gt;
-&amp;lt;script&amp;gt;
-	const app2 = document.querySelector(&#39;#app2&#39;);
-	console.log(window.getComputedStyle(app2));
-&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This will return all the CSS that element has, including the one you added on Stylesheet, you can use dot(&lt;code&gt;.&lt;/code&gt;) notation or bracket notation to access any specific property you want.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;script&amp;gt;
-	const properties = window.getComputedStyle(app2);
-	constole.log(properties.borderRadius)
-	console.log(properties.width);
-	console.log(properties[&#39;height&#39;])
-&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-</content>
-	</entry>
-	
-	<entry>
-		<title></title>
-		<link href="https://example.com/posts/ajax-calls-with-generator/"/>
-		<updated>2023-01-16T18:36:32Z</updated>
-		<id>https://example.com/posts/ajax-calls-with-generator/</id>
-		<content type="html">&lt;p&gt;Let&#39;s first get familiar with generator, generator is special type of function which you can pause and resume at will. Here is a simple generaor&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Simple Generator Function&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;function* getNumers() {
-  yield 1;
-  yield 2;
-  yield 3;
-}
-
-const iterator = getNumers();
-//This does nothing, as the generator is not stared yet, we have to star it by calling .next
-iterator.next(); // output {value: 1, done: false}
-iterator.next(); // output {value: 2, done: false}
-iterator.next(); // output {value: 3, done: true};
-iterator.next(); // output {value: undefined, done: true}
-/*
-As you can see, generator doesn&#39;t just return the
-value, it returns a special kind of object with
-value on it, once the final value is yielded then
-done becomes true and value becomes undefined on
-subsequent runs.
-*/
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is not very useful, but later we will see, how we can use generators to simplify our ajax calls.&lt;/p&gt;
-&lt;p&gt;Making ajax request has always been tricky in JavaScript. JavaScript is a single threaded language, so we don&#39;t want to pause the event loop when we make ajax requests, to solve this previously we used the callback pattern. Though It solved the problem, from time to time we would end up with callback hell.The introduction of Promises solved this to some extent, but sometimes Promise is not enough when we want to make several nested ajax requests, we can end up with Pyramid of doom. Let&#39;s explore an example -&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Using Promises&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; function getGithubFollowers(userName) {
-  return ajax(`https://api.github.com/users/${userName}`)
-   .then(response =&amp;gt; {
-    const { followers_url } = response
-    return ajax(followers_url)
-   })
- }
-
- const followers = getGithubFollowers(&#39;azs06&#39;)
- console.log(followers)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is a very simple example, but we might end up in a situation where we have to make several ajax calls to get the information we need to make another server call, then things could get messy and we could end up with pyramid of doom. We can use generators and coroutine to make it more elegent and avoid pyramid of doom.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Using Generators and Coroutine&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;const bluebird = require(&#39;bluebird&#39;)
-
-function* getGithubFollowers(userName) {
-  const user = yield ajax(`https://api.github.com/users/${userName}`)
-  const { followers_url } = user
-  const followers = yield ajax(followers_url)
-  return followers;
-}
-
-const ajaxRoutine = bluebird.coroutine(getGithubFollowers)
-
-ajaxRoutine(&#39;azs06&#39;).catch(error =&amp;gt; console.log(error)).then((response) =&amp;gt; console.log(response))
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;As you can see, from the look of it, it&#39;s much more easier to read and reason with.&lt;/p&gt;
-&lt;p&gt;I know for this simpler example this seems a overkill, but for a larger application with houndreds of server calls this can do wonders.&lt;/p&gt;
-&lt;p&gt;You can also get similar ajax request flow by using &lt;code&gt;async&lt;/code&gt; &lt;code&gt;await&lt;/code&gt;, Which is built on top of generators.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Using Async Await&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;async function getGithubFollowers(userName) {
-  const user = await ajax(`https://api.github.com/users/${userName}`)
-  const { followers_url } = user
-  const followers = await ajax(followers_url)
-  return followers;
-}
-
-
-getGithubFollowers(&#39;azs06&#39;).then(response =&amp;gt; console.log(response))
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This seems a better choice, considering we don&#39;t have to use another library(coroutine), but learning and using generators will help you understand how async await working underneath. Also you can&#39;t pause and pass parameter at the middle of async await function, which you can do with generators. The power of generator is that you can pause it and resume it at will. This opens up opportunity to use generator many more creative ways.&lt;/p&gt;
-&lt;p&gt;To Learn more about Generators -&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function&quot;&gt;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function&lt;/a&gt;*&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://davidwalsh.name/es6-generators&quot;&gt;https://davidwalsh.name/es6-generators&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://richardartoul.github.io/javascript/2015/07/16/promises-generators.html&quot;&gt;https://richardartoul.github.io/javascript/2015/07/16/promises-generators.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://x.st/javascript-coroutines/&quot;&gt;https://x.st/javascript-coroutines/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=QOnUcU8U_XE&quot;&gt;Generators in JavaScript by Fun Fun Function&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=Zk_rX2n3Ml8&quot;&gt;Generator by Kyle Robinson Young&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
 </content>
 	</entry>
 </feed>
