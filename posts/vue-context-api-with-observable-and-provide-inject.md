@@ -1,6 +1,7 @@
 ---
 layout: post.njk
 pageTitle: Vue context api with observable and provide inject
+date: 2012-01-23
 ---
 
 Context api is a mechanism to share state between components popularized by the reac team. Though Vue.js officially doesn't have anything like that(arguably we don't need it because of vuex) but we can have something similar using [Vue.observable](https://vuejs.org/v2/api/#Vue-observable) and [Provide, Inject](https://vuejs.org/v2/api/#provide-inject).
