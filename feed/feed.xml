@@ -5,12 +5,25 @@
 	
 	<link href="https://example.com/feed/feed.xml" rel="self"/>
 	<link href="https://example.com/"/>
-	<updated>2022-01-23T00:00:00Z</updated>
+	<updated>2023-09-13T11:51:57Z</updated>
 	<id>https://example.com/</id>
 	<author>
 		<name>Your Name Here</name>
 		<email>youremailaddress@example.com</email>
 	</author>
+	
+	<entry>
+		<title></title>
+		<link href="https://example.com/posts/imact-of-our-work-as-software-developer/"/>
+		<updated>2023-09-13T11:51:57Z</updated>
+		<id>https://example.com/posts/imact-of-our-work-as-software-developer/</id>
+		<content type="html">&lt;h3 id=&quot;impact-of-our-work-as-software-developer&quot;&gt;Impact of our work as Software Developer &lt;a class=&quot;direct-link&quot; href=&quot;https://example.com/posts/imact-of-our-work-as-software-developer/#impact-of-our-work-as-software-developer&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;We use software every single day, and as software developers, we not only use software but also create it. In our day-to-day lives, how often do we think about the impact of our work? When was the last time you thought about the impact of your code? Even if people are not paying for your software, they are spending their valuable time using it, and as developers, we should value people&#39;s money and time.&lt;/p&gt;
+&lt;p&gt;How often do we consider nitty-gritty things like accessibility? Can a person with impaired vision use our software? Can a left-handed person use this? Things like that. How often do we think that the person who will be using this software might not have access to a faster device or network connection? The purpose of any software should be solving real-life problems, and software should be democratized, or at least there should be an effort for it. We, as developers, often use faster devices, so we don&#39;t frequently face the consequences of unoptimized software. How would you feel if tomorrow you found out that your banking application will not run on your computer because it&#39;s too slow or too small? I am not saying we should not deprecate older hardware, but there should be a process for it.&lt;/p&gt;
+&lt;p&gt;If you think you are just writing code, what&#39;s the worst that could happen? Guess what, a &lt;a href=&quot;https://dougseven.com/2014/04/17/knightmare-a-devops-cautionary-tale/&quot;&gt;company went bankrupt&lt;/a&gt; because of bad software, and &lt;a href=&quot;https://hackaday.com/2015/10/26/killed-by-a-machine-the-therac-25/&quot;&gt;people lost their lives&lt;/a&gt; because of bad software. I understand that not all of us are writing software on that level, and it&#39;s fine, but that was not the point. The point is we should take our job more seriously.&lt;/p&gt;
+&lt;p&gt;Fellow software developers, next time you write code, think about the impact it could have. We should be more diligent with our work. We may not be saving lives, but we are affecting people&#39;s lives to a greater extent than we realize&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title></title>

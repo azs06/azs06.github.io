@@ -60,4 +60,9 @@
     <loc>https://example.com/tags/react/</loc>
     <lastmod>2023-09-13</lastmod>
   </url>
+  
+  <url>
+    <loc>https://example.com/posts/imact-of-our-work-as-software-developer/</loc>
+    <lastmod>2023-09-13</lastmod>
+  </url>
 </urlset>
