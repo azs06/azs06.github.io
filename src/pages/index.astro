@@ -13,38 +13,52 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
+			<section class="landing-page-body">
+				<div class="profile-container">
+					<a href="https://github.com/azs06" target="_blank">
+					  <img class="profile-image" src="https://avatars.githubusercontent.com/u/1593663?v=4">
+					</a>  
+					<section class="profile-infoBlock">
+					  <heading>
+						<h2 class="heading">
+						  Md. Atiquzzaman Soikat
+						</h2> 
+					  </heading>
+					  <div class="profile-infoBlock__heading">  
+						<p class="designation" id="typedtext">Software Engineer</p>
+						<span class="profile-infoBlock__subHeading">Lifelong learner, Tech Enthuasist, Geek for life</span> 
+					  </div>
+					  
+					  <div class="profile-infoBlock__quote hide">
+						
+					  </div>
+					  <div class="tags">
+						<a>#JavaScript</a> <a>#TypeScript</a>
+						<a>#React</a> <a>#Svelte</a> <a>#Vue</a>
+						<a>#Jamstack</a> <a>#Node.js</a>
+					  </div>
+					</section> 
+				</div>
+				<div class="intro-container blog-paragraph">
+				  <p><strong>Hi!</strong> 👋</p>
+				  <p>
+					I am currently working as a Lead Developer(Frontend) at
+					<a class="highlighted-anchor" href="https://www.skipperhospitality.com/" target="_blank">Skipper Hospitality</a>.
+					I am also a co-founder of <a class="highlighted-anchor" href="https://reformedtech.org/">ReformedTech</a> and currently serving as the CTO of the company.
+				  </p>
+				  <p>
+					I have been dabbling on the web for more than a decade. JavaScript is the language of the web, also my primary language of choice for programming. I also have experience in PHP, Python, Ruby, and Java. 
+					My primary choice of frontend frameworks are <a class="highlighted-anchor" href="https://reactjs.org/" target="_blank">React</a> and <a class="highlighted-anchor" href="https://vuejs.org/" target="_blank">Vue.js</a>, 
+					although I have rcently fallen in love with <a class="highlighted-anchor" href="#">Svelte</a>
+				  </p>
+				  <p>
+					Now a days my focus is on Frontend development, tooling and developig tools to make development experience smoother.
+					I am a huge fan of the Jamstack architecture. Developing performant, user friendly and scaleable websites is a passion of mine.</p>
+				  <p>
+					While not programming I enjoy video games, cooking and spending time with my friends and family.
+				  </p>
+				</div>
+			  </section> 
 		<Footer />
 	</body>
 </html>
