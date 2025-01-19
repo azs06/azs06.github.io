@@ -1,64 +1,79 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section class="landing-page-body">
-				<div class="profile-container">
-					<a href="https://github.com/azs06" target="_blank">
-					  <img class="profile-image" src="https://avatars.githubusercontent.com/u/1593663?v=4">
-					</a>  
-					<section class="profile-infoBlock">
-					  <heading>
-						<h2 class="heading">
-						  Md. Atiquzzaman Soikat
-						</h2> 
-					  </heading>
-					  <div class="profile-infoBlock__heading">  
-						<p class="designation" id="typedtext">Software Engineer</p>
-						<span class="profile-infoBlock__subHeading">Lifelong learner, Tech Enthuasist, Geek for life</span> 
-					  </div>
-					  
-					  <div class="profile-infoBlock__quote hide">
-						
-					  </div>
-					  <div class="tags">
-						<a>#JavaScript</a> <a>#TypeScript</a>
-						<a>#React</a> <a>#Svelte</a> <a>#Vue</a>
-						<a>#Jamstack</a> <a>#Node.js</a>
-					  </div>
-					</section> 
-				</div>
-				<div class="intro-container blog-paragraph">
-				  <p><strong>Hi!</strong> 👋</p>
-				  <p>
-					I am currently working as a Lead Developer(Frontend) at
-					<a class="highlighted-anchor" href="https://www.skipperhospitality.com/" target="_blank">Skipper Hospitality</a>.
-					I am also a co-founder of <a class="highlighted-anchor" href="https://reformedtech.org/">ReformedTech</a> and currently serving as the CTO of the company.
-				  </p>
-				  <p>
-					I have been dabbling on the web for more than a decade. JavaScript is the language of the web, also my primary language of choice for programming. I also have experience in PHP, Python, Ruby, and Java. 
-					My primary choice of frontend frameworks are <a class="highlighted-anchor" href="https://reactjs.org/" target="_blank">React</a> and <a class="highlighted-anchor" href="https://vuejs.org/" target="_blank">Vue.js</a>, 
-					although I have rcently fallen in love with <a class="highlighted-anchor" href="#">Svelte</a>
-				  </p>
-				  <p>
-					Now a days my focus is on Frontend development, tooling and developig tools to make development experience smoother.
-					I am a huge fan of the Jamstack architecture. Developing performant, user friendly and scaleable websites is a passion of mine.</p>
-				  <p>
-					While not programming I enjoy video games, cooking and spending time with my friends and family.
-				  </p>
-				</div>
-			  </section> 
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <!-- Main Content -->
+      <main class="max-w-3xl mx-auto px-4 py-12 text-center">
+        <!-- Profile Image -->
+        <div class="mb-8">
+          <img
+            src="/profile-image.jpg"
+            alt="Profile picture"
+            class="w-40 h-40 rounded-full mx-auto object-cover"
+          />
+        </div>
+
+        <!-- Profile Info -->
+        <h1 class="text-4xl font-bold mb-2">Md. Atiquzzaman Soikat</h1>
+        <h2 class="text-xl text-gray-600 mb-4">JavaScript Engineer</h2>
+        <p class="text-gray-600 mb-6">
+          Lifelong learner, Tech Enthusiast, Geek for life
+        </p>
+
+        <!-- Tech Stack -->
+        <div class="flex justify-center gap-2 flex-wrap mb-12">
+          <span class="text-red-500">#JavaScript</span>
+          <span class="text-blue-500">#TypeScript</span>
+          <span class="text-blue-600">#React</span>
+          <span class="text-orange-500">#Svelte</span>
+          <span class="text-green-500">#Vue</span>
+          <span class="text-purple-500">#Jamstack</span>
+          <span class="text-green-600">#Node.js</span>
+        </div>
+
+        <!-- Introduction -->
+        <div class="space-y-6 text-gray-700">
+          <h3 class="text-2xl font-medium mb-4">Hi! 👋</h3>
+
+          <p>
+            I am currently working as a Lead Developer(Frontend) at Skipper
+            Hospitality. I am also a co-founder of ReformedTech and currently
+            serving as the CTO of the company.
+          </p>
+
+          <p>
+            I have been dabbling on the web for more than a decade. JavaScript
+            is the language of the web, also my primary language of choice for
+            programming. I also have experience in PHP, Python, Ruby, and Java.
+            My primary choice of frontend frameworks are React and Vue.js,
+            although I have recently fallen in love with Svelte
+          </p>
+
+          <p>
+            Now a days my focus is on Frontend Infrastructure, tooling and
+            developig tools to make development experience smoother. I am a huge
+            fan of the Jamstack architecture. Developing performant, user
+            friendly and scaleable websites is a passion of mine.
+          </p>
+
+          <p>
+            While not programming I enjoy video games, cooking and spending time
+            with my friends and family.
+          </p>
+        </div>
+      </main>
+      <Footer />
+    </main>
+  </body>
 </html>
