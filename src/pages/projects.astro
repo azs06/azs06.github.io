@@ -1,9 +1,9 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
 import { Projects } from '../components/Projects';
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<Layout
+<MainLayout
     title="Projects"
     description="A list of projects I have worked on"
     pubDate={new Date('August 08 2021')}
@@ -13,4 +13,4 @@ import { Projects } from '../components/Projects';
 
     <Projects />
 
-</Layout>
+</MainLayout>
