@@ -1,6 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 ---
+
 <MainLayout title="Contact - Atiquzzaman Soikat">
   <!-- Profile Image -->
   <div class="mb-8">
@@ -13,7 +14,6 @@ import MainLayout from "../layouts/MainLayout.astro";
 
   <!-- Profile Info -->
   <h1 class="text-4xl font-bold mb-2">Md. Atiquzzaman Soikat</h1>
-  <h2 class="text-xl text-gray-600 mb-4">JavaScript Engineer</h2>
   <p class="text-gray-600 mb-6">
     Lifelong learner, Tech Enthusiast, Geek for life
   </p>
@@ -58,5 +58,32 @@ import MainLayout from "../layouts/MainLayout.astro";
       While not programming I enjoy video games, cooking and spending time with
       my friends and family.
     </p>
+  </div>
+  <div
+    class="m-auto text-center mt-4 justify-center flex flex-col items-center w-full space-x-5 space-y-8 lg:space-y-0 lg:flex-row"
+  >
+    <a
+      href="https://www.linkedin.com/in/atiquzzaman-soikat/"
+      aria-label="Connect on LinkedIn"
+      class="inline-flex items-center justify-center px-6 py-6 text-xl font-black text-center text-white shadow-xl xl:px-12 xl:text-2xl lg:w-auto hover:bg-green-600 bg-blue-600 rounded-none rounded-xl"
+    >
+      Connect on LinkedIn
+      <svg
+        class="w-6 h-6 ml-2"
+        aria-hidden="true"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+        ></path>
+      </svg>
+    </a>
+    <a
+      href="SoikatResume.pdf"
+      aria-label="View Resume"
+      class="inline-flex lg:pl-10 items-center text-lg text-gray-600 underline transition-colors duration-200"
+      >View Resume</a
+    >
   </div>
 </MainLayout>
