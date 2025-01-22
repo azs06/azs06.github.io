@@ -1,94 +1,148 @@
 ---
 // src/pages/about.astro
-import MainLayout from '../layouts/MainLayout.astro';
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="About Me - Atiquzzaman Soikat">
-    <div class="mx-auto px-4 py-12">
-        <!-- Header -->
-        <div class="text-center mb-12">
-            <img src="/logo.svg" alt="Logo" class="w-8 h-8 mx-auto mb-4" />
-            <h1 class="text-3xl font-bold mb-8">About Me</h1>
-        </div>
-
-        <div class="grid md:grid-cols-12 gap-8">
-
-            <!-- Right Column - Experience & Education -->
-            <div class="md:col-span-12">
-                <!-- Job Experience -->
-                <section class="mb-12">
-                    <h3 class="text-xl font-semibold mb-6">Job Experience (2012-Ongoing)</h3>
-                    <div class="relative">
-                        <div class="absolute left-0 top-0 h-full w-0.5 bg-gray-200"></div>
-                        
-                        {/* Timeline Items */}
-                        <div class="relative pl-8 pb-8">
-                            <div class="absolute left-0 w-2 h-2 bg-blue-500 rounded-full -translate-x-0.5"></div>
-                            <div class="bg-gray-50 p-4 rounded-lg">
-                                <div class="text-sm text-gray-500">2024-Present</div>
-                                <h4 class="font-medium">Chief Technology Officer</h4>
-                                <p class="text-gray-600">ReformedTech</p>
-                            </div>
-                        </div>
-                        
-                        {/* Repeat similar blocks for other experiences */}
-                    </div>
-                </section>
-
-                <!-- Education -->
-                <section class="mb-12">
-                    <h3 class="text-xl font-semibold mb-6">Educations</h3>
-                    <div class="relative">
-                        <div class="absolute left-0 top-0 h-full w-0.5 bg-gray-200"></div>
-                        
-                        <div class="relative pl-8 pb-8">
-                            <div class="absolute left-0 w-2 h-2 bg-blue-500 rounded-full -translate-x-0.5"></div>
-                            <div class="bg-gray-50 p-4 rounded-lg">
-                                <div class="text-sm text-gray-500">2008-2012</div>
-                                <h4 class="font-medium">BSC Engineering</h4>
-                                <p class="text-gray-600">American International University - AIUB</p>
-                            </div>
-                        </div>
-                        
-                        {/* Repeat for other education items */}
-                    </div>
-                </section>
-
-                <!-- Professional Services -->
-                <section class="mb-12">
-                    <h3 class="text-xl font-semibold mb-6">Professional Services</h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="p-4 bg-gray-50 rounded-lg">
-                            <h4 class="font-medium mb-2">Websites & platforms</h4>
-                        </div>
-                        <div class="p-4 bg-gray-50 rounded-lg">
-                            <h4 class="font-medium mb-2">Mobile applications</h4>
-                        </div>
-                        <div class="p-4 bg-gray-50 rounded-lg">
-                            <h4 class="font-medium mb-2">Design conspect</h4>
-                        </div>
-                        <div class="p-4 bg-gray-50 rounded-lg">
-                            <h4 class="font-medium mb-2">Strategy & branding</h4>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Expertise -->
-                <section>
-                    <h3 class="text-xl font-semibold mb-6">Expertise</h3>
-                    <div class="grid grid-cols-4 gap-6">
-                        <div class="flex flex-col items-center">
-                            <img src="/icons/html5.svg" alt="HTML5" class="w-12 h-12 mb-2" />
-                            <span class="text-sm">HTML5</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <img src="/icons/css3.svg" alt="CSS3" class="w-12 h-12 mb-2" />
-                            <span class="text-sm">CSS3</span>
-                        </div>
-                        <!-- Add other technology icons similarly -->
-                    </div>
-                </section>
-            </div>
-        </div>
+  <div class="mx-auto px-4 py-12">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <img src="/logo.svg" alt="Logo" class="w-8 h-8 mx-auto mb-4" />
+      <h1 class="text-3xl font-bold mb-8">About Me</h1>
     </div>
+
+    <div class="grid md:grid-cols-12 gap-8">
+      <!-- Right Column - Experience & Education -->
+      <div class="md:col-span-12">
+        <!-- Job Experience -->
+        <section class="mb-12">
+          <h3 class="text-xl font-semibold mb-6">
+            Job Experience (2012-Ongoing)
+          </h3>
+          <div class="relative">
+            <div class="absolute left-0 top-0 h-full w-0.5 bg-gray-200"></div>
+
+            {/* Timeline Items */}
+            <div class="relative pl-8 pb-8">
+              <div
+                class="absolute left-0 w-2 h-2 bg-blue-500 rounded-full -translate-x-0.5"
+              >
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="text-sm text-gray-500">2021-Present</div>
+                <h4 class="font-medium">Chief Technology Officer</h4>
+                <p class="text-gray-600">ReformedTech</p>
+              </div>
+            </div>
+            <div class="relative pl-8 pb-8">
+              <div
+                class="absolute left-0 w-2 h-2 bg-blue-500 rounded-full -translate-x-0.5"
+              >
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="text-sm text-gray-500">Sep. 2021 – Present</div>
+                <h4 class="font-medium">Senior Software Engineer/Team Lead</h4>
+                <p class="text-gray-600">Skipper Hospitality, New York, USA</p>
+              </div>
+            </div>
+
+            <div class="relative pl-8 pb-8">
+              <div
+                class="absolute left-0 w-2 h-2 bg-blue-500 rounded-full -translate-x-0.5"
+              >
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="text-sm text-gray-500">Aug. 2018 – July 2021</div>
+                <h4 class="font-medium">Senior Frontend Engineer/Team Lead</h4>
+                <p class="text-gray-600">Butler Hospitality, New York, USA</p>
+              </div>
+            </div>
+
+            <div class="relative pl-8 pb-8">
+              <div
+                class="absolute left-0 w-2 h-2 bg-blue-500 rounded-full -translate-x-0.5"
+              >
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="text-sm text-gray-500">Nov. 2015 – Apr. 2018</div>
+                <h4 class="font-medium">Frontend Developer</h4>
+                <p class="text-gray-600">Jetaport/Skipper, New York, USA</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Education -->
+        <section class="mb-12">
+          <h3 class="text-xl font-semibold mb-6">Educations</h3>
+          <div class="relative">
+            <div class="absolute left-0 top-0 h-full w-0.5 bg-gray-200"></div>
+
+            <div class="relative pl-8 pb-8">
+              <div
+                class="absolute left-0 w-2 h-2 bg-blue-500 rounded-full -translate-x-0.5"
+              >
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="text-sm text-gray-500">2008-2012</div>
+                <h4 class="font-medium">BSC Engineering</h4>
+                <p class="text-gray-600">
+                  American International University - AIUB
+                </p>
+              </div>
+            </div>
+
+            {/* Repeat for other education items */}
+          </div>
+        </section>
+
+        <!-- Professional Services -->
+        <section class="mb-12">
+          <h3 class="text-xl font-semibold mb-6">Professional Services</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h4 class="font-medium mb-2">Websites & platforms</h4>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h4 class="font-medium mb-2">Mobile applications</h4>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h4 class="font-medium mb-2">Design conspect</h4>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h4 class="font-medium mb-2">Strategy & branding</h4>
+            </div>
+          </div>
+        </section>
+
+        <!-- Expertise -->
+        <section>
+          <h3 class="text-xl font-semibold mb-6">Expertise</h3>
+          <div class="grid grid-cols-4 gap-6">
+            <div class="flex flex-col items-center">
+              <img src="/icons/html5.svg" alt="HTML5" class="w-12 h-12 mb-2" />
+              <span class="text-sm">HTML5</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <img src="/icons/css3.svg" alt="CSS3" class="w-12 h-12 mb-2" />
+              <span class="text-sm">CSS3</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <img src="/icons/js.svg" alt="CSS3" class="w-12 h-12 mb-2" />
+              <span class="text-sm">JS</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <img
+                src="/icons/react.svg"
+                alt="X-state"
+                class="w-12 h-12 mb-2"
+              />
+              <span class="text-sm">React</span>
+            </div>
+            <!-- Add other technology icons similarly -->
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
 </MainLayout>
