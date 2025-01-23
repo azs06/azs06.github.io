@@ -1,6 +1,19 @@
 ---
 // src/pages/about.astro
 import MainLayout from "../layouts/MainLayout.astro";
+import {
+  Svelte,
+  React,
+  Next,
+  Html5,
+  Css3,
+  Astro as AstroLogo,
+  Eleventy,
+  Typescript,
+  Vue,
+  Xstate,
+  Js,
+} from "../components/icons/index";
 ---
 
 <MainLayout title="About Me - Atiquzzaman Soikat">
@@ -118,26 +131,50 @@ import MainLayout from "../layouts/MainLayout.astro";
         <!-- Expertise -->
         <section>
           <h3 class="text-xl font-semibold mb-6">Expertise</h3>
-          <div class="grid grid-cols-4 gap-6">
+          <div class="grid grid-cols-4 gap-6 flex-wrap">
             <div class="flex flex-col items-center">
-              <img src="/icons/html5.svg" alt="HTML5" class="w-12 h-12 mb-2" />
+              <Html5 />
               <span class="text-sm">HTML5</span>
             </div>
             <div class="flex flex-col items-center">
-              <img src="/icons/css3.svg" alt="CSS3" class="w-12 h-12 mb-2" />
+              <Css3 />
               <span class="text-sm">CSS3</span>
             </div>
             <div class="flex flex-col items-center">
-              <img src="/icons/js.svg" alt="CSS3" class="w-12 h-12 mb-2" />
+              <Js />
               <span class="text-sm">JS</span>
             </div>
             <div class="flex flex-col items-center">
-              <img
-                src="/icons/react.svg"
-                alt="X-state"
-                class="w-12 h-12 mb-2"
-              />
+              <Typescript />
+              <span class="text-sm">Typescript</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <React />
               <span class="text-sm">React</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <Vue />
+              <span class="text-sm">Vue</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <Next />
+              <span class="text-sm">Next</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <Svelte />
+              <span class="text-sm">Svelte</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <Eleventy />
+              <span class="text-sm">Eleventy</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <Xstate />
+              <span class="text-sm">X-State</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <AstroLogo />
+              <span class="text-sm">Astro</span>
             </div>
             <!-- Add other technology icons similarly -->
           </div>
