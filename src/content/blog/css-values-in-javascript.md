@@ -2,7 +2,7 @@
 title: 'Working with CSS values in JavaScript'
 description: 'Ways to access CSS values of a dom element in JavaScript'
 pubDate: 'Jul 08 2022'
-heroImage: '/blog-placeholder-5.jpg'
+heroImage: '/blog-placeholder-2.jpg'
 ---
 
 Occassionally while working with the dom(document object model) in JavaScript you might have to access CSS values of a certain dom element. There are couple of ways to do it. Let's check them out.

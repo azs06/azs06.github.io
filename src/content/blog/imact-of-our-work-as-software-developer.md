@@ -2,7 +2,7 @@
 title: 'Impact of our work as Software Developer'
 description: 'Understanding the impact of our work as software developers'
 pubDate: 'Jul 08 2022'
-heroImage: '/blog-placeholder-1.jpg'
+heroImage: '/blog-placeholder-2.jpg'
 ---
 ### Impact of our work as Software Developer
 
