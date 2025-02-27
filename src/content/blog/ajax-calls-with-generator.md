@@ -71,6 +71,7 @@ ajaxRoutine('azs06').catch(error => console.log(error)).then((response) => conso
 
 ```
 
+
 As you can see, from the look of it, it's much more easier to read and reason with.
 
 I know for this simpler example this seems a overkill, but for a larger application with houndreds of server calls this can do wonders.
