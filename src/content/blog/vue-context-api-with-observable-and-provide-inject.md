@@ -13,49 +13,49 @@ Let's say we have a simple applicaion where we need to show user's avatar on hea
 
 __App.vue__
 ```
-<template>
-  <div id="app">
-    <Header/>
-    <UserProfile/>
-  </div>
-</template>
+  <template>
+    <div id="app">
+      <Header/>
+      <UserProfile/>
+    </div>
+  </template>
 
-<script>
-import Vue from "vue";
-import UserProfile from "./components/UserProfile";
-import Header from "./components/Header";
-const user = Vue.observable({
-  name: "Soikat",
-  age: 32,
-  avatar: "https://loremflickr.com/320/240",
-  updateData(payload) {
-    const { avatar, name, age } = payload;
-    if (avatar) user.avatar = avatar;
-    if (name) user.name = name;
-    if (age) user.age = age;
-  }
-});
-export default {
-  name: "App",
-  components: {
-    UserProfile,
-    Header
-  },
-  provide: {
-    user
-  }
-};
-</script>
+  <script>
+  import Vue from "vue";
+  import UserProfile from "./components/UserProfile";
+  import Header from "./components/Header";
+  const user = Vue.observable({
+    name: "Soikat",
+    age: 32,
+    avatar: "https://loremflickr.com/320/240",
+    updateData(payload) {
+      const { avatar, name, age } = payload;
+      if (avatar) user.avatar = avatar;
+      if (name) user.name = name;
+      if (age) user.age = age;
+    }
+  });
+  export default {
+    name: "App",
+    components: {
+      UserProfile,
+      Header
+    },
+    provide: {
+      user
+    }
+  };
+  </script>
 
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-</style>
+  <style>
+  #app {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
+  </style>
 ```
 Here you can see we have created an object using Vue.observable and provided this for child components of `<App />` to consume.
 
