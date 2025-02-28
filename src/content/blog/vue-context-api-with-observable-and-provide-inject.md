@@ -61,92 +61,92 @@ Here you can see we have created an object using Vue.observable and provided thi
 
 __Header.vue__
 ```
-<template>
-  <nav class="navigation">
-    {{user.name}}
-    <img class="profile-image" width="50" height="50" :src="user.avatar">
-  </nav>
-</template>
+  <template>
+    <nav class="navigation">
+      {{user.name}}
+      <img class="profile-image" width="50" height="50" :src="user.avatar">
+    </nav>
+  </template>
 
-<script>
-export default {
-  name: "Header",
-  inject: ["user"]
-};
-</script>
+  <script>
+  export default {
+    name: "Header",
+    inject: ["user"]
+  };
+  </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.navigation {
-  display: flex;
-  background: #ccc;
-  min-height: 70px;
-  text-align: right;
-  align-items: center;
-  justify-content: flex-end;
-}
-.profile-image {
-  border-radius: 50%;
-  border: 1px solid #fff;
-  padding: 4px;
-  margin-left: 10px;
-}
-</style>
+  <!-- Add "scoped" attribute to limit CSS to this component only -->
+  <style scoped>
+  .navigation {
+    display: flex;
+    background: #ccc;
+    min-height: 70px;
+    text-align: right;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .profile-image {
+    border-radius: 50%;
+    border: 1px solid #fff;
+    padding: 4px;
+    margin-left: 10px;
+  }
+  </style>
 ```
 Here we are injecting `user` object and also using that object to display user name and avatar.
 
 __UserProfile.vue__
 ```
-<template>
-  <div>
+  <template>
     <div>
-      Name:
-      <input type="text" v-model="userName">
+      <div>
+        Name:
+        <input type="text" v-model="userName">
+      </div>
+      <div>
+        Age:
+        <input type="text" v-model="userAge">
+      </div>
+      <div>
+        Avatar:
+        <input type="text" v-model="userAvatar">
+      </div>
+      <div>
+        <button @click="updateUser">Update</button>
+      </div>
     </div>
-    <div>
-      Age:
-      <input type="text" v-model="userAge">
-    </div>
-    <div>
-      Avatar:
-      <input type="text" v-model="userAvatar">
-    </div>
-    <div>
-      <button @click="updateUser">Update</button>
-    </div>
-  </div>
-</template>
+  </template>
 
-<script>
-export default {
-  name: "UserProfile",
-  inject: ["user"],
-  data() {
-    return {
-      userName: "",
-      userAge: "",
-      userAvatar: ""
-    };
-  },
-  created() {
-    const { name, age, avatar } = this.user;
-    this.userName = name;
-    this.userAge = age;
-    this.userAvatar = avatar;
-  },
-  methods: {
-    updateUser() {
-      const payload = {
-        name: this.userName,
-        age: this.userAge,
-        avatar: this.userAvatar
+  <script>
+  export default {
+    name: "UserProfile",
+    inject: ["user"],
+    data() {
+      return {
+        userName: "",
+        userAge: "",
+        userAvatar: ""
       };
-      const { updateData } = this.user;
-      updateData(payload);
+    },
+    created() {
+      const { name, age, avatar } = this.user;
+      this.userName = name;
+      this.userAge = age;
+      this.userAvatar = avatar;
+    },
+    methods: {
+      updateUser() {
+        const payload = {
+          name: this.userName,
+          age: this.userAge,
+          avatar: this.userAvatar
+        };
+        const { updateData } = this.user;
+        updateData(payload);
+      }
     }
-  }
-};
-</script>
+  };
+  </script>
 ```
 Here we can update the user object without mutating it directly.
 
