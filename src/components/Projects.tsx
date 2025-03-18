@@ -92,9 +92,10 @@ const projectsData = [
 
 // Configuration
 const github_username = "azs06";
-const githubToken = import.meta.env.VITE_GITHUB_API_TOKEN; // Ensure this env variable is defined in your project
+const githubToken = import.meta.env.PUBLIC_GITHUB_API_TOKEN; // Ensure this env variable is defined in your project
 const CACHE_KEY = "github_repos_cache";
 const CACHE_EXPIRATION_HOURS = 24;
+
 
 export const Projects = () => {
   const [loading, setLoading] = useState(false);
@@ -145,7 +146,6 @@ export const Projects = () => {
   useEffect(() => {
     const updateProjects = async () => {
       const repos = await fetchRepos(github_username);
-      console.log({ repos });
       if (repos) {
         const updatedProjects = computedProjects.map((project) => {
           // Match local project by repo name (assumes a `repo` property exists)
