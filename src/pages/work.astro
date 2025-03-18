@@ -1,0 +1,186 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+const workProjects = [
+  {
+    id: 1,
+    title: "Skipper Booking Widget",
+    description:
+      "The Skipper Booking Engine empowers hotels to drive direct bookings, increase profits, and elevate guest satisfaction.",
+    imageUrl:
+      "https://res.cloudinary.com/theazs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1737232766/personal-website/zabfcuvtplaxvl61kens.png",
+    projectUrl: "https://www.skipperhospitality.com/",
+    company: "Skipper Hospitality",
+    tags: ["Svelte", "X-state", "TailwindCss", "Playwright", "Testing Library"],
+    companyUrl: "https://www.skipperhospitality.com/",
+  },
+  {
+    id: 2,
+    title: "Journey east hampton Website",
+    description:
+      "As part of the development team, worked on developing the website for Journey eas hampton hotel, using our in house CMS and our custom built 11ty Framework",
+    imageUrl:
+      "https://res.cloudinary.com/theazs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1737288922/personal-website/Screenshot_2025-01-19_at_6.13.58_PM_i7ii8h.png",
+    projectUrl: "https://journeyeasthampton.com/",
+    company: "Skipper Hospitality",
+    tags: ["11ty", "Node.js", "React", "TailwindCss", "Webcomponents"],
+    companyUrl: "https://www.skipperhospitality.com/",
+  },
+  {
+    id: 3,
+    title: "Marram Montauk Hotel Website",
+    description:
+      "As part of the development team, worked on developing the website for Marram Montauk Hotel, using our in house CMS and our custom built 11ty Framework. We mainted a great lighthouse score even though we are loading a video on the home page by progressive loading strategy.",
+    imageUrl:
+      "https://res.cloudinary.com/theazs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1737289055/personal-website/Screenshot_2025-01-19_at_6.17.08_PM_lgx7xg.png",
+    projectUrl: "https://www.marrammontauk.com/",
+    company: "Skipper Hospitality",
+    tags: ["11ty", "Node.js", "React", "TailwindCss", "Webcomponents"],
+    companyUrl: "https://www.skipperhospitality.com/",
+  },
+  {
+    id: 4,
+    title: "Theamswell Hotel Website",
+    description:
+      "We developed the themaswell hotel website using our in house component library that we have developed to be used with 11ty and our in house CMS as backend.",
+    imageUrl:
+      "https://res.cloudinary.com/theazs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1737289413/personal-website/Screenshot_2025-01-19_at_6.22.57_PM_r1rbez.png",
+    projectUrl: "https://www.theameswellhotel.com/",
+    company: "Skipper Hospitality",
+    tags: ["11ty", "Node.js", "React", "TailwindCss", "Webcomponents"],
+    companyUrl: "https://www.skipperhospitality.com/",
+  },
+  {
+    id: 5,
+    title: "ButlerMenu.com",
+    description:
+      "ButlerMenu.com later Orderbutler.com was the defacto application for ordering foods, beverages and other commodities for hotel guests who have partnership with Butler Hospitality",
+    imageUrl:
+      "https://res.cloudinary.com/theazs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1737299543/personal-website/Screenshot_2025-01-19_at_9.12.02_PM_ksvkmn.png",
+    projectUrl: "",
+    company: "Butler Hospitality",
+    tags: ["React.js", "Flow.js", "TailwindCss", "Redux"],
+    companyUrl: "https://www.crunchbase.com/organization/butler-hospitality",
+  },
+];
+
+const experiences = [
+  {
+    company: "Jetaport",
+    role: "Frontend Engineer",
+    duration: "2015 - 2018",
+    description:
+      "Worked as frontend engineer in developing our group booking platform, and other internal applications.",
+    companyUrl: "https://www.jetaport.com",
+  },
+  {
+    company: "Butler Hospitality",
+    role: "Senior Frontend Engineer & Team Lead",
+    duration: "2019 - 2022",
+    description:
+      "Worked as a senior developer for several key projects, Worked on mobile and iPad application development, also on the internal OMS application.",
+    companyUrl: "https://www.butlerhospitality.com",
+  },
+  {
+    company: "Skipper Hospitality",
+    role: "Senior Frontend Engineer & Team Lead",
+    duration: "2022 - 2024",
+    description:
+      "Lead the development of Skipper Booking Widget, worked as a senior engineer for several client websites and key internal projects.",
+    companyUrl: "https://www.skipperhospitality.com",
+  },
+];
+---
+
+<MainLayout
+  title="Projects"
+  description="A list of projects I have worked on"
+  pubDate={new Date("August 08 2021")}
+  heroImage="/blog-placeholder-about.jpg"
+>
+  <section class="mb-8">
+    <p class="text-lg leading-relaxed">
+      I have over twelve years of experience in web development, serving as a
+      Technical Project Manager, Frontend Engineer, and Team Lead for startups
+      such as Jetaport, Butler Hospitality, and Skipper Hospitality.
+      Additionally, I have worked as a freelancer, managing my own clients. My
+      approach centers on inspiring teams to write clean, iterative, and
+      maintainable code that aligns with real user experiences while achieving
+      business objectives. In my own development work, I prioritize semantic,
+      elegant, and maintainable code that is responsive and accessible.
+    </p>
+  </section>
+  <!-- Work Experience -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold mb-4">Work Experience</h2>
+    <ul class="space-y-6">
+      {
+        experiences.map((exp) => (
+          <li
+            class="p-4 border rounded-md hover:shadow transition-shadow"
+          >
+            <a
+              href={exp.companyUrl}
+              target="_blank"
+              class="text-xl font-semibold text-blue-600 hover:underline"
+            >
+              {exp.company}
+            </a>
+            <p class="text-gray-600">
+              {exp.role} &middot; {exp.duration}
+            </p>
+            <p class="mt-2 text-gray-700">{exp.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+  <!-- Recent Work Projects -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold mb-4">Recent Work Projects</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {workProjects.map((project) => (
+        <article 
+          class="border rounded-md p-4 hover:shadow transition-shadow flex flex-col"
+        >
+          <img
+            src={project.imageUrl}
+            alt={project.title}
+            class="w-full h-48 object-cover mb-4 rounded"
+          />
+          <h3 class="text-lg font-semibold mb-2">{project.title}</h3>
+          <p class="text-gray-700 mb-2">{project.description}</p>
+          <p class="text-sm text-gray-500 mb-2">
+            Company:{" "}
+            <a 
+              href={project.companyUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="text-blue-600 hover:underline"
+            >
+              {project.company}
+            </a>
+          </p>
+          <div class="flex flex-wrap gap-2 mb-2">
+            {project.tags.map((tag) => (
+              <span 
+                class="px-2 py-1 text-sm bg-gray-200 text-gray-700 rounded-md"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          {project.projectUrl && (
+            <a
+              href={project.projectUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block text-blue-600 hover:underline mt-auto"
+            >
+              View Project
+            </a>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
+</MainLayout>
