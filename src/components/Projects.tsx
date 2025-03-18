@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard.tsx";
 const projectsData = [
   {
@@ -90,81 +89,18 @@ const projectsData = [
   },
 ];
 
-// Configuration
-const github_username = "azs06";
-const githubToken = import.meta.env.PUBLIC_GITHUB_API_TOKEN; // Ensure this env variable is defined in your project
-const CACHE_KEY = "github_repos_cache";
-const CACHE_EXPIRATION_HOURS = 24;
-
-
-export const Projects = () => {
-  const [loading, setLoading] = useState(false);
-  const [computedProjects, setComputedProjects] = useState(projectsData);
-
-  const headers = {
-    Authorization: `token ${githubToken}`,
-    Accept: "application/vnd.github.v3+json",
-  };
-
-  // Helper: Check if cached data is still valid
-  const isCacheValid = (timestamp: EpochTimeStamp) => {
-    const now = new Date().getTime();
-    return now - timestamp < CACHE_EXPIRATION_HOURS * 60 * 60 * 1000;
-  };
-
-  // Fetch repositories from GitHub with caching in localStorage
-  const fetchRepos = async (username: string) => {
-    try {
-      const cachedData = localStorage.getItem(CACHE_KEY);
-      if (cachedData) {
-        const { timestamp, repos } = JSON.parse(cachedData);
-        if (isCacheValid(timestamp)) {
-          return repos;
-        }
-      }
-      const response = await fetch(
-        `https://api.github.com/users/${username}/repos?per_page=100`,
-        { headers }
-      );
-      if (!response.ok) throw new Error("Failed to fetch repositories");
-      const repos = await response.json();
-
-      // Cache data with current timestamp
-      localStorage.setItem(
-        CACHE_KEY,
-        JSON.stringify({ timestamp: new Date().getTime(), repos })
-      );
-      return repos;
-    } catch (error) {
-      console.error("Error fetching repositories:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // On component mount, fetch repos and merge star counts into local projects
-  useEffect(() => {
-    const updateProjects = async () => {
-      const repos = await fetchRepos(github_username);
-      if (repos) {
-        const updatedProjects = computedProjects.map((project) => {
-          // Match local project by repo name (assumes a `repo` property exists)
-          const projectRepo = repos.find((r) => r.name === project.repo);
-          return projectRepo
-            ? { ...project, stars: projectRepo.stargazers_count }
-            : project;
-        });
-        setComputedProjects(updatedProjects);
-      }
-    };
-
-    updateProjects();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+export const Projects = ({ githubRepos = [] }) => {
+  // Merge GitHub star count from the fetched repos data into the local projects data
+  const updatedProjects = projectsData.map((project) => {
+    const projectRepo = githubRepos.find((r) => r.name === project.repo);
+    return projectRepo
+      ? { ...project, stars: projectRepo.stargazers_count }
+      : project;
+  });
 
   return (
     <div className="my-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {computedProjects.map((project) => (
+      {updatedProjects.map((project) => (
         <div
           key={`${project.id}-${project.stars}-${project.title}`}
           className="border border-gray-200 rounded-lg p-4 bg-white transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg"
@@ -172,11 +108,6 @@ export const Projects = () => {
           <ProjectCard project={project} />
         </div>
       ))}
-      {loading && (
-        <div className="text-center text-gray-500 mt-4 col-span-full">
-          Loading projects...
-        </div>
-      )}
     </div>
   );
 };
