@@ -2,6 +2,17 @@
 import MainLayout from "../layouts/MainLayout.astro";
 const workProjects = [
   {
+    id: 6,
+    title: "DokanePos",
+    description:
+      "DokanePos is a 21st century POS application built using web technologies",
+    projectUrl: "https://dokanepos.com",
+    imageUrl: "https://dokanepos.com/Pictures/pos-terminal.png",
+    company: "ReformedTech",
+    tags: ["Next.js", "Laravel", "TypeScript"],
+    companyUrl: "https://reformedtech.org",
+  },
+  {
     id: 1,
     title: "Skipper Booking Widget",
     description:
@@ -88,6 +99,14 @@ const experiences = [
       "Lead the development of Skipper Booking Widget, worked as a senior engineer for several client websites and key internal projects.",
     companyUrl: "https://www.skipperhospitality.com",
   },
+  {
+    company: "ReformedTech",
+    role: "CTO and Co-Founder",
+    duration: "2021 - Present",
+    description:
+      "ReformedTech is a Software Development company from Bangladesh, I lead the tech team with various efforts, one of our most notable project being DokanePos, a 21st Century pos application.",
+    companyUrl: "https://www.reformedtech.org",
+  },
 ];
 ---
 
@@ -114,10 +133,8 @@ const experiences = [
     <h2 class="text-2xl font-bold mb-4">Work Experience</h2>
     <ul class="space-y-6">
       {
-        experiences.map((exp) => (
-          <li
-            class="p-4 border rounded-md hover:shadow transition-shadow"
-          >
+        experiences.reverse().map((exp) => (
+          <li class="p-4 border rounded-md hover:shadow transition-shadow">
             <a
               href={exp.companyUrl}
               target="_blank"
@@ -138,49 +155,113 @@ const experiences = [
   <section class="mb-12">
     <h2 class="text-2xl font-bold mb-4">Recent Work Projects</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {workProjects.map((project) => (
-        <article 
-          class="border rounded-md p-4 hover:shadow transition-shadow flex flex-col"
-        >
-          <img
-            src={project.imageUrl}
-            alt={project.title}
-            class="w-full h-48 object-cover mb-4 rounded"
-          />
-          <h3 class="text-lg font-semibold mb-2">{project.title}</h3>
-          <p class="text-gray-700 mb-2">{project.description}</p>
-          <p class="text-sm text-gray-500 mb-2">
-            Company:{" "}
-            <a 
-              href={project.companyUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="text-blue-600 hover:underline"
-            >
-              {project.company}
-            </a>
-          </p>
-          <div class="flex flex-wrap gap-2 mb-2">
-            {project.tags.map((tag) => (
-              <span 
-                class="px-2 py-1 text-sm bg-gray-200 text-gray-700 rounded-md"
+      {
+        workProjects.map((project) => (
+          <article class="border rounded-md p-4 hover:shadow transition-shadow flex flex-col">
+            <img
+              src={project.imageUrl}
+              alt={project.title}
+              class="w-full h-48 object-cover mb-4 rounded"
+            />
+            <h3 class="text-lg font-semibold mb-2">{project.title}</h3>
+            <p class="text-gray-700 mb-2">{project.description}</p>
+            <p class="text-sm text-gray-500 mb-2">
+              Company:{" "}
+              <a
+                href={project.companyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-blue-600 hover:underline"
               >
-                {tag}
-              </span>
-            ))}
-          </div>
-          {project.projectUrl && (
-            <a
-              href={project.projectUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-block text-blue-600 hover:underline mt-auto"
-            >
-              View Project
-            </a>
-          )}
-        </article>
-      ))}
+                {project.company}
+              </a>
+            </p>
+            <div class="flex flex-wrap gap-2 mb-2">
+              {project.tags.map((tag) => (
+                <span class="px-2 py-1 text-sm bg-gray-200 text-gray-700 rounded-md">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            {project.projectUrl && (
+              <a
+                href={project.projectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block text-blue-600 hover:underline mt-auto"
+              >
+                View Project
+              </a>
+            )}
+          </article>
+        ))
+      }
+    </div>
+  </section>
+  <section class="bg-gray-100 py-12">
+    <div class="max-w-5xl mx-auto px-4">
+      <header class="text-center mb-8">
+        <h2 class="text-3xl font-bold text-gray-800">Freelance Projects</h2>
+        <p class="text-lg text-gray-600 mt-2">
+          A showcase of my freelance client projects. Click on any project to
+          learn more.
+        </p>
+      </header>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <li class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <a
+            href="https://nini-designs.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block"
+          >
+            <h3 class="text-xl font-semibold text-blue-600 hover:underline">
+              Nini Design
+            </h3>
+            <p class="text-gray-500 mt-2">Shopify Clothing Store.</p>
+          </a>
+        </li>
+        <li class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <a
+            href="https://www.bobbylondonsf.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block"
+          >
+            <h3 class="text-xl font-semibold text-blue-600 hover:underline">
+              Bobby London
+            </h3>
+            <p class="text-gray-500 mt-2">Shopify Clothing Store.</p>
+          </a>
+        </li>
+        <li class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <a
+            href="https://www.jardindedenclo.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block"
+          >
+            <h3 class="text-xl font-semibold text-blue-600 hover:underline">
+              JARDIN D'EDEN
+            </h3>
+            <p class="text-gray-500 mt-2">Shopify Clothing Store.</p>
+          </a>
+        </li>
+        <li class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <a
+            href="http://sunfruitfarms.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block"
+          >
+            <h3 class="text-xl font-semibold text-blue-600 hover:underline">
+             Sunfruit Farms
+            </h3>
+            <p class="text-gray-500 mt-2">Jamstack Landing Page</p>
+          </a>
+        </li>
+        <!-- Add more projects as needed -->
+      </ul>
     </div>
   </section>
 </MainLayout>
