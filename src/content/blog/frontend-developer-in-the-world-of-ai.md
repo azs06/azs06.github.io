@@ -2,7 +2,7 @@
 title: Being a Frontend developer in the age of AI
 description: My thoughts on being a frontend developer in the world of AI
 pubDate: 'Mar 18, 2025'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/frontend-developer-in-the-age-of-ai.webp'
 ---
 
 I am a quite frequent visitor to the r/webdev sub Reddit community, recently I saw a post where the OP posted about how one of OP’s client is asking why would they pay him if it can be done with AI using tools. OP left the client and most who commented on the post agreed that OP is right, The client will get what he is paying for using AI for professional website!!
