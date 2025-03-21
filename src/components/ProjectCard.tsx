@@ -1,5 +1,3 @@
-import React from "react";
-
 const ProjectCard = ({ project }) => {
   const stars = project?.stars;
   const displayStars = stars > 0 ? `⭐ ${stars}` : "";
