@@ -87,6 +87,14 @@ const projectsData = [
     tags: ["vue", "markdown"],
     stars: 0,
   },
+  {
+    id: 10,
+    title: "Github Streak Viewer",
+    description: "A Node.js application to display Github streak using graphql",
+    url: "https://github.com/azs06/github-streak-viewer",
+    repo: "github-streak-viewer",
+    tags: ["express", "node.js", "graphql"]
+  }
 ];
 
 export const Projects = ({ githubRepos = [] }) => {
