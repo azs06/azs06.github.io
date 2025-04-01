@@ -157,14 +157,18 @@ const experiences = [
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {
         workProjects.map((project) => (
-          <article style="--bg-img:()" class="work-project-card border border-1px border-solid border-[var(--border)] rounded-md p-4 hover:shadow transition-shadow flex flex-col">
+          <article
+            class="work-project-card border border-1px border-solid border-[var(--border)] rounded-md p-4 hover:shadow-lg transition-shadow flex flex-col relative overflow-hidden"
+            data-tilt
+            style="--drop-color: rgba(65, 105, 225, 0.15); --drop-x: 50%; --drop-y: 50%;"
+          >
             <img
               src={project.imageUrl}
               alt={project.title}
               class="w-full h-48 object-cover mb-4 rounded"
             />
             <h3 class="text-lg font-semibold mb-2">{project.title}</h3>
-            <p class="text-gray-700 mb-2">{project.description}</p>
+            <p class="text-gray-700 mb-2 text-sm/8">{project.description}</p>
             <p class="text-sm text-gray-500 mb-2">
               Company:{" "}
               <a
@@ -177,8 +181,11 @@ const experiences = [
               </a>
             </p>
             <div class="flex flex-wrap gap-2 mb-2">
-              {project.tags.map((tag) => (
-                <span class="px-2 py-1 text-sm bg-gray-200 text-gray-700 rounded-md">
+              {project.tags.map((tag, index) => (
+                <span
+                  key={index}
+                  class="px-2 py-1 text-sm bg-gray-200 text-gray-700 rounded-md"
+                >
                   {tag}
                 </span>
               ))}
@@ -255,7 +262,7 @@ const experiences = [
             class="block"
           >
             <h3 class="text-xl font-semibold text-blue-600 hover:underline">
-             Sunfruit Farms
+              Sunfruit Farms
             </h3>
             <p class="text-gray-500 mt-2">Jamstack Landing Page</p>
           </a>
@@ -265,3 +272,74 @@ const experiences = [
     </div>
   </section>
 </MainLayout>
+
+<style>
+  .work-project-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+    will-change: transform;
+  }
+
+  .work-project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at var(--drop-x) var(--drop-y), var(--drop-color), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .work-project-card:hover::before {
+    opacity: 1;
+  }
+
+  .work-project-card > * {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.2s ease-out;
+  }
+  
+  .work-project-card:hover > * {
+    transform: translateZ(10px);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('[data-tilt]');
+    
+    cards.forEach(card => {
+      let timeout;
+      
+      card.addEventListener('mousemove', function(event) {
+        const { left, top, width, height } = card.getBoundingClientRect();
+        const x = (event.clientX - left - width / 2) / 50;
+        const y = (event.clientY - top - height / 2) / 50;
+        
+        // Set the position for the radial gradient with smooth transition
+        card.style.setProperty('--drop-x', `${event.clientX - left}px`);
+        card.style.setProperty('--drop-y', `${event.clientY - top}px`);
+        
+        // Apply tilt effect
+        card.style.transform = `perspective(1000px) rotateX(${-y}deg) rotateY(${x}deg) scale(1.02)`;
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        // Add a slight delay before resetting for a smoother experience
+        timeout = setTimeout(() => {
+          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+        }, 100);
+      });
+      
+      card.addEventListener('mouseenter', function() {
+        clearTimeout(timeout);
+      });
+    });
+  });
+</script>
