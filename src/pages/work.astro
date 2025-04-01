@@ -157,7 +157,7 @@ const experiences = [
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {
         workProjects.map((project) => (
-          <article class="border rounded-md p-4 hover:shadow transition-shadow flex flex-col">
+          <article style="--bg-img:()" class="work-project-card border border-1px border-solid border-[var(--border)] rounded-md p-4 hover:shadow transition-shadow flex flex-col">
             <img
               src={project.imageUrl}
               alt={project.title}

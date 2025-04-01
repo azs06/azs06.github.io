@@ -14,6 +14,9 @@
 	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
 	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
 		0 16px 32px rgba(var(--gray), 33%);
+	--main: var(--light-0);
+	--main-60: var(--light-0-60);
+	--border-hover: var(--dark-8);
 }
 @font-face {
 	font-family: 'Atkinson';
@@ -41,4 +44,23 @@ body {
 	color: rgb(var(--gray-dark));
 	font-size: 20px;
 	line-height: 1.7;
+}
+
+.work-project-card{
+	--border-color: #ff400080;
+    --drop-color: #ff400026;
+	--bg-color: #ff400003;
+    --drop-x: 368.914794921875px;
+    --drop-y: 52.66880798339844px;
+    --rot-x: 3.97deg;
+    --rot-y: 4.94deg;
+	background: linear-gradient(90deg,var(--main) 0%,var(--main) 60%,var(--main-60) 100%),no-repeat right 40%/40% var(--bg-img);
+}
+
+.work-project-card:hover{
+	background-color: var(--bg-color);
+	background-image: radial-gradient(circle at var(--drop-x) var(--drop-y),var(--drop-color),transparent);
+	transform:  perspective(1000px) rotateX(0.73deg) rotateY(5.03deg) scale(1.05);
+	transition: transform 0.3s ease-in-out;
+	border-color: var(--border-hover);
 }
