@@ -64,7 +64,7 @@ const workProjects = [
     id: 5,
     title: "ButlerMenu.com",
     description:
-      "ButlerMenu.com later Orderbutler.com was the defacto application for ordering foods, beverages and other commodities for hotel guests who have partnership with Butler Hospitality",
+      "ButlerMenu.com later Orderbutler.com was the defacto application for ordering foods, beverages and other commodities for hotel guests who had partnership with Butler Hospitality",
     imageUrl:
       "https://res.cloudinary.com/theazs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1737299543/personal-website/Screenshot_2025-01-19_at_9.12.02_PM_ksvkmn.png",
     projectUrl: "",
@@ -167,6 +167,8 @@ const experiences = [
               alt={project.title}
               class="w-full h-48 object-cover mb-4 rounded cursor-pointer"
               data-modal-image
+              data-project-url={project.projectUrl || ''}
+              data-iframe-enabled={project.id !== 6 && project.id !== 1 ? 'true' : 'false'}
             />
             <h3 class="text-lg font-semibold mb-2">{project.title}</h3>
             <p class="text-gray-700 text-sm/6 mb-2">{project.description}</p>
@@ -181,7 +183,7 @@ const experiences = [
                 {project.company}
               </a>
             </p>
-            <div class="flex flex-wrap gap-2 mb-2">
+            <div class="flex flex-wrap gap-2 mb-4">
               {project.tags.map((tag, index) => (
                 <span
                   key={index}
@@ -196,9 +198,12 @@ const experiences = [
                 href={project.projectUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-block text-blue-600 hover:underline mt-auto"
+                class="inline-flex items-center px-4 py-2 mt-auto bg-black bg-opacity-80 text-white rounded-md hover:bg-inherit border-1 hover:text-black hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-colors transform hover:-translate-y-1 duration-200 shadow-md group"
               >
-                View Project
+                <span class="text-sm/5">View Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
               </a>
             )}
           </article>
@@ -257,7 +262,7 @@ const experiences = [
         </li>
         <li class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
           <a
-            href="http://sunfruitfarms.com/"
+            href="https://sunfruitfarms.com/"
             target="_blank"
             rel="noopener noreferrer"
             class="block"
@@ -274,17 +279,32 @@ const experiences = [
   </section>
 </MainLayout>
 
-<!-- Modal for large images -->
+<!-- Modal for large images and iframes -->
 <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4 hidden">
-  <div class="relative max-w-6xl w-full">
-    <button id="closeModal" class="absolute top-2 right-2 bg-white rounded-full p-2 text-black hover:bg-gray-200 transition-colors">
+  <div class="relative max-w-6xl w-full max-h-[90vh]">
+    <button id="closeModal" class="absolute top-2 right-2 bg-white rounded-full p-2 text-black hover:bg-gray-200 transition-colors z-50">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <line x1="18" y1="6" x2="6" y2="18"></line>
         <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
     </button>
-    <img id="modalImage" class="max-h-[90vh] mx-auto rounded shadow-xl" src="" alt="Project image" />
-    <p id="modalCaption" class="text-white text-center mt-4 text-lg"></p>
+    
+    <!-- Image content -->
+    <div id="modalImageContent" class="hidden">
+      <img id="modalImage" class="max-h-[80vh] max-w-full mx-auto rounded shadow-xl" src="" alt="Project image" />
+      <p id="modalCaption" class="text-white text-center mt-4 text-lg"></p>
+    </div>
+    
+    <!-- Iframe content -->
+    <div id="modalIframeContent" class="hidden h-[80vh] w-full">
+      <iframe id="modalIframe" class="w-full h-full bg-white rounded shadow-xl" src="" frameborder="0" allowfullscreen></iframe>
+      <div class="flex justify-between items-center mt-4">
+        <p id="modalIframeCaption" class="text-white text-lg"></p>
+        <a id="modalExternalLink" href="" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors">
+          Open in new tab
+        </a>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -339,8 +359,8 @@ const experiences = [
       
       card.addEventListener('mousemove', function(event) {
         const { left, top, width, height } = card.getBoundingClientRect();
-        const x = (event.clientX - left - width / 2) / 55;
-        const y = (event.clientY - top - height / 2) / 55;
+        const x = (event.clientX - left - width / 2) / 90;
+        const y = (event.clientY - top - height / 2) / 90;
         
         // Set the position for the radial gradient with smooth transition
         card.style.setProperty('--drop-x', `${event.clientX - left}px`);
@@ -364,14 +384,36 @@ const experiences = [
     
     // Handle image modal
     const images = document.querySelectorAll('[data-modal-image]');
+    const modalImageContent = document.getElementById('modalImageContent');
+    const modalIframeContent = document.getElementById('modalIframeContent');
+    const modalIframe = document.getElementById('modalIframe');
+    const modalIframeCaption = document.getElementById('modalIframeCaption');
+    const modalExternalLink = document.getElementById('modalExternalLink');
     
     images.forEach(img => {
       img.addEventListener('click', function() {
         const imageUrl = this.src;
         const projectTitle = this.closest('article').querySelector('h3').textContent;
+        const projectUrl = this.getAttribute('data-project-url');
+        const iframeEnabled = this.getAttribute('data-iframe-enabled') === 'true';
         
-        modalImage.src = imageUrl;
-        modalCaption.textContent = projectTitle;
+        // Reset modal content visibility
+        modalImageContent.classList.add('hidden');
+        modalIframeContent.classList.add('hidden');
+        
+        if (projectUrl && projectUrl.trim() !== '' && iframeEnabled) {
+          // Display iframe for projects with URLs and iframe enabled
+          modalIframe.src = projectUrl;
+          modalIframeCaption.textContent = projectTitle;
+          modalExternalLink.href = projectUrl;
+          modalIframeContent.classList.remove('hidden');
+        } else {
+          // Display image for projects without URLs or with iframe disabled
+          modalImage.src = imageUrl;
+          modalCaption.textContent = projectTitle;
+          modalImageContent.classList.remove('hidden');
+        }
+        
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
       });
@@ -381,13 +423,21 @@ const experiences = [
     closeModal.addEventListener('click', function() {
       modal.classList.add('hidden');
       document.body.style.overflow = ''; // Restore scrolling
+      // Reset iframe src to stop any audio/video
+      setTimeout(() => {
+        modalIframe.src = '';
+      }, 300);
     });
     
-    // Close modal when clicking outside the image
+    // Close modal when clicking outside the content
     modal.addEventListener('click', function(event) {
       if (event.target === modal) {
         modal.classList.add('hidden');
         document.body.style.overflow = ''; // Restore scrolling
+        // Reset iframe src to stop any audio/video
+        setTimeout(() => {
+          modalIframe.src = '';
+        }, 300);
       }
     });
     
@@ -396,6 +446,10 @@ const experiences = [
       if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
         modal.classList.add('hidden');
         document.body.style.overflow = ''; // Restore scrolling
+        // Reset iframe src to stop any audio/video
+        setTimeout(() => {
+          modalIframe.src = '';
+        }, 300);
       }
     });
   });
