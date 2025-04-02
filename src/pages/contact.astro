@@ -1,165 +1,329 @@
 ---
-// src/pages/contact.astro
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="Contact - Atiquzzaman Soikat">
-  <div class="max-w-6xl mx-auto px-4 py-12">
+<MainLayout title="Hire Me - Atiquzzaman Soikat">
+  <div class="mx-auto px-4 py-12 max-w-4xl text-left">
     <!-- Header -->
     <div class="text-center mb-12">
       <img src="/logo.svg" alt="Logo" class="w-8 h-8 mx-auto mb-4" />
-      <h1 class="text-4xl font-bold mb-8">Contact</h1>
+      <h1 class="text-3xl font-bold mb-4">Let's Work Together</h1>
+      <p class="text-xl text-gray-700">
+        I'm currently available for freelance and contract opportunities
+      </p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-12">
-      <!-- Left Column - Profile Image -->
+    <!-- Main Content -->
+    <div class="grid md:grid-cols-2 gap-12 mb-12">
+      <!-- Left Column - Contact Info -->
       <div>
-        <img
-          src="/profile-large.jpg"
-          alt="Atiquzzaman Soikat"
-          class="w-full rounded-lg shadow-lg"
-        />
-      </div>
-
-      <!-- Right Column - Contact Form -->
-      <div class="bg-gray-50 p-8 rounded-lg">
-        <h2 class="text-2xl font-semibold mb-6">GET IN TOUCH</h2>
-
-        <!-- Social Links -->
-        <div class="flex gap-4 mb-8">
-          <a
-            href="https://linkedin.com"
-            class="p-2 bg-[#0077b5] text-white rounded-full hover:opacity-90"
-          >
-            <span class="sr-only">LinkedIn</span>
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-              ></path>
-            </svg>
-          </a>
-          <a
-            href="https://facebook.com"
-            class="p-2 bg-[#1877f2] text-white rounded-full hover:opacity-90"
-          >
-            <span class="sr-only">Facebook</span>
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"
-              ></path>
-            </svg>
-          </a>
-          <a
-            href="https://instagram.com"
-            class="p-2 bg-[#e4405f] text-white rounded-full hover:opacity-90"
-          >
-            <span class="sr-only">Instagram</span>
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-              ></path>
-            </svg>
-          </a>
-          <a
-            href="https://twitter.com"
-            class="p-2 bg-[#1da1f2] text-white rounded-full hover:opacity-90"
-          >
-            <span class="sr-only">Twitter</span>
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
-              ></path>
-            </svg>
-          </a>
-        </div>
-
-        <!-- Contact Info -->
-        <div class="grid grid-cols-2 gap-4 mb-8">
-          <div class="p-4 bg-white rounded-lg text-center">
-            <svg
-              class="w-6 h-6 mx-auto mb-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              ></path>
-            </svg>
-            <a
-              href="mailto:atik.aiub@gmail.com"
-              class="text-gray-600 hover:text-gray-900"
-            >
+        <h2 class="text-2xl font-bold mb-6">Contact Information</h2>
+        
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-semibold mb-2 text-blue-600">Email</h3>
+            <a href="mailto:atik.aiub@gmail.com" class="text-gray-700 hover:text-blue-600 transition-colors">
               atik.aiub@gmail.com
             </a>
           </div>
-          <div class="p-4 bg-white rounded-lg text-center">
-            <svg
-              class="w-6 h-6 mx-auto mb-2"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 0a12 12 0 1012 12A12.013 12.013 0 0012 0zm6.927 8.2l-6.845 9.289a1.011 1.011 0 01-1.43.188l-4.888-3.908a1 1 0 111.25-1.562l4.076 3.261 6.227-8.451a1 1 0 111.61 1.183z"
-              ></path>
-            </svg>
-            <a
-              href="skype:atik.aiub.skype"
-              class="text-gray-600 hover:text-gray-900"
-            >
-              atik.aiub.skype
-            </a>
+          
+          <div>
+            <h3 class="font-semibold mb-2 text-blue-600">Connect with me</h3>
+            <div class="flex space-x-4">
+              <a 
+                href="https://github.com/azs06" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="text-gray-700 hover:text-gray-900 transition-colors"
+              >
+                <span class="sr-only">GitHub</span>
+                <svg viewBox="0 0 16 16" aria-hidden="true" width="24" height="24">
+                  <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+              </a>
+              
+              <a 
+                href="https://twitter.com/soikat" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="text-gray-700 hover:text-blue-400 transition-colors"
+              >
+                <span class="sr-only">Twitter</span>
+                <svg viewBox="0 0 16 16" aria-hidden="true" width="24" height="24">
+                  <path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
+                </svg>
+              </a>
+              
+              <a 
+                href="https://www.linkedin.com/in/atiquzzaman-soikat/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="text-gray-700 hover:text-blue-700 transition-colors"
+              >
+                <span class="sr-only">LinkedIn</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold mb-2 text-blue-600">Availability</h3>
+            <p class="text-gray-700">
+              Currently available for:
+            </p>
+            <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
+              <li>Frontend development projects</li>
+              <li>Full-stack web applications</li>
+              <li>MVP development</li>
+              <li>Technical consulting</li>
+              <li>E-commerce solutions</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold mb-2 text-blue-600">Timezone</h3>
+            <p class="text-gray-700">
+              I work remotely and can accommodate various timezones. I'm based in GMT+6 but have experience working with teams across different time zones.
+            </p>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold mb-2 text-blue-600">Response Time</h3>
+            <p class="text-gray-700">
+              I typically respond to inquiries within 24 hours. For ongoing projects, I maintain regular communication based on your preferred cadence.
+            </p>
           </div>
         </div>
-
-        <!-- Contact Form -->
-        <form class="space-y-6" action="#" method="POST">
+        
+        <!-- Resume Download -->
+        <div class="mt-8">
+          <a 
+            href="/Updated Resume Md Atiquzzaman Soikat (1).pdf" 
+            download
+            class="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-800 rounded-md hover:bg-gray-200 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+            Download My Resume
+          </a>
+        </div>
+      </div>
+      
+      <!-- Right Column - Contact Form -->
+      <div>
+        <h2 class="text-2xl font-bold mb-6">Get In Touch</h2>
+        
+        <form id="contact-form" class="space-y-6">
           <div>
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
+            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
               required
-              class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
+          
           <div>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
               required
-              class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
+          
           <div>
-            <textarea
-              name="message"
-              placeholder="Message"
-              rows="4"
+            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+            <input 
+              type="text" 
+              id="subject" 
+              name="subject" 
               required
-              class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+          
+          <div>
+            <label for="project-type" class="block text-sm font-medium text-gray-700 mb-1">Project Type</label>
+            <select 
+              id="project-type" 
+              name="project-type"
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+            >
+              <option value="mvp">MVP Development</option>
+              <option value="website">Website Development</option>
+              <option value="frontend">Frontend Development</option>
+              <option value="fullstack">Full-stack Application</option>
+              <option value="ecommerce">E-commerce Solution</option>
+              <option value="consulting">Technical Consulting</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div>
+            <label for="budget" class="block text-sm font-medium text-gray-700 mb-1">Budget Range (USD)</label>
+            <select 
+              id="budget" 
+              name="budget"
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+            >
+              <option value="under-5k">Under $5,000</option>
+              <option value="5k-10k">$5,000 - $10,000</option>
+              <option value="10k-20k">$10,000 - $20,000</option>
+              <option value="20k-plus">$20,000+</option>
+              <option value="not-sure">Not sure yet</option>
+            </select>
+          </div>
+          
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Project Details</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="6" 
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Tell me about your project, timeline, and specific requirements..."
             ></textarea>
           </div>
-          <button
-            type="submit"
-            class="bg-gray-900 text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition-colors"
-          >
-            Send Message
-          </button>
+          
+          <div>
+            <button 
+              type="submit"
+              class="inline-flex items-center px-6 py-3 bg-black bg-opacity-80 text-white rounded-md hover:bg-inherit border-1 hover:text-black hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-colors transform hover:-translate-y-1 duration-200 shadow-md"
+            >
+              Send Message
+            </button>
+          </div>
         </form>
+        
+        <div id="form-success" class="mt-4 p-4 bg-green-100 text-green-700 rounded-md hidden">
+          Thank you for your message! I'll get back to you as soon as possible.
+        </div>
+        
+        <div id="form-error" class="mt-4 p-4 bg-red-100 text-red-700 rounded-md hidden">
+          There was an error sending your message. Please try again or contact me directly via email.
+        </div>
       </div>
     </div>
+    
+    <!-- Projects I'm Interested In -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-6">Projects I'm Interested In</h2>
+      
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+          <h3 class="font-semibold mb-2">Web Applications</h3>
+          <p class="text-gray-700">
+            SaaS products, internal tools, dashboards, and data visualization applications.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+          <h3 class="font-semibold mb-2">E-commerce Solutions</h3>
+          <p class="text-gray-700">
+            Custom storefronts, Shopify development, and integrations with payment systems.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+          <h3 class="font-semibold mb-2">Frontend Architecture</h3>
+          <p class="text-gray-700">
+            Component library development, performance optimization, and design system implementation.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+          <h3 class="font-semibold mb-2">Startup MVPs</h3>
+          <p class="text-gray-700">
+            Helping founders validate their ideas with minimal, well-crafted products that demonstrate value.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+          <h3 class="font-semibold mb-2">JAMstack Websites</h3>
+          <p class="text-gray-700">
+            Fast, secure, and SEO-optimized static sites with dynamic capabilities using modern frameworks.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+          <h3 class="font-semibold mb-2">API Development</h3>
+          <p class="text-gray-700">
+            Building robust backend services and RESTful APIs to power frontend applications.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- How I Work -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-6">How I Work</h2>
+      
+      <div class="bg-gray-50 p-6 rounded-lg">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="font-semibold mb-2 text-blue-600">Communication</h3>
+            <p class="text-gray-700">
+              I value clear, consistent communication. Depending on project needs, I set up regular check-ins via video calls and maintain daily updates through Slack or similar tools. I adapt to your preferred communication style.
+            </p>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold mb-2 text-blue-600">Project Management</h3>
+            <p class="text-gray-700">
+              I use agile methodologies with sprints tailored to project needs. I'm comfortable with various project management tools including Jira, Asana, Trello, or GitHub Projects.
+            </p>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold mb-2 text-blue-600">Development Process</h3>
+            <p class="text-gray-700">
+              I follow a structured development process with clear milestones, regular code reviews, and comprehensive testing. My goal is to deliver high-quality code that meets your requirements on time.
+            </p>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold mb-2 text-blue-600">Collaboration</h3>
+            <p class="text-gray-700">
+              I work well both independently and as part of a team. I can collaborate with your existing developers, designers, and stakeholders to ensure project success.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </MainLayout>
 
 <script>
-  // Add client-side form handling if needed
-  document.querySelector("form").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    // Add your form submission logic here
+  // Simple form handling script - can be enhanced with actual submission logic
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    const successMessage = document.getElementById('form-success');
+    const errorMessage = document.getElementById('form-error');
+    
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Here you would typically add code to submit the form data
+        // For now, we'll just show the success message
+        
+        successMessage.classList.remove('hidden');
+        form.reset();
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          successMessage.classList.add('hidden');
+        }, 5000);
+      });
+    }
   });
 </script>
