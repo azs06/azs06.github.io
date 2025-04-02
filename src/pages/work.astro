@@ -72,6 +72,18 @@ const workProjects = [
     tags: ["React.js", "Flow.js", "TailwindCss", "Redux"],
     companyUrl: "https://www.crunchbase.com/organization/butler-hospitality",
   },
+  {
+    id: 6,
+    title: "HiSkipper.com",
+    description:
+      "Jetaport.com later rebranded to hiskipper.com was a group hotel booking platform, our marketing pages were developed using Vue.js and our booking application was developed using Ember.js",
+    projectUrl: "",
+    imageUrl:
+      "https://res.cloudinary.com/theazs/image/upload/v1743580985/personal-website/tn0crpzelvwdvezavr62.png",
+    company: "Jetaport",
+    tags: ["Vue.js", "Ember.js", "Bulma CSS", "Reflex Grid", "Vuex"],
+    companyUrl: "https://www.crunchbase.com/organization/jetaport",
+  },
 ];
 
 const experiences = [
@@ -167,8 +179,10 @@ const experiences = [
               alt={project.title}
               class="w-full h-48 object-cover mb-4 rounded cursor-pointer"
               data-modal-image
-              data-project-url={project.projectUrl || ''}
-              data-iframe-enabled={project.id !== 6 && project.id !== 1 ? 'true' : 'false'}
+              data-project-url={project.projectUrl || ""}
+              data-iframe-enabled={
+                project.id !== 6 && project.id !== 1 ? "true" : "false"
+              }
             />
             <h3 class="text-lg font-semibold mb-2">{project.title}</h3>
             <p class="text-gray-700 text-sm/6 mb-2">{project.description}</p>
@@ -201,8 +215,17 @@ const experiences = [
                 class="inline-flex items-center px-4 py-2 mt-auto bg-black bg-opacity-80 text-white rounded-md hover:bg-inherit border-1 hover:text-black hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-colors transform hover:-translate-y-1 duration-200 shadow-md group"
               >
                 <span class="text-sm/5">View Project</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
                 </svg>
               </a>
             )}
@@ -211,66 +234,160 @@ const experiences = [
       }
     </div>
   </section>
-  <section class="bg-gray-100 py-12">
+  <section class="py-12 bg-gradient-to-b from-gray-50 to-gray-100">
     <div class="max-w-5xl mx-auto px-4">
-      <header class="text-center mb-8">
-        <h2 class="text-3xl font-bold text-gray-800">Freelance Projects</h2>
-        <p class="text-lg text-gray-600 mt-2">
-          A showcase of my freelance client projects. Click on any project to
-          learn more.
+      <header class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-800 mb-3">
+          Freelance Projects
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          A showcase of independent client projects where I've delivered custom
+          solutions while maintaining full creative control.
         </p>
       </header>
+
       <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <li class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+        <li
+          class="freelance-card relative overflow-hidden bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+          data-tilt-freelance
+          style="--drop-color: rgba(65, 105, 225, 0.15); --drop-x: 50%; --drop-y: 50%;"
+        >
           <a
             href="https://nini-designs.com/"
             target="_blank"
             rel="noopener noreferrer"
-            class="block"
+            class="block p-6 h-full"
           >
-            <h3 class="text-xl font-semibold text-blue-600 hover:underline">
-              Nini Design
-            </h3>
-            <p class="text-gray-500 mt-2">Shopify Clothing Store.</p>
+            <div class="flex flex-col h-full">
+              <h3
+                class="text-xl font-semibold text-gray-800 mb-2 group-hover:text-blue-600"
+              >
+                Nini Design
+              </h3>
+              <p class="text-gray-600 mb-4">Shopify Clothing Store</p>
+              <div class="flex items-center mt-auto text-blue-600">
+                <span>Visit Site</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+            </div>
           </a>
         </li>
-        <li class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+
+        <li
+          class="freelance-card relative overflow-hidden bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+          data-tilt-freelance
+          style="--drop-color: rgba(65, 105, 225, 0.15); --drop-x: 50%; --drop-y: 50%;"
+        >
           <a
             href="https://www.bobbylondonsf.com/"
             target="_blank"
             rel="noopener noreferrer"
-            class="block"
+            class="block p-6 h-full"
           >
-            <h3 class="text-xl font-semibold text-blue-600 hover:underline">
-              Bobby London
-            </h3>
-            <p class="text-gray-500 mt-2">Shopify Clothing Store.</p>
+            <div class="flex flex-col h-full">
+              <h3
+                class="text-xl font-semibold text-gray-800 mb-2 group-hover:text-blue-600"
+              >
+                Bobby London
+              </h3>
+              <p class="text-gray-600 mb-4">Shopify Clothing Store</p>
+              <div class="flex items-center mt-auto text-blue-600">
+                <span>Visit Site</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+            </div>
           </a>
         </li>
-        <li class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+
+        <li
+          class="freelance-card relative overflow-hidden bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+          data-tilt-freelance
+          style="--drop-color: rgba(65, 105, 225, 0.15); --drop-x: 50%; --drop-y: 50%;"
+        >
           <a
             href="https://www.jardindedenclo.com/"
             target="_blank"
             rel="noopener noreferrer"
-            class="block"
+            class="block p-6 h-full"
           >
-            <h3 class="text-xl font-semibold text-blue-600 hover:underline">
-              JARDIN D'EDEN
-            </h3>
-            <p class="text-gray-500 mt-2">Shopify Clothing Store.</p>
+            <div class="flex flex-col h-full">
+              <h3
+                class="text-xl font-semibold text-gray-800 mb-2 group-hover:text-blue-600"
+              >
+                JARDIN D'EDEN
+              </h3>
+              <p class="text-gray-600 mb-4">Shopify Clothing Store</p>
+              <div class="flex items-center mt-auto text-blue-600">
+                <span>Visit Site</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+            </div>
           </a>
         </li>
-        <li class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+
+        <li
+          class="freelance-card relative overflow-hidden bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+          data-tilt-freelance
+          style="--drop-color: rgba(65, 105, 225, 0.15); --drop-x: 50%; --drop-y: 50%;"
+        >
           <a
             href="https://sunfruitfarms.com/"
             target="_blank"
             rel="noopener noreferrer"
-            class="block"
+            class="block p-6 h-full"
           >
-            <h3 class="text-xl font-semibold text-blue-600 hover:underline">
-              Sunfruit Farms
-            </h3>
-            <p class="text-gray-500 mt-2">Jamstack Landing Page</p>
+            <div class="flex flex-col h-full">
+              <h3
+                class="text-xl font-semibold text-gray-800 mb-2 group-hover:text-blue-600"
+              >
+                Sunfruit Farms
+              </h3>
+              <p class="text-gray-600 mb-4">Jamstack Landing Page</p>
+              <div class="flex items-center mt-auto text-blue-600">
+                <span>Visit Site</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+            </div>
           </a>
         </li>
         <!-- Add more projects as needed -->
@@ -280,27 +397,58 @@ const experiences = [
 </MainLayout>
 
 <!-- Modal for large images and iframes -->
-<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4 hidden">
+<div
+  id="imageModal"
+  class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4 hidden"
+>
   <div class="relative max-w-6xl w-full max-h-[90vh]">
-    <button id="closeModal" class="absolute top-2 right-2 bg-white rounded-full p-2 text-black hover:bg-gray-200 transition-colors z-50">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <button
+      id="closeModal"
+      class="absolute top-2 right-2 bg-white rounded-full p-2 text-black hover:bg-gray-200 transition-colors z-50"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
         <line x1="18" y1="6" x2="6" y2="18"></line>
         <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
     </button>
-    
+
     <!-- Image content -->
     <div id="modalImageContent" class="hidden">
-      <img id="modalImage" class="max-h-[80vh] max-w-full mx-auto rounded shadow-xl" src="" alt="Project image" />
+      <img
+        id="modalImage"
+        class="max-h-[80vh] max-w-full mx-auto rounded shadow-xl"
+        src=""
+        alt="Project image"
+      />
       <p id="modalCaption" class="text-white text-center mt-4 text-lg"></p>
     </div>
-    
+
     <!-- Iframe content -->
     <div id="modalIframeContent" class="hidden h-[80vh] w-full">
-      <iframe id="modalIframe" class="w-full h-full bg-white rounded shadow-xl" src="" frameborder="0" allowfullscreen></iframe>
+      <iframe
+        id="modalIframe"
+        class="w-full h-full bg-white rounded shadow-xl"
+        src=""
+        frameborder="0"
+        allowfullscreen></iframe>
       <div class="flex justify-between items-center mt-4">
         <p id="modalIframeCaption" class="text-white text-lg"></p>
-        <a id="modalExternalLink" href="" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors">
+        <a
+          id="modalExternalLink"
+          href=""
+          target="_blank"
+          class="text-blue-400 hover:text-blue-300 transition-colors"
+        >
           Open in new tab
         </a>
       </div>
@@ -317,13 +465,17 @@ const experiences = [
   }
 
   .work-project-card::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(circle at var(--drop-x) var(--drop-y), var(--drop-color), transparent 70%);
+    background-image: radial-gradient(
+      circle at var(--drop-x) var(--drop-y),
+      var(--drop-color),
+      transparent 70%
+    );
     opacity: 0;
     transition: opacity 0.4s ease-out;
     z-index: 0;
@@ -339,118 +491,215 @@ const experiences = [
     z-index: 1;
     transition: transform 0.2s ease-out;
   }
-  
+
   .work-project-card:hover > * {
     transform: translateZ(10px);
+  }
+  .freelance-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+    will-change: transform;
+  }
+
+  .freelance-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(
+      circle at var(--drop-x) var(--drop-y),
+      var(--drop-color),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .freelance-card:hover::before {
+    opacity: 1;
+  }
+
+  .freelance-card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .freelance-card:hover > * {
+    transform: translateZ(5px);
+  }
+
+  /* Gradient border effect on hover */
+  .freelance-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 0.5rem; /* 8px */
+    padding: 2px;
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.4) 0%,
+      rgba(147, 197, 253, 0.1) 50%,
+      rgba(59, 130, 246, 0.4) 100%
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .freelance-card:hover::after {
+    opacity: 1;
   }
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const cards = document.querySelectorAll('[data-tilt]');
-    const modal = document.getElementById('imageModal');
-    const modalImage = document.getElementById('modalImage');
-    const modalCaption = document.getElementById('modalCaption');
-    const closeModal = document.getElementById('closeModal');
-    
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll("[data-tilt]");
+    const modal = document.getElementById("imageModal");
+    const modalImage = document.getElementById("modalImage");
+    const modalCaption = document.getElementById("modalCaption");
+    const closeModal = document.getElementById("closeModal");
+
     // Handle tilt effect
-    cards.forEach(card => {
+    cards.forEach((card) => {
       let timeout;
-      
-      card.addEventListener('mousemove', function(event) {
+
+      card.addEventListener("mousemove", function (event) {
         const { left, top, width, height } = card.getBoundingClientRect();
         const x = (event.clientX - left - width / 2) / 90;
         const y = (event.clientY - top - height / 2) / 90;
-        
+
         // Set the position for the radial gradient with smooth transition
-        card.style.setProperty('--drop-x', `${event.clientX - left}px`);
-        card.style.setProperty('--drop-y', `${event.clientY - top}px`);
-        
+        card.style.setProperty("--drop-x", `${event.clientX - left}px`);
+        card.style.setProperty("--drop-y", `${event.clientY - top}px`);
+
         // Apply tilt effect
         card.style.transform = `perspective(1000px) rotateX(${-y}deg) rotateY(${x}deg) scale(1.02)`;
       });
-      
-      card.addEventListener('mouseleave', function() {
+
+      card.addEventListener("mouseleave", function () {
         // Add a slight delay before resetting for a smoother experience
         timeout = setTimeout(() => {
-          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+          card.style.transform =
+            "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
         }, 100);
       });
-      
-      card.addEventListener('mouseenter', function() {
+
+      card.addEventListener("mouseenter", function () {
         clearTimeout(timeout);
       });
     });
-    
+
     // Handle image modal
-    const images = document.querySelectorAll('[data-modal-image]');
-    const modalImageContent = document.getElementById('modalImageContent');
-    const modalIframeContent = document.getElementById('modalIframeContent');
-    const modalIframe = document.getElementById('modalIframe');
-    const modalIframeCaption = document.getElementById('modalIframeCaption');
-    const modalExternalLink = document.getElementById('modalExternalLink');
-    
-    images.forEach(img => {
-      img.addEventListener('click', function() {
+    const images = document.querySelectorAll("[data-modal-image]");
+    const modalImageContent = document.getElementById("modalImageContent");
+    const modalIframeContent = document.getElementById("modalIframeContent");
+    const modalIframe = document.getElementById("modalIframe");
+    const modalIframeCaption = document.getElementById("modalIframeCaption");
+    const modalExternalLink = document.getElementById("modalExternalLink");
+
+    images.forEach((img) => {
+      img.addEventListener("click", function () {
         const imageUrl = this.src;
-        const projectTitle = this.closest('article').querySelector('h3').textContent;
-        const projectUrl = this.getAttribute('data-project-url');
-        const iframeEnabled = this.getAttribute('data-iframe-enabled') === 'true';
-        
+        const projectTitle =
+          this.closest("article").querySelector("h3").textContent;
+        const projectUrl = this.getAttribute("data-project-url");
+        const iframeEnabled =
+          this.getAttribute("data-iframe-enabled") === "true";
+
         // Reset modal content visibility
-        modalImageContent.classList.add('hidden');
-        modalIframeContent.classList.add('hidden');
-        
-        if (projectUrl && projectUrl.trim() !== '' && iframeEnabled) {
+        modalImageContent.classList.add("hidden");
+        modalIframeContent.classList.add("hidden");
+
+        if (projectUrl && projectUrl.trim() !== "" && iframeEnabled) {
           // Display iframe for projects with URLs and iframe enabled
           modalIframe.src = projectUrl;
           modalIframeCaption.textContent = projectTitle;
           modalExternalLink.href = projectUrl;
-          modalIframeContent.classList.remove('hidden');
+          modalIframeContent.classList.remove("hidden");
         } else {
           // Display image for projects without URLs or with iframe disabled
           modalImage.src = imageUrl;
           modalCaption.textContent = projectTitle;
-          modalImageContent.classList.remove('hidden');
+          modalImageContent.classList.remove("hidden");
         }
-        
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
       });
     });
-    
+
     // Close modal when clicking the close button
-    closeModal.addEventListener('click', function() {
-      modal.classList.add('hidden');
-      document.body.style.overflow = ''; // Restore scrolling
+    closeModal.addEventListener("click", function () {
+      modal.classList.add("hidden");
+      document.body.style.overflow = ""; // Restore scrolling
       // Reset iframe src to stop any audio/video
       setTimeout(() => {
-        modalIframe.src = '';
+        modalIframe.src = "";
       }, 300);
     });
-    
+
     // Close modal when clicking outside the content
-    modal.addEventListener('click', function(event) {
+    modal.addEventListener("click", function (event) {
       if (event.target === modal) {
-        modal.classList.add('hidden');
-        document.body.style.overflow = ''; // Restore scrolling
+        modal.classList.add("hidden");
+        document.body.style.overflow = ""; // Restore scrolling
         // Reset iframe src to stop any audio/video
         setTimeout(() => {
-          modalIframe.src = '';
+          modalIframe.src = "";
         }, 300);
       }
     });
-    
+
     // Close modal on escape key
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
-        modal.classList.add('hidden');
-        document.body.style.overflow = ''; // Restore scrolling
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !modal.classList.contains("hidden")) {
+        modal.classList.add("hidden");
+        document.body.style.overflow = ""; // Restore scrolling
         // Reset iframe src to stop any audio/video
         setTimeout(() => {
-          modalIframe.src = '';
+          modalIframe.src = "";
         }, 300);
       }
+    });
+
+    // Add this new code for freelance cards
+    const freelanceCards = document.querySelectorAll("[data-tilt-freelance]");
+
+    freelanceCards.forEach((card) => {
+      let timeout;
+
+      card.addEventListener("mousemove", function (event) {
+        const { left, top, width, height } = card.getBoundingClientRect();
+        const x = (event.clientX - left - width / 2) / 120; // More subtle tilt
+        const y = (event.clientY - top - height / 2) / 120;
+
+        // Set the position for the radial gradient
+        card.style.setProperty("--drop-x", `${event.clientX - left}px`);
+        card.style.setProperty("--drop-y", `${event.clientY - top}px`);
+
+        // Apply subtle tilt effect
+        card.style.transform = `perspective(1000px) rotateX(${-y}deg) rotateY(${x}deg) scale(1.01)`;
+      });
+
+      card.addEventListener("mouseleave", function () {
+        timeout = setTimeout(() => {
+          card.style.transform =
+            "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
+        }, 100);
+      });
+
+      card.addEventListener("mouseenter", function () {
+        clearTimeout(timeout);
+      });
     });
   });
 </script>
