@@ -1,0 +1,221 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Atiquzzaman Soikat - Senior Frontend Engineer">
+  <!-- Hero Section -->
+  <section class="flex flex-col-reverse md:flex-row items-center justify-between mb-20">
+    <!-- Left Content -->
+    <div class="w-full md:w-3/5 text-left">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-blue-600">Atiquzzaman Soikat</span></h1>
+      <p class="text-xl text-gray-600 mb-6">Senior Frontend Engineer & CTO at ReformedTech</p>
+      
+      <p class="text-gray-700 mb-8">
+        With over a decade of web development experience, I specialize in building performant, 
+        user-friendly applications with modern JavaScript frameworks.
+      </p>
+      
+      <div class="flex flex-wrap gap-3 mb-8">
+        <a href="/work" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md">View My Work</a>
+        <a href="/contact" class="px-6 py-3 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors">Get In Touch</a>
+      </div>
+    </div>
+    
+    <!-- Right Content - Profile Image -->
+    <div class="w-full md:w-2/5 mb-8 md:mb-0">
+      <div class="relative">
+        <div class="absolute inset-0 bg-blue-600 rounded-full opacity-10 blur-xl transform scale-110"></div>
+        <img
+          src="https://avatars.githubusercontent.com/u/1593663?v=4"
+          alt="Atiquzzaman Soikat"
+          class="relative w-48 h-48 md:w-64 md:h-64 rounded-full mx-auto object-cover border-4 border-white shadow-xl"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- MVP Service Spotlight Section -->
+  <section class="mb-20 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12 shadow-sm">
+    <div class="flex flex-col md:flex-row items-center gap-10">
+      <div class="w-full md:w-1/2">
+        <h2 class="text-3xl font-bold mb-4 text-gray-800">MVP Development Service</h2>
+        <p class="text-lg text-gray-700 mb-4">
+          Transform your idea into a working product in weeks, not months. I specialize in helping startups 
+          and businesses quickly validate their concepts with functional MVP applications.
+        </p>
+        <ul class="space-y-2 mb-6">
+          <li class="flex items-start">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span>Rapid development with modern web frameworks</span>
+          </li>
+          <li class="flex items-start">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span>Focus on core features that validate your hypothesis</span>
+          </li>
+          <li class="flex items-start">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span>Scalable foundation for future growth</span>
+          </li>
+        </ul>
+        <a href="/mvp-service" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition shadow-md">
+          Learn About MVP Service
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+      <div class="w-full md:w-1/2">
+        <div class="relative">
+          <div class="absolute inset-0 bg-blue-600 opacity-5 blur-xl transform scale-110 rounded-xl"></div>
+          <div class="relative bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+            <div class="text-gray-400 uppercase text-xs font-semibold tracking-wider mb-6">MVP Development Process</div>
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">1</div>
+                <div>
+                  <h3 class="font-semibold">Discovery</h3>
+                  <p class="text-sm text-gray-600">Define core features and establish project goals</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">2</div>
+                <div>
+                  <h3 class="font-semibold">Design & Development</h3>
+                  <p class="text-sm text-gray-600">Rapid development of essential features</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">3</div>
+                <div>
+                  <h3 class="font-semibold">Launch & Test</h3>
+                  <p class="text-sm text-gray-600">Deploy your MVP and gather real user feedback</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">4</div>
+                <div>
+                  <h3 class="font-semibold">Iterate</h3>
+                  <p class="text-sm text-gray-600">Refine based on data and user insights</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section class="mb-16">
+    <h2 class="text-2xl font-bold mb-6 text-center">Tech Stack</h2>
+    <div class="grid grid-cols-3 md:grid-cols-6 gap-4 md:gap-8">
+      {['JavaScript', 'TypeScript', 'React', 'Svelte', 'Vue', 'Node.js'].map(tech => (
+        <div class="flex flex-col items-center p-4 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+          <span class="text-blue-600 font-medium">{tech}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="mb-16">
+    <h2 class="text-2xl font-bold mb-6 text-center">Services</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <a href="/contact" class="group p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1">
+        <h3 class="text-xl font-semibold mb-3 group-hover:text-blue-600 transition-colors">Custom Web Development</h3>
+        <p class="text-gray-700">Full-stack development services tailored to your business needs, from concept to deployment.</p>
+        <div class="mt-4 text-blue-600 flex items-center">
+          Get in touch 
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </div>
+      </a>
+      <a href="/contact" class="group p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1">
+        <h3 class="text-xl font-semibold mb-3 group-hover:text-blue-600 transition-colors">Technical Consultation</h3>
+        <p class="text-gray-700">Expert guidance on frontend architecture, performance optimization, and technology selection.</p>
+        <div class="mt-4 text-blue-600 flex items-center">
+          Learn more 
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Featured Projects Section -->
+  <section class="mb-16">
+    <h2 class="text-2xl font-bold mb-6 text-center">Featured Projects</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <a href="/work" class="group block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="https://res.cloudinary.com/theazs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1737232766/personal-website/zabfcuvtplaxvl61kens.png" alt="Skipper Booking Widget" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2 group-hover:text-blue-600 transition-colors">Skipper Booking Widget</h3>
+          <p class="text-gray-600">Booking engine for hotels to drive direct bookings and increase profits</p>
+        </div>
+      </a>
+      <a href="/work" class="group block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img src="https://res.cloudinary.com/theazs/image/upload/v1743580985/personal-website/tn0crpzelvwdvezavr62.png" alt="HiSkipper.com" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2 group-hover:text-blue-600 transition-colors">HiSkipper.com</h3>
+          <p class="text-gray-600">Group hotel booking platform developed with Vue.js and Ember.js</p>
+        </div>
+      </a>
+    </div>
+    <div class="text-center mt-8">
+      <a href="/work" class="inline-flex items-center text-blue-600 font-medium hover:text-blue-800">
+        View all projects
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="bg-gray-50 p-8 rounded-xl shadow-sm">
+    <h2 class="text-2xl font-bold mb-6 text-center">Let's Connect</h2>
+    <p class="text-center text-gray-700 mb-8">Ready to start a project or discuss an opportunity? Reach out and let's talk!</p>
+    <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+      
+        href="/contact"
+        class="inline-flex items-center justify-center px-6 py-3 font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors shadow-md"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+          <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+        </svg>
+        Contact Me
+      </a>
+      
+        href="https://www.linkedin.com/in/atiquzzaman-soikat/"
+        class="inline-flex items-center justify-center px-6 py-3 font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+      >
+        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+        </svg>
+        LinkedIn
+      </a>
+      
+        href="Md Atiquzzaman Soikat Resume.pdf"
+        class="inline-flex items-center justify-center px-6 py-3 font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" />
+        </svg>
+        Resume
+      </a>
+    </div>
+  </section>
+</MainLayout>
