@@ -4,48 +4,37 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <MainLayout title="Contact - Atiquzzaman Soikat">
   <!-- Profile Image -->
-  <div class="mb-8">
-    <img
-      src="https://avatars.githubusercontent.com/u/1593663?v=4"
-      alt="Profile picture"
-      class="w-40 h-40 rounded-full mx-auto object-cover"
-    />
+  <div class="w-full mx-auto md:w-2/5 mb-8">
+    <div class="relative">
+      <div class="absolute inset-0 bg-blue-600 rounded-full opacity-10 blur-xl transform scale-110"></div>
+      <img
+        src="https://avatars.githubusercontent.com/u/1593663?v=4"
+        alt="Atiquzzaman Soikat"
+        class="relative w-48 h-48 md:w-64 md:h-64 rounded-full mx-auto object-cover border-4 border-white shadow-xl"
+      />
+    </div>
   </div>
 
   <!-- Profile Info -->
-  <h1 class="text-4xl font-bold mb-2">Md. Atiquzzaman Soikat</h1>
-  <p class="text-gray-600 mb-6">
-    Lifelong learner, Tech Enthusiast, Geek for life
-  </p>
-
+  <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-blue-600">Atiquzzaman Soikat</span></h1>
+  <p class="text-xl text-gray-800 font-semibold mb-6">Senior Software Engineer & CTO at ReformedTech</p>
+ 
   <!-- Introduction -->
   <div class="space-y-6 text-gray-700">
-    <h3 class="text-2xl font-medium mb-4">Hi! 👋</h3>
-
     <p>
-      Most recently I worked as a Lead Developer(Frontend) at Skipper
-      Hospitality. I am also a co-founder of ReformedTech and currently serving
-      as the CTO of the company.
+      With over a decade of web development expertise, I've most recently served as Lead Frontend Developer at Skipper Hospitality, while also co-founding ReformedTech where I currently serve as CTO.
     </p>
-
+    
     <p>
-      I have been dabbling on the web for more than a decade. JavaScript is the
-      language of the web, also my primary language of choice for programming. I
-      also have experience in PHP, Python, Ruby, and Java. My primary choice of
-      frontend frameworks are React and Vue.js, although I have recently fallen
-      in love with Svelte
+      <span class="tech-highlight">JavaScript</span> has been my primary programming language throughout my career, complemented by experience in <span class="tech-highlight">PHP</span>, <span class="tech-highlight">Python</span>, <span class="tech-highlight">Ruby</span>, and <span class="tech-highlight">Java</span>. While I've extensively worked with <span class="tech-highlight">React</span> and <span class="tech-highlight">Vue.js</span>, I've recently developed a particular appreciation for <span class="tech-highlight">Svelte's</span> elegant approach to UI development.
     </p>
-
+    
     <p>
-      Now a days my focus is on Frontend Infrastructure, tooling and developig
-      tools to make development experience smoother. I am a huge fan of the
-      Jamstack architecture. Developing performant, user friendly and scaleable
-      websites is a passion of mine.
+      Today, my technical focus centers on Frontend Infrastructure and tooling that enhances developer experience. I'm passionate about <span class="tech-highlight">Jamstack</span> architecture and take pride in creating performant, user-friendly, and scalable web applications that deliver exceptional experiences.
     </p>
-
+    
     <p>
-      While not programming I enjoy video games, cooking and spending time with
-      my friends and family.
+      Beyond coding, I maintain a balanced life through gaming, cooking, and quality time with friends and family.
     </p>
   </div>
   <div
@@ -76,3 +65,31 @@ import MainLayout from "../layouts/MainLayout.astro";
     >
   </div>
 </MainLayout>
+
+<style>
+    .tech-highlight {
+    position: relative;
+    font-weight: 500;
+  }
+  
+  .tech-highlight::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #4f46e5 0%, #818cf8 100%);
+    border-radius: 2px;
+    transform: perspective(10px) rotateX(5deg);
+    opacity: 0.6;
+    z-index: -1;
+    transition: all 0.3s ease;
+  }
+  
+  .tech-highlight:hover::after {
+    height: 8px;
+    opacity: 0.8;
+    transform: perspective(10px) rotateX(8deg) translateY(-1px);
+  }
+</style>
