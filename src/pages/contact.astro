@@ -18,61 +18,86 @@ import MainLayout from "../layouts/MainLayout.astro";
       <!-- Left Column - Contact Info -->
       <div>
         <h2 class="text-2xl font-bold mb-6">Contact Information</h2>
-        
+
         <div class="space-y-6">
           <div>
             <h3 class="font-semibold mb-2 text-blue-600">Email</h3>
-            <a href="mailto:atik.aiub@gmail.com" class="text-gray-700 hover:text-blue-600 transition-colors">
+            <a
+              href="mailto:atik.aiub@gmail.com"
+              class="text-gray-700 hover:text-blue-600 transition-colors"
+            >
               atik.aiub@gmail.com
             </a>
           </div>
-          
+
           <div>
             <h3 class="font-semibold mb-2 text-blue-600">Connect with me</h3>
             <div class="flex space-x-4">
-              <a 
-                href="https://github.com/azs06" 
-                target="_blank" 
+              <a
+                href="https://github.com/azs06"
+                target="_blank"
                 rel="noopener noreferrer"
                 class="text-gray-700 hover:text-gray-900 transition-colors"
               >
                 <span class="sr-only">GitHub</span>
-                <svg viewBox="0 0 16 16" aria-hidden="true" width="24" height="24">
-                  <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                <svg
+                  viewBox="0 0 16 16"
+                  aria-hidden="true"
+                  width="24"
+                  height="24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+                  ></path>
                 </svg>
               </a>
-              
-              <a 
-                href="https://twitter.com/soikat" 
-                target="_blank" 
+
+              <a
+                href="https://twitter.com/soikat"
+                target="_blank"
                 rel="noopener noreferrer"
                 class="text-gray-700 hover:text-blue-400 transition-colors"
               >
                 <span class="sr-only">Twitter</span>
-                <svg viewBox="0 0 16 16" aria-hidden="true" width="24" height="24">
-                  <path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
+                <svg
+                  viewBox="0 0 16 16"
+                  aria-hidden="true"
+                  width="24"
+                  height="24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+                  ></path>
                 </svg>
               </a>
-              
-              <a 
-                href="https://www.linkedin.com/in/atiquzzaman-soikat/" 
-                target="_blank" 
+
+              <a
+                href="https://www.linkedin.com/in/atiquzzaman-soikat/"
+                target="_blank"
                 rel="noopener noreferrer"
                 class="text-gray-700 hover:text-blue-700 transition-colors"
               >
                 <span class="sr-only">LinkedIn</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                  ></path>
                 </svg>
               </a>
             </div>
           </div>
-          
+
           <div>
             <h3 class="font-semibold mb-2 text-blue-600">Availability</h3>
-            <p class="text-gray-700">
-              Currently available for:
-            </p>
+            <p class="text-gray-700">Currently available for:</p>
             <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
               <li>Frontend development projects</li>
               <li>Full-stack web applications</li>
@@ -81,79 +106,105 @@ import MainLayout from "../layouts/MainLayout.astro";
               <li>E-commerce solutions</li>
             </ul>
           </div>
-          
+
           <div>
             <h3 class="font-semibold mb-2 text-blue-600">Timezone</h3>
             <p class="text-gray-700">
-              I work remotely and can accommodate various timezones. I'm based in GMT+6 but have experience working with teams across different time zones.
+              I work remotely and can accommodate various timezones. I'm based
+              in GMT+6 but have experience working with teams across different
+              time zones.
             </p>
           </div>
-          
+
           <div>
             <h3 class="font-semibold mb-2 text-blue-600">Response Time</h3>
             <p class="text-gray-700">
-              I typically respond to inquiries within 24 hours. For ongoing projects, I maintain regular communication based on your preferred cadence.
+              I typically respond to inquiries within 24 hours. For ongoing
+              projects, I maintain regular communication based on your preferred
+              cadence.
             </p>
           </div>
         </div>
-        
+
         <!-- Resume Download -->
         <div class="mt-8">
-          <a 
-            href="/Updated Resume Md Atiquzzaman Soikat (1).pdf" 
+          <a
+            href="/Updated Resume Md Atiquzzaman Soikat (1).pdf"
             download
             class="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-800 rounded-md hover:bg-gray-200 transition-colors"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
             </svg>
             Download My Resume
           </a>
         </div>
       </div>
-      
+
       <!-- Right Column - Contact Form -->
       <div>
         <h2 class="text-2xl font-bold mb-6">Get In Touch</h2>
-        
+
         <form id="contact-form" class="space-y-6">
           <div>
-            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-            <input 
-              type="text" 
-              id="name" 
-              name="name" 
+            <label
+              for="name"
+              class="block text-sm font-medium text-gray-700 mb-1">Name</label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
               required
               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
-          
+
           <div>
-            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email" 
+            <label
+              for="email"
+              class="block text-sm font-medium text-gray-700 mb-1">Email</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
               required
               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
-          
+
           <div>
-            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-            <input 
-              type="text" 
-              id="subject" 
-              name="subject" 
+            <label
+              for="subject"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Subject</label
+            >
+            <input
+              type="text"
+              id="subject"
+              name="subject"
               required
               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
-          
+
           <div>
-            <label for="project-type" class="block text-sm font-medium text-gray-700 mb-1">Project Type</label>
-            <select 
-              id="project-type" 
+            <label
+              for="project-type"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Project Type</label
+            >
+            <select
+              id="project-type"
               name="project-type"
               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
             >
@@ -166,11 +217,15 @@ import MainLayout from "../layouts/MainLayout.astro";
               <option value="other">Other</option>
             </select>
           </div>
-          
+
           <div>
-            <label for="budget" class="block text-sm font-medium text-gray-700 mb-1">Budget Range (USD)</label>
-            <select 
-              id="budget" 
+            <label
+              for="budget"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Budget Range (USD)</label
+            >
+            <select
+              id="budget"
               name="budget"
               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
             >
@@ -181,21 +236,25 @@ import MainLayout from "../layouts/MainLayout.astro";
               <option value="not-sure">Not sure yet</option>
             </select>
           </div>
-          
+
           <div>
-            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Project Details</label>
-            <textarea 
-              id="message" 
-              name="message" 
-              rows="6" 
+            <label
+              for="message"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Project Details</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
               required
               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
               placeholder="Tell me about your project, timeline, and specific requirements..."
             ></textarea>
           </div>
-          
+
           <div>
-            <button 
+            <button
               type="submit"
               class="inline-flex items-center px-6 py-3 bg-black bg-opacity-80 text-white rounded-md hover:bg-inherit border-1 hover:text-black hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-colors transform hover:-translate-y-1 duration-200 shadow-md"
             >
@@ -203,97 +262,133 @@ import MainLayout from "../layouts/MainLayout.astro";
             </button>
           </div>
         </form>
-        
-        <div id="form-success" class="mt-4 p-4 bg-green-100 text-green-700 rounded-md hidden">
+
+        <div
+          id="form-success"
+          class="mt-4 p-4 bg-green-100 text-green-700 rounded-md hidden"
+        >
           Thank you for your message! I'll get back to you as soon as possible.
         </div>
-        
-        <div id="form-error" class="mt-4 p-4 bg-red-100 text-red-700 rounded-md hidden">
-          There was an error sending your message. Please try again or contact me directly via email.
+
+        <div
+          id="form-error"
+          class="mt-4 p-4 bg-red-100 text-red-700 rounded-md hidden"
+        >
+          There was an error sending your message. Please try again or contact
+          me directly via email.
         </div>
       </div>
     </div>
-    
+
     <!-- Projects I'm Interested In -->
     <section class="mb-12">
       <h2 class="text-2xl font-bold mb-6">Projects I'm Interested In</h2>
-      
+
       <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+        <div
+          class="bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow"
+        >
           <h3 class="font-semibold mb-2">Web Applications</h3>
           <p class="text-gray-700">
-            SaaS products, internal tools, dashboards, and data visualization applications.
+            SaaS products, internal tools, dashboards, and data visualization
+            applications.
           </p>
         </div>
-        
-        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+
+        <div
+          class="bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow"
+        >
           <h3 class="font-semibold mb-2">E-commerce Solutions</h3>
           <p class="text-gray-700">
-            Custom storefronts, Shopify development, and integrations with payment systems.
+            Custom storefronts, Shopify development, and integrations with
+            payment systems.
           </p>
         </div>
-        
-        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+
+        <div
+          class="bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow"
+        >
           <h3 class="font-semibold mb-2">Frontend Architecture</h3>
           <p class="text-gray-700">
-            Component library development, performance optimization, and design system implementation.
+            Component library development, performance optimization, and design
+            system implementation.
           </p>
         </div>
-        
-        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+
+        <div
+          class="bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow"
+        >
           <h3 class="font-semibold mb-2">Startup MVPs</h3>
           <p class="text-gray-700">
-            Helping founders validate their ideas with minimal, well-crafted products that demonstrate value.
+            Helping founders validate their ideas with minimal, well-crafted
+            products that demonstrate value.
           </p>
         </div>
-        
-        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+
+        <div
+          class="bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow"
+        >
           <h3 class="font-semibold mb-2">JAMstack Websites</h3>
           <p class="text-gray-700">
-            Fast, secure, and SEO-optimized static sites with dynamic capabilities using modern frameworks.
+            Fast, secure, and SEO-optimized static sites with dynamic
+            capabilities using modern frameworks.
           </p>
         </div>
-        
-        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+
+        <div
+          class="bg-white p-6 rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow"
+        >
           <h3 class="font-semibold mb-2">API Development</h3>
           <p class="text-gray-700">
-            Building robust backend services and RESTful APIs to power frontend applications.
+            Building robust backend services and RESTful APIs to power frontend
+            applications.
           </p>
         </div>
       </div>
     </section>
-    
+
     <!-- How I Work -->
     <section class="mb-12">
       <h2 class="text-2xl font-bold mb-6">How I Work</h2>
-      
+
       <div class="bg-gray-50 p-6 rounded-lg">
         <div class="grid md:grid-cols-2 gap-6">
           <div>
             <h3 class="font-semibold mb-2 text-blue-600">Communication</h3>
             <p class="text-gray-700">
-              I value clear, consistent communication. Depending on project needs, I set up regular check-ins via video calls and maintain daily updates through Slack or similar tools. I adapt to your preferred communication style.
+              I value clear, consistent communication. Depending on project
+              needs, I set up regular check-ins via video calls and maintain
+              daily updates through Slack or similar tools. I adapt to your
+              preferred communication style.
             </p>
           </div>
-          
+
           <div>
             <h3 class="font-semibold mb-2 text-blue-600">Project Management</h3>
             <p class="text-gray-700">
-              I use agile methodologies with sprints tailored to project needs. I'm comfortable with various project management tools including Jira, Asana, Trello, or GitHub Projects.
+              I use agile methodologies with sprints tailored to project needs.
+              I'm comfortable with various project management tools including
+              Jira, Asana, Trello, or GitHub Projects.
             </p>
           </div>
-          
+
           <div>
-            <h3 class="font-semibold mb-2 text-blue-600">Development Process</h3>
+            <h3 class="font-semibold mb-2 text-blue-600">
+              Development Process
+            </h3>
             <p class="text-gray-700">
-              I follow a structured development process with clear milestones, regular code reviews, and comprehensive testing. My goal is to deliver high-quality code that meets your requirements on time.
+              I follow a structured development process with clear milestones,
+              regular code reviews, and comprehensive testing. My goal is to
+              deliver high-quality code that meets your requirements on time.
             </p>
           </div>
-          
+
           <div>
             <h3 class="font-semibold mb-2 text-blue-600">Collaboration</h3>
             <p class="text-gray-700">
-              I work well both independently and as part of a team. I can collaborate with your existing developers, designers, and stakeholders to ensure project success.
+              I work well both independently and as part of a team. I can
+              collaborate with your existing developers, designers, and
+              stakeholders to ensure project success.
             </p>
           </div>
         </div>
@@ -304,32 +399,46 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <script>
   // Simple form handling script - can be enhanced with actual submission logic
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contact-form');
-    const successMessage = document.getElementById('form-success');
-    const errorMessage = document.getElementById('form-error');
-    
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contact-form");
+    const successMessage = document.getElementById("form-success");
+    const errorMessage = document.getElementById("form-error");
+
     if (form) {
-      form.addEventListener('submit', function(e) {
+      form.addEventListener("submit", async function (e) {
         e.preventDefault();
-        
+
         const formData = new FormData(form);
         const data = {
-          name: formData.get('name'),
-          email: formData.get('email'),
-          subject: formData.get('subject'),
-          projectType: formData.get('project-type'),
-          budget: formData.get('budget'),
-          message: formData.get('message')
+          name: formData.get("name"),
+          email: formData.get("email"),
+          subject: formData.get("subject"),
+          projectType: formData.get("project-type"),
+          budget: formData.get("budget"),
+          message: formData.get("message"),
+          toEmail: "atik.aiub@gmail.com",
         };
-       
-        
-        successMessage.classList.remove('hidden');
-        form.reset();
-        
+
+        const response = await fetch("https://ms-contact.myrft.xyz/send", {
+          method: "POST", // or 'PUT'
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+          errorMessage.classList.remove("hidden");
+          return;
+        } else {
+          errorMessage.classList.add("hidden");
+          successMessage.classList.remove("hidden");
+          form.reset();
+        }
+
         // Hide success message after 5 seconds
         setTimeout(() => {
-          successMessage.classList.add('hidden');
+          successMessage.classList.add("hidden");
         }, 5000);
       });
     }
