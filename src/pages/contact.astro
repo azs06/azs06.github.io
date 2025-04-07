@@ -313,8 +313,16 @@ import MainLayout from "../layouts/MainLayout.astro";
       form.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Here you would typically add code to submit the form data
-        // For now, we'll just show the success message
+        const formData = new FormData(form);
+        const data = {
+          name: formData.get('name'),
+          email: formData.get('email'),
+          subject: formData.get('subject'),
+          projectType: formData.get('project-type'),
+          budget: formData.get('budget'),
+          message: formData.get('message')
+        };
+       
         
         successMessage.classList.remove('hidden');
         form.reset();
