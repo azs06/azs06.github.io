@@ -1,4 +1,12 @@
-import ProjectCard from "./ProjectCard.tsx";
+---
+import ProjectCard from "./ProjectCard.astro";
+
+interface Props {
+  githubRepos?: any[];
+}
+
+const { githubRepos = [] } = Astro.props;
+
 const projectsData = [
   {
     id: 1,
@@ -97,25 +105,22 @@ const projectsData = [
   }
 ];
 
-export const Projects = ({ githubRepos = [] }) => {
-  // Merge GitHub star count from the fetched repos data into the local projects data
-  const updatedProjects = projectsData.map((project) => {
-    const projectRepo = githubRepos.find((r) => r.name === project.repo);
-    return projectRepo
-      ? { ...project, stars: projectRepo.stargazers_count }
-      : project;
-  });
+// Merge GitHub star count from the fetched repos data into the local projects data
+const updatedProjects = projectsData.map((project) => {
+  const projectRepo = githubRepos.find((r) => r.name === project.repo);
+  return projectRepo
+    ? { ...project, stars: projectRepo.stargazers_count }
+    : project;
+});
+---
 
-  return (
-    <div className="my-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {updatedProjects.map((project) => (
-        <div
-          key={`${project.id}-${project.stars}-${project.title}`}
-          className="border border-gray-200 rounded-lg p-4 bg-white transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg"
-        >
-          <ProjectCard project={project} />
-        </div>
-      ))}
+<div class="my-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+  {updatedProjects.map((project) => (
+    <div
+      key={`${project.id}-${project.stars}-${project.title}`}
+      class="border border-gray-200 rounded-lg p-4 bg-white transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+    >
+      <ProjectCard project={project} />
     </div>
-  );
-};
+  ))}
+</div>
