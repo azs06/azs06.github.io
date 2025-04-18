@@ -15,40 +15,70 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const stars = project?.stars;
-const displayStars = stars > 0 ? `⭐ ${stars}` : "";
+const stars = project?.stars || 0;
 ---
 
-<div>
-  <h3 class="mb-2 text-lg font-semibold leading-tight">
-    {project.url ? (
-      <a
-        href={project.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-blue-600 hover:underline"
-      >
-        {project.title}
-      </a>
-    ) : (
-      project.title
+<div class="h-full flex flex-col transition-all duration-300 relative group overflow-hidden">
+  <!-- Top gradient accent -->
+  
+  <div class="flex items-start justify-between mb-3">
+    <h3 class="text-lg font-semibold leading-tight group-hover:text-blue-600 transition-colors duration-200">
+      {project.url ? (
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:underline flex items-center"
+        >
+          {project.title}
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            class="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      ) : (
+        project.title
+      )}
+    </h3>
+    
+    {stars > 0 && (
+      <div class="flex items-center text-yellow-600 text-sm font-medium bg-yellow-50 px-2 py-1 rounded">
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          class="h-4 w-4 mr-1" 
+          fill="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+        </svg>
+        {stars}
+      </div>
     )}
-  </h3>
+  </div>
+  
   {project.description && (
-    <p class="my-2 text-sm leading-relaxed text-gray-700">
+    <p class="text-sm leading-relaxed text-gray-700 mb-4 flex-grow">
       {project.description}
     </p>
   )}
+  
   {project.tags && project.tags.length > 0 && (
-    <div class="flex flex-wrap gap-2 mt-3">
+    <div class="flex flex-wrap gap-2 mt-auto pt-4 border-t border-gray-100">
       {project.tags.map((tag) => (
         <span
-          class="text-xs px-2 py-1 rounded bg-blue-100 text-blue-800"
+          class="text-xs px-2 py-1 rounded-full bg-blue-50 text-blue-700 font-medium transition-colors duration-200 hover:bg-blue-100"
         >
           {tag}
         </span>
       ))}
-      {stars > 0 && <span class="text-sm">{displayStars}</span>}
     </div>
   )}
+  
+  <!-- Hover effect overlay -->
+  <div class="absolute inset-0 bg-gradient-to-tr from-blue-500 to-blue-400 opacity-0 group-hover:opacity-5 transition-opacity duration-300"></div>
 </div>
