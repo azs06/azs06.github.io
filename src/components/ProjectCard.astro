@@ -20,22 +20,26 @@ const displayStars = stars > 0 ? `⭐ ${stars}` : "";
 ---
 
 <div>
-  <h3 class="mb-2 text-lg font-semibold leading-tight">
-    {project.url ? (
-      <a
-        href={project.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-blue-600 hover:underline"
-      >
-        {project.title}
-      </a>
-    ) : (
-      project.title
-    )}
-  </h3>
+  <div class="flex justify-between items-center">
+    <h3 class="mb-2 text-lg text-left font-semibold leading-tight">
+      {project.url ? (
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-black hover:underline"
+        >
+          {project.title}
+        </a>
+      ) : (
+        project.title
+      )}
+    </h3>
+    {stars > 0 && <span class="text-sm">{displayStars}</span>}
+  </div>
+
   {project.description && (
-    <p class="my-2 text-sm leading-relaxed text-gray-700">
+    <p class="my-2 text-sm leading-relaxed text-left text-gray-700">
       {project.description}
     </p>
   )}
@@ -48,7 +52,6 @@ const displayStars = stars > 0 ? `⭐ ${stars}` : "";
           {tag}
         </span>
       ))}
-      {stars > 0 && <span class="text-sm">{displayStars}</span>}
     </div>
   )}
 </div>
