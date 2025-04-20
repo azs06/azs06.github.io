@@ -1,6 +1,7 @@
 ---
 import Projects from "../components/Projects.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+import LayoutHeader from "../components/LayoutHeader.astro";
 
 const github_username = "azs06";
 const githubToken = import.meta.env.SECRET_GITHUB_API_TOKEN; // Ensure this env variable is defined in your project
@@ -27,17 +28,17 @@ const fetchRepos = async (username: string) => {
   }
 };
 
-const repos = await fetchRepos(github_username)
+const repos = await fetchRepos(github_username);
 ---
 
 <MainLayout
-  title="Projects"
-  description="A list of projects I have worked on"
+  title="Open Source Projects"
+  description="A list of open source projects I have built over the years."
   pubDate={new Date("August 08 2021")}
   heroImage="/blog-placeholder-about.jpg"
 >
-  <h2 class="text-2xl font-bold mb-4">
-    Open Source Projects
-  </h2>
-  <Projects githubRepos={repos}/>
+  <section class="mx-auto px-4 py-12">
+    <LayoutHeader title="Open Source Projects" />
+    <Projects githubRepos={repos} />
+  </section>
 </MainLayout>
