@@ -8,7 +8,9 @@ export default {
 		}
 	},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
   lineHeight: {
     relaxed: "1.75",
   },
