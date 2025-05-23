@@ -148,29 +148,4 @@ import MainLayout from "../layouts/MainLayout.astro";
 </MainLayout>
 
 <style>
-  .tech-highlight {
-    position: relative;
-    font-weight: 500;
-  }
-
-  .tech-highlight::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 100%;
-    height: 6px;
-    background: linear-gradient(90deg, #4f46e5 0%, #818cf8 100%);
-    border-radius: 2px;
-    transform: perspective(10px) rotateX(5deg);
-    opacity: 0.6;
-    z-index: -1;
-    transition: all 0.3s ease;
-  }
-
-  .tech-highlight:hover::after {
-    height: 8px;
-    opacity: 0.8;
-    transform: perspective(10px) rotateX(8deg) translateY(-1px);
-  }
 </style>
