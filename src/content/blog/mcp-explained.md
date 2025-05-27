@@ -218,7 +218,7 @@ main().catch((error) => {
 
 GitHub repo for the MCP Server: https://github.com/azs06/todo-mcp
 
-Now we will add this to our visual studio code as an MCP server. Open settings.json and add this under mcp servers
+Now we will add this to our visual studio code as an MCP server. Open settings.json and add this under mcp servers.
 
 ```tsx
 
@@ -245,7 +245,7 @@ Let’s see the percentage of high priority tasks.
 
 ![image.png](https://res.cloudinary.com/theazs/image/upload/v1748353357/personal-website/image_2_emfveg.png)
 
-Let’s see a chart of todo items based on priority
+Let’s see a chart of todo items based on priority.
 
 ![image.png](https://res.cloudinary.com/theazs/image/upload/v1748353451/personal-website/image_3_s6yihw.png)
 
@@ -255,12 +255,12 @@ Another interesting thing, let's use the AI agent's thinking ability to get todo
 
 It was smart enough to find out the todo item that is related to my family.
 
-This is a very trivial example, MCP is way more powerful, there are tons of free-to-use MCP servers available already. Here you can find tons of great MCP servers
+This is a very trivial example, MCP is way more powerful, there are tons of free-to-use MCP servers available already. Here you can find tons of great MCP servers.
 
 https://github.com/punkpeye/awesome-mcp-servers
 
 You can combine multiple MCP servers to do powerful stuff, like use Playwright MCP and combine it with DuckDuckGo MCP to search, open a website, and perform actions on it, or compare different search results and create an analysis based on the result. The possibilities are endless.
 
-**Note:** Notice how we are using the TypeScript SDK to develop the MCP server on stdio (standard input/output). If you are interested in how the underlying technology works, please feel free to check their GitHub repo
+**Note:** Notice how we are using the TypeScript SDK to develop the MCP server on stdio (standard input/output). If you are interested in how the underlying technology works, please feel free to check their GitHub repo.
 
 **Final Note:** No AI was use to write this article, but AI was used to review and add correction tho the article. The thumbnail was generated using Gemni pro 2.5 model.
