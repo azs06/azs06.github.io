@@ -218,7 +218,7 @@ main().catch((error) => {
 
 GitHub repo for the MCP Server: https://github.com/azs06/todo-mcp
 
-Now we will add this to our visual studio code as an MCP server. Open settings.json and add this under servers
+Now we will add this to our visual studio code as an MCP server. Open settings.json and add this under mcp servers
 
 ```tsx
 
