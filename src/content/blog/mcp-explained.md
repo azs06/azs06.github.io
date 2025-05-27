@@ -5,7 +5,7 @@ tags: [AI, MCP, AI Agents]
 pubDate: 'May 27 2025'
 heroImage: '/mcp-explained.webp'
 ---
-# MCP Explained
+## What is MCP and how to use it with AI agents
 
 If you follow tech and you have not been living under a rock, you probably have heard of MCP! What is MCP? MCP is an abbreviation of Model Context Protocol. Basically, it's a protocol for AI agents to communicate. It was released by **Anthropic** in November 2024. At first glance it sounds a bit complex, but it’s not, more or less all of us on the tech world are familiar with API(application programming interface), it’s a way for application to communicate with another application, MCP is somewhat similar; it's a protocol that enables AI agents to communicate with your application, server, or whatever you want to plug in to your AI agents.
 
