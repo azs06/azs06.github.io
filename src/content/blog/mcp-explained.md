@@ -54,11 +54,13 @@ I will be using VSCode as an MCP client, and I will use bun to run the single fi
 Required npm packages
 
 ```tsx
+
 npm i @modelcontextprotocol/sdk, zod --save
 npm i @types/node --save-dev
 ```
 
 ```tsx
+
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
