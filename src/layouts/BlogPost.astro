@@ -7,7 +7,10 @@ import FormattedDate from "../components/FormattedDate.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.props;
+
+// Calculate reading time (rough estimate)
+const readingTime = 5; // Default to 5 minutes for now
 ---
 
 <html lang="en">
@@ -18,9 +21,13 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         width: calc(100% - 2em);
         max-width: 100%;
         margin: 0 auto;
+        background: rgb(var(--gray-gradient));
+        min-height: 100vh;
       }
       .hero-image {
         width: 100%;
+        position: relative;
+        overflow: hidden;
       }
       .hero-image img {
         display: block;
@@ -28,59 +35,153 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         border-radius: 12px;
         box-shadow: var(--box-shadow);
       }
-      .prose {
-        width: 720px;
-        max-width: calc(100% - 2em);
-        margin: auto;
-        padding: 1em;
+      .article-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+      }
+      .article-header {
+        background: white;
+        dark:bg-gray-800;
+        border-radius: 16px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+        text-align: center;
+      }
+      .article-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 1rem;
         color: rgb(var(--gray-dark));
       }
-      .title {
-        margin-bottom: 1em;
-        padding: 1em 0;
-        text-align: center;
-        line-height: 1;
-      }
-      .title h1 {
-        margin: 0 0 0.5em 0;
-      }
-      .date {
-        margin-bottom: 0.5em;
+      .article-meta {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
         color: rgb(var(--gray));
+        font-size: 0.9rem;
+      }
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .tags {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+      }
+      .tag {
+        background: #f1f5f9;
+        color: #475569;
+        border: 1px solid #e2e8f0;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+      .tag:hover {
+        background: #e2e8f0;
+        transform: translateY(-1px);
+      }
+      .dark .tag {
+        background: #374151;
+        color: #d1d5db;
+        border-color: #4b5563;
+      }
+      .dark .tag:hover {
+        background: #4b5563;
+      }
+      .article-content {
+        background: white;
+        dark:bg-gray-800;
+        border-radius: 16px;
+        padding: 2.5rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+        line-height: 1.7;
       }
       .last-updated-on {
         font-style: italic;
+        color: rgb(var(--gray));
+        margin-top: 0.5rem;
+        font-size: 0.85rem;
+      }
+      @media (max-width: 768px) {
+        .article-title {
+          font-size: 2rem;
+        }
+        .article-header,
+        .article-content {
+          padding: 1.5rem;
+        }
+        .article-meta {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
       }
     </style>
   </head>
 
   <body>
     <Header />
-    <main>
+    <main class="dark:bg-gray-900 transition-colors duration-300">
       <article>
-        <div
-          class="hero-image mx-auto w-full max-w-[1020px] h-[520px] bg-cover bg-center bg-no-repeat rounded-lg shadow-md"
-          style={`background-image: url(${heroImage})`}
-        >
-        </div>
-
-        <div class="prose">
-          <div class="title">
-            <div class="date" style="display: none;">
-              <FormattedDate date={pubDate} />
-              {
-                updatedDate && (
-                  <div class="last-updated-on">
-                    Last updated on <FormattedDate date={updatedDate} />
-                  </div>
-                )
-              }
-            </div>
-            <h1>{title}</h1>
-            <hr />
+        {heroImage && (
+          <div class="hero-image mx-auto w-full max-w-[1020px] mb-8">
+            <img 
+              src={heroImage} 
+              alt={title}
+              class="w-full h-auto rounded-lg shadow-md object-cover"
+            />
           </div>
-          <div class="markdown-body">
-            <slot />
+        )}
+
+        <div class="article-container">
+          <header class="article-header dark:bg-gray-800">
+            <h1 class="article-title dark:text-gray-100">{title}</h1>
+            
+            <div class="article-meta">
+              <div class="meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                </svg>
+                <FormattedDate date={pubDate} />
+              </div>
+              
+              <div class="meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                <span>{readingTime} min read</span>
+              </div>
+            </div>
+            
+            {tags && tags.length > 0 && (
+              <div class="tags">
+                {tags.map((tag: string) => (
+                  <span class="tag">#{tag}</span>
+                ))}
+              </div>
+            )}
+            
+            {updatedDate && (
+              <div class="last-updated-on">
+                Last updated on <FormattedDate date={updatedDate} />
+              </div>
+            )}
+          </header>
+          
+          <div class="article-content dark:bg-gray-800">
+            <div class="markdown-body">
+              <slot />
+            </div>
           </div>
         </div>
       </article>

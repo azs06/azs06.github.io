@@ -14,17 +14,17 @@ import MainLayout from "../layouts/MainLayout.astro";
                 <img
                     src="https://res.cloudinary.com/theazs/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1745151420/personal-website/E62A0787-01_fwd5qy.jpg"
                     alt="Atiquzzaman Soikat"
-                    class="relative w-48 h-48 md:w-64 md:h-64 rounded-full mx-auto object-cover border-4 border-white shadow-xl"
+                    class="relative w-48 h-48 md:w-64 md:h-64 rounded-full mx-auto object-cover border-4 border-white dark:border-gray-700 shadow-xl"
                 />
             </div>
         </div>
     </div>
 
     <!-- Profile Info -->
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">
         Hi, I'm <span class="text-brandingColor">Md Atiquzzaman Soikat</span>
     </h1>
-    <p class="text-xl text-gray-800 font-semibold mb-6">
+    <p class="text-xl text-gray-800 dark:text-gray-200 font-semibold mb-6">
         Senior Full Stack Developer | Frontend Architect | Team Lead
     </p>
     <div
@@ -33,7 +33,7 @@ import MainLayout from "../layouts/MainLayout.astro";
         <a
             href="https://www.linkedin.com/in/atiquzzaman-soikat/"
             aria-label="Connect on LinkedIn"
-            class="inline-flex items-center justify-center px-2 py-2 font-black text-center text-white shadow-xl xl:px-12 xl:text-2xl lg:w-auto hover:bg-green-600 bg-blue-600"
+            class="inline-flex items-center justify-center px-2 py-2 font-black text-center text-white shadow-xl xl:px-12 xl:text-2xl lg:w-auto hover:bg-green-600 bg-blue-600 dark:bg-blue-700 dark:hover:bg-green-700"
         >
             Connect on LinkedIn
             <svg
@@ -50,12 +50,12 @@ import MainLayout from "../layouts/MainLayout.astro";
         <a
             href="/resume.pdf"
             aria-label="View Resume"
-            class="inline-flex lg:pl-10 items-center text-lg text-gray-600 underline transition-colors duration-200 hover:text-brandingColor"
+            class="inline-flex lg:pl-10 items-center text-lg text-gray-600 dark:text-gray-300 underline transition-colors duration-200 hover:text-brandingColor"
             >View Resume</a
         >
     </div>
     <!-- Introduction -->
-    <div class="space-y-6 text-gray-700">
+    <div class="space-y-6 text-gray-700 dark:text-gray-300">
         <p>
             I am a software developer with more than twelve years of experience focused on web
             technologies. My career has spanned diverse sectors, including education, hospitality,
@@ -136,5 +136,20 @@ import MainLayout from "../layouts/MainLayout.astro";
         </section>
     </div>
 
-    <style></style>
+    <style>
+        .tech-highlight {
+            @apply font-semibold text-brandingColor dark:text-purple-400;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .dark .tech-highlight {
+            background: linear-gradient(135deg, #a78bfa 0%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
 </MainLayout>
