@@ -122,25 +122,53 @@ import { SITE_TITLE } from "../consts";
   // Dark mode toggle functionality
   const darkModeToggle = document.getElementById("dark-mode-toggle");
   const html = document.documentElement;
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
   
-  // Check for saved theme preference or default to light mode
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme) {
-    html.classList.toggle("dark", savedTheme === "dark");
-  } else {
-    // Check system preference
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (prefersDark) {
+  // Function to apply theme
+  function applyTheme(theme) {
+    if (theme === "dark") {
       html.classList.add("dark");
-      localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
     }
   }
   
+  // Function to get current theme preference
+  function getThemePreference() {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      return savedTheme;
+    }
+    // Default to system preference
+    return mediaQuery.matches ? "dark" : "light";
+  }
+  
+  // Apply initial theme
+  const currentTheme = getThemePreference();
+  applyTheme(currentTheme);
+  
+  // Save initial theme if not already saved
+  if (!localStorage.getItem("theme")) {
+    localStorage.setItem("theme", currentTheme);
+  }
+  
+  // Listen for system theme changes (when user hasn't manually set a preference)
+  mediaQuery.addEventListener("change", function(e) {
+    // Only auto-switch if user hasn't manually set a preference
+    if (!localStorage.getItem("theme") || localStorage.getItem("theme") === "system") {
+      const newTheme = e.matches ? "dark" : "light";
+      applyTheme(newTheme);
+      localStorage.setItem("theme", newTheme);
+    }
+  });
+  
+  // Toggle button functionality
   if (darkModeToggle) {
     darkModeToggle.addEventListener("click", function () {
-      html.classList.toggle("dark");
       const isDark = html.classList.contains("dark");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
+      const newTheme = isDark ? "light" : "dark";
+      applyTheme(newTheme);
+      localStorage.setItem("theme", newTheme);
     });
   }
 </script>
