@@ -127,4 +127,4 @@ Also, you might want to try trae, it is very cheap and even the free version is 
 
 Check the games here: [https://soikat.dev/flappybird-with-ai/](https://soikat.dev/flappybird-with-ai/)
 
-Github Repo: https://github.com/azs06/flappybird-with-ai
+Github Repo: [https://github.com/azs06/flappybird-with-ai](https://github.com/azs06/flappybird-with-ai)
