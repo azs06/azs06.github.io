@@ -42,12 +42,15 @@ const readingTime = 5; // Default to 5 minutes for now
       }
       .article-header {
         background: white;
-        dark:bg-gray-800;
         border-radius: 16px;
         padding: 2rem;
         margin-bottom: 2rem;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
         text-align: center;
+      }
+      .dark .article-header {
+        background: #1f2937;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
       }
       .article-title {
         font-size: 2.5rem;
@@ -101,11 +104,14 @@ const readingTime = 5; // Default to 5 minutes for now
       }
       .article-content {
         background: white;
-        dark:bg-gray-800;
         border-radius: 16px;
         padding: 2.5rem;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
         line-height: 1.7;
+      }
+      .dark .article-content {
+        background: #1f2937;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
       }
       .last-updated-on {
         font-style: italic;
