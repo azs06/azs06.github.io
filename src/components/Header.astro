@@ -139,39 +139,55 @@ import { SITE_TITLE } from "../consts";
   // Function to get current theme preference
   function getThemePreference() {
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      return savedTheme;
+    if (savedTheme === "system" || !savedTheme) {
+      // Always use system preference if set to "system" or no preference saved
+      return mediaQuery.matches ? "dark" : "light";
     }
-    // Default to system preference
-    return mediaQuery.matches ? "dark" : "light";
+    return savedTheme;
   }
   
   // Apply initial theme
   const currentTheme = getThemePreference();
   applyTheme(currentTheme);
   
-  // Save initial theme if not already saved
+  // Save initial theme as "system" if not already saved
   if (!localStorage.getItem("theme")) {
-    localStorage.setItem("theme", currentTheme);
+    localStorage.setItem("theme", "system");
   }
   
-  // Listen for system theme changes (when user hasn't manually set a preference)
+  // Listen for system theme changes
   mediaQuery.addEventListener("change", function(e) {
-    // Only auto-switch if user hasn't manually set a preference
-    if (!localStorage.getItem("theme") || localStorage.getItem("theme") === "system") {
+    const savedTheme = localStorage.getItem("theme");
+    // Auto-switch if user has "system" preference or no manual preference
+    if (savedTheme === "system" || !savedTheme) {
       const newTheme = e.matches ? "dark" : "light";
       applyTheme(newTheme);
-      localStorage.setItem("theme", newTheme);
     }
   });
   
   // Toggle button functionality
   if (darkModeToggle) {
     darkModeToggle.addEventListener("click", function () {
-      const isDark = html.classList.contains("dark");
-      const newTheme = isDark ? "light" : "dark";
-      applyTheme(newTheme);
+      const currentSavedTheme = localStorage.getItem("theme");
+      let newTheme;
+      
+      // Cycle through: system → light → dark → system
+      if (currentSavedTheme === "system" || !currentSavedTheme) {
+        newTheme = "light";
+      } else if (currentSavedTheme === "light") {
+        newTheme = "dark";
+      } else {
+        newTheme = "system";
+      }
+      
       localStorage.setItem("theme", newTheme);
+      
+      // Apply the appropriate theme
+      if (newTheme === "system") {
+        applyTheme(mediaQuery.matches ? "dark" : "light");
+      } else {
+        applyTheme(newTheme);
+      }
     });
   }
 </script>
