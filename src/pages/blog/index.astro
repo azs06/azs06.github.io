@@ -14,12 +14,12 @@ const posts = (await getCollection("blog")).sort(
 	  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 		{
 		  posts.map((post) => (
-			<article class="border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
+			<article class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition bg-white dark:bg-gray-800">
 			  <a href={`/blog/${post.id}/`} class="block">
 				<img width={720} height={360} src={post.data.heroImage} alt="" class="w-full h-48 object-cover" />
 				<div class="p-4">
-				  <h4 class="text-xl font-semibold mb-2">{post.data.title}</h4>
-				  <p class="text-gray-600 text-sm">
+				  <h4 class="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">{post.data.title}</h4>
+				  <p class="text-gray-600 dark:text-gray-400 text-sm">
 					<FormattedDate date={post.data.pubDate} />
 				  </p>
 				</div>

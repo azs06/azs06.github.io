@@ -132,7 +132,7 @@ const experiences = [
   <article class="mx-auto px-4 py-12">
     <section class="mb-8">
       <LayoutHeader title="Work Experience" />
-      <p class="text-lg leading-relaxed">
+      <p class="text-lg leading-relaxed text-gray-800 dark:text-gray-200">
         I have over twelve years of experience in web development, serving as a
         Technical Project Manager, Frontend Engineer, and Team Lead for startups
         such as Jetaport, Butler Hospitality, and Skipper Hospitality.
@@ -148,18 +148,18 @@ const experiences = [
       <ul class="space-y-6">
         {
           experiences.reverse().map((exp) => (
-            <li class="p-4 border rounded-md hover:shadow transition-shadow">
+            <li class="p-4 border border-gray-200 dark:border-gray-700 rounded-md hover:shadow transition-shadow bg-white dark:bg-gray-800">
               <a
                 href={exp.companyUrl}
                 target="_blank"
-                class="text-xl font-semibold text-black hover:underline"
+                class="text-xl font-semibold text-black dark:text-gray-100 hover:underline"
               >
                 {exp.company}
               </a>
-              <p class="text-gray-800 text-semibold">
+              <p class="text-gray-800 dark:text-gray-300 text-semibold">
                 {exp.role} &middot; {exp.duration}
               </p>
-              <p class="mt-2 text-gray-700">{exp.description}</p>
+              <p class="mt-2 text-gray-700 dark:text-gray-400">{exp.description}</p>
             </li>
           ))
         }
@@ -167,12 +167,12 @@ const experiences = [
     </section>
     <!-- Recent Work Projects -->
     <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-4">Recent Work Projects</h2>
+      <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">Recent Work Projects</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {
           workProjects.map((project) => (
             <article
-              class="work-project-card border border-1px border-solid border-[var(--border)] rounded-md p-4 hover:shadow-lg transition-shadow flex flex-col relative overflow-hidden"
+              class="work-project-card border border-gray-200 dark:border-gray-700 rounded-md p-4 hover:shadow-lg transition-shadow flex flex-col relative overflow-hidden bg-white dark:bg-gray-800"
               data-tilt
               style="--drop-color: rgba(65, 105, 225, 0.15); --drop-x: 50%; --drop-y: 50%;"
             >
@@ -186,9 +186,9 @@ const experiences = [
                   project.id !== 6 && project.id !== 1 ? "true" : "false"
                 }
               />
-              <h3 class="text-lg font-semibold mb-2">{project.title}</h3>
-              <p class="text-gray-700 text-sm/6 mb-2">{project.description}</p>
-              <p class="text-sm text-gray-500 mb-2">
+              <h3 class="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">{project.title}</h3>
+              <p class="text-gray-700 dark:text-gray-300 text-sm/6 mb-2">{project.description}</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
                 Company:{" "}
                 <a
                   href={project.companyUrl}
@@ -203,7 +203,7 @@ const experiences = [
                 {project.tags.map((tag, index) => (
                   <span
                     key={index}
-                    class="px-2 py-1 text-sm bg-gray-200 text-gray-700 rounded-md"
+                    class="px-2 py-1 text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-md"
                   >
                     {tag}
                   </span>
@@ -236,20 +236,20 @@ const experiences = [
         }
       </div>
     </section>
-    <section class="py-12 bg-gradient-to-b from-gray-50 to-gray-100">
+    <section class="py-12 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
       <div class="max-w-5xl mx-auto px-4">
         <header class="text-center mb-10">
-          <h2 class="text-3xl font-bold text-gray-800 mb-3">
+          <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-3">
             Freelance Projects
           </h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             A showcase of recent freelance projects that I have worked on.
           </p>
         </header>
 
         <ul class="flex flex-wrap justify-center gap-6">
           <li
-            class="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] freelance-card relative overflow-hidden bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            class="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] freelance-card relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             data-tilt-freelance
             style="--drop-color: rgba(65, 105, 225, 0.15); --drop-x: 50%; --drop-y: 50%;"
           >
@@ -261,11 +261,11 @@ const experiences = [
             >
               <div class="flex flex-col h-full">
                 <h3
-                  class="text-xl font-semibold text-gray-800 mb-2 group-hover:text-blue-600"
+                  class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400"
                 >
                   Nini Design
                 </h3>
-                <p class="text-gray-600 mb-4">Shopify Clothing Store</p>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">Shopify Clothing Store</p>
                 <div class="flex items-center mt-auto text-brandingColor">
                   <span>Visit Site</span>
                   <svg
@@ -285,7 +285,7 @@ const experiences = [
           </li>
 
           <li
-            class="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] freelance-card relative overflow-hidden bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            class="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] freelance-card relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             data-tilt-freelance
             style="--drop-color: rgba(65, 105, 225, 0.15); --drop-x: 50%; --drop-y: 50%;"
           >
@@ -297,11 +297,11 @@ const experiences = [
             >
               <div class="flex flex-col h-full">
                 <h3
-                  class="text-xl font-semibold text-gray-800 mb-2 group-hover:text-blue-600"
+                  class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400"
                 >
                   Bobby London
                 </h3>
-                <p class="text-gray-600 mb-4">Shopify Clothing Store</p>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">Shopify Clothing Store</p>
                 <div class="flex items-center mt-auto text-brandingColor">
                   <span>Visit Site</span>
                   <svg
@@ -321,7 +321,7 @@ const experiences = [
           </li>
 
           <li
-            class="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] freelance-card relative overflow-hidden bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            class="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] freelance-card relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             data-tilt-freelance
             style="--drop-color: rgba(65, 105, 225, 0.15); --drop-x: 50%; --drop-y: 50%;"
           >
@@ -333,11 +333,11 @@ const experiences = [
             >
               <div class="flex flex-col h-full">
                 <h3
-                  class="text-xl font-semibold text-gray-800 mb-2 group-hover:text-blue-600"
+                  class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400"
                 >
                   JARDIN D'EDEN
                 </h3>
-                <p class="text-gray-600 mb-4">Shopify Clothing Store</p>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">Shopify Clothing Store</p>
                 <div class="flex items-center mt-auto text-brandingColor">
                   <span>Visit Site</span>
                   <svg
@@ -357,7 +357,7 @@ const experiences = [
           </li>
 
           <li
-            class="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] freelance-card relative overflow-hidden bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            class="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] freelance-card relative overflow-hidden bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             data-tilt-freelance
             style="--drop-color: rgba(65, 105, 225, 0.15); --drop-x: 50%; --drop-y: 50%;"
           >
@@ -369,11 +369,11 @@ const experiences = [
             >
               <div class="flex flex-col h-full">
                 <h3
-                  class="text-xl font-semibold text-gray-800 mb-2 group-hover:text-blue-600"
+                  class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400"
                 >
                   Sunfruit Farms
                 </h3>
-                <p class="text-gray-600 mb-4">Jamstack Landing Page</p>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">Jamstack Landing Page</p>
                 <div class="flex items-center mt-auto text-brandingColor">
                   <span>Visit Site</span>
                   <svg
