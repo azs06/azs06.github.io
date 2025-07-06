@@ -134,11 +134,12 @@ const readingTime = 5; // Default to 5 minutes for now
     <main class="dark:bg-gray-900 transition-colors duration-300">
       <article>
         {heroImage && (
-          <div class="hero-image mx-auto w-full max-w-[1020px] mb-8">
+          <div class="hero-image-container mx-auto w-full max-w-[1020px] h-[500px] mb-8 overflow-hidden rounded-lg shadow-md relative">
             <img 
+              id="hero-image"
               src={heroImage} 
               alt={title}
-              class="w-full h-auto rounded-lg shadow-md object-cover"
+              class="absolute inset-0 w-full h-[130%] object-cover object-center transition-transform duration-75 ease-out"
             />
           </div>
         )}
@@ -187,5 +188,57 @@ const readingTime = 5; // Default to 5 minutes for now
       </article>
     </main>
     <Footer />
+    
+    <script>
+      // Parallax effect for hero image
+      const heroImage = document.getElementById('hero-image');
+      
+      if (heroImage) {
+        function updateParallax() {
+          const scrolled = window.pageYOffset;
+          const imageContainer = heroImage.parentElement;
+          
+          if (imageContainer) {
+            const containerRect = imageContainer.getBoundingClientRect();
+            const containerTop = containerRect.top + scrolled;
+            const containerHeight = containerRect.height;
+            
+            // Only apply parallax when the image is in viewport
+            if (scrolled + window.innerHeight > containerTop && scrolled < containerTop + containerHeight) {
+              // Calculate parallax offset (adjust the 0.3 value to change intensity)
+              const parallaxSpeed = 0.3;
+              const yPos = -(scrolled - containerTop) * parallaxSpeed;
+              
+              // Apply transform with smooth transition
+              heroImage.style.transform = `translateY(${yPos}px)`;
+            }
+          }
+        }
+        
+        // Use requestAnimationFrame for smooth performance
+        let ticking = false;
+        
+        function requestTick() {
+          if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+          }
+        }
+        
+        function onScroll() {
+          requestTick();
+          ticking = false;
+        }
+        
+        // Initialize and add scroll listener
+        updateParallax();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        
+        // Clean up on page unload
+        window.addEventListener('beforeunload', () => {
+          window.removeEventListener('scroll', onScroll);
+        });
+      }
+    </script>
   </body>
 </html>
