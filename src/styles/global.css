@@ -21,6 +21,13 @@
   --main: var(--light-0);
   --main-60: var(--light-0-60);
   --border-hover: var(--dark-8);
+  
+  /* Enhanced design tokens */
+  --primary-gradient: linear-gradient(135deg, #0ea5e9 0%, #14b8a6 100%);
+  --accent-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  --hero-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
 }
 
 :root.dark {
@@ -33,7 +40,15 @@
   --gray-gradient: rgba(var(--gray-light), 50%), #1a1a1a;
   --box-shadow: 0 2px 6px rgba(0, 0, 0, 50%),
     0 8px 24px rgba(0, 0, 0, 60%), 0 16px 32px rgba(0, 0, 0, 60%);
+  
+  /* Dark mode design tokens */
+  --primary-gradient: linear-gradient(135deg, #0ea5e9 0%, #14b8a6 100%);
+  --accent-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  --hero-gradient: linear-gradient(135deg, #a78bfa 0%, #c084fc 100%);
+  --glass-bg: rgba(0, 0, 0, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.1);
 }
+
 @font-face {
   font-family: "Atkinson";
   src: url("/fonts/atkinson-regular.woff") format("woff");
@@ -48,6 +63,93 @@
   font-style: normal;
   font-display: swap;
 }
+
+/* Animation utilities and components */
+@layer utilities {
+  .animate-typing {
+    overflow: hidden;
+    border-right: 3px solid;
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .animate-slideUp {
+    animation: slideUp 0.8s ease-out;
+  }
+  
+  .glass-effect {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+  }
+  
+  .gradient-text {
+    background: var(--hero-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-500 to-teal-500 hover:from-primary-600 hover:to-teal-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out;
+  }
+  
+  .btn-secondary {
+    @apply bg-gradient-to-r from-orange-500 to-accent-500 hover:from-orange-600 hover:to-accent-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out;
+  }
+  
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(139, 92, 246, 0.6);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+  .particle:nth-child(2) { left: 20%; animation-delay: 1s; }
+  .particle:nth-child(3) { left: 30%; animation-delay: 2s; }
+  .particle:nth-child(4) { left: 40%; animation-delay: 3s; }
+  .particle:nth-child(5) { left: 50%; animation-delay: 4s; }
+  .particle:nth-child(6) { left: 60%; animation-delay: 5s; }
+  .particle:nth-child(7) { left: 70%; animation-delay: 2s; }
+  .particle:nth-child(8) { left: 80%; animation-delay: 1s; }
+  .particle:nth-child(9) { left: 90%; animation-delay: 3s; }
+  .particle:nth-child(10) { left: 95%; animation-delay: 4s; }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-typing {
+    animation: none;
+    border-right: none;
+    overflow: visible;
+  }
+  
+  .animate-float, .animate-fadeIn, .animate-slideUp {
+    animation: none;
+  }
+  
+  .particle {
+    animation: none;
+  }
+}
+
 body {
   font-family: "Atkinson", sans-serif;
   margin: 0;
