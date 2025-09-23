@@ -3,7 +3,7 @@ title: Prime Number in Go
 description: Understanding prime numbers in Golang with examples
 tags: [Golang, Prime Numbers, Programming]
 pubDate: 'Sept 23 2025'
-heroImage: '/blog-placeholder-1.png'
+heroImage: '/blog-placeholder-1.jpg'
 ---
 
 ### Intro to Prime Numbers
