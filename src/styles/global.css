@@ -233,12 +233,4 @@ body {
   @apply font-bold text-gray-800 dark:text-gray-200;
 }
 
-/* Paragraph first letter styling for better typography */
-.markdown-body p:first-of-type::first-letter {
-  @apply text-4xl font-bold float-left mr-1 mt-1;
-  line-height: 1;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+

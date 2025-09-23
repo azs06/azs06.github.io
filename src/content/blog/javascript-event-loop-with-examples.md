@@ -53,10 +53,9 @@ const p = new Promise((resolve, reject) => {
 });
 
 p
-	.then(result => console.log(result))
-	.catch(e => console.error(e))
-	.finally(() => console.log('promise done'))
-	
+.then(result => console.log(result))
+.catch(e => console.error(e))
+.finally(() => console.log('promise done'))	
 ```
 
 When the call stack comes across this code, it handles the Promise body immediately resolves it, but it doesn’t run anything after then, it pushes it to the micro task queue. And the event loop moves the queued task out of the queue and push it to the call stack and then we get “42” on browser’s console.
