@@ -4,13 +4,16 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import GoogleTag from "../components/GoogleTag.astro";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <GoogleTag />
   </head>
+  <!-- Google tag (gtag.js) -->
 
   <body class="bg-white dark:bg-gray-900 transition-colors duration-300">
     <Header />

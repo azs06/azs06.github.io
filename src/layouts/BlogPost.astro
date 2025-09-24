@@ -5,17 +5,17 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 
+import GoogleTag from "../components/GoogleTag.astro";
+
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.props;
-
-// Calculate reading time (rough estimate)
 const readingTime = 5; // Default to 5 minutes for now
 ---
 
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
+    <GoogleTag />
     <style>
       main {
         width: calc(100% - 2em);
@@ -45,12 +45,16 @@ const readingTime = 5; // Default to 5 minutes for now
         border-radius: 16px;
         padding: 2rem;
         margin-bottom: 2rem;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+        box-shadow:
+          0 1px 3px rgba(0, 0, 0, 0.1),
+          0 1px 2px rgba(0, 0, 0, 0.06);
         text-align: center;
       }
       .dark .article-header {
         background: #1f2937;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+        box-shadow:
+          0 1px 3px rgba(0, 0, 0, 0.3),
+          0 1px 2px rgba(0, 0, 0, 0.2);
       }
       .article-title {
         font-size: 2.5rem;
@@ -106,12 +110,16 @@ const readingTime = 5; // Default to 5 minutes for now
         background: white;
         border-radius: 16px;
         padding: 2.5rem;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+        box-shadow:
+          0 1px 3px rgba(0, 0, 0, 0.1),
+          0 1px 2px rgba(0, 0, 0, 0.06);
         line-height: 1.7;
       }
       .dark .article-content {
         background: #1f2937;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+        box-shadow:
+          0 1px 3px rgba(0, 0, 0, 0.3),
+          0 1px 2px rgba(0, 0, 0, 0.2);
       }
       .last-updated-on {
         font-style: italic;
@@ -134,57 +142,76 @@ const readingTime = 5; // Default to 5 minutes for now
       }
     </style>
   </head>
-
   <body>
     <Header />
     <main class="dark:bg-gray-900 transition-colors duration-300">
       <article>
-        {heroImage && (
-          <div class="hero-image-container mx-auto w-full max-w-[1020px] h-[500px] mb-8 overflow-hidden rounded-lg shadow-md relative">
-            <img 
-              id="hero-image"
-              src={heroImage} 
-              alt={title}
-              class="absolute inset-0 w-full h-[130%] object-cover object-center transition-transform duration-75 ease-out"
-            />
-          </div>
-        )}
+        {
+          heroImage && (
+            <div class="hero-image-container mx-auto w-full max-w-[1020px] h-[500px] mb-8 overflow-hidden rounded-lg shadow-md relative">
+              <img
+                id="hero-image"
+                src={heroImage}
+                alt={title}
+                class="absolute inset-0 w-full h-[130%] object-cover object-center transition-transform duration-75 ease-out"
+              />
+            </div>
+          )
+        }
 
         <div class="article-container">
           <header class="article-header dark:bg-gray-800">
             <h1 class="article-title dark:text-gray-100">{title}</h1>
-            
+
             <div class="article-meta">
               <div class="meta-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"
+                  ></path>
                 </svg>
                 <FormattedDate date={pubDate} />
               </div>
-              
+
               <div class="meta-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                  ></path>
                 </svg>
                 <span>{readingTime} min read</span>
               </div>
             </div>
-            
-            {tags && tags.length > 0 && (
-              <div class="tags">
-                {tags.map((tag: string) => (
-                  <span class="tag">#{tag}</span>
-                ))}
-              </div>
-            )}
-            
-            {updatedDate && (
-              <div class="last-updated-on">
-                Last updated on <FormattedDate date={updatedDate} />
-              </div>
-            )}
+
+            {
+              tags && tags.length > 0 && (
+                <div class="tags">
+                  {tags.map((tag: string) => (
+                    <span class="tag">#{tag}</span>
+                  ))}
+                </div>
+              )
+            }
+
+            {
+              updatedDate && (
+                <div class="last-updated-on">
+                  Last updated on <FormattedDate date={updatedDate} />
+                </div>
+              )
+            }
           </header>
-          
+
           <div class="article-content dark:bg-gray-800">
             <div class="markdown-body">
               <slot />
@@ -194,55 +221,58 @@ const readingTime = 5; // Default to 5 minutes for now
       </article>
     </main>
     <Footer />
-    
+
     <script>
       // Parallax effect for hero image
-      const heroImage = document.getElementById('hero-image');
-      
+      const heroImage = document.getElementById("hero-image");
+
       if (heroImage) {
         function updateParallax() {
           const scrolled = window.pageYOffset;
           const imageContainer = heroImage.parentElement;
-          
+
           if (imageContainer) {
             const containerRect = imageContainer.getBoundingClientRect();
             const containerTop = containerRect.top + scrolled;
             const containerHeight = containerRect.height;
-            
+
             // Only apply parallax when the image is in viewport
-            if (scrolled + window.innerHeight > containerTop && scrolled < containerTop + containerHeight) {
+            if (
+              scrolled + window.innerHeight > containerTop &&
+              scrolled < containerTop + containerHeight
+            ) {
               // Calculate parallax offset (adjust the 0.3 value to change intensity)
               const parallaxSpeed = 0.3;
               const yPos = -(scrolled - containerTop) * parallaxSpeed;
-              
+
               // Apply transform with smooth transition
               heroImage.style.transform = `translateY(${yPos}px)`;
             }
           }
         }
-        
+
         // Use requestAnimationFrame for smooth performance
         let ticking = false;
-        
+
         function requestTick() {
           if (!ticking) {
             requestAnimationFrame(updateParallax);
             ticking = true;
           }
         }
-        
+
         function onScroll() {
           requestTick();
           ticking = false;
         }
-        
+
         // Initialize and add scroll listener
         updateParallax();
-        window.addEventListener('scroll', onScroll, { passive: true });
-        
+        window.addEventListener("scroll", onScroll, { passive: true });
+
         // Clean up on page unload
-        window.addEventListener('beforeunload', () => {
-          window.removeEventListener('scroll', onScroll);
+        window.addEventListener("beforeunload", () => {
+          window.removeEventListener("scroll", onScroll);
         });
       }
     </script>
