@@ -9,6 +9,9 @@ import GoogleTag from "../components/GoogleTag.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
+// Destructure incoming props so template references (title, description, etc.) are defined
+const { title, description, pubDate, heroImage, tags, updatedDate }: Props = Astro.props;
+
 const readingTime = 5; // Default to 5 minutes for now
 ---
 
@@ -224,57 +227,43 @@ const readingTime = 5; // Default to 5 minutes for now
 
     <script>
       // Parallax effect for hero image
-      const heroImage = document.getElementById("hero-image");
+      (function () {
+  const heroImageEl = document.getElementById("hero-image");
+        if (!heroImageEl) return; // Nothing to do
 
-      if (heroImage) {
         function updateParallax() {
           const scrolled = window.pageYOffset;
-          const imageContainer = heroImage.parentElement;
-
-          if (imageContainer) {
+            const imageContainer = heroImageEl.parentElement;
+            if (!imageContainer) return;
             const containerRect = imageContainer.getBoundingClientRect();
             const containerTop = containerRect.top + scrolled;
             const containerHeight = containerRect.height;
-
-            // Only apply parallax when the image is in viewport
             if (
               scrolled + window.innerHeight > containerTop &&
               scrolled < containerTop + containerHeight
             ) {
-              // Calculate parallax offset (adjust the 0.3 value to change intensity)
               const parallaxSpeed = 0.3;
               const yPos = -(scrolled - containerTop) * parallaxSpeed;
-
-              // Apply transform with smooth transition
-              heroImage.style.transform = `translateY(${yPos}px)`;
+              heroImageEl!.style.transform = `translateY(${yPos}px)`;
             }
-          }
         }
-
-        // Use requestAnimationFrame for smooth performance
         let ticking = false;
-
         function requestTick() {
           if (!ticking) {
             requestAnimationFrame(updateParallax);
             ticking = true;
           }
         }
-
         function onScroll() {
           requestTick();
           ticking = false;
         }
-
-        // Initialize and add scroll listener
         updateParallax();
         window.addEventListener("scroll", onScroll, { passive: true });
-
-        // Clean up on page unload
         window.addEventListener("beforeunload", () => {
           window.removeEventListener("scroll", onScroll);
         });
-      }
+      })();
     </script>
   </body>
 </html>
