@@ -22,7 +22,7 @@ With all of this out of the way, let’s learn about event loop.
 
 ## **What is the Event Loop?**
 
-![event-loop.png](/public/event-loop.png)
+![event-loop.png](/event-loop.png)
 
 Event loop is a mechanism implemented by the browser’s JavaScript engine/runtime for chrome it’s V8, for Mozilla it’s **Spidermonkey**.
 
