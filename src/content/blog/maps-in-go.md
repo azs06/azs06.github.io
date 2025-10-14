@@ -11,14 +11,14 @@ Map in go is similar to what object is in JavaScript, hash in Python. I will be 
 In go programming language a map looks like this `map[keyType]valueType`. So how do you declare and use a map in Go?
 
 Simple
-```
+```go
 var names map[string]string
 ```
 
 Here we have declared a names map which keys are string and the values are also string. Now that we have declared a map, how do we use it?
 
 If we try to use it like
-```
+```go
 names["ceo"] = "Zuck"
 ```
 
@@ -28,7 +28,7 @@ We will get a `panic: assignment to entry in nil map` error. Let me explain the 
 
 Hmm, confusing, isn't it? So how do we declare and use a map in Go? We use the `make` function again to create maps in Go.
 
-```
+```go
 names := make(map[string]string)
 names["ceo"] = "Zuck"
 names["cto"] = "Andrew"
@@ -38,7 +38,7 @@ You can see it in action here :  https://go.dev/play/p/cjTO5klGADe
 
 Why this works, is the make function initializes a hash map data structure and returns a value which points to it. I personally find it a bit odd as in JavaScript you can just declare an object like this
 
-```
+```javascript
  var names = {
   ceo: "Zuck",
   cto: "Andrew"
@@ -47,7 +47,7 @@ Why this works, is the make function initializes a hash map data structure and r
 
 We can also do something similar in Go as well,
 
-```
+```go
  names := map[string]string{
   "ceo": "Zuck",
   "cto": "Andrew"
@@ -58,7 +58,7 @@ I like this compared to using make function, because it feels a bit natural, but
 
 With this syntax we can also create an empty map(not a nil map)
 
-```
+```go
  names := map[string]string{}
 ```
 
@@ -68,7 +68,7 @@ Now let's see how we interact with an map in Go.
 
 **Iterating over:** We can iterate a map using the range keyword
 
-```
+```go
  for k, v := range names {
   fmt.Println(k, v)
  }
@@ -82,7 +82,7 @@ Working example: https://go.dev/play/p/pWNpyMhbSqF
 
 **Deleting an Item:** We can use the delete function to delete an item form a map. It returns nothing on success or on failure. The `delete` function takes two arguments, the first is the map and second is the key.
 
-```
+```go
 
  delete(names, "ceo") // will delete zuck from facebook :-)
 
@@ -92,7 +92,7 @@ Working example: https://go.dev/play/p/qhjlxOfFtgV
 
 **Accessing Items:** Accessing an item is pretty straight forward, `names["ceo"]` will give you the item for key "ceo", here is the interesting bit, this also returns a second value, a boolean, it indicates if something exist on the map or not.
 
-```
+```go
   _, ok := names["ceo"]
 
   if ok {
@@ -107,7 +107,7 @@ Which means you can use struct as a key for a map. Trippy isn't it?
 
 Here is a snippet of it
 
-```
+```go
   pokemonxp := make(map[string]map[string]int)
   charizardxp := pokemonxp["red_blue"]["charizard"]
 ```
