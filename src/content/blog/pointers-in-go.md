@@ -3,7 +3,7 @@ title: Pointers in Go Programming Language
 description: Understanding pointers in Golang with examples
 tags: [Golang, Pointers, Programming, Pointers in Go]
 pubDate: 'Oct 24 2025'
-heroImage: '/golang-pointers.webp'
+heroImage: '/pointers-in-go.webp'
 ---
 
 ## What is a pointer?
