@@ -163,13 +163,11 @@ body {
   @apply text-sm rounded px-2 py-1 font-mono;
   background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
   color: #dc2626;
-  border: 1px solid rgba(220, 38, 38, 0.2);
 }
 
 .dark .markdown-body code {
   background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
   color: #f87171;
-  border-color: rgba(248, 113, 113, 0.2);
 }
 
 .markdown-body ul, .markdown-body ol {
