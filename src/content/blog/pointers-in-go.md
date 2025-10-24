@@ -176,3 +176,5 @@ Imagine you’re a Pokémon Trainer. Instead of carrying your Pokémon around in
 - Pikachu with level 100 is your variable.
 - Pikachu does not live in the Poké Ball, the Poké Ball contains a reference to where Pikachu is stored.
 - When you want to use Pikachu, you open the Poké Ball (dereference the pointer) to access Pikachu.
+
+If you find any issue with the article, please feel free to reach out to me on X [@soikat](https://x.com/soikat) or open an issue on GitHub. Happy coding!
