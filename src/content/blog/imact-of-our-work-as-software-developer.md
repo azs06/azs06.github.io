@@ -1,6 +1,7 @@
 ---
 title: 'Impact of our work as Software Developer'
 description: 'Understanding the impact of our work as software developers'
+tags: [software development, ethics, career]
 pubDate: 'Jul 08 2022'
 heroImage: '/blog-placeholder-2.jpg'
 ---

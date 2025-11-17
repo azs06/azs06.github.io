@@ -1,7 +1,7 @@
 ---
 title: Interfaces in Golang
 description: Understanding interfaces in Golang with examples
-tags: [Golang, Interfaces, Programming]
+tags: [golang, interfaces, programming]
 pubDate: 'Sept 28 2025'
 heroImage: '/golang-interfaces.webp'
 ---

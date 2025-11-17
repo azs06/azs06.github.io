@@ -1,6 +1,7 @@
 ---
 title: 'Working with CSS values in JavaScript'
 description: 'Ways to access CSS values of a dom element in JavaScript'
+tags: [javascript, css, dom]
 pubDate: 'Jul 08 2022'
 heroImage: '/blog-placeholder-2.jpg'
 ---

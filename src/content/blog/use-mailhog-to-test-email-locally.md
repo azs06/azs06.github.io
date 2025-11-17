@@ -1,6 +1,7 @@
 ---
 title: Use MailHog to test email locally
 description: A guide to using MailHog for local email testing
+tags: [development tools, testing, golang]
 pubDate: 'April 24, 2025'
 heroImage: '/mailhog-for-local-email-testing.webp'
 ---

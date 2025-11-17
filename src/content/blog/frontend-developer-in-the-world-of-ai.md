@@ -1,6 +1,7 @@
 ---
 title: Being a Frontend developer in the age of AI
 description: My thoughts on being a frontend developer in the world of AI
+tags: [frontend, ai, career, web development]
 pubDate: 'Mar 18, 2025'
 heroImage: '/frontend-developer-in-the-age-of-ai.webp'
 ---

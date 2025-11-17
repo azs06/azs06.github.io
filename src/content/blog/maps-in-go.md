@@ -1,7 +1,7 @@
 ---
 title: 'Maps in Go Programming Language'
 description: 'A comprehensive guide to maps in Go programming language with examples.'
-tags: [Golang, Maps, Programming]
+tags: [golang, maps, programming]
 pubDate: 'Oct 14, 2025'
 heroImage: '/maps-in-go.webp'
 ---

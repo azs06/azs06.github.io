@@ -1,7 +1,7 @@
 ---
 title: 'Understanding Arrays and Slices in Go'
 description: 'A comprehensive guide to arrays and slices in Go programming language with examples.'
-tags: [Golang, Arrays, Slices, Programming]
+tags: [golang, arrays, slices, programming]
 pubDate: 'September 30, 2025'
 heroImage: '/array-and-slices-in-go.webp'
 ---

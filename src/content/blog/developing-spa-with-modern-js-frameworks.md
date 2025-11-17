@@ -1,6 +1,7 @@
 ---
 title: 'Developing SPA with Modern JS Frameworks'
 description: 'An overview of developing Single Page Applications using modern JavaScript frameworks like React, Vue, and Angular in 2025'
+tags: [javascript, spa, web development, frameworks]
 pubDate: 'May 23 2025'
 heroImage: '/developing-spa-with-modern-js-frameworks.webp'
 ---

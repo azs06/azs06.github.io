@@ -1,7 +1,7 @@
 ---
 title: MCP Explained
 description: What is MCP and how to use it with AI agents
-tags: [AI, MCP, AI Agents]
+tags: [ai agents, mcp]
 pubDate: 'May 27 2025'
 heroImage: '/mcp-explained.webp'
 ---

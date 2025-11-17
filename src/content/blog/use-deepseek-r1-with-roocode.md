@@ -2,7 +2,7 @@
 title: How to use DeepSeek With VSCode
 description: Work with DeepSeek R1 0528 in Visual Studio Code using roocode.
 slug: how-to-use-deepseek-with-vscode
-tags: [AI, Coding, AI Agents]
+tags: [ai agents, coding]
 pubDate: 'June 17 2025'
 heroImage: '/use-deepseek-r1-with-vscode.webp'
 ---

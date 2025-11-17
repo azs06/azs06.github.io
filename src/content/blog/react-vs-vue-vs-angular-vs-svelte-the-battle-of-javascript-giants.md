@@ -1,6 +1,7 @@
 ---
 title: 'React vs. Vue vs. Angular vs. Svelte: The Battle of the JavaScript Giants!'
 description: 'Battle of the JavaScript Giants: React, Vue, Angular, and Svelte'
+tags: [react, vue, angular, svelte, javascript]
 pubDate: 'Apr 21 2025'
 heroImage: '/react-vs-vue-vs-angular-vs-svelte.jpeg'
 ---
