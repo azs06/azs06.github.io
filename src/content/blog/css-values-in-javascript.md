@@ -12,7 +12,7 @@ Occassionally while working with the dom(document object model) in JavaScript yo
 Inline CSS are CSS that are directly added to the dom, for example something like this
 
 ```
-<div id="app" style="width: 200px; height: 200px; background: rebeccapurple; font-size: 23px;">
+<div id="app" style="width: 200px; height: 200px; background: #142934; font-size: 23px;">
 </div>
 
 <script>
