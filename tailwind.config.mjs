@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
 		colors: {
-			brandingColor: "#886dff",
+			brandingColor: "#142934",
 		}
 	},
   },

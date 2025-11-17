@@ -86,7 +86,7 @@ body {
 .markdown-body h1 {
   @apply text-3xl font-bold text-gray-800 dark:text-gray-100 mt-8 mb-4;
   border-bottom: 3px solid;
-  border-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) 1;
+  border-image: linear-gradient(135deg, #142934 0%, #142934 100%) 1;
   padding-bottom: 0.5rem;
 }
 
@@ -103,7 +103,7 @@ body {
   transform: translateY(-50%);
   width: 4px;
   height: 1.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #142934 0%, #142934 100%);
   border-radius: 2px;
 }
 
@@ -129,7 +129,7 @@ body {
 
 .markdown-body blockquote {
   @apply border-l-4 pl-6 py-2 my-6 bg-gray-50 dark:bg-gray-800 rounded-r-lg;
-  border-left-color: #667eea;
+  border-left-color: #142934;
   font-style: italic;
   color: rgb(var(--gray-dark));
   position: relative;
@@ -141,7 +141,7 @@ body {
   position: absolute;
   left: 1rem;
   top: -1rem;
-  color: #667eea;
+  color: #142934;
   opacity: 0.3;
   font-family: Georgia, serif;
 }
@@ -180,7 +180,7 @@ body {
 
 .markdown-body ul li::before {
   content: '▸';
-  color: #667eea;
+  color: #142934;
   font-weight: bold;
   position: absolute;
   margin-left: -1.2rem;
@@ -230,5 +230,4 @@ body {
 .markdown-body strong {
   @apply font-bold text-gray-800 dark:text-gray-200;
 }
-
 
