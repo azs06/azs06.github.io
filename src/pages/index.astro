@@ -3,146 +3,157 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Contact - Atiquzzaman Soikat">
-  <!-- Profile Image -->
-  <div class="w-full mx-auto md:w-2/5 mb-8">
-    <div class="relative">
-      <div
-        class="absolute inset-0 bg-blue-600 rounded-full opacity-10 blur-xl transform scale-110"
-      >
-      </div>
-      <div>
-        <img
-          src="https://res.cloudinary.com/theazs/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1745151420/personal-website/E62A0787-01_fwd5qy.jpg"
-          alt="Atiquzzaman Soikat"
-          class="relative w-48 h-48 md:w-64 md:h-64 rounded-full mx-auto object-cover border-4 border-white dark:border-gray-700 shadow-xl"
-        />
-      </div>
-    </div>
-  </div>
-
-  <!-- Profile Info -->
-  <h1
-    class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100 text-center"
-  >
-    Hi, I'm <span class="text-brandingColor dark:text-blue-400">Md Atiquzzaman Soikat</span>
-  </h1>
-  <p class="text-xl text-gray-800 dark:text-gray-200 font-semibold mb-6 text-center">
-    Senior Full Stack Developer | Team Lead
-  </p>
-  <div
-    class="m-auto text-center mt-4 mb-4 justify-center flex flex-col items-center w-full space-x-5 space-y-8 lg:space-y-0 lg:flex-row"
-  >
-    <a
-      href="https://www.linkedin.com/in/atiquzzaman-soikat/"
-      aria-label="Connect on LinkedIn"
-      class="inline-flex items-center justify-center px-2 py-2 font-black text-center text-white shadow-xl xl:px-12 xl:text-2xl lg:w-auto hover:bg-green-600 bg-blue-600 dark:bg-blue-700 dark:hover:bg-green-700"
-    >
-      Connect on LinkedIn
-      <svg
-        class="w-6 h-6 ml-2"
-        aria-hidden="true"
-        fill="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-        ></path>
-      </svg>
-    </a>
-    <a
-      href="/resume.pdf"
-      aria-label="View Resume"
-      class="inline-flex lg:pl-10 items-center text-lg text-gray-600 dark:text-gray-300 underline transition-colors duration-200 hover:text-brandingColor"
-      >View Resume</a
-    >
-  </div>
-  <!-- Introduction -->
-  <div class="space-y-6 text-gray-700 dark:text-gray-300">
-    <p>
-      I am a software developer with more than twelve years of experience
-      focused on web technologies. My career has spanned diverse sectors,
-      including education, hospitality, and most recently, retail. While my
-      primary expertise lies in frontend development, I have progressively
-      transitioned towards full-stack development and am actively cultivating
-      expertise in DevOps.
-    </p>
-    <p>
-      <span class="tech-highlight">JavaScript</span> has been my primary programming
-      language throughout my career, complemented by experience in <span
-        class="tech-highlight">TypeScript</span
-      >, <span class="tech-highlight">PHP</span>, <span class="tech-highlight"
-        >Python</span
-      >, and <span class="tech-highlight">Golang</span>. While I've extensively
-      worked with <span class="tech-highlight">React</span> and
-      <span class="tech-highlight">Vue.js</span> and <span class="tech-highlight"
-        >Svelte</span
-      >
-      has emerged as my preferred frontend framework over the past few years, thanks
-      to its elegant approach to UI development and exceptional developer experience.
-    </p>
-    <p>
-      Beyond coding, I maintain a balanced life through gaming, cooking, and
-      quality time with friends and family.
-    </p>
-    <section class="my-12 mx-auto max-w-4xl hidden">
-      <div
-        class="bg-gradient-to-br from-blue-500 via-brandingColor to-blue-600 overflow-hidden shadow-lg"
-      >
-        <div class="p-8 text-white">
-          <div class="flex flex-col md:flex-row items-center justify-between">
-            <div>
-              <h2 class="text-2xl md:text-2xl font-bold mb-2">Have an idea?</h2>
-              <div class="text-2xl md:text-2xl font-extrabold mb-2">
-                Create an MVP in just <span class="relative">
-                  three weeks
-                  <svg
-                    class="absolute -bottom-1 left-0 w-full"
-                    height="4"
-                    viewBox="0 0 100 12"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M1 5.5C20.6667 2.16667 68.3333 -0.499999 99 8.50001"
-                      stroke="white"
-                      stroke-width="3"
-                      stroke-linecap="round"></path>
-                  </svg>
-                </span>
-              </div>
-            </div>
-
-            <a
-              href="/services"
-              class="mt-6 md:mt-0 inline-flex items-center px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-indigo-50 transition-colors shadow-md"
+    <!-- Profile Image -->
+    <div class="w-full mx-auto md:w-2/5 mb-8">
+        <div class="relative">
+            <div
+                class="absolute inset-0 bg-blue-600 rounded-full opacity-10 blur-xl transform scale-110"
             >
-              Learn More
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 ml-2"
-                viewBox="0 0 20 20"
+            </div>
+            <div>
+                <img
+                    src="https://res.cloudinary.com/theazs/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1745151420/personal-website/E62A0787-01_fwd5qy.jpg"
+                    alt="Atiquzzaman Soikat"
+                    class="relative w-48 h-48 md:w-64 md:h-64 rounded-full mx-auto object-cover border-4 border-white dark:border-gray-700 shadow-xl"
+                />
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Info -->
+    <h1
+        class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100 text-center"
+    >
+        Hi, I'm <span class="text-brandingColor dark:text-blue-400"
+            >Md Atiquzzaman Soikat</span
+        >
+    </h1>
+    <p
+        class="text-xl text-gray-800 dark:text-gray-200 font-semibold mb-6 text-center"
+    >
+        Senior Full Stack Developer | Team Lead
+    </p>
+    <div
+        class="m-auto text-center mt-4 mb-4 justify-center flex flex-col items-center w-full space-x-5 space-y-8 lg:space-y-0 lg:flex-row"
+    >
+        <a
+            href="https://www.linkedin.com/in/atiquzzaman-soikat/"
+            aria-label="Connect on LinkedIn"
+            class="inline-flex items-center justify-center px-2 py-2 font-black text-center text-white shadow-xl xl:px-12 xl:text-2xl lg:w-auto hover:bg-green-600 bg-blue-600 dark:bg-blue-700 dark:hover:bg-green-700"
+        >
+            Connect on LinkedIn
+            <svg
+                class="w-6 h-6 ml-2"
                 aria-hidden="true"
                 fill="currentColor"
-              >
+                viewBox="0 0 24 24"
+            >
                 <path
-                  fill-rule="evenodd"
-                  d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                ></path>
+            </svg>
+        </a>
+        <a
+            href="/resume.pdf"
+            aria-label="View Resume"
+            class="inline-flex lg:pl-10 items-center text-lg text-gray-600 dark:text-gray-300 underline transition-colors duration-200 hover:text-brandingColor"
+            >View Resume</a
+        >
+    </div>
+    <!-- Introduction -->
+    <div class="space-y-6 text-gray-700 dark:text-gray-300">
+        <p>
+            I am a software developer with more than twelve years of experience
+            focused on web technologies. My career has spanned diverse sectors,
+            including education, hospitality, and most recently, retail. While
+            my primary expertise lies in frontend development, I have
+            progressively transitioned towards full-stack development and am
+            actively cultivating expertise in DevOps.
+        </p>
+        <p>
+            <span class="tech-highlight">JavaScript</span> has been my primary programming
+            language throughout my career, complemented by experience in <span
+                class="tech-highlight">TypeScript</span
+            >, <span class="tech-highlight">PHP</span>, <span
+                class="tech-highlight">Python</span
+            >, and <span class="tech-highlight">Golang</span>. While I've
+            extensively worked with <span class="tech-highlight">React</span> and
+            <span class="tech-highlight">Vue.js</span> and <span
+                class="tech-highlight">Svelte</span
+            >
+            has emerged as my preferred frontend framework over the past few years,
+            thanks to its elegant approach to UI development and exceptional developer
+            experience.
+        </p>
+        <p>
+            Beyond coding, I maintain a balanced life through gaming, cooking,
+            and quality time with friends and family.
+        </p>
+        <section class="my-12 mx-auto max-w-4xl hidden">
+            <div
+                class="bg-gradient-to-br from-blue-500 via-brandingColor to-blue-600 overflow-hidden shadow-lg"
+            >
+                <div class="p-8 text-white">
+                    <div
+                        class="flex flex-col md:flex-row items-center justify-between"
+                    >
+                        <div>
+                            <h2 class="text-2xl md:text-2xl font-bold mb-2">
+                                Have an idea?
+                            </h2>
+                            <div
+                                class="text-2xl md:text-2xl font-extrabold mb-2"
+                            >
+                                Create an MVP in just <span class="relative">
+                                    three weeks
+                                    <svg
+                                        class="absolute -bottom-1 left-0 w-full"
+                                        height="4"
+                                        viewBox="0 0 100 12"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M1 5.5C20.6667 2.16667 68.3333 -0.499999 99 8.50001"
+                                            stroke="white"
+                                            stroke-width="3"
+                                            stroke-linecap="round"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
 
-  <style>
-    .tech-highlight {
-      @apply font-semibold text-brandingColor;
-    }
+                        <a
+                            href="/services"
+                            class="mt-6 md:mt-0 inline-flex items-center px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-indigo-50 transition-colors shadow-md"
+                        >
+                            Learn More
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5 ml-2"
+                                viewBox="0 0 20 20"
+                                aria-hidden="true"
+                                fill="currentColor"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-    .dark .tech-highlight {
-      @apply text-blue-400;
-    }
-  </style>
+    <style>
+        .tech-highlight {
+            @apply font-semibold text-brandingColor;
+        }
+
+        .dark .tech-highlight {
+            @apply text-gray-200;
+        }
+    </style>
 </MainLayout>
