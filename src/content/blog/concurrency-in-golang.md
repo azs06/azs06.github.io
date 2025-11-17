@@ -2,7 +2,7 @@
 title: Concurrency in Golang
 description: Understanding concurrency in Golang with examples
 tags: [Golang, Concurrency, Programming]
-pubDate: 'Sept 28 2025'
+pubDate: 'Nov 17 2025'
 heroImage: '/concurrency-in-go.webp'
 ---
 
