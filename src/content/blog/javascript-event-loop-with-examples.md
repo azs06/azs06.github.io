@@ -1,6 +1,7 @@
 ---
 title: 'JavaScript Event Loop with Examples'
 description: 'Understanding the JavaScript event loop with practical examples'
+tags: [javascript, event loop, programming]
 pubDate: 'Sept 27 2025'
 heroImage: '/event-loop-cover.webp'
 ---

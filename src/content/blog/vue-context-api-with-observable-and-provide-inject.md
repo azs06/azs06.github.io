@@ -1,6 +1,7 @@
 ---
 title: Vue context api with observable and provide inject
 description: Using Vue.observable and provide inject to create context api in Vue.js
+tags: [vue, javascript, state management]
 pubDate: 'Jul 25 2022'
 heroImage: '/blog-placeholder-3.jpg'
 ---

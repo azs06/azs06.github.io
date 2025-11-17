@@ -4,7 +4,7 @@ description: 'An experiment with AI tools to see how they perform in developing 
 pubDate: 'Jul 05 2025'
 heroImage: '/flappybird-with-ai.webp'
 slug: flappy-bird-with-ai
-tags: [AI, AI Agents, 'Cursor', Augment, Claude, Cline, DeepSeek, Gemini, Loveable, Repl.it, RooCode, Trae, V0.dev, VS Code Copilot, Windsurf]
+tags: [ai agents, coding, experiments]
 ---
 # Flappy Bird with AI
 

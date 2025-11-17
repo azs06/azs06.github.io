@@ -8,38 +8,10 @@ const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const url = new URL(Astro.request.url);
-const rawQuery = url.searchParams.get("q") ?? "";
-const searchQuery = rawQuery.trim();
-const normalizedQuery = searchQuery.toLowerCase();
-
 const tagSet = new Set(
   posts.flatMap((post) => post.data.tags ?? []).map((tag) => tag.trim()).filter(Boolean)
 );
 const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
-const normalizedTags = tags.map((tag) => ({ label: tag, value: tag.toLowerCase() }));
-const activeTag = normalizedTags.find((entry) => entry.value === normalizedQuery)?.label;
-const hasActiveTag = Boolean(activeTag);
-
-const filteredPosts = posts.filter((post) => {
-  if (!normalizedQuery) return true;
-  const haystack = [
-    post.data.title,
-    post.data.description ?? "",
-    ...(post.data.tags ?? []),
-  ]
-    .join(" ")
-    .toLowerCase();
-  return haystack.includes(normalizedQuery);
-});
-
-const buildTagHref = (tag?: string) => {
-  const params = new URLSearchParams();
-  if (tag) params.set("q", tag);
-  const query = params.toString();
-  return query ? `/blog/?${query}` : "/blog/";
-};
-
 ---
 
 <MainLayout title="Blog - Atiquzzaman Soikat">
@@ -47,7 +19,7 @@ const buildTagHref = (tag?: string) => {
     <LayoutHeader title="Latest Blog Posts" />
 
     <div class="mt-8 rounded-2xl border border-gray-200/70 bg-white/80 p-6 shadow-sm backdrop-blur dark:border-gray-700/70 dark:bg-gray-900/70">
-      <form method="get" class="flex flex-col gap-4">
+      <form id="blog-search-form" class="flex flex-col gap-4">
         <label for="blog-search" class="text-sm font-semibold text-gray-700 dark:text-gray-300">
           Find posts by title, topic, or tag
         </label>
@@ -56,7 +28,6 @@ const buildTagHref = (tag?: string) => {
             id="blog-search"
             name="q"
             type="search"
-            value={searchQuery}
             placeholder="Search blog posts..."
             class="flex-1 rounded-xl border border-gray-300/80 bg-white px-4 py-3 text-base text-gray-900 shadow-sm focus:border-brandingColor focus:outline-none focus:ring-2 focus:ring-brandingColor/30 dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100"
           />
@@ -67,81 +38,181 @@ const buildTagHref = (tag?: string) => {
             >
               Search
             </button>
-            {searchQuery && (
-              <a
-                href="/blog/"
-                class="rounded-xl border border-transparent px-5 py-3 text-sm font-medium text-brandingColor underline-offset-2 transition hover:underline"
-              >
-                Clear
-              </a>
-            )}
+            <button
+              id="clear-search"
+              type="button"
+              class="hidden rounded-xl border border-transparent px-5 py-3 text-sm font-medium text-brandingColor underline-offset-2 transition hover:underline"
+            >
+              Clear
+            </button>
           </div>
         </div>
       </form>
       {tags.length > 0 && (
-        <details class="mt-4 overflow-hidden rounded-xl border border-gray-200/80 bg-gray-50/80 shadow-sm dark:border-gray-700/60 dark:bg-gray-900/40" open={hasActiveTag}>
+        <details id="tags-details" class="mt-4 overflow-hidden rounded-xl border border-gray-200/80 bg-gray-50/80 shadow-sm dark:border-gray-700/60 dark:bg-gray-900/40">
           <summary class="flex cursor-pointer items-center justify-between gap-2 px-4 py-3 text-sm font-semibold text-gray-800 dark:text-gray-100">
             <span>Browse by tags</span>
-            <span class="text-xs font-normal uppercase tracking-wide text-gray-500 dark:text-gray-400">
-              {hasActiveTag ? `Filtering ${activeTag}` : `${tags.length} topics`}
+            <span id="tags-summary" class="text-xs font-normal uppercase tracking-wide text-gray-500 dark:text-gray-400">
+              {tags.length} topics
             </span>
           </summary>
           <div class="border-t border-gray-200/80 px-4 py-4 dark:border-gray-700/60">
-            <div class="flex flex-wrap gap-2">
-              {tags.map((tag) => {
-                const isActive = activeTag === tag;
-                return (
-                  <a
-                    href={buildTagHref(tag)}
-                    class={`rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition ${
-                      isActive
-                        ? "bg-brandingColor text-white shadow-brandingColor/30"
-                        : "bg-white text-brandingColor ring-1 ring-brandingColor/20 hover:-translate-y-0.5 dark:bg-gray-950"
-                    }`}
-                  >
-                    {tag}
-                  </a>
-                );
-              })}
-              {hasActiveTag && (
-                <a
-                  href={buildTagHref()}
-                  class="rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-brandingColor underline-offset-2 hover:underline"
+            <div id="tags-container" class="flex flex-wrap gap-2">
+              {tags.map((tag) => (
+                <button
+                  type="button"
+                  class="tag-button rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition bg-white text-brandingColor ring-1 ring-brandingColor/20 hover:-translate-y-0.5 dark:bg-gray-950"
+                  data-tag={tag.toLowerCase()}
                 >
-                  Clear tag
-                </a>
-              )}
+                  {tag}
+                </button>
+              ))}
             </div>
           </div>
         </details>
       )}
-      <p class="mt-4 text-sm text-gray-600 dark:text-gray-400">
-        Showing <span class="font-semibold">{filteredPosts.length}</span> post
-        {filteredPosts.length === 1 ? "" : "s"}
-        {searchQuery && (
-          <>
-            {" "}matching <span class="font-semibold">“{searchQuery}”</span>
-          </>
-        )}
-      </p>
+      <p id="filter-status" class="mt-4 hidden text-sm text-gray-600 dark:text-gray-400"></p>
     </div>
 
-    {filteredPosts.length === 0 ? (
-      <div class="mt-12 rounded-2xl border border-dashed border-gray-300 bg-white/60 p-12 text-center dark:border-gray-700 dark:bg-gray-900/70">
-        <p class="text-lg font-semibold text-gray-800 dark:text-gray-100">No posts found</p>
-        <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-          Try a different search term or{" "}
-          <a href="/blog/" class="text-brandingColor underline-offset-2 hover:underline">browse all posts</a>.
-        </p>
-      </div>
-    ) : (
-      <>
-        <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {filteredPosts.map((post) => (
-            <BlogCard post={post} />
-          ))}
-        </div>
-      </>
-    )}
+    <div id="no-results" class="mt-12 hidden rounded-2xl border border-dashed border-gray-300 bg-white/60 p-12 text-center dark:border-gray-700 dark:bg-gray-900/70">
+      <p class="text-lg font-semibold text-gray-800 dark:text-gray-100">No posts found</p>
+      <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+        Try a different search term or{" "}
+        <button id="clear-from-no-results" type="button" class="text-brandingColor underline-offset-2 hover:underline">browse all posts</button>.
+      </p>
+    </div>
+    <div id="posts-grid" class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {posts.map((post) => (
+        <BlogCard post={post} />
+      ))}
+    </div>
   </section>
+
+  <script>
+    // Client-side filtering for blog posts
+    function initBlogFilter() {
+      const searchInput = document.getElementById('blog-search') as HTMLInputElement;
+      const searchForm = document.getElementById('blog-search-form') as HTMLFormElement;
+      const clearButton = document.getElementById('clear-search') as HTMLButtonElement;
+      const clearFromNoResults = document.getElementById('clear-from-no-results') as HTMLButtonElement;
+      const filterStatus = document.getElementById('filter-status') as HTMLParagraphElement;
+      const noResults = document.getElementById('no-results') as HTMLDivElement;
+      const postsGrid = document.getElementById('posts-grid') as HTMLDivElement;
+      const tagButtons = document.querySelectorAll('.tag-button') as NodeListOf<HTMLButtonElement>;
+      const tagsDetails = document.getElementById('tags-details') as HTMLDetailsElement;
+      const tagsSummary = document.getElementById('tags-summary') as HTMLSpanElement;
+      const tagsContainer = document.getElementById('tags-container') as HTMLDivElement;
+
+      // Filter posts based on query
+      function filterPosts(query: string) {
+        const normalizedQuery = query.trim().toLowerCase();
+        const posts = document.querySelectorAll('.blog-post') as NodeListOf<HTMLElement>;
+        let visibleCount = 0;
+
+        posts.forEach(post => {
+          if (!normalizedQuery) {
+            post.style.display = '';
+            visibleCount++;
+            return;
+          }
+
+          const title = post.dataset.title || '';
+          const description = post.dataset.description || '';
+          const tags = post.dataset.tags || '';
+          const searchText = `${title} ${description} ${tags}`;
+
+          if (searchText.includes(normalizedQuery)) {
+            post.style.display = '';
+            visibleCount++;
+          } else {
+            post.style.display = 'none';
+          }
+        });
+
+        // Update UI
+        searchInput.value = query;
+
+        if (normalizedQuery) {
+          clearButton.classList.remove('hidden');
+          filterStatus.classList.remove('hidden');
+          filterStatus.innerHTML = `Showing <span class="font-semibold">${visibleCount}</span> post${visibleCount === 1 ? '' : 's'} matching <span class="font-semibold">"${query}"</span>`;
+
+          // Open tags if searching by tag
+          const matchingTag = Array.from(tagButtons).find(btn => btn.dataset.tag === normalizedQuery);
+          if (matchingTag) {
+            tagsDetails.open = true;
+            tagsSummary.textContent = `Filtering ${query}`;
+          }
+        } else {
+          clearButton.classList.add('hidden');
+          filterStatus.classList.add('hidden');
+          tagsSummary.textContent = `${tagButtons.length} topics`;
+        }
+
+        // Update tag button styles
+        tagButtons.forEach(btn => {
+          if (btn.dataset.tag === normalizedQuery) {
+            btn.className = 'tag-button rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition bg-brandingColor text-white shadow-brandingColor/30';
+          } else {
+            btn.className = 'tag-button rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition bg-white text-brandingColor ring-1 ring-brandingColor/20 hover:-translate-y-0.5 dark:bg-gray-950';
+          }
+        });
+
+        // Show/hide no results message
+        if (visibleCount === 0 && normalizedQuery) {
+          noResults.classList.remove('hidden');
+          postsGrid.classList.add('hidden');
+        } else {
+          noResults.classList.add('hidden');
+          postsGrid.classList.remove('hidden');
+        }
+
+        // Update URL
+        const url = new URL(window.location.href);
+        if (normalizedQuery) {
+          url.searchParams.set('q', query);
+        } else {
+          url.searchParams.delete('q');
+        }
+        window.history.pushState({}, '', url);
+      }
+
+      // Handle form submission
+      searchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        filterPosts(searchInput.value);
+      });
+
+      // Handle tag button clicks
+      tagButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tag = btn.textContent?.trim() || '';
+          filterPosts(tag);
+        });
+      });
+
+      // Handle clear button clicks
+      const clearFilter = () => {
+        searchInput.value = '';
+        filterPosts('');
+      };
+
+      clearButton.addEventListener('click', clearFilter);
+      clearFromNoResults.addEventListener('click', clearFilter);
+
+      // Initialize filter from URL on page load
+      const urlParams = new URLSearchParams(window.location.search);
+      const initialQuery = urlParams.get('q') || '';
+      if (initialQuery) {
+        filterPosts(initialQuery);
+      }
+    }
+
+    // Initialize on DOM content loaded
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initBlogFilter);
+    } else {
+      initBlogFilter();
+    }
+  </script>
 </MainLayout>

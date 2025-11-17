@@ -1,7 +1,7 @@
 ---
 title: Pointers in Go Programming Language
 description: Understanding pointers in Golang with examples
-tags: [Golang, Pointers, Programming, Pointers in Go]
+tags: [golang, pointers, programming]
 pubDate: 'Oct 24 2025'
 heroImage: '/pointers-in-go.webp'
 ---

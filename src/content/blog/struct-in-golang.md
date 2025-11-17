@@ -1,7 +1,7 @@
 ---
 title: Struct in Golang
 description: Understanding structs in Golang with examples
-tags: [Golang, Structs, Programming]
+tags: [golang, structs, programming]
 pubDate: 'Sept 23 2025'
 heroImage: '/golang-struct.webp'
 ---

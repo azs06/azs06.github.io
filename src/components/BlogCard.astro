@@ -15,7 +15,12 @@ const heroImage = data.heroImage ?? "/og-image.png";
 const href = `/blog/${slug}/`;
 ---
 
-<article class="group flex flex-col rounded-2xl border border-gray-200/80 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-gray-700/70 dark:bg-gray-900">
+<article
+  class="blog-post group flex flex-col rounded-2xl border border-gray-200/80 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-gray-700/70 dark:bg-gray-900"
+  data-title={data.title.toLowerCase()}
+  data-description={description.toLowerCase()}
+  data-tags={tags.map(t => t.toLowerCase()).join(',')}
+>
   <a href={href} class="relative block overflow-hidden rounded-t-2xl">
     <img
       src={heroImage}
