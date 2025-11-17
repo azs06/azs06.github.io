@@ -22,11 +22,11 @@ import MainLayout from "../layouts/MainLayout.astro";
 
   <!-- Profile Info -->
   <h1
-    class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100"
+    class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100 text-center"
   >
-    Hi, I'm <span class="text-brandingColor">Md Atiquzzaman Soikat</span>
+    Hi, I'm <span class="text-brandingColor dark:text-blue-400">Md Atiquzzaman Soikat</span>
   </h1>
-  <p class="text-xl text-gray-800 dark:text-gray-200 font-semibold mb-6">
+  <p class="text-xl text-gray-800 dark:text-gray-200 font-semibold mb-6 text-center">
     Senior Full Stack Developer | Team Lead
   </p>
   <div
@@ -138,18 +138,11 @@ import MainLayout from "../layouts/MainLayout.astro";
 
   <style>
     .tech-highlight {
-      @apply font-semibold text-brandingColor dark:text-brandingColor;
-      background: linear-gradient(135deg, #142934 0%, #142934 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      @apply font-semibold text-brandingColor;
     }
 
     .dark .tech-highlight {
-      background: linear-gradient(135deg, #142934 0%, #142934 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      @apply text-blue-400;
     }
   </style>
 </MainLayout>
