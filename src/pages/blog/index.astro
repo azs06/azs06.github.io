@@ -1,32 +1,147 @@
 ---
 import LayoutHeader from "../../components/LayoutHeader.astro";
 import { getCollection } from "astro:content";
-import FormattedDate from "../../components/FormattedDate.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
+import BlogCard from "../../components/BlogCard.astro";
+
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+const url = new URL(Astro.request.url);
+const rawQuery = url.searchParams.get("q") ?? "";
+const searchQuery = rawQuery.trim();
+const normalizedQuery = searchQuery.toLowerCase();
+
+const tagSet = new Set(
+  posts.flatMap((post) => post.data.tags ?? []).map((tag) => tag.trim()).filter(Boolean)
+);
+const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
+const normalizedTags = tags.map((tag) => ({ label: tag, value: tag.toLowerCase() }));
+const activeTag = normalizedTags.find((entry) => entry.value === normalizedQuery)?.label;
+const hasActiveTag = Boolean(activeTag);
+
+const filteredPosts = posts.filter((post) => {
+  if (!normalizedQuery) return true;
+  const haystack = [
+    post.data.title,
+    post.data.description ?? "",
+    ...(post.data.tags ?? []),
+  ]
+    .join(" ")
+    .toLowerCase();
+  return haystack.includes(normalizedQuery);
+});
+
+const buildTagHref = (tag?: string) => {
+  const params = new URLSearchParams();
+  if (tag) params.set("q", tag);
+  const query = params.toString();
+  return query ? `/blog/?${query}` : "/blog/";
+};
+
 ---
 
 <MainLayout title="Blog - Atiquzzaman Soikat">
-	<section class="max-w-6xl mx-auto px-4 py-12">
-	  <LayoutHeader title="Latest Blog Posts" />
-	  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-		{
-		  posts.map((post) => (
-			<article class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition bg-white dark:bg-gray-800">
-			  <a href={`/blog/${post.id}/`} class="block">
-				<img width={720} height={360} src={post.data.heroImage} alt="" class="w-full h-48 object-cover" />
-				<div class="p-4">
-				  <h4 class="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">{post.data.title}</h4>
-				  <p class="text-gray-600 dark:text-gray-400 text-sm">
-					<FormattedDate date={post.data.pubDate} />
-				  </p>
-				</div>
-			  </a>
-			</article>
-		  ))
-		}
-	  </div>
-	</section>
-  </MainLayout>
+  <section class="mx-auto max-w-6xl px-4 py-12">
+    <LayoutHeader title="Latest Blog Posts" />
+
+    <div class="mt-8 rounded-2xl border border-gray-200/70 bg-white/80 p-6 shadow-sm backdrop-blur dark:border-gray-700/70 dark:bg-gray-900/70">
+      <form method="get" class="flex flex-col gap-4">
+        <label for="blog-search" class="text-sm font-semibold text-gray-700 dark:text-gray-300">
+          Find posts by title, topic, or tag
+        </label>
+        <div class="flex flex-col gap-3 sm:flex-row">
+          <input
+            id="blog-search"
+            name="q"
+            type="search"
+            value={searchQuery}
+            placeholder="Search blog posts..."
+            class="flex-1 rounded-xl border border-gray-300/80 bg-white px-4 py-3 text-base text-gray-900 shadow-sm focus:border-brandingColor focus:outline-none focus:ring-2 focus:ring-brandingColor/30 dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100"
+          />
+          <div class="flex gap-3">
+            <button
+              type="submit"
+              class="rounded-xl bg-brandingColor px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brandingColor/20 transition hover:-translate-y-0.5"
+            >
+              Search
+            </button>
+            {searchQuery && (
+              <a
+                href="/blog/"
+                class="rounded-xl border border-transparent px-5 py-3 text-sm font-medium text-brandingColor underline-offset-2 transition hover:underline"
+              >
+                Clear
+              </a>
+            )}
+          </div>
+        </div>
+      </form>
+      {tags.length > 0 && (
+        <details class="mt-4 overflow-hidden rounded-xl border border-gray-200/80 bg-gray-50/80 shadow-sm dark:border-gray-700/60 dark:bg-gray-900/40" open={hasActiveTag}>
+          <summary class="flex cursor-pointer items-center justify-between gap-2 px-4 py-3 text-sm font-semibold text-gray-800 dark:text-gray-100">
+            <span>Browse by tags</span>
+            <span class="text-xs font-normal uppercase tracking-wide text-gray-500 dark:text-gray-400">
+              {hasActiveTag ? `Filtering ${activeTag}` : `${tags.length} topics`}
+            </span>
+          </summary>
+          <div class="border-t border-gray-200/80 px-4 py-4 dark:border-gray-700/60">
+            <div class="flex flex-wrap gap-2">
+              {tags.map((tag) => {
+                const isActive = activeTag === tag;
+                return (
+                  <a
+                    href={buildTagHref(tag)}
+                    class={`rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition ${
+                      isActive
+                        ? "bg-brandingColor text-white shadow-brandingColor/30"
+                        : "bg-white text-brandingColor ring-1 ring-brandingColor/20 hover:-translate-y-0.5 dark:bg-gray-950"
+                    }`}
+                  >
+                    {tag}
+                  </a>
+                );
+              })}
+              {hasActiveTag && (
+                <a
+                  href={buildTagHref()}
+                  class="rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-brandingColor underline-offset-2 hover:underline"
+                >
+                  Clear tag
+                </a>
+              )}
+            </div>
+          </div>
+        </details>
+      )}
+      <p class="mt-4 text-sm text-gray-600 dark:text-gray-400">
+        Showing <span class="font-semibold">{filteredPosts.length}</span> post
+        {filteredPosts.length === 1 ? "" : "s"}
+        {searchQuery && (
+          <>
+            {" "}matching <span class="font-semibold">“{searchQuery}”</span>
+          </>
+        )}
+      </p>
+    </div>
+
+    {filteredPosts.length === 0 ? (
+      <div class="mt-12 rounded-2xl border border-dashed border-gray-300 bg-white/60 p-12 text-center dark:border-gray-700 dark:bg-gray-900/70">
+        <p class="text-lg font-semibold text-gray-800 dark:text-gray-100">No posts found</p>
+        <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+          Try a different search term or{" "}
+          <a href="/blog/" class="text-brandingColor underline-offset-2 hover:underline">browse all posts</a>.
+        </p>
+      </div>
+    ) : (
+      <>
+        <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {filteredPosts.map((post) => (
+            <BlogCard post={post} />
+          ))}
+        </div>
+      </>
+    )}
+  </section>
+</MainLayout>
