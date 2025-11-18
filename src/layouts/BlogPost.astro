@@ -10,7 +10,8 @@ import GoogleTag from "../components/GoogleTag.astro";
 type Props = CollectionEntry<"blog">["data"];
 
 // Destructure incoming props so template references (title, description, etc.) are defined
-const { title, description, pubDate, heroImage, tags, updatedDate }: Props = Astro.props;
+const { title, description, pubDate, heroImage, tags, updatedDate }: Props =
+  Astro.props;
 
 const readingTime = 5; // Default to 5 minutes for now
 ---
@@ -37,6 +38,11 @@ const readingTime = 5; // Default to 5 minutes for now
         margin: 0 auto;
         border-radius: 12px;
         box-shadow: var(--box-shadow);
+      }
+      .back-link{
+        max-width: 1000px;
+        margin: 0 auto;
+        font-size: 0.9rem;
       }
       .article-container {
         max-width: 1000px;
@@ -161,6 +167,9 @@ const readingTime = 5; // Default to 5 minutes for now
             </div>
           )
         }
+        <div class="back-link">
+          <a href="/blog">← Back to blog</a>
+        </div>
 
         <div class="article-container">
           <header class="article-header dark:bg-gray-800">
@@ -228,24 +237,24 @@ const readingTime = 5; // Default to 5 minutes for now
     <script>
       // Parallax effect for hero image
       (function () {
-  const heroImageEl = document.getElementById("hero-image");
+        const heroImageEl = document.getElementById("hero-image");
         if (!heroImageEl) return; // Nothing to do
 
         function updateParallax() {
           const scrolled = window.pageYOffset;
-            const imageContainer = heroImageEl.parentElement;
-            if (!imageContainer) return;
-            const containerRect = imageContainer.getBoundingClientRect();
-            const containerTop = containerRect.top + scrolled;
-            const containerHeight = containerRect.height;
-            if (
-              scrolled + window.innerHeight > containerTop &&
-              scrolled < containerTop + containerHeight
-            ) {
-              const parallaxSpeed = 0.3;
-              const yPos = -(scrolled - containerTop) * parallaxSpeed;
-              heroImageEl!.style.transform = `translateY(${yPos}px)`;
-            }
+          const imageContainer = heroImageEl.parentElement;
+          if (!imageContainer) return;
+          const containerRect = imageContainer.getBoundingClientRect();
+          const containerTop = containerRect.top + scrolled;
+          const containerHeight = containerRect.height;
+          if (
+            scrolled + window.innerHeight > containerTop &&
+            scrolled < containerTop + containerHeight
+          ) {
+            const parallaxSpeed = 0.3;
+            const yPos = -(scrolled - containerTop) * parallaxSpeed;
+            heroImageEl!.style.transform = `translateY(${yPos}px)`;
+          }
         }
         let ticking = false;
         function requestTick() {
