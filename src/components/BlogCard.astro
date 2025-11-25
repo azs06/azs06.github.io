@@ -16,12 +16,12 @@ const href = `/blog/${slug}/`;
 ---
 
 <article
-  class="blog-post group flex flex-col rounded-2xl border border-gray-200/80 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-gray-700/70 dark:bg-gray-900"
+  class="blog-post group flex flex-col rounded-lg border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800"
   data-title={data.title.toLowerCase()}
   data-description={description.toLowerCase()}
   data-tags={tags.map(t => t.toLowerCase()).join(',')}
 >
-  <a href={href} class="relative block overflow-hidden rounded-t-2xl">
+  <a href={href} class="relative block overflow-hidden rounded-t-lg">
     <img
       src={heroImage}
       width={760}

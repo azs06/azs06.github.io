@@ -15,10 +15,10 @@ const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
 ---
 
 <MainLayout title="Blog - Atiquzzaman Soikat">
-  <section class="mx-auto max-w-6xl px-4 py-12">
+  <section>
     <LayoutHeader title="Latest Blog Posts" />
 
-    <div class="mt-8 rounded-2xl border border-gray-200/70 bg-white/80 p-6 shadow-sm backdrop-blur dark:border-gray-700/70 dark:bg-gray-900/70">
+    <div class="mt-8 rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
       <form id="blog-search-form" class="flex flex-col gap-4">
         <label for="blog-search" class="text-sm font-semibold text-gray-700 dark:text-gray-300">
           Find posts by title, topic, or tag
@@ -49,10 +49,10 @@ const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
         </div>
       </form>
       {tags.length > 0 && (
-        <details id="tags-details" class="mt-4 overflow-hidden rounded-xl border border-gray-200/80 bg-gray-50/80 shadow-sm dark:border-gray-700/60 dark:bg-gray-900/40">
+        <details id="tags-details" class="mt-4 overflow-hidden rounded-lg border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-900">
           <summary class="flex cursor-pointer items-center justify-between gap-2 px-4 py-3 text-sm font-semibold text-gray-800 dark:text-gray-100">
             <span>Browse by tags</span>
-            <span id="tags-summary" class="text-xs font-normal uppercase tracking-wide text-gray-500 dark:text-gray-400">
+            <span id="tags-summary" class="text-xs font-medium uppercase tracking-wide text-gray-600 dark:text-gray-200">
               {tags.length} topics
             </span>
           </summary>
@@ -61,7 +61,7 @@ const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
               {tags.map((tag) => (
                 <button
                   type="button"
-                  class="tag-button rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition bg-white text-brandingColor ring-1 ring-brandingColor/20 hover:-translate-y-0.5 dark:bg-gray-950"
+                  class="tag-button rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition bg-white text-brandingColor ring-1 ring-brandingColor/20 hover:-translate-y-0.5 dark:bg-gray-800 dark:text-teal-400 dark:ring-teal-400/30"
                   data-tag={tag.toLowerCase()}
                 >
                   {tag}
@@ -74,7 +74,7 @@ const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
       <p id="filter-status" class="mt-4 hidden text-sm text-gray-600 dark:text-gray-400"></p>
     </div>
 
-    <div id="no-results" class="mt-12 hidden rounded-2xl border border-dashed border-gray-300 bg-white/60 p-12 text-center dark:border-gray-700 dark:bg-gray-900/70">
+    <div id="no-results" class="mt-12 hidden rounded-lg border border-dashed border-gray-300 bg-white p-12 text-center dark:border-gray-700 dark:bg-gray-800">
       <p class="text-lg font-semibold text-gray-800 dark:text-gray-100">No posts found</p>
       <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
         Try a different search term or{" "}
@@ -154,7 +154,7 @@ const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
           if (btn.dataset.tag === normalizedQuery) {
             btn.className = 'tag-button rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition bg-brandingColor text-white shadow-brandingColor/30';
           } else {
-            btn.className = 'tag-button rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition bg-white text-brandingColor ring-1 ring-brandingColor/20 hover:-translate-y-0.5 dark:bg-gray-950';
+            btn.className = 'tag-button rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition bg-white text-brandingColor ring-1 ring-brandingColor/20 hover:-translate-y-0.5 dark:bg-gray-800 dark:text-teal-400 dark:ring-teal-400/30';
           }
         });
 
