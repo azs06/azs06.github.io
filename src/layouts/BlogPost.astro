@@ -36,34 +36,47 @@ const readingTime = 5; // Default to 5 minutes for now
       .hero-image img {
         display: block;
         margin: 0 auto;
-        border-radius: 12px;
+        border-radius: 8px;
         box-shadow: var(--box-shadow);
       }
-      .back-link{
-        max-width: 1000px;
+      .back-link {
+        max-width: 1152px;
         margin: 0 auto;
+        padding: 0 1rem;
+      }
+      .back-link a {
+        display: inline-flex;
+        align-items: center;
         font-size: 0.9rem;
+        color: #374151;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .back-link a:hover {
+        color: #142934;
+      }
+      .dark .back-link a {
+        color: #9ca3af;
+      }
+      .dark .back-link a:hover {
+        color: #f3f4f6;
       }
       .article-container {
-        max-width: 1000px;
+        max-width: 1152px;
         margin: 0 auto;
         padding: 2rem 1rem;
       }
       .article-header {
         background: white;
-        border-radius: 16px;
+        border-radius: 8px;
+        border: 1px solid #e5e7eb;
         padding: 2rem;
         margin-bottom: 2rem;
-        box-shadow:
-          0 1px 3px rgba(0, 0, 0, 0.1),
-          0 1px 2px rgba(0, 0, 0, 0.06);
         text-align: center;
       }
       .dark .article-header {
         background: #1f2937;
-        box-shadow:
-          0 1px 3px rgba(0, 0, 0, 0.3),
-          0 1px 2px rgba(0, 0, 0, 0.2);
+        border-color: #374151;
       }
       .article-title {
         font-size: 2.5rem;
@@ -75,10 +88,13 @@ const readingTime = 5; // Default to 5 minutes for now
       .article-meta {
         display: flex;
         justify-content: center;
-        gap: 1rem;
+        gap: 1.5rem;
         margin-bottom: 1.5rem;
-        color: rgb(var(--gray));
+        color: #6b7280;
         font-size: 0.9rem;
+      }
+      .dark .article-meta {
+        color: #9ca3af;
       }
       .meta-item {
         display: flex;
@@ -97,7 +113,7 @@ const readingTime = 5; // Default to 5 minutes for now
         color: #475569;
         border: 1px solid #e2e8f0;
         padding: 0.25rem 0.75rem;
-        border-radius: 20px;
+        border-radius: 9999px;
         font-size: 0.8rem;
         font-weight: 500;
         text-decoration: none;
@@ -117,28 +133,27 @@ const readingTime = 5; // Default to 5 minutes for now
       }
       .article-content {
         background: white;
-        border-radius: 16px;
-        padding: 2.5rem;
-        box-shadow:
-          0 1px 3px rgba(0, 0, 0, 0.1),
-          0 1px 2px rgba(0, 0, 0, 0.06);
+        border-radius: 8px;
+        border: 1px solid #e5e7eb;
+        padding: 2rem;
         line-height: 1.7;
       }
       .dark .article-content {
         background: #1f2937;
-        box-shadow:
-          0 1px 3px rgba(0, 0, 0, 0.3),
-          0 1px 2px rgba(0, 0, 0, 0.2);
+        border-color: #374151;
       }
       .last-updated-on {
         font-style: italic;
-        color: rgb(var(--gray));
+        color: #6b7280;
         margin-top: 0.5rem;
         font-size: 0.85rem;
       }
+      .dark .last-updated-on {
+        color: #9ca3af;
+      }
       @media (max-width: 768px) {
         .article-title {
-          font-size: 2rem;
+          font-size: 1.75rem;
         }
         .article-header,
         .article-content {

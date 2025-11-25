@@ -81,6 +81,7 @@ body {
   @apply prose prose-lg mx-auto dark:prose-invert;
   line-height: 1.8;
   font-size: 1.1rem;
+  max-width: 90ch;
 }
 
 .markdown-body h1 {
