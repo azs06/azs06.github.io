@@ -52,7 +52,7 @@ const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
         <details id="tags-details" class="mt-4 overflow-hidden rounded-xl border border-gray-200/80 bg-gray-50/80 shadow-sm dark:border-gray-700/60 dark:bg-gray-900/40">
           <summary class="flex cursor-pointer items-center justify-between gap-2 px-4 py-3 text-sm font-semibold text-gray-800 dark:text-gray-100">
             <span>Browse by tags</span>
-            <span id="tags-summary" class="text-xs font-normal uppercase tracking-wide text-gray-500 dark:text-gray-400">
+            <span id="tags-summary" class="text-xs font-medium uppercase tracking-wide text-gray-600 dark:text-gray-200">
               {tags.length} topics
             </span>
           </summary>
@@ -61,7 +61,7 @@ const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
               {tags.map((tag) => (
                 <button
                   type="button"
-                  class="tag-button rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition bg-white text-brandingColor ring-1 ring-brandingColor/20 hover:-translate-y-0.5 dark:bg-gray-950"
+                  class="tag-button rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition bg-white text-brandingColor ring-1 ring-brandingColor/20 hover:-translate-y-0.5 dark:bg-gray-800 dark:text-teal-400 dark:ring-teal-400/30"
                   data-tag={tag.toLowerCase()}
                 >
                   {tag}
@@ -154,7 +154,7 @@ const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
           if (btn.dataset.tag === normalizedQuery) {
             btn.className = 'tag-button rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition bg-brandingColor text-white shadow-brandingColor/30';
           } else {
-            btn.className = 'tag-button rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition bg-white text-brandingColor ring-1 ring-brandingColor/20 hover:-translate-y-0.5 dark:bg-gray-950';
+            btn.className = 'tag-button rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition bg-white text-brandingColor ring-1 ring-brandingColor/20 hover:-translate-y-0.5 dark:bg-gray-800 dark:text-teal-400 dark:ring-teal-400/30';
           }
         });
 
