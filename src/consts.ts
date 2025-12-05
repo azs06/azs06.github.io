@@ -3,3 +3,41 @@
 
 export const SITE_TITLE = 'Md Atiquzzaman Soikat';
 export const SITE_DESCRIPTION = 'Personal Website of Md Atiquzzaman Soikat';
+
+// Technologies/Skills
+export const TECHNOLOGIES = [
+  'TypeScript',
+  'JavaScript',
+  'Python',
+  'Go',
+  'DevOps'
+];
+
+// SaaS Products
+export const SAAS_PRODUCTS = [
+  {
+    name: 'DokanePOS',
+    description: 'A complete sales ERP solution for retail businesses',
+    url: 'https://dokanepos.com'
+  },
+  {
+    name: 'freeinvoice.info',
+    description: 'Create and send professional invoices in seconds',
+    url: 'https://freeinvoice.info'
+  },
+  {
+    name: 'minimalhishab.com',
+    description: 'Browser-based minimal accounting for freelancers',
+    url: 'https://minimalhishab.com'
+  },
+  {
+    name: 'aibcspreparation.com',
+    description: 'AI-powered BCS exam preparation platform',
+    url: 'https://aibcspreparation.com'
+  },
+  {
+    name: 'DigitalNova',
+    description: 'All-in-one digital marketing and SEO toolkit',
+    url: '#'
+  }
+];

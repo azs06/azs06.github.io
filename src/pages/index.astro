@@ -1,110 +1,116 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import BlogCard from "../components/BlogCard.astro";
+import { getCollection } from "astro:content";
+import { TECHNOLOGIES, SAAS_PRODUCTS } from "../consts";
+
+// Fetch 3 most recent blog posts
+const recentPosts = (await getCollection("blog"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
 
 <MainLayout title="Home - Atiquzzaman Soikat">
-    <article>
-        <!-- Hero Section -->
-        <section class="mb-12 text-center">
-            <!-- Profile Image -->
-            <div class="mb-8">
-                <div class="relative inline-block">
-                    <div
-                        class="absolute inset-0 bg-brandingColor rounded-full opacity-10 blur-xl transform scale-110"
-                    >
-                    </div>
-                    <img
-                        src="https://res.cloudinary.com/theazs/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1745151420/personal-website/E62A0787-01_fwd5qy.jpg"
-                        alt="Atiquzzaman Soikat"
-                        class="relative w-40 h-40 md:w-52 md:h-52 rounded-full mx-auto object-cover border-4 border-white dark:border-gray-700 shadow-xl"
-                    />
-                </div>
-            </div>
+  <article class="space-y-16">
+    <!-- Hero Section - Left aligned -->
+    <section class="section-animate">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-bold text-primary dark:text-gray-100 mb-3 font-serif">
+          Md Atiquzzaman Soikat
+        </h1>
+        <p class="text-lg text-muted dark:text-gray-400 mb-6 font-serif italic">
+          Senior Full Stack Developer · Team Lead
+        </p>
+        
+        <div class="space-y-4 text-primary/80 dark:text-gray-300">
+          <p>
+            I am a software developer with more than twelve years of experience
+            focused on web technologies. My career has spanned diverse sectors,
+            including education, hospitality, and most recently, retail.
+          </p>
+          <p>
+            While my primary expertise lies in frontend development, I have
+            progressively transitioned towards full-stack development and am
+            actively cultivating expertise in DevOps.
+          </p>
+        </div>
 
-            <!-- Profile Info -->
-            <h1
-                class="text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-gray-100"
-            >
-                Hi, I'm <span class="text-brandingColor dark:text-blue-400"
-                    >Md Atiquzzaman Soikat</span
-                >
-            </h1>
-            <p
-                class="text-lg text-gray-700 dark:text-gray-300 font-medium mb-8"
-            >
-                Senior Full Stack Developer | Team Lead
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap gap-3 mt-8">
+          <a
+            href="/work"
+            class="btn-press inline-flex items-center px-5 py-2.5 text-sm font-medium text-white bg-accent dark:bg-accent rounded-lg hover:bg-accent/90 dark:hover:bg-accent/90 transition-colors"
+          >
+            View Work
+          </a>
+          <a
+            href="/contact"
+            class="btn-press inline-flex items-center px-5 py-2.5 text-sm font-medium text-primary dark:text-gray-200 border border-border dark:border-[#3d352d] rounded-lg hover:border-accent dark:hover:border-accent transition-colors"
+          >
+            Contact
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="section-animate">
+      <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-4 font-sans">
+        Technologies
+      </h2>
+      <div class="flex flex-wrap gap-2">
+        {TECHNOLOGIES.map((tech) => (
+          <span class="pill-bounce px-3 py-1.5 text-sm text-primary/80 dark:text-gray-300 bg-surface dark:bg-[#2a2520] border border-border dark:border-[#3d352d] rounded-full cursor-default">
+            {tech}
+          </span>
+        ))}
+      </div>
+    </section>
+
+    <!-- SaaS Products Section -->
+    <section class="section-animate">
+      <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-4 font-sans">
+        Products I've Built
+      </h2>
+      <div class="grid gap-4 md:grid-cols-2">
+        {SAAS_PRODUCTS.map((product, index) => (
+          <a
+            href={product.url}
+            target={product.url !== '#' ? '_blank' : undefined}
+            rel={product.url !== '#' ? 'noopener noreferrer' : undefined}
+            class="stagger-item card-lift group block p-4 border border-border dark:border-[#3d352d] rounded-lg bg-paper/50 dark:bg-[#2a2520]/50 hover:border-accent/50 dark:hover:border-accent/50"
+          >
+            <h3 class="font-medium text-primary dark:text-gray-100 group-hover:text-accent dark:group-hover:text-accent transition-colors font-serif">
+              {product.name}
+              {product.url !== '#' && (
+                <svg class="inline-block w-4 h-4 ml-1 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+              )}
+            </h3>
+            <p class="text-sm text-muted dark:text-gray-400 mt-1">
+              {product.description}
             </p>
+          </a>
+        ))}
+      </div>
+    </section>
 
-            <!-- CTA Buttons -->
-            <div
-                class="flex flex-col sm:flex-row items-center justify-center gap-4"
-            >
-                <a
-                    href="https://www.linkedin.com/in/atiquzzaman-soikat/"
-                    aria-label="Connect on LinkedIn"
-                    class="inline-flex items-center justify-center px-6 py-3 font-semibold text-white rounded-lg shadow-md bg-brandingColor hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 transition-colors duration-200"
-                >
-                    Connect on LinkedIn
-                    <svg
-                        class="w-5 h-5 ml-2"
-                        aria-hidden="true"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-                        ></path>
-                    </svg>
-                </a>
-                <a
-                    href="/resume.pdf"
-                    aria-label="View Resume"
-                    class="inline-flex items-center px-6 py-3 font-semibold border-2 border-gray-300 text-gray-700 dark:border-gray-600 dark:text-gray-200 rounded-lg transition-colors duration-200 hover:border-brandingColor hover:text-brandingColor dark:hover:border-blue-400 dark:hover:text-blue-400"
-                    >View Resume</a
-                >
-            </div>
-        </section>
-
-        <!-- Introduction -->
-        <section class="space-y-6">
-            <p class="text-lg leading-relaxed text-gray-800 dark:text-gray-200">
-                I am a software developer with more than twelve years of experience
-                focused on web technologies. My career has spanned diverse sectors,
-                including education, hospitality, and most recently, retail. While
-                my primary expertise lies in frontend development, I have
-                progressively transitioned towards full-stack development and am
-                actively cultivating expertise in DevOps.
-            </p>
-            <p class="text-lg leading-relaxed text-gray-800 dark:text-gray-200">
-                <span class="tech-highlight">JavaScript</span> has been my primary programming
-                language throughout my career, complemented by experience in <span
-                    class="tech-highlight">TypeScript</span
-                >, <span class="tech-highlight">PHP</span>, <span
-                    class="tech-highlight">Python</span
-                >, and <span class="tech-highlight">Go</span>. While I've
-                extensively worked with <span class="tech-highlight">React</span> and
-                <span class="tech-highlight">Vue.js</span>, <span
-                    class="tech-highlight">Svelte</span
-                >
-                has emerged as my preferred frontend framework over the past few years,
-                thanks to its elegant approach to UI development and exceptional developer
-                experience.
-            </p>
-            <p class="text-lg leading-relaxed text-gray-800 dark:text-gray-200">
-                Beyond coding, I maintain a balanced life through gaming, cooking,
-                and quality time with friends and family.
-            </p>
-        </section>
-    </article>
-
-    <style>
-        .tech-highlight {
-            font-weight: 600;
-            color: #142934;
-        }
-
-        :global(.dark) .tech-highlight {
-            color: #93c5fd;
-        }
-    </style>
+    <!-- Recent Blog Posts Section -->
+    <section class="section-animate">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider font-sans">
+          Recent Posts
+        </h2>
+        <a href="/blog" class="text-sm text-accent hover:underline font-sans link-underline">
+          View all →
+        </a>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        {recentPosts.map((post) => (
+          <BlogCard post={post} />
+        ))}
+      </div>
+    </section>
+  </article>
 </MainLayout>
