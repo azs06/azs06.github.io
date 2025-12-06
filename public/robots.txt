@@ -1,0 +1,7 @@
+# robots.txt for soikat.dev
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://soikat.dev/sitemap-index.xml

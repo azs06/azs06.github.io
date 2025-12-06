@@ -9,16 +9,21 @@ import LayoutHeader from "../components/LayoutHeader.astro";
     <!-- Header -->
     <section class="mb-8">
       <LayoutHeader title="About Me" />
-      <p class="text-lg leading-relaxed text-gray-800 dark:text-gray-200">
-        I have over twelve years of experience in web development, serving as a
-        Technical Project Manager, Frontend Engineer, and Team Lead for startups
-        such as Jetaport, Butler Hospitality, and Skipper Hospitality.
-        Additionally, I have worked as a freelancer, managing my own clients. My
-        approach centers on inspiring teams to write clean, iterative, and
-        maintainable code that aligns with real user experiences while achieving
-        business objectives. In my own development work, I prioritize semantic,
-        elegant, and maintainable code that is responsive and accessible.
-      </p>
+      <div class="space-y-4 text-lg leading-relaxed text-gray-800 dark:text-gray-200">
+        <p>
+          I'm Md Atiquzzaman Soikat, a senior full-stack engineer with 12+ years
+          of experience building and scaling web applications. I've led teams,
+          shipped component libraries and architected booking and workflow systems
+          in fast-moving hospitality products.
+        </p>
+        <p>
+          These days my work spans accessible TypeScript frontends, Go and Node.js
+          services, and the DevOps tooling around them—Docker, CI/CD and cloud
+          infrastructure. I enjoy turning messy, real-time business problems into
+          reliable systems with clear APIs, good observability and a great
+          developer experience.
+        </p>
+      </div>
     </section>
 
     <!-- Job Experience -->
@@ -86,201 +91,46 @@ import LayoutHeader from "../components/LayoutHeader.astro";
       </div>
     </section>
 
-    <!-- Expertise -->
+    <!-- Current Stack -->
     <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">Expertise</h2>
+      <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">Current Stack</h2>
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+        <div class="space-y-4">
+          <p class="text-gray-700 dark:text-gray-300">
+            <span class="font-semibold text-gray-900 dark:text-gray-100">Frontend</span> → React, Svelte, Astro, TypeScript
+          </p>
+          <p class="text-gray-700 dark:text-gray-300">
+            <span class="font-semibold text-gray-900 dark:text-gray-100">Backend</span> → Go, Node.js (REST/real‑time services)
+          </p>
+          <p class="text-gray-700 dark:text-gray-300">
+            <span class="font-semibold text-gray-900 dark:text-gray-100">DevOps</span> → Docker, CI/CD (GitHub Actions/GitLab CI), AWS, Cloudflare
+          </p>
+        </div>
+      </div>
+    </section>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Leadership Skills -->
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow transition-shadow">
-          <h3 class="mb-4 text-gray-900 dark:text-gray-100 font-semibold text-lg">
-            Leadership & Management
-          </h3>
-          <ul class="space-y-2">
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Team Leadership</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Project Management</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Agile Methodologies</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Team Mentoring</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Code Review</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Sprint Planning</span>
-            </li>
-          </ul>
-        </div>
-        <!-- Programming Languages -->
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow transition-shadow">
-          <h3 class="mb-4 text-gray-900 dark:text-gray-100 font-semibold text-lg">
-            Programming Languages
-          </h3>
-          <ul class="space-y-2">
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">JavaScript</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">TypeScript</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">PHP</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Python</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Frontend Frameworks -->
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow transition-shadow">
-          <h3 class="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100">
-            Frontend Frameworks
-          </h3>
-          <ul class="space-y-2">
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">React.js</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Next.js</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Vue.js</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Svelte</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Angular</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Ember.js</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Backend & Databases -->
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow transition-shadow">
-          <h3 class="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100">
-            Backend & Databases
-          </h3>
-          <ul class="space-y-2">
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Node.js</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Express.js</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">MySQL</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">PostgreSQL</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">MongoDB</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Firebase</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- DevOps & Cloud -->
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow transition-shadow">
-          <h3 class="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100">DevOps & Cloud</h3>
-          <ul class="space-y-2">
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">AWS</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Docker</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">CI/CD</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Vitest</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- CMS & Frameworks -->
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow transition-shadow">
-          <h3 class="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100">CMS & Frameworks</h3>
-          <ul class="space-y-2">
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Laravel</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">WordPress</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Shopify</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">ERPNext</span>
-            </li>
-          </ul>
-        </div>
-        <!-- Jamstack -->
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow transition-shadow">
-          <h3 class="font-semibold text-lg mb-4 text-gray-900 dark:text-gray-100">Jamstack</h3>
-          <ul class="space-y-2">
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Astro</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Strapi</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">11ty</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-              <span class="text-gray-700 dark:text-gray-300">Hugo</span>
-            </li>
-          </ul>
-        </div>
+    <!-- How I Work -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">How I Work</h2>
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="w-2 h-2 mt-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
+            <span class="text-gray-700 dark:text-gray-300">Automate deploys early — CI/CD is part of the design, not an afterthought.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-2 h-2 mt-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
+            <span class="text-gray-700 dark:text-gray-300">Treat accessibility and performance as product features, not nice-to-haves.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-2 h-2 mt-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
+            <span class="text-gray-700 dark:text-gray-300">Prefer small, observable services over fragile, opaque systems.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-2 h-2 mt-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
+            <span class="text-gray-700 dark:text-gray-300">Share context and mentor others so the team scales, not just the code.</span>
+          </li>
+        </ul>
       </div>
     </section>
   </article>

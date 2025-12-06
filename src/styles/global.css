@@ -9,30 +9,32 @@
  @tailwind utilities;
 
 :root {
-  --accent: #2337ff;
-  --accent-dark: #000d8a;
-  --black: 15, 18, 25;
-  --gray: 96, 115, 159;
-  --gray-light: 229, 233, 240;
-  --gray-dark: 34, 41, 57;
-  --gray-gradient: rgba(var(--gray-light), 50%), #fff;
-  --box-shadow: 0 2px 6px rgba(var(--gray), 25%),
-    0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
+  --accent: #b85c38;
+  --accent-dark: #8b4513;
+  --black: 44, 44, 44;
+  --gray: 107, 100, 88;
+  --gray-light: 232, 224, 208;
+  --gray-dark: 44, 44, 44;
+  --gray-gradient: #f8f4e9, #faf6ed;
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   --main: var(--light-0);
   --main-60: var(--light-0-60);
   --border-hover: var(--dark-8);
+  --paper-bg: #faf6ed;
+  --paper-lines: rgba(200, 180, 150, 0.05);
 }
 
 :root.dark {
-  --accent: #4d6aff;
-  --accent-dark: #2337ff;
-  --black: 240, 237, 230;
-  --gray: 159, 140, 96;
-  --gray-light: 57, 66, 82;
-  --gray-dark: 230, 223, 198;
-  --gray-gradient: rgba(var(--gray-light), 50%), #1a1a1a;
-  --box-shadow: 0 2px 6px rgba(0, 0, 0, 50%),
-    0 8px 24px rgba(0, 0, 0, 60%), 0 16px 32px rgba(0, 0, 0, 60%);
+  --accent: #d4a574;
+  --accent-dark: #b85c38;
+  --black: 243, 240, 235;
+  --gray: 180, 170, 155;
+  --gray-light: 55, 50, 45;
+  --gray-dark: 243, 240, 235;
+  --gray-gradient: #2a2520, #1f1b18;
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --paper-bg: #1f1b18;
+  --paper-lines: rgba(100, 90, 70, 0.06);
 }
 @font-face {
   font-family: "Atkinson";
@@ -49,22 +51,29 @@
   font-display: swap;
 }
 body {
-  font-family: "Atkinson", sans-serif;
+  font-family: "Lora", Georgia, serif;
   margin: 0;
   padding: 0;
   text-align: left;
-  background: linear-gradient(var(--gray-gradient)) no-repeat;
-  background-size: 100% 600px;
+  background-color: var(--paper-bg);
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 28px,
+      var(--paper-lines) 28px,
+      var(--paper-lines) 29px
+    );
   word-wrap: break-word;
   overflow-wrap: break-word;
   color: rgb(var(--gray-dark));
-  font-size: 20px;
-  line-height: 1.7;
+  font-size: 18px;
+  line-height: 1.75;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .dark body {
-  background-color: #1a1a1a;
+  background-color: var(--paper-bg);
 }
 
 .work-project-card {
@@ -86,26 +95,12 @@ body {
 
 .markdown-body h1 {
   @apply text-3xl font-bold text-gray-800 dark:text-gray-100 mt-8 mb-4;
-  border-bottom: 3px solid;
-  border-image: linear-gradient(135deg, #142934 0%, #142934 100%) 1;
+  border-bottom: 2px solid #e5e7eb;
   padding-bottom: 0.5rem;
 }
 
 .markdown-body h2 {
   @apply text-2xl font-semibold text-gray-700 dark:text-gray-200 mt-8 mb-4;
-  position: relative;
-}
-
-.markdown-body h2::before {
-  content: '';
-  position: absolute;
-  left: -1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 4px;
-  height: 1.5rem;
-  background: linear-gradient(135deg, #142934 0%, #142934 100%);
-  border-radius: 2px;
 }
 
 .markdown-body h3 {
@@ -130,27 +125,14 @@ body {
 
 .markdown-body blockquote {
   @apply border-l-4 pl-6 py-2 my-6 bg-gray-50 dark:bg-gray-800 rounded-r-lg;
-  border-left-color: #142934;
+  border-left-color: #6366f1;
   font-style: italic;
   color: rgb(var(--gray-dark));
-  position: relative;
-}
-
-.markdown-body blockquote::before {
-  content: '"';
-  font-size: 4rem;
-  position: absolute;
-  left: 1rem;
-  top: -1rem;
-  color: #142934;
-  opacity: 0.3;
-  font-family: Georgia, serif;
 }
 
 .markdown-body pre {
   @apply bg-gray-900 dark:bg-gray-950 rounded-lg p-6 overflow-x-auto text-sm my-6;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .markdown-body pre code {
@@ -162,13 +144,13 @@ body {
 
 .markdown-body code {
   @apply text-sm rounded px-2 py-1 font-mono;
-  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
-  color: #dc2626;
+  background: #f3f4f6;
+  color: #6366f1;
 }
 
 .dark .markdown-body code {
-  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
-  color: #f87171;
+  background: #374151;
+  color: #818cf8;
 }
 
 .markdown-body ul, .markdown-body ol {
@@ -181,7 +163,7 @@ body {
 
 .markdown-body ul li::before {
   content: '▸';
-  color: #142934;
+  color: #6366f1;
   font-weight: bold;
   position: absolute;
   margin-left: -1.2rem;
@@ -200,11 +182,10 @@ body {
   @apply table-auto border-collapse mt-6 mb-6 w-full;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .markdown-body th {
-  @apply bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 px-4 py-3 text-left text-gray-700 dark:text-gray-200 font-semibold;
+  @apply bg-gray-100 dark:bg-gray-700 px-4 py-3 text-left text-gray-700 dark:text-gray-200 font-semibold;
 }
 
 .markdown-body td {
@@ -215,20 +196,165 @@ body {
   @apply bg-gray-50 dark:bg-gray-800;
 }
 
-/* Enhanced image styling */
+/* Image styling */
 .markdown-body img {
-  @apply mx-auto my-6 rounded-lg shadow-lg;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.markdown-body img:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  @apply mx-auto my-6 rounded-lg;
+  border: 1px solid #e5e7eb;
 }
 
 /* Strong text styling */
 .markdown-body strong {
   @apply font-bold text-gray-800 dark:text-gray-200;
 }
+
+/* ===== MICRO-INTERACTIONS ===== */
+
+/* Smooth page transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Link underline animation */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Button press effect */
+.btn-press {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-press:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(184, 92, 56, 0.25);
+}
+
+.btn-press:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(184, 92, 56, 0.15);
+}
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.dark .card-lift:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Stagger animation for lists */
+@keyframes staggerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-item {
+  animation: staggerFadeIn 0.4s ease-out backwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.05s; }
+.stagger-item:nth-child(2) { animation-delay: 0.1s; }
+.stagger-item:nth-child(3) { animation-delay: 0.15s; }
+.stagger-item:nth-child(4) { animation-delay: 0.2s; }
+.stagger-item:nth-child(5) { animation-delay: 0.25s; }
+.stagger-item:nth-child(6) { animation-delay: 0.3s; }
+
+/* Tech pill bounce on hover */
+.pill-bounce {
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.pill-bounce:hover {
+  transform: scale(1.05);
+  background-color: rgba(184, 92, 56, 0.1);
+  border-color: var(--accent);
+}
+
+/* Icon hover effect */
+.icon-hover {
+  transition: transform 0.3s ease, color 0.2s ease;
+}
+
+.icon-hover:hover {
+  transform: rotate(8deg) scale(1.15);
+  color: var(--accent);
+}
+
+/* Smooth focus states */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Text selection */
+::selection {
+  background-color: rgba(184, 92, 56, 0.2);
+  color: inherit;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section fade in on scroll (use with JS or just CSS) */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-animate {
+  animation: slideUp 0.5s ease-out backwards;
+}
+
+.section-animate:nth-of-type(1) { animation-delay: 0s; }
+.section-animate:nth-of-type(2) { animation-delay: 0.1s; }
+.section-animate:nth-of-type(3) { animation-delay: 0.2s; }
+.section-animate:nth-of-type(4) { animation-delay: 0.3s; }
 

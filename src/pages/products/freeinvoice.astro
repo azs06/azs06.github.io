@@ -1,0 +1,112 @@
+---
+import ProductLayout from "../../layouts/ProductLayout.astro";
+import ProductHero from "../../components/ProductHero.astro";
+import ProductFeatures from "../../components/ProductFeatures.astro";
+import ProductCTA from "../../components/ProductCTA.astro";
+
+const product = {
+  title: "freeinvoice.info",
+  tagline: "Professional Invoicing Made Simple",
+  description:
+    "Create and send professional invoices in seconds. No signup required, completely free, and designed for freelancers and small businesses.",
+  url: "https://freeinvoice.info",
+  status: "live" as const,
+  image: "/blog-placeholder-2.jpg",
+};
+
+const features = [
+  {
+    icon: "⚡",
+    title: "Lightning Fast",
+    description:
+      "Create professional invoices in seconds without any signup or registration. Just start invoicing.",
+  },
+  {
+    icon: "💯",
+    title: "100% Free",
+    description:
+      "Completely free to use with no hidden costs, no subscriptions, and no limits on the number of invoices.",
+  },
+  {
+    icon: "🎨",
+    title: "Professional Templates",
+    description:
+      "Beautiful, customizable invoice templates that make your business look professional and trustworthy.",
+  },
+  {
+    icon: "💾",
+    title: "Save & Export",
+    description:
+      "Export invoices as PDF, save for later, or send directly to your clients via email.",
+  },
+  {
+    icon: "🌍",
+    title: "Multi-Currency",
+    description:
+      "Support for multiple currencies and tax systems to accommodate international clients and transactions.",
+  },
+  {
+    icon: "🔒",
+    title: "Privacy First",
+    description:
+      "Your data stays in your browser. No cloud storage means complete privacy and data security.",
+  },
+];
+---
+
+<ProductLayout
+  title={product.title}
+  description={product.description}
+  tagline={product.tagline}
+  url={product.url}
+  image={product.image}
+  status={product.status}
+>
+  <!-- Hero Section -->
+  <ProductHero
+    title="Invoice your clients in seconds, not hours"
+    description="freeinvoice.info is the fastest way to create professional invoices. No account needed, no payment required. Just open your browser and start invoicing."
+    ctaText="Start Creating Invoices"
+    ctaUrl={product.url}
+    secondaryCtaText="See Examples"
+    secondaryCtaUrl="#"
+    image="/blog-placeholder-2.jpg"
+  />
+
+  <!-- Features Section -->
+  <ProductFeatures features={features} columns={3} />
+
+  <!-- Screenshots Section -->
+  <section class="section-animate">
+    <h2
+      class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-6 font-sans"
+    >
+      Product Screenshots
+    </h2>
+    <p class="text-sm text-muted dark:text-gray-400 mb-6">
+      Screenshots coming soon - placeholder images shown below
+    </p>
+    <div class="grid gap-6 md:grid-cols-2">
+      <img
+        src="/blog-placeholder-3.jpg"
+        alt="freeinvoice.info Invoice Editor"
+        class="rounded-lg border border-border dark:border-[#3d352d] w-full h-auto"
+        loading="lazy"
+      />
+      <img
+        src="/blog-placeholder-4.jpg"
+        alt="freeinvoice.info Template Selection"
+        class="rounded-lg border border-border dark:border-[#3d352d] w-full h-auto"
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <ProductCTA
+    title="Ready to simplify your invoicing?"
+    description="Join thousands of freelancers and small business owners who trust freeinvoice.info for their invoicing needs."
+    ctaText="Try freeinvoice.info Now"
+    ctaUrl={product.url}
+  />
+</ProductLayout>

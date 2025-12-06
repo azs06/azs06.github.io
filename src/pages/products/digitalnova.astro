@@ -1,0 +1,112 @@
+---
+import ProductLayout from "../../layouts/ProductLayout.astro";
+import ProductHero from "../../components/ProductHero.astro";
+import ProductFeatures from "../../components/ProductFeatures.astro";
+import ProductCTA from "../../components/ProductCTA.astro";
+
+const product = {
+  title: "DigitalNova",
+  tagline: "Your Complete Digital Marketing Toolkit",
+  description:
+    "All-in-one digital marketing and SEO toolkit to grow your online presence, optimize your content, and track your success.",
+  url: "#",
+  status: "coming-soon" as const,
+  image: "/blog-placeholder-1.jpg",
+};
+
+const features = [
+  {
+    icon: "🔍",
+    title: "SEO Analysis",
+    description:
+      "Comprehensive SEO audits and recommendations to improve your search engine rankings and visibility.",
+  },
+  {
+    icon: "📊",
+    title: "Analytics Dashboard",
+    description:
+      "Track website traffic, user behavior, and conversion metrics with intuitive visual dashboards.",
+  },
+  {
+    icon: "🔗",
+    title: "Backlink Monitoring",
+    description:
+      "Monitor your backlink profile, discover new link opportunities, and track competitor backlinks.",
+  },
+  {
+    icon: "📝",
+    title: "Content Optimization",
+    description:
+      "Get AI-powered suggestions to optimize your content for search engines and user engagement.",
+  },
+  {
+    icon: "🎯",
+    title: "Keyword Research",
+    description:
+      "Discover high-value keywords, analyze search volume, and find opportunities to rank higher.",
+  },
+  {
+    icon: "🚀",
+    title: "Performance Reports",
+    description:
+      "Generate beautiful, shareable reports to track your SEO progress and demonstrate ROI.",
+  },
+];
+---
+
+<ProductLayout
+  title={product.title}
+  description={product.description}
+  tagline={product.tagline}
+  url={product.url}
+  image={product.image}
+  status={product.status}
+>
+  <!-- Hero Section -->
+  <ProductHero
+    title="Everything you need for digital marketing success"
+    description="DigitalNova brings together powerful SEO tools, analytics, and marketing automation in one platform. Launch your digital presence to the next level."
+    ctaText="Join Waitlist"
+    ctaUrl="#"
+    secondaryCtaText="Learn More"
+    secondaryCtaUrl="#"
+    image="/blog-placeholder-1.jpg"
+  />
+
+  <!-- Features Section -->
+  <ProductFeatures features={features} columns={3} />
+
+  <!-- Screenshots Section -->
+  <section class="section-animate">
+    <h2
+      class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-6 font-sans"
+    >
+      Product Screenshots
+    </h2>
+    <p class="text-sm text-muted dark:text-gray-400 mb-6">
+      Screenshots coming soon - placeholder images shown below
+    </p>
+    <div class="grid gap-6 md:grid-cols-2">
+      <img
+        src="/blog-placeholder-3.jpg"
+        alt="DigitalNova SEO Dashboard"
+        class="rounded-lg border border-border dark:border-[#3d352d] w-full h-auto"
+        loading="lazy"
+      />
+      <img
+        src="/blog-placeholder-4.jpg"
+        alt="DigitalNova Analytics Interface"
+        class="rounded-lg border border-border dark:border-[#3d352d] w-full h-auto"
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <ProductCTA
+    title="Be the first to experience DigitalNova"
+    description="Join our waitlist to get early access to DigitalNova when we launch. Limited spots available for beta testers."
+    ctaText="Join the Waitlist"
+    ctaUrl="#"
+  />
+</ProductLayout>

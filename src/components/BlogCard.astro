@@ -8,49 +8,36 @@ interface Props {
 
 const { post } = Astro.props;
 const { data } = post;
-const slug = post.slug ?? post.id;
+const slug = post.id;
 const tags = data.tags ?? [];
 const description = data.description ?? "";
-const heroImage = data.heroImage ?? "/og-image.png";
 const href = `/blog/${slug}/`;
 ---
 
 <article
-  class="blog-post group flex flex-col rounded-lg border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800"
+  class="blog-post stagger-item card-lift group flex flex-col p-4 border border-border dark:border-[#3d352d] rounded-lg bg-paper/50 dark:bg-[#2a2520]/50 hover:border-accent/50 dark:hover:border-accent/50"
   data-title={data.title.toLowerCase()}
   data-description={description.toLowerCase()}
   data-tags={tags.map(t => t.toLowerCase()).join(',')}
 >
-  <a href={href} class="relative block overflow-hidden rounded-t-lg">
-    <img
-      src={heroImage}
-      width={760}
-      height={400}
-      loading="lazy"
-      decoding="async"
-      alt={`Illustration for ${data.title}`}
-      class="h-48 w-full object-cover transition duration-300 group-hover:scale-105"
-    />
-    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent"></div>
-    <div class="pointer-events-none absolute bottom-3 left-3 text-xs font-semibold uppercase tracking-wide text-white">
+  <div class="flex flex-col gap-2">
+    <span class="text-xs text-muted dark:text-gray-500 font-sans">
       <FormattedDate date={data.pubDate} />
-    </div>
-  </a>
-  <div class="flex flex-1 flex-col gap-3 p-5">
+    </span>
     <a href={href} class="space-y-2">
-      <h3 class="text-xl font-semibold text-gray-900 transition group-hover:text-brandingColor dark:text-gray-100 dark:group-hover:text-teal-400">
+      <h3 class="font-medium text-primary dark:text-gray-100 group-hover:text-accent transition-colors font-serif">
         {data.title}
       </h3>
       {description && (
-        <p class="text-sm text-gray-600 dark:text-gray-400">
+        <p class="text-sm text-muted dark:text-gray-400 line-clamp-2">
           {description}
         </p>
       )}
     </a>
     {tags.length > 0 && (
-      <div class="mt-auto flex flex-wrap gap-2">
-        {tags.map((tag) => (
-          <span class="rounded-full bg-brandingColor/10 px-3 py-1 text-xs font-medium uppercase tracking-wide text-brandingColor dark:bg-brandingColor/20">
+      <div class="flex flex-wrap gap-1.5 mt-2">
+        {tags.slice(0, 3).map((tag) => (
+          <span class="px-2 py-0.5 text-xs text-muted dark:text-gray-400 bg-surface dark:bg-[#2a2520] border border-border/50 dark:border-[#3d352d] rounded font-sans">
             {tag}
           </span>
         ))}
