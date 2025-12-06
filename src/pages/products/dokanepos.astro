@@ -1,0 +1,112 @@
+---
+import ProductLayout from "../../layouts/ProductLayout.astro";
+import ProductHero from "../../components/ProductHero.astro";
+import ProductFeatures from "../../components/ProductFeatures.astro";
+import ProductCTA from "../../components/ProductCTA.astro";
+
+const product = {
+  title: "DokanePOS",
+  tagline: "Modern Point of Sale for the Digital Age",
+  description:
+    "A complete sales ERP solution built for modern retail businesses. Manage inventory, track sales, and grow your business with real-time analytics.",
+  url: "https://dokanepos.com",
+  status: "live" as const,
+  image: "/blog-placeholder-1.jpg",
+};
+
+const features = [
+  {
+    icon: "📊",
+    title: "Real-time Analytics",
+    description:
+      "Track sales, inventory, and performance metrics in real-time with beautiful dashboards and actionable insights.",
+  },
+  {
+    icon: "💳",
+    title: "Multiple Payment Methods",
+    description:
+      "Accept cash, cards, mobile payments, and more with integrated payment processing for seamless transactions.",
+  },
+  {
+    icon: "📦",
+    title: "Inventory Management",
+    description:
+      "Automatic stock tracking, low-stock alerts, and purchase order management to keep your shelves stocked.",
+  },
+  {
+    icon: "👥",
+    title: "Customer Management",
+    description:
+      "Build detailed customer profiles, track purchase history, and manage loyalty programs to drive retention.",
+  },
+  {
+    icon: "🔐",
+    title: "Role-based Access",
+    description:
+      "Secure multi-user access with customizable permissions for different roles and responsibilities.",
+  },
+  {
+    icon: "📱",
+    title: "Mobile Ready",
+    description:
+      "Access your business data from any device with our responsive web application that works everywhere.",
+  },
+];
+---
+
+<ProductLayout
+  title={product.title}
+  description={product.description}
+  tagline={product.tagline}
+  url={product.url}
+  image={product.image}
+  status={product.status}
+>
+  <!-- Hero Section -->
+  <ProductHero
+    title="Everything you need to run your retail business"
+    description="DokanePOS combines point-of-sale, inventory management, and business analytics in one powerful platform. Built with modern web technologies for speed and reliability."
+    ctaText="Visit DokanePOS"
+    ctaUrl={product.url}
+    secondaryCtaText="View Demo"
+    secondaryCtaUrl="#"
+    image="/blog-placeholder-1.jpg"
+  />
+
+  <!-- Features Section -->
+  <ProductFeatures features={features} columns={3} />
+
+  <!-- Screenshots Section -->
+  <section class="section-animate">
+    <h2
+      class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-6 font-sans"
+    >
+      Product Screenshots
+    </h2>
+    <p class="text-sm text-muted dark:text-gray-400 mb-6">
+      Screenshots coming soon - placeholder images shown below
+    </p>
+    <div class="grid gap-6 md:grid-cols-2">
+      <img
+        src="/blog-placeholder-2.jpg"
+        alt="DokanePOS Dashboard"
+        class="rounded-lg border border-border dark:border-[#3d352d] w-full h-auto"
+        loading="lazy"
+      />
+      <img
+        src="/blog-placeholder-3.jpg"
+        alt="DokanePOS Sales Interface"
+        class="rounded-lg border border-border dark:border-[#3d352d] w-full h-auto"
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <ProductCTA
+    title="Ready to transform your retail business?"
+    description="Join hundreds of businesses already using DokanePOS to streamline their operations and boost sales."
+    ctaText="Get Started with DokanePOS"
+    ctaUrl={product.url}
+  />
+</ProductLayout>

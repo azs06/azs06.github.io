@@ -1,0 +1,92 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  ctaText?: string;
+  ctaUrl?: string;
+  secondaryCtaText?: string;
+  secondaryCtaUrl?: string;
+  image?: string;
+}
+
+const {
+  title,
+  description,
+  ctaText = "Get Started",
+  ctaUrl = "#",
+  secondaryCtaText,
+  secondaryCtaUrl,
+  image,
+} = Astro.props;
+---
+
+<section class="section-animate">
+  <div class="grid md:grid-cols-2 gap-8 items-center">
+    <div class="space-y-6">
+      <h2
+        class="text-3xl font-bold text-primary dark:text-gray-100 font-serif"
+      >
+        {title}
+      </h2>
+      <p class="text-lg text-primary/80 dark:text-gray-300 leading-relaxed">
+        {description}
+      </p>
+
+      <div class="flex flex-wrap gap-3">
+        <a
+          href={ctaUrl}
+          target={ctaUrl.startsWith("http") ? "_blank" : undefined}
+          rel={ctaUrl.startsWith("http") ? "noopener noreferrer" : undefined}
+          class="btn-press inline-flex items-center px-5 py-2.5 text-sm font-medium text-white bg-accent dark:bg-accent rounded-lg hover:bg-accent/90 transition-colors"
+        >
+          {ctaText}
+          {
+            ctaUrl.startsWith("http") && (
+              <svg
+                class="w-4 h-4 ml-1.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            )
+          }
+        </a>
+
+        {
+          secondaryCtaText && secondaryCtaUrl && (
+            <a
+              href={secondaryCtaUrl}
+              target={secondaryCtaUrl.startsWith("http") ? "_blank" : undefined}
+              rel={secondaryCtaUrl.startsWith("http")
+                ? "noopener noreferrer"
+                : undefined}
+              class="btn-press inline-flex items-center px-5 py-2.5 text-sm font-medium text-primary dark:text-gray-200 border border-border dark:border-[#3d352d] rounded-lg hover:border-accent dark:hover:border-accent transition-colors"
+            >
+              {secondaryCtaText}
+            </a>
+          )
+        }
+      </div>
+    </div>
+
+    {
+      image && (
+        <div class="rounded-lg overflow-hidden border border-border dark:border-[#3d352d]">
+          <img
+            src={image}
+            alt={`${title} interface`}
+            class="w-full h-auto"
+            loading="lazy"
+          />
+        </div>
+      )
+    }
+  </div>
+</section>

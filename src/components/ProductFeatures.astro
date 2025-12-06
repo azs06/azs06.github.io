@@ -1,0 +1,42 @@
+---
+interface Feature {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  features: Feature[];
+  columns?: 2 | 3;
+}
+
+const { features, columns = 3 } = Astro.props;
+const gridCols = columns === 2 ? "md:grid-cols-2" : "lg:grid-cols-3";
+---
+
+<section class="section-animate">
+  <h2
+    class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-6 font-sans"
+  >
+    Key Features
+  </h2>
+
+  <div class={`grid gap-6 md:grid-cols-2 ${gridCols}`}>
+    {
+      features.map((feature, index) => (
+        <div
+          class="stagger-item card-lift p-6 border border-border dark:border-[#3d352d] rounded-lg bg-paper/50 dark:bg-[#2a2520]/50 hover:border-accent/50 dark:hover:border-accent/50 space-y-3"
+          style={`animation-delay: ${index * 0.05}s`}
+        >
+          <div class="text-4xl">{feature.icon}</div>
+          <h3 class="text-lg font-medium text-primary dark:text-gray-100 font-serif">
+            {feature.title}
+          </h3>
+          <p class="text-sm text-muted dark:text-gray-400">
+            {feature.description}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</section>

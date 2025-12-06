@@ -1,0 +1,104 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import GoogleTag from "../components/GoogleTag.astro";
+import { SITE_TITLE } from "../consts";
+
+interface Props {
+  title: string;
+  description: string;
+  tagline?: string;
+  url?: string;
+  image?: string;
+  status?: "live" | "coming-soon";
+}
+
+const { title, description, tagline, url, image, status } = Astro.props;
+const seoTitle = `${title} | ${SITE_TITLE}`;
+const ogImage = image || "/blog-placeholder-1.jpg";
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={seoTitle} description={description} image={ogImage} />
+    <GoogleTag />
+
+    <!-- Structured data for SoftwareApplication -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": title,
+      "description": description,
+      "url": url,
+      "applicationCategory": "BusinessApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    })} />
+  </head>
+  <body class="bg-white dark:bg-gray-900 transition-colors duration-300">
+    <Header />
+    <main class="max-w-6xl mx-auto px-4 py-12">
+      <article class="space-y-12">
+        <!-- Back link -->
+        <div class="section-animate">
+          <a
+            href="/products"
+            class="inline-flex items-center gap-2 text-sm text-muted dark:text-gray-400 hover:text-accent dark:hover:text-accent transition-colors"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M19 12H5M12 19l-7-7 7-7"></path>
+            </svg>
+            Back to products
+          </a>
+        </div>
+
+        <!-- Product header -->
+        <header class="section-animate space-y-4">
+          {
+            status === "live" && (
+              <span class="inline-flex items-center px-3 py-1 text-xs font-medium text-accent dark:text-accent border border-accent/30 dark:border-accent/30 rounded-full">
+                Live
+              </span>
+            )
+          }
+          {
+            status === "coming-soon" && (
+              <span class="inline-flex items-center px-3 py-1 text-xs font-medium text-muted dark:text-gray-400 border border-border dark:border-[#3d352d] rounded-full">
+                Coming Soon
+              </span>
+            )
+          }
+          <h1
+            class="text-4xl md:text-5xl font-bold text-primary dark:text-gray-100 font-serif"
+          >
+            {title}
+          </h1>
+          {
+            tagline && (
+              <p class="text-xl md:text-2xl text-primary/80 dark:text-gray-300 font-serif italic">
+                {tagline}
+              </p>
+            )
+          }
+        </header>
+
+        <!-- Slot for page content -->
+        <div class="space-y-16">
+          <slot />
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>

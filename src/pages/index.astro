@@ -85,28 +85,11 @@ const recentPosts = (await getCollection("blog"))
         {
           SAAS_PRODUCTS.map((product, index) => (
             <a
-              href={product.url}
-              target={product.url !== "#" ? "_blank" : undefined}
-              rel={product.url !== "#" ? "noopener noreferrer" : undefined}
+              href={`/products/${product.slug}`}
               class="stagger-item card-lift group block p-4 border border-border dark:border-[#3d352d] rounded-lg bg-paper/50 dark:bg-[#2a2520]/50 hover:border-accent/50 dark:hover:border-accent/50"
             >
               <h3 class="font-medium text-primary dark:text-gray-100 group-hover:text-accent dark:group-hover:text-accent transition-colors font-serif">
                 {product.name}
-                {product.url !== "#" && (
-                  <svg
-                    class="inline-block w-4 h-4 ml-1 opacity-50"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                )}
               </h3>
               <p class="text-sm text-muted dark:text-gray-400 mt-1">
                 {product.description}

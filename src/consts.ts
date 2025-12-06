@@ -16,26 +16,31 @@ export const TECHNOLOGIES = [
 // SaaS Products
 export const SAAS_PRODUCTS = [
   {
+    slug: 'dokanepos',
     name: 'DokanePOS',
     description: 'A complete sales ERP solution for retail businesses',
     url: 'https://dokanepos.com'
   },
   {
+    slug: 'freeinvoice',
     name: 'freeinvoice.info',
     description: 'Create and send professional invoices in seconds',
     url: 'https://freeinvoice.info'
   },
   {
+    slug: 'minimalhishab',
     name: 'minimalhishab.com',
     description: 'Browser-based minimal accounting for freelancers',
     url: 'https://minimalhishab.com'
   },
   {
+    slug: 'aibcspreparation',
     name: 'aibcspreparation.com',
     description: 'AI-powered BCS exam preparation platform',
     url: 'https://aibcspreparation.com'
   },
   {
+    slug: 'digitalnova',
     name: 'DigitalNova',
     description: 'All-in-one digital marketing and SEO toolkit',
     url: '#'
