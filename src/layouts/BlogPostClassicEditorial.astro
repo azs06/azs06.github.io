@@ -1,0 +1,570 @@
+---
+/**
+ * VARIATION 1: "Classic Editorial"
+ * ================================
+ * Traditional newspaper/magazine style layout featuring:
+ * - Large drop cap for first letter of content
+ * - Serif fonts emphasized throughout
+ * - Subtle separator lines between sections
+ * - Author byline styled prominently
+ * - Pull quotes styling support
+ * - Elegant, timeless aesthetic
+ */
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import GoogleTag from "../components/GoogleTag.astro";
+
+type Props = CollectionEntry<"blog">["data"] & {
+  author?: string;
+};
+
+const { 
+  title, 
+  description, 
+  pubDate, 
+  heroImage, 
+  tags, 
+  updatedDate,
+  author = "Ashik Nesin" 
+}: Props = Astro.props;
+
+const readingTime = 5;
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+    <GoogleTag />
+    <!-- Google Fonts for Editorial Feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet">
+    
+    <style>
+      /* ===== CLASSIC EDITORIAL THEME ===== */
+      
+      /* Typography Variables */
+      :root {
+        --font-display: 'Playfair Display', Georgia, serif;
+        --font-body: 'Source Serif 4', 'Lora', Georgia, serif;
+        --editorial-accent: #b85c38;
+        --editorial-dark: #2c2c2c;
+        --editorial-gray: #666;
+        --editorial-light: #f8f4e9;
+        --editorial-border: #d4c4b0;
+      }
+
+      .dark {
+        --editorial-dark: #f3f0eb;
+        --editorial-gray: #b4aa9b;
+        --editorial-light: #1f1b18;
+        --editorial-border: #4a4540;
+      }
+
+      /* Main Container */
+      .editorial-main {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        background: var(--editorial-light);
+        min-height: 100vh;
+        font-family: var(--font-body);
+      }
+
+      /* Hero Section */
+      .editorial-hero {
+        position: relative;
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .editorial-hero-image {
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        border: 1px solid var(--editorial-border);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      }
+
+      .dark .editorial-hero-image {
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      }
+
+      /* Image Caption Style */
+      .editorial-image-caption {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        font-style: italic;
+        color: var(--editorial-gray);
+        text-align: center;
+        margin-top: 0.75rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--editorial-border);
+      }
+
+      /* Back Link */
+      .editorial-back {
+        max-width: 900px;
+        margin: 2rem auto 1rem;
+        padding: 0 1.5rem;
+      }
+
+      .editorial-back a {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: var(--editorial-gray);
+        text-decoration: none;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        transition: color 0.2s ease;
+      }
+
+      .editorial-back a:hover {
+        color: var(--editorial-accent);
+      }
+
+      /* Article Container */
+      .editorial-article {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 1.5rem 4rem;
+      }
+
+      /* Article Header */
+      .editorial-header {
+        text-align: center;
+        padding: 3rem 0;
+        border-bottom: 1px solid var(--editorial-border);
+        margin-bottom: 2rem;
+      }
+
+      /* Section Label */
+      .editorial-section-label {
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--editorial-accent);
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      /* Title */
+      .editorial-title {
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-weight: 700;
+        line-height: 1.15;
+        color: var(--editorial-dark);
+        margin: 0 0 1.5rem;
+        letter-spacing: -0.02em;
+      }
+
+      /* Subtitle/Description */
+      .editorial-subtitle {
+        font-family: var(--font-body);
+        font-size: 1.25rem;
+        font-style: italic;
+        color: var(--editorial-gray);
+        line-height: 1.6;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+      }
+
+      /* Decorative Separator */
+      .editorial-separator {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      .editorial-separator::before,
+      .editorial-separator::after {
+        content: '';
+        width: 60px;
+        height: 1px;
+        background: var(--editorial-border);
+      }
+
+      .editorial-separator-icon {
+        color: var(--editorial-accent);
+        font-size: 1.25rem;
+      }
+
+      /* Author Byline */
+      .editorial-byline {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1.5rem 0;
+      }
+
+      .editorial-author {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--editorial-dark);
+        letter-spacing: 0.05em;
+      }
+
+      .editorial-author-prefix {
+        font-style: italic;
+        color: var(--editorial-gray);
+        font-weight: 400;
+      }
+
+      /* Meta Info */
+      .editorial-meta {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: var(--editorial-gray);
+      }
+
+      .editorial-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .editorial-meta-divider {
+        color: var(--editorial-border);
+      }
+
+      /* Tags */
+      .editorial-tags {
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin-top: 1.5rem;
+      }
+
+      .editorial-tag {
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        font-style: italic;
+        color: var(--editorial-gray);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .editorial-tag:hover {
+        color: var(--editorial-accent);
+      }
+
+      .editorial-tag::before {
+        content: '#';
+        color: var(--editorial-accent);
+      }
+
+      /* Article Content */
+      .editorial-content {
+        font-family: var(--font-body);
+        font-size: 1.125rem;
+        line-height: 1.85;
+        color: var(--editorial-dark);
+      }
+
+      /* Drop Cap */
+      .editorial-content :global(p:first-of-type::first-letter) {
+        font-family: var(--font-display);
+        float: left;
+        font-size: 4.5rem;
+        line-height: 0.8;
+        padding-right: 0.5rem;
+        padding-top: 0.25rem;
+        color: var(--editorial-accent);
+        font-weight: 700;
+      }
+
+      /* Content Headings */
+      .editorial-content :global(h2) {
+        font-family: var(--font-display);
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: var(--editorial-dark);
+        margin: 3rem 0 1.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid var(--editorial-border);
+      }
+
+      .editorial-content :global(h3) {
+        font-family: var(--font-display);
+        font-size: 1.35rem;
+        font-weight: 500;
+        font-style: italic;
+        color: var(--editorial-dark);
+        margin: 2.5rem 0 1rem;
+      }
+
+      /* Paragraphs */
+      .editorial-content :global(p) {
+        margin: 0 0 1.5rem;
+        text-align: justify;
+        hyphens: auto;
+      }
+
+      /* Links */
+      .editorial-content :global(a) {
+        color: var(--editorial-accent);
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+        transition: all 0.2s ease;
+      }
+
+      .editorial-content :global(a:hover) {
+        text-decoration-thickness: 2px;
+      }
+
+      /* Blockquotes / Pull Quotes */
+      .editorial-content :global(blockquote) {
+        position: relative;
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--editorial-dark);
+        margin: 3rem 0;
+        padding: 2rem 0;
+        border-top: 3px solid var(--editorial-accent);
+        border-bottom: 1px solid var(--editorial-border);
+        text-align: center;
+        background: transparent;
+      }
+
+      .editorial-content :global(blockquote::before) {
+        content: '"';
+        position: absolute;
+        top: -0.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 4rem;
+        color: var(--editorial-accent);
+        opacity: 0.3;
+        font-family: var(--font-display);
+        line-height: 1;
+      }
+
+      .editorial-content :global(blockquote p) {
+        margin: 0;
+        text-align: center;
+      }
+
+      /* Code Blocks */
+      .editorial-content :global(pre) {
+        background: #2a2520;
+        border: 1px solid var(--editorial-border);
+        border-radius: 0;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        overflow-x: auto;
+      }
+
+      .editorial-content :global(code) {
+        font-family: 'SF Mono', 'Fira Code', monospace;
+        font-size: 0.9rem;
+      }
+
+      .editorial-content :global(p code),
+      .editorial-content :global(li code) {
+        background: rgba(184, 92, 56, 0.1);
+        color: var(--editorial-accent);
+        padding: 0.15rem 0.4rem;
+        border-radius: 3px;
+      }
+
+      /* Lists */
+      .editorial-content :global(ul),
+      .editorial-content :global(ol) {
+        margin: 1.5rem 0;
+        padding-left: 1.5rem;
+      }
+
+      .editorial-content :global(li) {
+        margin: 0.5rem 0;
+      }
+
+      .editorial-content :global(ul li::marker) {
+        color: var(--editorial-accent);
+      }
+
+      /* Images */
+      .editorial-content :global(img) {
+        max-width: 100%;
+        height: auto;
+        margin: 2rem auto;
+        display: block;
+        border: 1px solid var(--editorial-border);
+      }
+
+      /* Horizontal Rule */
+      .editorial-content :global(hr) {
+        border: none;
+        height: 1px;
+        background: var(--editorial-border);
+        margin: 3rem auto;
+        width: 40%;
+      }
+
+      /* Updated Date */
+      .editorial-updated {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        font-style: italic;
+        color: var(--editorial-gray);
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--editorial-border);
+      }
+
+      /* Article Footer */
+      .editorial-footer {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 2px solid var(--editorial-border);
+        text-align: center;
+      }
+
+      .editorial-end-mark {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        color: var(--editorial-accent);
+        letter-spacing: 0.5em;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .editorial-title {
+          font-size: 2rem;
+        }
+
+        .editorial-subtitle {
+          font-size: 1.1rem;
+        }
+
+        .editorial-content :global(p:first-of-type::first-letter) {
+          font-size: 3.5rem;
+        }
+
+        .editorial-content :global(blockquote) {
+          font-size: 1.25rem;
+          padding: 1.5rem 1rem;
+        }
+
+        .editorial-meta {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .editorial-meta-divider {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  
+  <body>
+    <Header />
+    <main class="editorial-main dark:bg-[#1f1b18] transition-colors duration-300">
+      <article>
+        <!-- Back Link -->
+        <div class="editorial-back">
+          <a href="/blog">← Return to Articles</a>
+        </div>
+
+        <!-- Hero Image -->
+        {heroImage && (
+          <div class="editorial-hero">
+            <img 
+              src={heroImage} 
+              alt={title}
+              class="editorial-hero-image"
+            />
+            <p class="editorial-image-caption">
+              Illustration for "{title}"
+            </p>
+          </div>
+        )}
+
+        <!-- Article Container -->
+        <div class="editorial-article">
+          <!-- Header -->
+          <header class="editorial-header">
+            <span class="editorial-section-label">Essay</span>
+            
+            <h1 class="editorial-title">{title}</h1>
+            
+            {description && (
+              <p class="editorial-subtitle">{description}</p>
+            )}
+
+            <div class="editorial-separator">
+              <span class="editorial-separator-icon">❧</span>
+            </div>
+
+            <!-- Byline -->
+            <div class="editorial-byline">
+              <p class="editorial-author">
+                <span class="editorial-author-prefix">By </span>
+                {author}
+              </p>
+            </div>
+
+            <!-- Meta -->
+            <div class="editorial-meta">
+              <span class="editorial-meta-item">
+                <FormattedDate date={pubDate} />
+              </span>
+              <span class="editorial-meta-divider">·</span>
+              <span class="editorial-meta-item">
+                {readingTime} minute read
+              </span>
+            </div>
+
+            <!-- Tags -->
+            {tags && tags.length > 0 && (
+              <div class="editorial-tags">
+                {tags.map((tag: string) => (
+                  <a href={`/blog/tag/${tag}`} class="editorial-tag">{tag}</a>
+                ))}
+              </div>
+            )}
+          </header>
+
+          <!-- Content -->
+          <div class="editorial-content">
+            <slot />
+          </div>
+
+          <!-- Updated Date -->
+          {updatedDate && (
+            <p class="editorial-updated">
+              This article was last revised on <FormattedDate date={updatedDate} />
+            </p>
+          )}
+
+          <!-- End Mark -->
+          <footer class="editorial-footer">
+            <span class="editorial-end-mark">∎</span>
+          </footer>
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>

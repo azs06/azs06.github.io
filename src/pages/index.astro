@@ -2,7 +2,7 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import BlogCard from "../components/BlogCard.astro";
 import { getCollection } from "astro:content";
-import { TECHNOLOGIES, SAAS_PRODUCTS } from "../consts";
+import { SAAS_PRODUCTS } from "../consts";
 
 // Fetch 3 most recent blog posts
 const recentPosts = (await getCollection("blog"))
@@ -15,23 +15,16 @@ const recentPosts = (await getCollection("blog"))
     <!-- Hero Section - Left aligned -->
     <section class="section-animate">
       <div>
-        <h1 class="text-4xl md:text-5xl font-bold text-primary dark:text-gray-100 mb-3 font-serif">
-          Md Atiquzzaman Soikat
-        </h1>
-        <p class="text-lg text-muted dark:text-gray-400 mb-6 font-serif italic">
+        <p class="text-xl text-primary dark:text-gray-200 mb-6 font-semibold">
           Senior Full Stack Developer · Team Lead
         </p>
-        
-        <div class="space-y-4 text-primary/80 dark:text-gray-300">
+
+        <div class="space-y-4 text-primary/80 dark:text-gray-300 text-lg">
           <p>
-            I am a software developer with more than twelve years of experience
-            focused on web technologies. My career has spanned diverse sectors,
-            including education, hospitality, and most recently, retail.
-          </p>
-          <p>
-            While my primary expertise lies in frontend development, I have
-            progressively transitioned towards full-stack development and am
-            actively cultivating expertise in DevOps.
+            I'm a senior full‑stack engineer who ships web products end‑to‑end—from
+            accessible frontends to reliable services and the CI/CD pipelines that
+            support them. I work mostly with TypeScript, React and Go, and I care
+            deeply about performance, real‑time data and smooth developer workflows.
           </p>
         </div>
 
@@ -53,63 +46,94 @@ const recentPosts = (await getCollection("blog"))
       </div>
     </section>
 
-    <!-- Technologies Section -->
+    <!-- What I Work On Section -->
     <section class="section-animate">
-      <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-4 font-sans">
-        Technologies
+      <h2
+        class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-4 font-sans"
+      >
+        What I Work On
       </h2>
-      <div class="flex flex-wrap gap-2">
-        {TECHNOLOGIES.map((tech) => (
-          <span class="pill-bounce px-3 py-1.5 text-sm text-primary/80 dark:text-gray-300 bg-surface dark:bg-[#2a2520] border border-border dark:border-[#3d352d] rounded-full cursor-default">
-            {tech}
-          </span>
-        ))}
+      <div class="space-y-3 text-primary/80 dark:text-gray-300">
+        <p>
+          <span class="font-medium text-primary dark:text-gray-100"
+            >Product UIs</span
+          > — Accessible React/Svelte frontends with a focus on performance and real-time
+          interactions.
+        </p>
+        <p>
+          <span class="font-medium text-primary dark:text-gray-100"
+            >Services</span
+          > — Go and Node.js APIs geared towards clear contracts, observability and
+          stability.
+        </p>
+        <p>
+          <span class="font-medium text-primary dark:text-gray-100">DevOps</span
+          > — Dockerised services, CI/CD pipelines and cloud infrastructure that
+          make deployments boring and repeatable.
+        </p>
       </div>
     </section>
 
     <!-- SaaS Products Section -->
     <section class="section-animate">
-      <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-4 font-sans">
+      <h2
+        class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-4 font-sans"
+      >
         Products I've Built
       </h2>
       <div class="grid gap-4 md:grid-cols-2">
-        {SAAS_PRODUCTS.map((product, index) => (
-          <a
-            href={product.url}
-            target={product.url !== '#' ? '_blank' : undefined}
-            rel={product.url !== '#' ? 'noopener noreferrer' : undefined}
-            class="stagger-item card-lift group block p-4 border border-border dark:border-[#3d352d] rounded-lg bg-paper/50 dark:bg-[#2a2520]/50 hover:border-accent/50 dark:hover:border-accent/50"
-          >
-            <h3 class="font-medium text-primary dark:text-gray-100 group-hover:text-accent dark:group-hover:text-accent transition-colors font-serif">
-              {product.name}
-              {product.url !== '#' && (
-                <svg class="inline-block w-4 h-4 ml-1 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                </svg>
-              )}
-            </h3>
-            <p class="text-sm text-muted dark:text-gray-400 mt-1">
-              {product.description}
-            </p>
-          </a>
-        ))}
+        {
+          SAAS_PRODUCTS.map((product, index) => (
+            <a
+              href={product.url}
+              target={product.url !== "#" ? "_blank" : undefined}
+              rel={product.url !== "#" ? "noopener noreferrer" : undefined}
+              class="stagger-item card-lift group block p-4 border border-border dark:border-[#3d352d] rounded-lg bg-paper/50 dark:bg-[#2a2520]/50 hover:border-accent/50 dark:hover:border-accent/50"
+            >
+              <h3 class="font-medium text-primary dark:text-gray-100 group-hover:text-accent dark:group-hover:text-accent transition-colors font-serif">
+                {product.name}
+                {product.url !== "#" && (
+                  <svg
+                    class="inline-block w-4 h-4 ml-1 opacity-50"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                )}
+              </h3>
+              <p class="text-sm text-muted dark:text-gray-400 mt-1">
+                {product.description}
+              </p>
+            </a>
+          ))
+        }
       </div>
     </section>
 
     <!-- Recent Blog Posts Section -->
     <section class="section-animate">
       <div class="flex items-center justify-between mb-4">
-        <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider font-sans">
+        <h2
+          class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider font-sans"
+        >
           Recent Posts
         </h2>
-        <a href="/blog" class="text-sm text-accent hover:underline font-sans link-underline">
+        <a
+          href="/blog"
+          class="text-sm text-accent hover:underline font-sans link-underline"
+        >
           View all →
         </a>
       </div>
       <div class="grid gap-6 md:grid-cols-3">
-        {recentPosts.map((post) => (
-          <BlogCard post={post} />
-        ))}
+        {recentPosts.map((post) => <BlogCard post={post} />)}
       </div>
     </section>
   </article>
