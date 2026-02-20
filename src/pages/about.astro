@@ -1,15 +1,16 @@
 ---
 // src/pages/about.astro
 import MainLayout from "../layouts/MainLayout.astro";
-import LayoutHeader from "../components/LayoutHeader.astro";
 ---
 
 <MainLayout title="About Me - Atiquzzaman Soikat">
-  <article>
-    <!-- Header -->
-    <section class="mb-8">
-      <LayoutHeader title="About Me" />
-      <div class="space-y-4 text-lg leading-relaxed text-gray-800 dark:text-gray-200">
+  <article class="space-y-16">
+    <!-- Intro -->
+    <section class="section-animate">
+      <p class="text-xl text-primary dark:text-gray-200 mb-6 font-semibold">
+        About Me
+      </p>
+      <div class="space-y-4 text-primary/80 dark:text-gray-300 text-lg">
         <p>
           I'm Md Atiquzzaman Soikat, a senior full-stack engineer with 12+ years
           of experience building and scaling web applications. I've led teams,
@@ -27,64 +28,70 @@ import LayoutHeader from "../components/LayoutHeader.astro";
     </section>
 
     <!-- Job Experience -->
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">
-        Job Experience (2012-Ongoing)
+    <section class="section-animate">
+      <h2
+        class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-6 font-sans"
+      >
+        Job Experience (2012–Ongoing)
       </h2>
       <div class="relative">
-        <div class="absolute left-0 top-0 h-full w-0.5 bg-gray-200 dark:bg-gray-700"></div>
+        <div class="absolute left-0 top-0 h-full w-0.5 bg-border dark:bg-[#3d352d]"></div>
 
-        {/* Timeline Items */}
         <div class="relative pl-8 pb-6">
-          <div class="absolute left-0 top-1.5 w-2.5 h-2.5 bg-brandingColor rounded-full -translate-x-1"></div>
-          <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow transition-shadow">
-            <div class="text-sm text-gray-500 dark:text-gray-400">2021-Present</div>
-            <h3 class="font-semibold text-xl text-gray-900 dark:text-gray-100">Chief Technology Officer</h3>
-            <p class="text-gray-700 dark:text-gray-300">ReformedTech</p>
-          </div>
-        </div>
-        <div class="relative pl-8 pb-6">
-          <div class="absolute left-0 top-1.5 w-2.5 h-2.5 bg-brandingColor rounded-full -translate-x-1"></div>
-          <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow transition-shadow">
-            <div class="text-sm text-gray-500 dark:text-gray-400">Sep. 2021 – Dec. 2024</div>
-            <h3 class="font-semibold text-xl text-gray-900 dark:text-gray-100">Senior Software Engineer/Team Lead</h3>
-            <p class="text-gray-700 dark:text-gray-300">Skipper Hospitality, New York, USA</p>
+          <div class="absolute left-0 top-1.5 w-2.5 h-2.5 bg-accent rounded-full -translate-x-1"></div>
+          <div class="card-lift p-4 rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50">
+            <div class="text-xs text-muted dark:text-gray-400 font-sans">2021–Present</div>
+            <h3 class="font-medium text-primary dark:text-gray-100 font-serif">Chief Technology Officer</h3>
+            <p class="text-sm text-primary/80 dark:text-gray-300">ReformedTech</p>
           </div>
         </div>
 
         <div class="relative pl-8 pb-6">
-          <div class="absolute left-0 top-1.5 w-2.5 h-2.5 bg-brandingColor rounded-full -translate-x-1"></div>
-          <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow transition-shadow">
-            <div class="text-sm text-gray-500 dark:text-gray-400">Aug. 2018 – July 2021</div>
-            <h3 class="font-semibold text-xl text-gray-900 dark:text-gray-100">Senior Frontend Engineer/Team Lead</h3>
-            <p class="text-gray-700 dark:text-gray-300">Butler Hospitality, New York, USA</p>
+          <div class="absolute left-0 top-1.5 w-2.5 h-2.5 bg-accent rounded-full -translate-x-1"></div>
+          <div class="card-lift p-4 rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50">
+            <div class="text-xs text-muted dark:text-gray-400 font-sans">Sep. 2021 – Dec. 2024</div>
+            <h3 class="font-medium text-primary dark:text-gray-100 font-serif">Senior Software Engineer / Team Lead</h3>
+            <p class="text-sm text-primary/80 dark:text-gray-300">Skipper Hospitality, New York, USA</p>
+          </div>
+        </div>
+
+        <div class="relative pl-8 pb-6">
+          <div class="absolute left-0 top-1.5 w-2.5 h-2.5 bg-accent rounded-full -translate-x-1"></div>
+          <div class="card-lift p-4 rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50">
+            <div class="text-xs text-muted dark:text-gray-400 font-sans">Aug. 2018 – July 2021</div>
+            <h3 class="font-medium text-primary dark:text-gray-100 font-serif">Senior Frontend Engineer / Team Lead</h3>
+            <p class="text-sm text-primary/80 dark:text-gray-300">Butler Hospitality, New York, USA</p>
           </div>
         </div>
 
         <div class="relative pl-8">
-          <div class="absolute left-0 top-1.5 w-2.5 h-2.5 bg-brandingColor rounded-full -translate-x-1"></div>
-          <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow transition-shadow">
-            <div class="text-sm text-gray-500 dark:text-gray-400">Nov. 2015 – Apr. 2018</div>
-            <h3 class="font-semibold text-xl text-gray-900 dark:text-gray-100">Frontend Developer</h3>
-            <p class="text-gray-700 dark:text-gray-300">Jetaport/Skipper, New York, USA</p>
+          <div class="absolute left-0 top-1.5 w-2.5 h-2.5 bg-accent rounded-full -translate-x-1"></div>
+          <div class="card-lift p-4 rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50">
+            <div class="text-xs text-muted dark:text-gray-400 font-sans">Nov. 2015 – Apr. 2018</div>
+            <h3 class="font-medium text-primary dark:text-gray-100 font-serif">Frontend Developer</h3>
+            <p class="text-sm text-primary/80 dark:text-gray-300">Jetaport / Skipper, New York, USA</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Education -->
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">Education</h2>
+    <section class="section-animate">
+      <h2
+        class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-6 font-sans"
+      >
+        Education
+      </h2>
       <div class="relative">
-        <div class="absolute left-0 top-0 h-full w-0.5 bg-gray-200 dark:bg-gray-700"></div>
+        <div class="absolute left-0 top-0 h-full w-0.5 bg-border dark:bg-[#3d352d]"></div>
 
         <div class="relative pl-8">
-          <div class="absolute left-0 top-1.5 w-2.5 h-2.5 bg-brandingColor rounded-full -translate-x-1"></div>
-          <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow transition-shadow">
-            <div class="text-sm text-gray-500 dark:text-gray-400">2008-2012</div>
-            <h3 class="font-semibold text-xl text-gray-900 dark:text-gray-100">BSC In Computer Science And Engineering</h3>
-            <p class="text-gray-700 dark:text-gray-300">
-              American International University - AIUB
+          <div class="absolute left-0 top-1.5 w-2.5 h-2.5 bg-accent rounded-full -translate-x-1"></div>
+          <div class="card-lift p-4 rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50">
+            <div class="text-xs text-muted dark:text-gray-400 font-sans">2008–2012</div>
+            <h3 class="font-medium text-primary dark:text-gray-100 font-serif">BSC in Computer Science and Engineering</h3>
+            <p class="text-sm text-primary/80 dark:text-gray-300">
+              American International University – AIUB
             </p>
           </div>
         </div>
@@ -92,43 +99,54 @@ import LayoutHeader from "../components/LayoutHeader.astro";
     </section>
 
     <!-- Current Stack -->
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">Current Stack</h2>
-      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
-        <div class="space-y-4">
-          <p class="text-gray-700 dark:text-gray-300">
-            <span class="font-semibold text-gray-900 dark:text-gray-100">Frontend</span> → React, Svelte, Astro, TypeScript
+    <section class="section-animate">
+      <h2
+        class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-4 font-sans"
+      >
+        Current Stack
+      </h2>
+      <div class="p-6 rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50">
+        <div class="space-y-3 text-primary/80 dark:text-gray-300">
+          <p>
+            <span class="font-medium text-primary dark:text-gray-100">Frontend</span>
+            → React, Svelte, Astro, TypeScript
           </p>
-          <p class="text-gray-700 dark:text-gray-300">
-            <span class="font-semibold text-gray-900 dark:text-gray-100">Backend</span> → Go, Node.js (REST/real‑time services)
+          <p>
+            <span class="font-medium text-primary dark:text-gray-100">Backend</span>
+            → Go, Node.js (REST / real‑time services)
           </p>
-          <p class="text-gray-700 dark:text-gray-300">
-            <span class="font-semibold text-gray-900 dark:text-gray-100">DevOps</span> → Docker, CI/CD (GitHub Actions/GitLab CI), AWS, Cloudflare
+          <p>
+            <span class="font-medium text-primary dark:text-gray-100">DevOps</span>
+            → Docker, CI/CD (GitHub Actions / GitLab CI), AWS, Cloudflare
           </p>
         </div>
       </div>
     </section>
 
     <!-- How I Work -->
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">How I Work</h2>
-      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+    <section class="section-animate">
+      <h2
+        class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-4 font-sans"
+      >
+        How I Work
+      </h2>
+      <div class="p-6 rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50">
         <ul class="space-y-4">
           <li class="flex items-start gap-3">
-            <span class="w-2 h-2 mt-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-            <span class="text-gray-700 dark:text-gray-300">Automate deploys early — CI/CD is part of the design, not an afterthought.</span>
+            <span class="w-2 h-2 mt-2 bg-accent rounded-full flex-shrink-0"></span>
+            <span class="text-primary/80 dark:text-gray-300">Automate deploys early — CI/CD is part of the design, not an afterthought.</span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="w-2 h-2 mt-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-            <span class="text-gray-700 dark:text-gray-300">Treat accessibility and performance as product features, not nice-to-haves.</span>
+            <span class="w-2 h-2 mt-2 bg-accent rounded-full flex-shrink-0"></span>
+            <span class="text-primary/80 dark:text-gray-300">Treat accessibility and performance as product features, not nice-to-haves.</span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="w-2 h-2 mt-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-            <span class="text-gray-700 dark:text-gray-300">Prefer small, observable services over fragile, opaque systems.</span>
+            <span class="w-2 h-2 mt-2 bg-accent rounded-full flex-shrink-0"></span>
+            <span class="text-primary/80 dark:text-gray-300">Prefer small, observable services over fragile, opaque systems.</span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="w-2 h-2 mt-2 bg-brandingColor dark:bg-teal-400 rounded-full flex-shrink-0"></span>
-            <span class="text-gray-700 dark:text-gray-300">Share context and mentor others so the team scales, not just the code.</span>
+            <span class="w-2 h-2 mt-2 bg-accent rounded-full flex-shrink-0"></span>
+            <span class="text-primary/80 dark:text-gray-300">Share context and mentor others so the team scales, not just the code.</span>
           </li>
         </ul>
       </div>

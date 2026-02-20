@@ -1,5 +1,4 @@
 ---
-import LayoutHeader from "../../components/LayoutHeader.astro";
 import { getCollection } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import BlogCard from "../../components/BlogCard.astro";
@@ -15,53 +14,60 @@ const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
 ---
 
 <MainLayout title="Blog - Atiquzzaman Soikat">
-  <section>
-    <LayoutHeader title="Latest Blog Posts" />
+  <article class="space-y-12">
+    <!-- Header -->
+    <section class="section-animate">
+      <p class="text-xl text-primary dark:text-gray-200 mb-4 font-semibold">
+        Blog
+      </p>
+      <p class="text-primary/80 dark:text-gray-300 text-lg">
+        Thoughts on web development, frontend engineering, and building products.
+      </p>
+    </section>
 
-    <div class="mt-8 rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+    <!-- Search & Filters -->
+    <section class="section-animate">
       <form id="blog-search-form" class="flex flex-col gap-4">
-        <label for="blog-search" class="text-sm font-semibold text-gray-700 dark:text-gray-300">
-          Find posts by title, topic, or tag
-        </label>
         <div class="flex flex-col gap-3 sm:flex-row">
           <input
             id="blog-search"
             name="q"
             type="search"
-            placeholder="Search blog posts..."
-            class="flex-1 rounded-xl border border-gray-300/80 bg-white px-4 py-3 text-base text-gray-900 shadow-sm focus:border-brandingColor focus:outline-none focus:ring-2 focus:ring-brandingColor/30 dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100"
+            placeholder="Search posts..."
+            class="flex-1 rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50 px-4 py-2.5 text-sm text-primary dark:text-gray-100 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 font-sans placeholder:text-muted dark:placeholder:text-gray-500"
           />
-          <div class="flex gap-3">
+          <div class="flex gap-2">
             <button
               type="submit"
-              class="rounded-xl bg-brandingColor px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brandingColor/20 transition hover:-translate-y-0.5"
+              class="btn-press rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white transition hover:bg-accent/90"
             >
               Search
             </button>
             <button
               id="clear-search"
               type="button"
-              class="hidden rounded-xl border border-transparent px-5 py-3 text-sm font-medium text-brandingColor underline-offset-2 transition hover:underline"
+              class="hidden rounded-lg px-4 py-2.5 text-sm font-medium text-accent hover:underline font-sans"
             >
               Clear
             </button>
           </div>
         </div>
       </form>
+
       {tags.length > 0 && (
-        <details id="tags-details" class="mt-4 overflow-hidden rounded-lg border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-900">
-          <summary class="flex cursor-pointer items-center justify-between gap-2 px-4 py-3 text-sm font-semibold text-gray-800 dark:text-gray-100">
+        <details id="tags-details" class="mt-4 overflow-hidden rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50">
+          <summary class="flex cursor-pointer items-center justify-between gap-2 px-4 py-3 text-sm font-medium text-primary dark:text-gray-100 font-sans">
             <span>Browse by tags</span>
-            <span id="tags-summary" class="text-xs font-medium uppercase tracking-wide text-gray-600 dark:text-gray-200">
+            <span id="tags-summary" class="text-xs font-medium uppercase tracking-wide text-muted dark:text-gray-400">
               {tags.length} topics
             </span>
           </summary>
-          <div class="border-t border-gray-200/80 px-4 py-4 dark:border-gray-700/60">
+          <div class="border-t border-border/50 dark:border-[#3d352d]/50 px-4 py-4">
             <div id="tags-container" class="flex flex-wrap gap-2">
               {tags.map((tag) => (
                 <button
                   type="button"
-                  class="tag-button rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition bg-white text-brandingColor ring-1 ring-brandingColor/20 hover:-translate-y-0.5 dark:bg-gray-800 dark:text-teal-400 dark:ring-teal-400/30"
+                  class="tag-button pill-bounce px-2.5 py-1 text-xs font-medium text-muted dark:text-gray-400 bg-surface dark:bg-[#2a2520] border border-border/50 dark:border-[#3d352d] rounded font-sans transition"
                   data-tag={tag.toLowerCase()}
                 >
                   {tag}
@@ -71,22 +77,27 @@ const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
           </div>
         </details>
       )}
-      <p id="filter-status" class="mt-4 hidden text-sm text-gray-600 dark:text-gray-400"></p>
-    </div>
+      <p id="filter-status" class="mt-3 hidden text-sm text-muted dark:text-gray-400 font-sans"></p>
+    </section>
 
-    <div id="no-results" class="mt-12 hidden rounded-lg border border-dashed border-gray-300 bg-white p-12 text-center dark:border-gray-700 dark:bg-gray-800">
-      <p class="text-lg font-semibold text-gray-800 dark:text-gray-100">No posts found</p>
-      <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+    <!-- No results -->
+    <div id="no-results" class="hidden rounded-lg border border-dashed border-border dark:border-[#3d352d] p-12 text-center bg-paper/50 dark:bg-[#2a2520]/50">
+      <p class="font-medium text-primary dark:text-gray-100">No posts found</p>
+      <p class="mt-2 text-sm text-muted dark:text-gray-400">
         Try a different search term or{" "}
-        <button id="clear-from-no-results" type="button" class="text-brandingColor underline-offset-2 hover:underline">browse all posts</button>.
+        <button id="clear-from-no-results" type="button" class="text-accent hover:underline">browse all posts</button>.
       </p>
     </div>
-    <div id="posts-grid" class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-      {posts.map((post) => (
-        <BlogCard post={post} />
-      ))}
-    </div>
-  </section>
+
+    <!-- Posts List -->
+    <section class="section-animate">
+      <div id="posts-grid" class="flex flex-col">
+        {posts.map((post) => (
+          <BlogCard post={post} />
+        ))}
+      </div>
+    </section>
+  </article>
 
   <script>
     // Client-side filtering for blog posts
@@ -101,9 +112,7 @@ const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
       const tagButtons = document.querySelectorAll('.tag-button') as NodeListOf<HTMLButtonElement>;
       const tagsDetails = document.getElementById('tags-details') as HTMLDetailsElement;
       const tagsSummary = document.getElementById('tags-summary') as HTMLSpanElement;
-      const tagsContainer = document.getElementById('tags-container') as HTMLDivElement;
 
-      // Filter posts based on query
       function filterPosts(query: string) {
         const normalizedQuery = query.trim().toLowerCase();
         const posts = document.querySelectorAll('.blog-post') as NodeListOf<HTMLElement>;
@@ -129,7 +138,6 @@ const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
           }
         });
 
-        // Update UI
         searchInput.value = query;
 
         if (normalizedQuery) {
@@ -137,7 +145,6 @@ const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
           filterStatus.classList.remove('hidden');
           filterStatus.innerHTML = `Showing <span class="font-semibold">${visibleCount}</span> post${visibleCount === 1 ? '' : 's'} matching <span class="font-semibold">"${query}"</span>`;
 
-          // Open tags if searching by tag
           const matchingTag = Array.from(tagButtons).find(btn => btn.dataset.tag === normalizedQuery);
           if (matchingTag) {
             tagsDetails.open = true;
@@ -152,13 +159,12 @@ const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
         // Update tag button styles
         tagButtons.forEach(btn => {
           if (btn.dataset.tag === normalizedQuery) {
-            btn.className = 'tag-button rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition bg-brandingColor text-white shadow-brandingColor/30';
+            btn.className = 'tag-button pill-bounce px-2.5 py-1 text-xs font-medium text-white bg-accent border border-accent rounded font-sans transition';
           } else {
-            btn.className = 'tag-button rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-wide transition bg-white text-brandingColor ring-1 ring-brandingColor/20 hover:-translate-y-0.5 dark:bg-gray-800 dark:text-teal-400 dark:ring-teal-400/30';
+            btn.className = 'tag-button pill-bounce px-2.5 py-1 text-xs font-medium text-muted dark:text-gray-400 bg-surface dark:bg-[#2a2520] border border-border/50 dark:border-[#3d352d] rounded font-sans transition';
           }
         });
 
-        // Show/hide no results message
         if (visibleCount === 0 && normalizedQuery) {
           noResults.classList.remove('hidden');
           postsGrid.classList.add('hidden');
@@ -167,7 +173,6 @@ const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
           postsGrid.classList.remove('hidden');
         }
 
-        // Update URL
         const url = new URL(window.location.href);
         if (normalizedQuery) {
           url.searchParams.set('q', query);
@@ -177,13 +182,11 @@ const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
         window.history.pushState({}, '', url);
       }
 
-      // Handle form submission
       searchForm.addEventListener('submit', (e) => {
         e.preventDefault();
         filterPosts(searchInput.value);
       });
 
-      // Handle tag button clicks
       tagButtons.forEach(btn => {
         btn.addEventListener('click', () => {
           const tag = btn.textContent?.trim() || '';
@@ -191,7 +194,6 @@ const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
         });
       });
 
-      // Handle clear button clicks
       const clearFilter = () => {
         searchInput.value = '';
         filterPosts('');
@@ -200,7 +202,6 @@ const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
       clearButton.addEventListener('click', clearFilter);
       clearFromNoResults.addEventListener('click', clearFilter);
 
-      // Initialize filter from URL on page load
       const urlParams = new URLSearchParams(window.location.search);
       const initialQuery = urlParams.get('q') || '';
       if (initialQuery) {
@@ -208,7 +209,6 @@ const tags = Array.from(tagSet).sort((a, b) => a.localeCompare(b));
       }
     }
 
-    // Initialize on DOM content loaded
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', initBlogFilter);
     } else {

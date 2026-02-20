@@ -87,10 +87,9 @@ body {
 }
 /* Enhanced Markdown Blog Styles */
 .markdown-body {
-  @apply prose prose-lg mx-auto dark:prose-invert;
+  @apply prose prose-lg dark:prose-invert max-w-none;
   line-height: 1.8;
   font-size: 1.1rem;
-  max-width: 90ch;
 }
 
 .markdown-body h1 {
