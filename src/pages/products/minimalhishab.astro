@@ -1,0 +1,112 @@
+---
+import ProductLayout from "../../layouts/ProductLayout.astro";
+import ProductHero from "../../components/ProductHero.astro";
+import ProductFeatures from "../../components/ProductFeatures.astro";
+import ProductCTA from "../../components/ProductCTA.astro";
+
+const product = {
+  title: "minimalhishab.com",
+  tagline: "Minimal Accounting for Modern Freelancers",
+  description:
+    "Browser-based minimal accounting software designed for freelancers. Track income, expenses, and manage your finances without the complexity.",
+  url: "https://minimalhishab.com",
+  status: "live" as const,
+  image: "/blog-placeholder-3.jpg",
+};
+
+const features = [
+  {
+    icon: "📝",
+    title: "Simple Bookkeeping",
+    description:
+      "Track your income and expenses with a clean, minimal interface that doesn't overwhelm you with features.",
+  },
+  {
+    icon: "💰",
+    title: "Income Tracking",
+    description:
+      "Log client payments, track outstanding invoices, and monitor your revenue streams in one place.",
+  },
+  {
+    icon: "💸",
+    title: "Expense Management",
+    description:
+      "Record business expenses, categorize costs, and prepare for tax season with organized financial records.",
+  },
+  {
+    icon: "📊",
+    title: "Financial Reports",
+    description:
+      "Generate profit & loss statements, cash flow reports, and get insights into your financial health.",
+  },
+  {
+    icon: "🔄",
+    title: "Recurring Transactions",
+    description:
+      "Set up recurring income and expenses to automate your bookkeeping and save time every month.",
+  },
+  {
+    icon: "🌐",
+    title: "Browser-based",
+    description:
+      "Works entirely in your browser with no installation required. Access your books from anywhere.",
+  },
+];
+---
+
+<ProductLayout
+  title={product.title}
+  description={product.description}
+  tagline={product.tagline}
+  url={product.url}
+  image={product.image}
+  status={product.status}
+>
+  <!-- Hero Section -->
+  <ProductHero
+    title="Accounting simplified for freelancers"
+    description="minimalhishab.com strips away the complexity of traditional accounting software and gives you exactly what you need to manage your freelance finances effectively."
+    ctaText="Try minimalhishab.com"
+    ctaUrl={product.url}
+    secondaryCtaText="Learn More"
+    secondaryCtaUrl="#"
+    image="/blog-placeholder-3.jpg"
+  />
+
+  <!-- Features Section -->
+  <ProductFeatures features={features} columns={3} />
+
+  <!-- Screenshots Section -->
+  <section class="section-animate">
+    <h2
+      class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-6 font-sans"
+    >
+      Product Screenshots
+    </h2>
+    <p class="text-sm text-muted dark:text-gray-400 mb-6">
+      Screenshots coming soon - placeholder images shown below
+    </p>
+    <div class="grid gap-6 md:grid-cols-2">
+      <img
+        src="/blog-placeholder-4.jpg"
+        alt="minimalhishab.com Dashboard"
+        class="rounded-lg border border-border dark:border-[#3d352d] w-full h-auto"
+        loading="lazy"
+      />
+      <img
+        src="/blog-placeholder-1.jpg"
+        alt="minimalhishab.com Transaction Log"
+        class="rounded-lg border border-border dark:border-[#3d352d] w-full h-auto"
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <ProductCTA
+    title="Take control of your freelance finances"
+    description="Start tracking your income and expenses today with minimalhishab.com's intuitive accounting tools built for freelancers."
+    ctaText="Get Started for Free"
+    ctaUrl={product.url}
+  />
+</ProductLayout>

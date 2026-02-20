@@ -1,0 +1,809 @@
+---
+/**
+ * VARIATION 3: "Tech/Developer"
+ * =============================
+ * Terminal and code-inspired aesthetic featuring:
+ * - Monospace fonts for meta information
+ * - Border accents with gradient effects
+ * - Inline code-style decorations
+ * - Syntax-highlighted feel for headers
+ * - GitHub-style labels for tags
+ * - Terminal-inspired UI elements
+ * - Matrix/hacker aesthetic with warm color scheme
+ */
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import GoogleTag from "../components/GoogleTag.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const { title, description, pubDate, heroImage, tags, updatedDate }: Props = Astro.props;
+
+const readingTime = 5;
+const wordCount = 1200; // Placeholder
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+    <GoogleTag />
+    <!-- Google Fonts for Developer Feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+      /* ===== TECH/DEVELOPER THEME ===== */
+      
+      :root {
+        --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+        --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        --dev-accent: #b85c38;
+        --dev-accent-rgb: 184, 92, 56;
+        --dev-secondary: #d4a574;
+        --dev-green: #10b981;
+        --dev-blue: #3b82f6;
+        --dev-purple: #8b5cf6;
+        --dev-dark: #18181b;
+        --dev-darker: #09090b;
+        --dev-gray: #71717a;
+        --dev-light-gray: #a1a1aa;
+        --dev-bg: #fafafa;
+        --dev-surface: #ffffff;
+        --dev-border: #e4e4e7;
+        --dev-code-bg: #1e1e1e;
+      }
+
+      .dark {
+        --dev-dark: #fafafa;
+        --dev-darker: #f4f4f5;
+        --dev-gray: #a1a1aa;
+        --dev-light-gray: #71717a;
+        --dev-bg: #09090b;
+        --dev-surface: #18181b;
+        --dev-border: #27272a;
+        --dev-code-bg: #0f0f0f;
+      }
+
+      /* Main Container */
+      .dev-main {
+        width: 100%;
+        background: var(--dev-bg);
+        min-height: 100vh;
+        font-family: var(--font-sans);
+        position: relative;
+      }
+
+      /* Grid Background Pattern */
+      .dev-main::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: 
+          linear-gradient(rgba(var(--dev-accent-rgb), 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(var(--dev-accent-rgb), 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .dark .dev-main::before {
+        background-image: 
+          linear-gradient(rgba(var(--dev-accent-rgb), 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(var(--dev-accent-rgb), 0.05) 1px, transparent 1px);
+      }
+
+      /* Article Container */
+      .dev-article {
+        position: relative;
+        z-index: 1;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 1.5rem 4rem;
+      }
+
+      /* Terminal Header */
+      .dev-terminal-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        background: var(--dev-surface);
+        border: 1px solid var(--dev-border);
+        border-bottom: none;
+        border-radius: 8px 8px 0 0;
+        margin-top: 2rem;
+      }
+
+      .dev-terminal-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+
+      .dev-terminal-dot.red { background: #ef4444; }
+      .dev-terminal-dot.yellow { background: #eab308; }
+      .dev-terminal-dot.green { background: #22c55e; }
+
+      .dev-terminal-title {
+        margin-left: auto;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--dev-gray);
+      }
+
+      /* Hero Section */
+      .dev-hero {
+        position: relative;
+        border: 1px solid var(--dev-border);
+        border-radius: 0 0 8px 8px;
+        overflow: hidden;
+        background: var(--dev-surface);
+      }
+
+      .dev-hero-image {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .dev-hero-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1.5rem;
+        background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      }
+
+      .dev-hero-path {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--dev-green);
+      }
+
+      .dev-hero-path::before {
+        content: '~/blog/';
+        color: var(--dev-gray);
+      }
+
+      /* Back Link */
+      .dev-back {
+        padding: 2rem 0 1rem;
+      }
+
+      .dev-back a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        color: var(--dev-gray);
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--dev-border);
+        border-radius: 6px;
+        background: var(--dev-surface);
+        transition: all 0.2s ease;
+      }
+
+      .dev-back a:hover {
+        border-color: var(--dev-accent);
+        color: var(--dev-accent);
+      }
+
+      .dev-back a::before {
+        content: '←';
+        font-size: 1rem;
+      }
+
+      /* Article Card */
+      .dev-card {
+        background: var(--dev-surface);
+        border: 1px solid var(--dev-border);
+        border-radius: 8px;
+        margin-top: 1.5rem;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* Gradient Border Top */
+      .dev-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--dev-accent), var(--dev-secondary), var(--dev-purple));
+      }
+
+      /* Header */
+      .dev-header {
+        padding: 2rem;
+        border-bottom: 1px solid var(--dev-border);
+      }
+
+      /* Command Line Title */
+      .dev-title-wrapper {
+        margin-bottom: 1.5rem;
+      }
+
+      .dev-command-prefix {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        color: var(--dev-green);
+        margin-bottom: 0.5rem;
+      }
+
+      .dev-command-prefix::before {
+        content: '$';
+        color: var(--dev-accent);
+      }
+
+      .dev-title {
+        font-family: var(--font-sans);
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--dev-dark);
+        margin: 0;
+      }
+
+      /* Syntax Highlight Effect for Title */
+      .dev-title-highlight {
+        position: relative;
+        display: inline;
+      }
+
+      .dev-title-highlight::after {
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        left: 0;
+        right: 0;
+        height: 8px;
+        background: rgba(var(--dev-accent-rgb), 0.2);
+        z-index: -1;
+      }
+
+      /* Meta Section */
+      .dev-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+      }
+
+      .dev-meta-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0.75rem;
+        background: var(--dev-bg);
+        border: 1px solid var(--dev-border);
+        border-radius: 4px;
+        color: var(--dev-gray);
+      }
+
+      .dev-meta-key {
+        color: var(--dev-purple);
+      }
+
+      .dev-meta-value {
+        color: var(--dev-secondary);
+      }
+
+      .dev-meta-string {
+        color: var(--dev-green);
+      }
+
+      .dev-meta-string::before,
+      .dev-meta-string::after {
+        content: '"';
+        color: var(--dev-green);
+        opacity: 0.7;
+      }
+
+      /* Tags as GitHub Labels */
+      .dev-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .dev-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.3rem 0.75rem;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: white;
+        background: var(--dev-accent);
+        border-radius: 100px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .dev-tag:nth-child(2n) {
+        background: var(--dev-purple);
+      }
+
+      .dev-tag:nth-child(3n) {
+        background: var(--dev-blue);
+      }
+
+      .dev-tag:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(var(--dev-accent-rgb), 0.3);
+      }
+
+      .dev-tag::before {
+        content: '#';
+        opacity: 0.7;
+      }
+
+      /* Content */
+      .dev-content {
+        padding: 2rem;
+      }
+
+      .dev-content-inner {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: var(--dev-dark);
+      }
+
+      /* Heading Styles with Line Numbers Feel */
+      .dev-content-inner :global(h2) {
+        font-family: var(--font-sans);
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--dev-dark);
+        margin: 2.5rem 0 1rem;
+        padding-left: 1.5rem;
+        border-left: 3px solid var(--dev-accent);
+        position: relative;
+      }
+
+      .dev-content-inner :global(h2::before) {
+        content: '##';
+        position: absolute;
+        left: -2.5rem;
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        color: var(--dev-gray);
+        opacity: 0.5;
+      }
+
+      .dev-content-inner :global(h3) {
+        font-family: var(--font-sans);
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--dev-dark);
+        margin: 2rem 0 0.75rem;
+        padding-left: 1.5rem;
+        border-left: 2px solid var(--dev-secondary);
+      }
+
+      .dev-content-inner :global(h3::before) {
+        content: '###';
+        position: absolute;
+        left: -3rem;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--dev-gray);
+        opacity: 0.5;
+      }
+
+      /* Paragraphs */
+      .dev-content-inner :global(p) {
+        margin: 0 0 1.25rem;
+        color: var(--dev-gray);
+      }
+
+      /* Links */
+      .dev-content-inner :global(a) {
+        color: var(--dev-accent);
+        text-decoration: none;
+        border-bottom: 1px dashed var(--dev-accent);
+        transition: all 0.2s ease;
+      }
+
+      .dev-content-inner :global(a:hover) {
+        border-bottom-style: solid;
+      }
+
+      /* Blockquotes */
+      .dev-content-inner :global(blockquote) {
+        margin: 2rem 0;
+        padding: 1rem 1.5rem;
+        background: rgba(var(--dev-accent-rgb), 0.05);
+        border-left: 4px solid var(--dev-accent);
+        border-radius: 0 6px 6px 0;
+        font-style: italic;
+      }
+
+      .dev-content-inner :global(blockquote p) {
+        margin: 0;
+        color: var(--dev-dark);
+      }
+
+      .dev-content-inner :global(blockquote::before) {
+        content: '>';
+        font-family: var(--font-mono);
+        color: var(--dev-accent);
+        font-style: normal;
+        margin-right: 0.5rem;
+        opacity: 0.5;
+      }
+
+      /* Code Blocks - Terminal Style */
+      .dev-content-inner :global(pre) {
+        position: relative;
+        background: var(--dev-code-bg);
+        border: 1px solid var(--dev-border);
+        border-radius: 8px;
+        padding: 0;
+        margin: 1.5rem 0;
+        overflow: hidden;
+      }
+
+      .dev-content-inner :global(pre::before) {
+        content: '';
+        display: block;
+        height: 32px;
+        background: linear-gradient(180deg, #2d2d2d, #252525);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        position: relative;
+      }
+
+      .dev-content-inner :global(pre::after) {
+        content: '● ● ●';
+        position: absolute;
+        top: 8px;
+        left: 12px;
+        font-size: 10px;
+        letter-spacing: 4px;
+        color: #666;
+      }
+
+      .dev-content-inner :global(pre code) {
+        display: block;
+        padding: 1.5rem;
+        overflow-x: auto;
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: #e4e4e7;
+      }
+
+      /* Inline Code */
+      .dev-content-inner :global(code) {
+        font-family: var(--font-mono);
+        font-size: 0.875em;
+      }
+
+      .dev-content-inner :global(p code),
+      .dev-content-inner :global(li code) {
+        background: rgba(var(--dev-accent-rgb), 0.1);
+        color: var(--dev-accent);
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        border: 1px solid rgba(var(--dev-accent-rgb), 0.2);
+      }
+
+      /* Lists */
+      .dev-content-inner :global(ul),
+      .dev-content-inner :global(ol) {
+        margin: 1.25rem 0;
+        padding-left: 2rem;
+      }
+
+      .dev-content-inner :global(ul) {
+        list-style: none;
+      }
+
+      .dev-content-inner :global(ul li::before) {
+        content: '→';
+        color: var(--dev-accent);
+        font-family: var(--font-mono);
+        position: absolute;
+        margin-left: -1.5rem;
+      }
+
+      .dev-content-inner :global(li) {
+        margin: 0.5rem 0;
+        color: var(--dev-gray);
+        position: relative;
+      }
+
+      /* Images */
+      .dev-content-inner :global(img) {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        border: 1px solid var(--dev-border);
+        margin: 1.5rem 0;
+      }
+
+      /* Horizontal Rule */
+      .dev-content-inner :global(hr) {
+        border: none;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--dev-border), transparent);
+        margin: 2.5rem 0;
+      }
+
+      /* Footer Stats */
+      .dev-footer {
+        padding: 1.5rem 2rem;
+        border-top: 1px solid var(--dev-border);
+        background: var(--dev-bg);
+      }
+
+      .dev-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--dev-gray);
+      }
+
+      .dev-stat {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .dev-stat-icon {
+        color: var(--dev-accent);
+      }
+
+      /* Updated Badge */
+      .dev-updated {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 6px;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--dev-green);
+      }
+
+      .dev-updated::before {
+        content: '✓';
+      }
+
+      /* Commit Info Style */
+      .dev-commit-info {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px dashed var(--dev-border);
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--dev-gray);
+      }
+
+      .dev-commit-hash {
+        padding: 0.25rem 0.5rem;
+        background: var(--dev-bg);
+        border: 1px solid var(--dev-border);
+        border-radius: 4px;
+        color: var(--dev-purple);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .dev-title {
+          font-size: 1.5rem;
+        }
+
+        .dev-meta {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .dev-content-inner :global(h2::before),
+        .dev-content-inner :global(h3::before) {
+          display: none;
+        }
+
+        .dev-header,
+        .dev-content,
+        .dev-footer {
+          padding: 1.5rem;
+        }
+
+        .dev-stats {
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+      }
+    </style>
+  </head>
+  
+  <body>
+    <Header />
+    <main class="dev-main dark:bg-[#09090b] transition-colors duration-300">
+      <article class="dev-article">
+        <!-- Back Link -->
+        <div class="dev-back">
+          <a href="/blog">cd ../blog</a>
+        </div>
+
+        <!-- Terminal Header + Hero -->
+        {heroImage && (
+          <>
+            <div class="dev-terminal-header">
+              <span class="dev-terminal-dot red"></span>
+              <span class="dev-terminal-dot yellow"></span>
+              <span class="dev-terminal-dot green"></span>
+              <span class="dev-terminal-title">preview.md</span>
+            </div>
+            <div class="dev-hero">
+              <img 
+                src={heroImage} 
+                alt={title}
+                class="dev-hero-image"
+              />
+              <div class="dev-hero-overlay">
+                <span class="dev-hero-path">{title.toLowerCase().replace(/\s+/g, '-')}.md</span>
+              </div>
+            </div>
+          </>
+        )}
+
+        <!-- Article Card -->
+        <div class="dev-card">
+          <!-- Header -->
+          <header class="dev-header">
+            <div class="dev-title-wrapper">
+              <div class="dev-command-prefix">
+                cat article.md
+              </div>
+              <h1 class="dev-title">
+                <span class="dev-title-highlight">{title}</span>
+              </h1>
+            </div>
+
+            <!-- Meta -->
+            <div class="dev-meta">
+              <span class="dev-meta-item">
+                <span class="dev-meta-key">date:</span>
+                <span class="dev-meta-string"><FormattedDate date={pubDate} /></span>
+              </span>
+              <span class="dev-meta-item">
+                <span class="dev-meta-key">readTime:</span>
+                <span class="dev-meta-value">{readingTime}min</span>
+              </span>
+              <span class="dev-meta-item">
+                <span class="dev-meta-key">words:</span>
+                <span class="dev-meta-value">~{wordCount}</span>
+              </span>
+            </div>
+
+            <!-- Tags -->
+            {tags && tags.length > 0 && (
+              <div class="dev-tags">
+                {tags.map((tag: string) => (
+                  <a href={`/blog/tag/${tag}`} class="dev-tag">{tag}</a>
+                ))}
+              </div>
+            )}
+          </header>
+
+          <!-- Content -->
+          <div class="dev-content">
+            <div class="dev-content-inner">
+              <slot />
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <footer class="dev-footer">
+            <div class="dev-stats">
+              <span class="dev-stat">
+                <svg class="dev-stat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 6v6l4 2"/>
+                </svg>
+                {readingTime} min read
+              </span>
+              <span class="dev-stat">
+                <svg class="dev-stat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>
+                </svg>
+                ~{wordCount} words
+              </span>
+              <span class="dev-stat">
+                <svg class="dev-stat-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                <FormattedDate date={pubDate} />
+              </span>
+            </div>
+
+            {updatedDate && (
+              <div class="dev-updated">
+                Updated <FormattedDate date={updatedDate} />
+              </div>
+            )}
+
+            <!-- Simulated Commit Info -->
+            <div class="dev-commit-info">
+              <span>Last commit:</span>
+              <span class="dev-commit-hash">a7f3b2c</span>
+              <span>on branch <strong>main</strong></span>
+            </div>
+          </footer>
+        </div>
+      </article>
+    </main>
+    <Footer />
+
+    <script>
+      // Add line numbers effect to code blocks
+      (function() {
+        const codeBlocks = document.querySelectorAll('.dev-content-inner pre code');
+        
+        codeBlocks.forEach(block => {
+          const lines = block.textContent?.split('\n') || [];
+          if (lines.length > 1) {
+            const numbered = lines.map((line, i) => {
+              const lineNum = String(i + 1).padStart(2, ' ');
+              return `<span class="line-number">${lineNum}</span> ${line}`;
+            }).join('\n');
+            block.innerHTML = numbered;
+          }
+        });
+      })();
+
+      // Typing effect for command prefix (optional enhancement)
+      (function() {
+        const prefix = document.querySelector('.dev-command-prefix');
+        if (!prefix) return;
+        
+        prefix.style.opacity = '0';
+        setTimeout(() => {
+          prefix.style.opacity = '1';
+          prefix.style.transition = 'opacity 0.3s ease';
+        }, 300);
+      })();
+    </script>
+
+    <style>
+      /* Line numbers styling (added via JS) */
+      .dev-content-inner pre code .line-number {
+        color: #4a5568;
+        user-select: none;
+        margin-right: 1rem;
+        border-right: 1px solid #2d3748;
+        padding-right: 1rem;
+      }
+    </style>
+  </body>
+</html>

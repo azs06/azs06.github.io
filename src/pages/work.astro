@@ -1,6 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import LayoutHeader from "../components/LayoutHeader.astro";
+
 const workProjects = [
   {
     id: 6,
@@ -27,9 +27,9 @@ const workProjects = [
   },
   {
     id: 2,
-    title: "Journey east hampton Website",
+    title: "Journey East Hampton Website",
     description:
-      "As part of the development team, worked on developing the website for Journey eas hampton hotel, using our in house CMS and our custom built 11ty Framework",
+      "As part of the development team, worked on developing the website for Journey East Hampton hotel, using our in house CMS and our custom built 11ty Framework",
     imageUrl:
       "https://res.cloudinary.com/theazs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1737288922/personal-website/Screenshot_2025-01-19_at_6.13.58_PM_i7ii8h.png",
     projectUrl: "https://journeyeasthampton.com/",
@@ -41,7 +41,7 @@ const workProjects = [
     id: 3,
     title: "Marram Montauk Hotel Website",
     description:
-      "As part of the development team, worked on developing the website for Marram Montauk Hotel, using our in house CMS and our custom built 11ty Framework. We mainted a great lighthouse score even though we are loading a video on the home page by progressive loading strategy.",
+      "As part of the development team, worked on developing the website for Marram Montauk Hotel, using our in house CMS and our custom built 11ty Framework. We maintained a great lighthouse score even though we are loading a video on the home page by progressive loading strategy.",
     imageUrl:
       "https://res.cloudinary.com/theazs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1737289055/personal-website/Screenshot_2025-01-19_at_6.17.08_PM_lgx7xg.png",
     projectUrl: "https://www.marrammontauk.com/",
@@ -53,7 +53,7 @@ const workProjects = [
     id: 4,
     title: "Theamswell Hotel Website",
     description:
-      "We developed the themaswell hotel website using our in house component library that we have developed to be used with 11ty and our in house CMS as backend.",
+      "We developed the Theamswell hotel website using our in house component library that we have developed to be used with 11ty and our in house CMS as backend.",
     imageUrl:
       "https://res.cloudinary.com/theazs/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1737289413/personal-website/Screenshot_2025-01-19_at_6.22.57_PM_r1rbez.png",
     projectUrl: "https://www.theameswellhotel.com/",
@@ -74,7 +74,7 @@ const workProjects = [
     companyUrl: "https://www.crunchbase.com/organization/butler-hospitality",
   },
   {
-    id: 6,
+    id: 7,
     title: "HiSkipper.com",
     description:
       "Jetaport.com later rebranded to hiskipper.com was a group hotel booking platform, our marketing pages were developed using Vue.js and our booking application was developed using Ember.js",
@@ -91,7 +91,7 @@ const experiences = [
   {
     company: "Jetaport",
     role: "Frontend Engineer",
-    duration: "2015 - 2018",
+    duration: "2015 – 2018",
     description:
       "Worked as frontend engineer in developing our group booking platform, and other internal applications.",
     companyUrl: "https://www.crunchbase.com/organization/jetaport",
@@ -99,7 +99,7 @@ const experiences = [
   {
     company: "Butler Hospitality",
     role: "Senior Frontend Engineer & Team Lead",
-    duration: "2019 - 2022",
+    duration: "2019 – 2022",
     description:
       "Worked as a senior developer for several key projects, Worked on mobile and iPad application development, also on the internal OMS application.",
     companyUrl: "https://www.crunchbase.com/organization/butler-hospitality",
@@ -107,7 +107,7 @@ const experiences = [
   {
     company: "Skipper Hospitality",
     role: "Senior Frontend Engineer & Team Lead",
-    duration: "2022 - 2024",
+    duration: "2022 – 2024",
     description:
       "Lead the development of Skipper Booking Widget, worked as a senior engineer for several client websites and key internal projects.",
     companyUrl: "https://www.skipperhospitality.com",
@@ -115,7 +115,7 @@ const experiences = [
   {
     company: "ReformedTech",
     role: "CTO and Co-Founder",
-    duration: "2021 - Present",
+    duration: "2021 – Present",
     description:
       "ReformedTech is a Software Development company from Bangladesh, I lead the tech team with various efforts, one of our most notable project being DokanePos, a 21st Century pos application.",
     companyUrl: "https://www.reformedtech.org",
@@ -125,86 +125,94 @@ const experiences = [
 
 <MainLayout
   title="Work Experience"
-  description="Work expericne of Atiquzzaman Soikat"
-  pubDate={new Date("August 04 2025")}
-  heroImage="/blog-placeholder-about.jpg"
+  description="Work experience of Atiquzzaman Soikat"
 >
-  <article class="mx-auto px-4 py-12">
-    <section class="mb-8">
-      <LayoutHeader title="Work Experience" />
-      <p class="text-lg leading-relaxed text-gray-800 dark:text-gray-200">
-        I have over twelve years of experience in web development, serving as a
-        Technical Project Manager, Frontend Engineer, and Team Lead for startups
-        such as Jetaport, Butler Hospitality, and Skipper Hospitality.
-        Additionally, I have worked as a freelancer, managing my own clients. My
-        approach centers on inspiring teams to write clean, iterative, and
-        maintainable code that aligns with real user experiences while achieving
-        business objectives. In my own development work, I prioritize semantic,
-        elegant, and maintainable code that is responsive and accessible.
+  <article class="space-y-16">
+    <!-- Intro -->
+    <section class="section-animate">
+      <p class="text-xl text-primary dark:text-gray-200 mb-6 font-semibold">
+        Work Experience
       </p>
+      <div class="space-y-4 text-primary/80 dark:text-gray-300 text-lg">
+        <p>
+          I have over twelve years of experience in web development, serving as a
+          Technical Project Manager, Frontend Engineer, and Team Lead for startups
+          such as Jetaport, Butler Hospitality, and Skipper Hospitality. My
+          approach centers on inspiring teams to write clean, iterative, and
+          maintainable code that aligns with real user experiences while achieving
+          business objectives.
+        </p>
+      </div>
     </section>
-    <!-- Work Experience -->
-    <section class="mb-12">
-      <ul class="space-y-6">
+
+    <!-- Experience -->
+    <section class="section-animate">
+      <h2
+        class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-4 font-sans"
+      >
+        Career Timeline
+      </h2>
+      <ul class="space-y-4">
         {
-          experiences.reverse().map((exp) => (
-            <li class="p-4 border border-gray-200 dark:border-gray-700 rounded-md hover:shadow transition-shadow bg-white dark:bg-gray-800">
+          experiences.reverse().map((exp, index) => (
+            <li class="stagger-item card-lift p-4 border border-border dark:border-[#3d352d] rounded-lg bg-paper/50 dark:bg-[#2a2520]/50">
               <a
                 href={exp.companyUrl}
                 target="_blank"
-                class="text-xl font-semibold text-black dark:text-gray-100 hover:underline"
+                rel="noopener noreferrer"
+                class="font-medium text-primary dark:text-gray-100 font-serif hover:text-accent dark:hover:text-accent transition-colors"
               >
                 {exp.company}
               </a>
-              <p class="text-gray-800 dark:text-gray-300 text-semibold">
-                {exp.role} &middot; {exp.duration}
+              <p class="text-sm text-muted dark:text-gray-400 mt-0.5">
+                {exp.role} · {exp.duration}
               </p>
-              <p class="mt-2 text-gray-700 dark:text-gray-400">{exp.description}</p>
+              <p class="mt-2 text-primary/80 dark:text-gray-300 text-sm">
+                {exp.description}
+              </p>
             </li>
           ))
         }
       </ul>
     </section>
-    <!-- Recent Work Projects -->
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">Recent Work Projects</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <!-- Projects -->
+    <section class="section-animate">
+      <h2
+        class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-4 font-sans"
+      >
+        Recent Projects
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {
-          workProjects.map((project) => (
-            <article
-              class="work-project-card border border-gray-200 dark:border-gray-700 rounded-md p-4 hover:shadow-lg transition-shadow flex flex-col relative overflow-hidden bg-white dark:bg-gray-800"
-              data-tilt
-              style="--drop-color: rgba(65, 105, 225, 0.15); --drop-x: 50%; --drop-y: 50%;"
-            >
+          workProjects.map((project, index) => (
+            <article class="stagger-item card-lift flex flex-col p-4 border border-border dark:border-[#3d352d] rounded-lg bg-paper/50 dark:bg-[#2a2520]/50 hover:border-accent/50 dark:hover:border-accent/50 group">
               <img
                 src={project.imageUrl}
                 alt={project.title}
-                class="w-full h-48 object-cover mb-4 rounded cursor-pointer"
-                data-modal-image
-                data-project-url={project.projectUrl || ""}
-                data-iframe-enabled={
-                  project.id !== 6 && project.id !== 1 ? "true" : "false"
-                }
+                class="w-full h-40 object-cover mb-4 rounded"
+                loading="lazy"
               />
-              <h3 class="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">{project.title}</h3>
-              <p class="text-gray-700 dark:text-gray-300 text-sm/6 mb-2">{project.description}</p>
-              <p class="text-sm text-gray-700 dark:text-gray-200 mb-2">
+              <h3 class="font-medium text-primary dark:text-gray-100 group-hover:text-accent transition-colors font-serif">
+                {project.title}
+              </h3>
+              <p class="text-sm text-primary/80 dark:text-gray-300 mt-1 mb-2 line-clamp-3">
+                {project.description}
+              </p>
+              <p class="text-xs text-muted dark:text-gray-400 mb-3">
                 Company:{" "}
                 <a
                   href={project.companyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-brandingColor dark:text-blue-400 hover:underline"
+                  class="text-accent link-underline"
                 >
                   {project.company}
                 </a>
               </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                {project.tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    class="px-2 py-1 text-sm bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-md"
-                  >
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                {project.tags.map((tag) => (
+                  <span class="pill-bounce px-2 py-0.5 text-xs text-muted dark:text-gray-400 bg-surface dark:bg-[#2a2520] border border-border/50 dark:border-[#3d352d] rounded font-sans">
                     {tag}
                   </span>
                 ))}
@@ -214,12 +222,12 @@ const experiences = [
                   href={project.projectUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center px-4 py-2 mt-auto bg-black bg-opacity-80 dark:bg-gray-700 dark:bg-opacity-90 text-white rounded-md hover:bg-inherit dark:hover:bg-blue-500 border-1 hover:text-black dark:hover:text-white hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-colors transform hover:-translate-y-1 duration-200 shadow-md group"
+                  class="mt-auto inline-flex items-center text-sm text-accent link-underline font-sans group/link"
                 >
-                  <span class="text-sm/5">View Project</span>
+                  View Project
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform"
+                    class="h-4 w-4 ml-1 transform group-hover/link:translate-x-1 transition-transform"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -238,311 +246,3 @@ const experiences = [
     </section>
   </article>
 </MainLayout>
-
-<!-- Modal for large images and iframes -->
-<div
-  id="imageModal"
-  class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4 hidden"
->
-  <div class="relative max-w-6xl w-full max-h-[90vh]">
-    <button
-      id="closeModal"
-      class="absolute top-2 right-2 bg-white rounded-full p-2 text-black hover:bg-gray-200 transition-colors z-50"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      </svg>
-    </button>
-
-    <!-- Image content -->
-    <div id="modalImageContent" class="hidden">
-      <img
-        id="modalImage"
-        class="max-h-[80vh] max-w-full mx-auto rounded shadow-xl"
-        src=""
-        alt="Project image"
-      />
-      <p id="modalCaption" class="text-white text-center mt-4 text-lg"></p>
-    </div>
-
-    <!-- Iframe content -->
-    <div id="modalIframeContent" class="hidden h-[80vh] w-full">
-      <iframe
-        id="modalIframe"
-        class="w-full h-full bg-white rounded shadow-xl"
-        src=""
-        frameborder="0"
-        allowfullscreen></iframe>
-      <div class="flex justify-between items-center mt-4">
-        <p id="modalIframeCaption" class="text-white text-lg"></p>
-        <a
-          id="modalExternalLink"
-          href=""
-          target="_blank"
-          class="text-brandingColor hover:text-underline transition-all"
-        >
-          Open in new tab
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<style>
-  .work-project-card {
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-    will-change: transform;
-  }
-
-  .work-project-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(
-      circle at var(--drop-x) var(--drop-y),
-      var(--drop-color),
-      transparent 70%
-    );
-    opacity: 0;
-    transition: opacity 0.4s ease-out;
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  .work-project-card:hover::before {
-    opacity: 1;
-  }
-
-  .work-project-card > * {
-    position: relative;
-    z-index: 1;
-    transition: transform 0.2s ease-out;
-  }
-
-  .work-project-card:hover > * {
-    transform: translateZ(10px);
-  }
-  .freelance-card {
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-    will-change: transform;
-  }
-
-  .freelance-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(
-      circle at var(--drop-x) var(--drop-y),
-      var(--drop-color),
-      transparent 70%
-    );
-    opacity: 0;
-    transition: opacity 0.4s ease-out;
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  .freelance-card:hover::before {
-    opacity: 1;
-  }
-
-  .freelance-card > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  .freelance-card:hover > * {
-    transform: translateZ(5px);
-  }
-
-  /* Gradient border effect on hover */
-  .freelance-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 0.5rem; /* 8px */
-    padding: 2px;
-    background: linear-gradient(
-      135deg,
-      rgba(59, 130, 246, 0.4) 0%,
-      rgba(147, 197, 253, 0.1) 50%,
-      rgba(59, 130, 246, 0.4) 100%
-    );
-    -webkit-mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .freelance-card:hover::after {
-    opacity: 1;
-  }
-</style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll("[data-tilt]");
-    const modal = document.getElementById("imageModal");
-    const modalImage = document.getElementById("modalImage");
-    const modalCaption = document.getElementById("modalCaption");
-    const closeModal = document.getElementById("closeModal");
-
-    // Handle tilt effect
-    cards.forEach((card) => {
-      let timeout;
-
-      card.addEventListener("mousemove", function (event) {
-        const { left, top, width, height } = card.getBoundingClientRect();
-        const x = (event.clientX - left - width / 2) / 90;
-        const y = (event.clientY - top - height / 2) / 90;
-
-        // Set the position for the radial gradient with smooth transition
-        card.style.setProperty("--drop-x", `${event.clientX - left}px`);
-        card.style.setProperty("--drop-y", `${event.clientY - top}px`);
-
-        // Apply tilt effect
-        card.style.transform = `perspective(1000px) rotateX(${-y}deg) rotateY(${x}deg) scale(1.02)`;
-      });
-
-      card.addEventListener("mouseleave", function () {
-        // Add a slight delay before resetting for a smoother experience
-        timeout = setTimeout(() => {
-          card.style.transform =
-            "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
-        }, 100);
-      });
-
-      card.addEventListener("mouseenter", function () {
-        clearTimeout(timeout);
-      });
-    });
-
-    // Handle image modal
-    const images = document.querySelectorAll("[data-modal-image]");
-    const modalImageContent = document.getElementById("modalImageContent");
-    const modalIframeContent = document.getElementById("modalIframeContent");
-    const modalIframe = document.getElementById("modalIframe");
-    const modalIframeCaption = document.getElementById("modalIframeCaption");
-    const modalExternalLink = document.getElementById("modalExternalLink");
-
-    images.forEach((img) => {
-      img.addEventListener("click", function () {
-        const imageUrl = this.src;
-        const projectTitle =
-          this.closest("article").querySelector("h3").textContent;
-        const projectUrl = this.getAttribute("data-project-url");
-        const iframeEnabled =
-          this.getAttribute("data-iframe-enabled") === "true";
-
-        // Reset modal content visibility
-        modalImageContent.classList.add("hidden");
-        modalIframeContent.classList.add("hidden");
-
-        if (projectUrl && projectUrl.trim() !== "" && iframeEnabled) {
-          // Display iframe for projects with URLs and iframe enabled
-          modalIframe.src = projectUrl;
-          modalIframeCaption.textContent = projectTitle;
-          modalExternalLink.href = projectUrl;
-          modalIframeContent.classList.remove("hidden");
-        } else {
-          // Display image for projects without URLs or with iframe disabled
-          modalImage.src = imageUrl;
-          modalCaption.textContent = projectTitle;
-          modalImageContent.classList.remove("hidden");
-        }
-
-        modal.classList.remove("hidden");
-        document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
-      });
-    });
-
-    // Close modal when clicking the close button
-    closeModal.addEventListener("click", function () {
-      modal.classList.add("hidden");
-      document.body.style.overflow = ""; // Restore scrolling
-      // Reset iframe src to stop any audio/video
-      setTimeout(() => {
-        modalIframe.src = "";
-      }, 300);
-    });
-
-    // Close modal when clicking outside the content
-    modal.addEventListener("click", function (event) {
-      if (event.target === modal) {
-        modal.classList.add("hidden");
-        document.body.style.overflow = ""; // Restore scrolling
-        // Reset iframe src to stop any audio/video
-        setTimeout(() => {
-          modalIframe.src = "";
-        }, 300);
-      }
-    });
-
-    // Close modal on escape key
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && !modal.classList.contains("hidden")) {
-        modal.classList.add("hidden");
-        document.body.style.overflow = ""; // Restore scrolling
-        // Reset iframe src to stop any audio/video
-        setTimeout(() => {
-          modalIframe.src = "";
-        }, 300);
-      }
-    });
-
-    // Add this new code for freelance cards
-    const freelanceCards = document.querySelectorAll("[data-tilt-freelance]");
-
-    freelanceCards.forEach((card) => {
-      let timeout;
-
-      card.addEventListener("mousemove", function (event) {
-        const { left, top, width, height } = card.getBoundingClientRect();
-        const x = (event.clientX - left - width / 2) / 120; // More subtle tilt
-        const y = (event.clientY - top - height / 2) / 120;
-
-        // Set the position for the radial gradient
-        card.style.setProperty("--drop-x", `${event.clientX - left}px`);
-        card.style.setProperty("--drop-y", `${event.clientY - top}px`);
-
-        // Apply subtle tilt effect
-        card.style.transform = `perspective(1000px) rotateX(${-y}deg) rotateY(${x}deg) scale(1.01)`;
-      });
-
-      card.addEventListener("mouseleave", function () {
-        timeout = setTimeout(() => {
-          card.style.transform =
-            "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
-        }, 100);
-      });
-
-      card.addEventListener("mouseenter", function () {
-        clearTimeout(timeout);
-      });
-    });
-  });
-</script>
