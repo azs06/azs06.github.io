@@ -4,9 +4,26 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Class-based dark mode (matches the .dark class on <html>) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Theme tokens migrated from tailwind.config.mjs */
+@theme {
+  --color-brandingColor: #142934;
+  --color-primary: #2c2c2c;
+  --color-accent: #b85c38;
+  --color-surface: #f8f4e9;
+  --color-paper: #faf6ed;
+  --color-border: #e8e0d0;
+  --color-muted: #6b6458;
+
+  --font-sans: 'Atkinson', system-ui, sans-serif;
+  --font-serif: 'Lora', Georgia, Cambria, serif;
+  --font-mono: 'JetBrains Mono', Menlo, monospace;
+}
 
 :root {
   --accent: #b85c38;
