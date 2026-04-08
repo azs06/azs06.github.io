@@ -2,7 +2,7 @@
 title: What is Cross Site Request Forgery (CSRF)?
 description: 'An in-depth look at Cross Site Request Forgery (CSRF) attacks and how to prevent them.'
 tags: [security, csrf, web development, javascript]
-pubDate: 'Apr 21 2025'
+pubDate: 'Apr 5 2026'
 ---
 
 # What is Cross Site Request Forgery (CSRF)?
