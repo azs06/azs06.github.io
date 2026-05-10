@@ -13,16 +13,6 @@ Docker makes development efficient and predictable.
 >
 > — The Docker team
 
-## What is Docker Hub?
-
-Docker Hub is the official cloud service for storing and sharing Docker images (more on that later).
-
-There are several alternatives to Docker Hub:
-
-- AWS ECR
-- GCP Artifact Registry
-- Azure Container Registry
-
 ## What are Containers?
 
 > A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.
@@ -148,6 +138,40 @@ docker build . -t helloworld:latest
 
 > The `-t helloworld:latest` flag tags the image with the name "helloworld" and the "latest" tag. Names are used to organize your images, and tags are used to keep track of different versions.
 
+## Docker Compose
+
+Docker Compose is used to define and run multi-container Docker applications.
+
+Instead of running long `docker run` commands, you can describe your services, ports, volumes, and environment variables in a
+`docker-compose.yml` file.
+
+Example:
+
+```yaml
+services:
+  ghost:
+    image: ghost
+    ports:
+      - "3001:2368"
+    environment:
+      NODE_ENV: development
+      url: http://localhost:3001
+    volumes:
+      - ghost-vol:/var/lib/ghost
+
+volumes:
+  ghost-vol:
+```
+Run the services:
+
+`docker compose up -d`
+
+Stop the services:
+
+`docker compose down`
+
+With Compose, Docker creates the containers, networks, and volumes based on the configuration file.
+
 ## Docker Logs
 
 When containers are running in detached mode with the `-d` flag, you don't see any output in your terminal, which is nice for keeping your terminal clean, but what if something goes wrong?
@@ -179,6 +203,16 @@ docker top CONTAINER [ps OPTIONS]
 ```
 
 Use `stats` for entire containers and `top` for processes in a container.
+
+## What is Docker Hub?
+
+Docker Hub is the official cloud service for storing and sharing Docker images (more on that later).
+
+There are several alternatives to Docker Hub:
+
+- AWS ECR
+- GCP Artifact Registry
+- Azure Container Registry
 
 ## Docker Publish
 
@@ -229,18 +263,10 @@ docker push USERNAME/image --all-tags
 
 This will tag the latest build with the `latest` tag.
 
-## The Deployment Process for a Typical Web App
 
-- The developer (you) writes some new code
-- The developer commits the code to Git
-- The developer pushes a new branch to GitHub
-- The developer opens a pull request to the main branch
-- A teammate reviews the PR and approves it (if it looks good)
-- The developer merges the pull request
-- Upon merging, an automated script, perhaps a GitHub action, is started
-- The script builds the code (if it's a compiled language)
-- The script builds a new Docker image with the latest program
-- The script pushes the new image to Docker Hub
-- The server that runs the containers, perhaps a Kubernetes cluster, is told there is a new version
-- The k8s cluster pulls down the latest image
-- The k8s cluster shuts down old containers as it spins up new containers of the latest image
+## Wrapping Up
+
+That’s enough Docker to get productive: pull an image, run a container, persist data with volumes, inspect what’s happening, and
+publish your own images when needed.
+
+Docker can go much deeper, but these are the basics I want to keep handy.
