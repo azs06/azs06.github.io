@@ -270,3 +270,5 @@ That’s enough Docker to get productive: pull an image, run a container, persis
 publish your own images when needed.
 
 Docker can go much deeper, but these are the basics I want to keep handy.
+
+A great deal of these notes were collected from [boot.dev's Docker course](https://www.boot.dev?bannerlord=azs06), which I highly recommend.
