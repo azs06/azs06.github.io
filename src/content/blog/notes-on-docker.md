@@ -2,7 +2,7 @@
 title: "Notes on Docker"
 description: "My Personal notes on docker"
 tags: [docker, containerization]
-pubDate: "Apr 21 2026"
+pubDate: "May 10 2026"
 ---
 
 ## What is Docker?
@@ -25,7 +25,7 @@ Virtual machines virtualize hardware, they emulate what a physical computer does
 
 ## Docker Images
 
-So a "container" is kinda like a lightweight VM, great... so what's an image?
+So a "container" is kinda like a lightweight VM, so what's an image?
 
 - **Image:** A read-only definition of a container.
 - **Container:** An instance of a virtualized read-write environment.
@@ -78,7 +78,7 @@ A container's file system is read-write, but when you delete a container, and st
 
 A volume's file system is read-write, but it lives outside a single container. If a container uses a volume, then stateful changes can be persisted to the volume even if the container is deleted.
 
-Volumes are often used by applications like Ghost, Grafana, or WordPress to persist data so that when a container is deleted and a new one is created the state of the application isn't lost. Containerized applications are typically thought of as ephemeral (temporary). If your application breaks just because you deleted and recreated a container, it's not a very good containerization!
+Volumes are often used by applications like Ghost, Grafana, or WordPress to persist data so that when a container is deleted and a new one is created the state of the application isn't lost. Containerized applications are typically thought of as temporary. If your application breaks just because you deleted and recreated a container, it's not a very good containerization!
 
 ## Docker Commands
 
