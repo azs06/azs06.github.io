@@ -111,6 +111,8 @@ export function getMatchOutcome(
     return { winner: away, runnerUp: home, score };
   }
 
+  // A finished knockout match always has a winner (extra time / penalties if needed).
+  // Equal scores here means the API has not published the final result yet.
   return null;
 }
 
