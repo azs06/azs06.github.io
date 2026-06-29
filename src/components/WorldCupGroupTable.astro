@@ -1,0 +1,74 @@
+---
+import type { WCGroup, WCTeam } from '../lib/worldcup';
+
+interface Props {
+  group: WCGroup;
+  teamMap: Map<string, WCTeam>;
+}
+
+const { group, teamMap } = Astro.props;
+
+const sortedTeams = [...group.teams].sort(
+  (a, b) => Number(b.pts) - Number(a.pts) || Number(b.gd) - Number(a.gd)
+);
+---
+
+<section class="rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50 overflow-hidden">
+  <header class="border-b border-border dark:border-[#3d352d] px-4 py-3">
+    <h3 class="text-sm font-semibold uppercase tracking-wider text-primary dark:text-gray-100">
+      Group {group.name}
+    </h3>
+  </header>
+  <div class="overflow-x-auto">
+    <table class="min-w-full text-sm">
+      <thead>
+        <tr class="text-left text-xs uppercase tracking-wider text-muted dark:text-gray-500">
+          <th class="px-4 py-2 font-medium">Team</th>
+          <th class="px-2 py-2 font-medium text-center">P</th>
+          <th class="px-2 py-2 font-medium text-center">W</th>
+          <th class="px-2 py-2 font-medium text-center">D</th>
+          <th class="px-2 py-2 font-medium text-center">L</th>
+          <th class="px-2 py-2 font-medium text-center">GD</th>
+          <th class="px-3 py-2 font-medium text-center">Pts</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          sortedTeams.map((standing, index) => {
+            const team = teamMap.get(standing.team_id);
+            return (
+              <tr class="border-t border-border/70 dark:border-[#3d352d]/70">
+                <td class="px-4 py-2.5">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <span class="w-4 text-xs text-muted dark:text-gray-500">{index + 1}</span>
+                    {
+                      team?.flag && (
+                        <img
+                          src={team.flag}
+                          alt=""
+                          width="20"
+                          height="15"
+                          class="h-[15px] w-5 rounded-sm object-cover shrink-0"
+                          loading="lazy"
+                        />
+                      )
+                    }
+                    <span class="font-medium text-primary dark:text-gray-100 truncate">
+                      {team?.name_en ?? `Team ${standing.team_id}`}
+                    </span>
+                  </div>
+                </td>
+                <td class="px-2 py-2.5 text-center tabular-nums">{standing.mp}</td>
+                <td class="px-2 py-2.5 text-center tabular-nums">{standing.w}</td>
+                <td class="px-2 py-2.5 text-center tabular-nums">{standing.d}</td>
+                <td class="px-2 py-2.5 text-center tabular-nums">{standing.l}</td>
+                <td class="px-2 py-2.5 text-center tabular-nums">{standing.gd}</td>
+                <td class="px-3 py-2.5 text-center font-semibold tabular-nums text-accent">{standing.pts}</td>
+              </tr>
+            );
+          })
+        }
+      </tbody>
+    </table>
+  </div>
+</section>

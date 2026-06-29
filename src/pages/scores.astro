@@ -1,0 +1,345 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import WorldCupGroupTable from '../components/WorldCupGroupTable.astro';
+import WorldCupMatchCard from '../components/WorldCupMatchCard.astro';
+import {
+  buildStadiumMap,
+  buildTeamMap,
+  fetchWorldCupData,
+  isFinished,
+  isLive,
+  isUpcoming,
+} from '../lib/worldcup';
+
+let data;
+let fetchError: string | null = null;
+
+try {
+  data = await fetchWorldCupData();
+} catch (error) {
+  fetchError = error instanceof Error ? error.message : 'Unable to load World Cup data.';
+}
+
+const teamMap = data ? buildTeamMap(data.teams) : new Map();
+const stadiumMap = data ? buildStadiumMap(data.stadiums) : new Map();
+
+const games = data?.games ?? [];
+const liveGames = games.filter(isLive);
+const finishedGames = games.filter(isFinished);
+const upcomingGames = games.filter(isUpcoming);
+
+const recentResults = [...finishedGames].reverse().slice(0, 6);
+const nextMatches = upcomingGames.slice(0, 6);
+
+const pageTitle = 'World Cup 2026 Scores - Atiquzzaman Soikat';
+const pageDescription =
+  'Live scores, results, and group standings for the FIFA World Cup 2026 in USA, Canada, and Mexico.';
+---
+
+<MainLayout title={pageTitle} description={pageDescription}>
+  <article class="space-y-12">
+    <section class="section-animate space-y-4">
+      <p class="text-xl text-primary dark:text-gray-200 font-semibold">
+        FIFA World Cup 2026
+      </p>
+      <p class="text-lg text-primary/80 dark:text-gray-300 leading-relaxed max-w-3xl">
+        Scores and standings from the 48-team tournament across the United States, Mexico, and Canada.
+        Results refresh automatically during matches.
+      </p>
+
+      {
+        data && (
+          <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50 p-4">
+              <p class="text-xs uppercase tracking-wider text-muted dark:text-gray-500">Matches Played</p>
+              <p class="mt-1 text-2xl font-bold text-primary dark:text-gray-100 tabular-nums" id="stat-played">
+                {finishedGames.length}
+              </p>
+            </div>
+            <div class="rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50 p-4">
+              <p class="text-xs uppercase tracking-wider text-muted dark:text-gray-500">Live Now</p>
+              <p class="mt-1 text-2xl font-bold text-red-600 dark:text-red-400 tabular-nums" id="stat-live">
+                {liveGames.length}
+              </p>
+            </div>
+            <div class="rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50 p-4">
+              <p class="text-xs uppercase tracking-wider text-muted dark:text-gray-500">Upcoming</p>
+              <p class="mt-1 text-2xl font-bold text-primary dark:text-gray-100 tabular-nums" id="stat-upcoming">
+                {upcomingGames.length}
+              </p>
+            </div>
+            <div class="rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50 p-4">
+              <p class="text-xs uppercase tracking-wider text-muted dark:text-gray-500">Total Fixtures</p>
+              <p class="mt-1 text-2xl font-bold text-primary dark:text-gray-100 tabular-nums">
+                {games.length}
+              </p>
+            </div>
+          </div>
+        )
+      }
+
+      {
+        fetchError && (
+          <div class="rounded-lg border border-red-300/60 bg-red-50 dark:bg-red-950/30 dark:border-red-800/60 p-4 text-red-800 dark:text-red-300">
+            <p class="font-medium">Could not load tournament data</p>
+            <p class="mt-1 text-sm">{fetchError}</p>
+          </div>
+        )
+      }
+
+      <p class="text-xs text-muted dark:text-gray-500" id="last-updated">
+        {
+          data
+            ? `Last updated ${new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}`
+            : ''
+        }
+      </p>
+    </section>
+
+    {
+      data && (
+        <>
+          {
+            liveGames.length > 0 && (
+              <section class="section-animate space-y-4">
+                <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider">
+                  Live Matches
+                </h2>
+                <div class="grid gap-4 md:grid-cols-2">
+                  {
+                    liveGames.map((game) => (
+                      <WorldCupMatchCard game={game} teamMap={teamMap} stadiumMap={stadiumMap} />
+                    ))
+                  }
+                </div>
+              </section>
+            )
+          }
+
+          <section class="section-animate space-y-6">
+            <div>
+              <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-2">
+                Recent Results
+              </h2>
+              <div class="grid gap-4 md:grid-cols-2">
+                {
+                  recentResults.map((game) => (
+                    <WorldCupMatchCard game={game} teamMap={teamMap} stadiumMap={stadiumMap} />
+                  ))
+                }
+              </div>
+            </div>
+
+            <div>
+              <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-2">
+                Next Fixtures
+              </h2>
+              <div class="grid gap-4 md:grid-cols-2">
+                {
+                  nextMatches.map((game) => (
+                    <WorldCupMatchCard game={game} teamMap={teamMap} stadiumMap={stadiumMap} />
+                  ))
+                }
+              </div>
+            </div>
+          </section>
+
+          <section class="section-animate space-y-4" id="all-matches">
+            <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider">
+              All Matches
+            </h2>
+            <div class="flex flex-wrap gap-2" id="match-filters" role="tablist" aria-label="Filter matches">
+              <button
+                type="button"
+                class="filter-btn active rounded-lg border border-accent bg-accent px-4 py-2 text-sm font-medium text-white"
+                data-filter="all"
+              >
+                All Matches
+              </button>
+              <button
+                type="button"
+                class="filter-btn rounded-lg border border-border dark:border-[#3d352d] px-4 py-2 text-sm font-medium text-primary dark:text-gray-200 hover:border-accent dark:hover:border-accent transition-colors"
+                data-filter="live"
+              >
+                Live
+              </button>
+              <button
+                type="button"
+                class="filter-btn rounded-lg border border-border dark:border-[#3d352d] px-4 py-2 text-sm font-medium text-primary dark:text-gray-200 hover:border-accent dark:hover:border-accent transition-colors"
+                data-filter="results"
+              >
+                Results
+              </button>
+              <button
+                type="button"
+                class="filter-btn rounded-lg border border-border dark:border-[#3d352d] px-4 py-2 text-sm font-medium text-primary dark:text-gray-200 hover:border-accent dark:hover:border-accent transition-colors"
+                data-filter="upcoming"
+              >
+                Upcoming
+              </button>
+              <button
+                type="button"
+                class="filter-btn rounded-lg border border-border dark:border-[#3d352d] px-4 py-2 text-sm font-medium text-primary dark:text-gray-200 hover:border-accent dark:hover:border-accent transition-colors"
+                data-filter="group"
+              >
+                Group Stage
+              </button>
+              <button
+                type="button"
+                class="filter-btn rounded-lg border border-border dark:border-[#3d352d] px-4 py-2 text-sm font-medium text-primary dark:text-gray-200 hover:border-accent dark:hover:border-accent transition-colors"
+                data-filter="knockout"
+              >
+                Knockout
+              </button>
+            </div>
+
+            <div id="matches-list" class="grid gap-4">
+              {
+                games.map((game) => (
+                  <WorldCupMatchCard game={game} teamMap={teamMap} stadiumMap={stadiumMap} />
+                ))
+              }
+            </div>
+          </section>
+
+          <section class="section-animate space-y-4">
+            <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider">
+              Group Standings
+            </h2>
+            <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3" id="standings-grid">
+              {
+                data.groups.map((group) => (
+                  <WorldCupGroupTable group={group} teamMap={teamMap} />
+                ))
+              }
+            </div>
+          </section>
+        </>
+      )
+    }
+
+    <section class="section-animate">
+      <p class="text-xs text-muted dark:text-gray-500">
+        Match data provided by the open
+        <a
+          href="https://worldcup26.ir/api-docs/"
+          class="text-accent hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          World Cup 2026 API
+        </a>.
+      </p>
+    </section>
+  </article>
+</MainLayout>
+
+<style>
+  .filter-btn.active {
+    border-color: var(--accent);
+    background-color: var(--accent);
+    color: white;
+  }
+
+  .worldcup-match.hidden-match {
+    display: none;
+  }
+</style>
+
+<script>
+  import {
+    fetchWorldCupData,
+    isFinished,
+    isLive,
+    isUpcoming,
+  } from '../lib/worldcup';
+
+  const REFRESH_INTERVAL_MS = 60_000;
+
+  function getMatchStatus(game) {
+    if (isLive(game)) return 'live';
+    if (isFinished(game)) return 'finished';
+    return 'upcoming';
+  }
+
+  function applyFilter(filter: string) {
+    const matches = document.querySelectorAll('.worldcup-match');
+    const allMatchesSection = document.getElementById('all-matches');
+
+    matches.forEach((match) => {
+      const inAllMatches = allMatchesSection?.contains(match) ?? false;
+      if (!inAllMatches) return;
+
+      const status = match.getAttribute('data-match-status');
+      const type = match.getAttribute('data-match-type');
+      let visible = true;
+
+      if (filter === 'live') visible = status === 'live';
+      else if (filter === 'results') visible = status === 'finished';
+      else if (filter === 'upcoming') visible = status === 'upcoming';
+      else if (filter === 'group') visible = type === 'group';
+      else if (filter === 'knockout') visible = type !== 'group';
+
+      match.classList.toggle('hidden-match', !visible);
+    });
+  }
+
+  function setupFilters() {
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        buttons.forEach((btn) => btn.classList.remove('active'));
+        button.classList.add('active');
+        applyFilter(button.getAttribute('data-filter') ?? 'all');
+      });
+    });
+  }
+
+  function updateStats(games) {
+    const played = games.filter(isFinished).length;
+    const live = games.filter(isLive).length;
+    const upcoming = games.filter(isUpcoming).length;
+
+    const playedEl = document.getElementById('stat-played');
+    const liveEl = document.getElementById('stat-live');
+    const upcomingEl = document.getElementById('stat-upcoming');
+    const updatedEl = document.getElementById('last-updated');
+
+    if (playedEl) playedEl.textContent = String(played);
+    if (liveEl) liveEl.textContent = String(live);
+    if (upcomingEl) upcomingEl.textContent = String(upcoming);
+    if (updatedEl) {
+      updatedEl.textContent = `Last updated ${new Date().toLocaleString('en-US', {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+      })}`;
+    }
+  }
+
+  function updateMatchCards(games) {
+    games.forEach((game) => {
+      document.querySelectorAll(`[data-match-id="${game.id}"]`).forEach((card) => {
+        const status = getMatchStatus(game);
+        card.setAttribute('data-match-status', status);
+
+        const scoreEl = card.querySelector('[data-score]');
+        if (scoreEl && (isFinished(game) || isLive(game))) {
+          scoreEl.textContent = `${game.home_score} – ${game.away_score}`;
+        }
+      });
+    });
+  }
+
+  async function refreshData() {
+    try {
+      const data = await fetchWorldCupData();
+      updateStats(data.games);
+      updateMatchCards(data.games);
+    } catch {
+      // Keep existing rendered data if refresh fails.
+    }
+  }
+
+  setupFilters();
+  window.setInterval(refreshData, REFRESH_INTERVAL_MS);
+</script>
