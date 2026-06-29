@@ -54,36 +54,32 @@ const pageDescription =
 
       <div id="champion-banner-slot"></div>
 
-      {
-        data && (
-          <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <div class="rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50 p-4">
-              <p class="text-xs uppercase tracking-wider text-muted dark:text-gray-500">Matches Played</p>
-              <p class="mt-1 text-2xl font-bold text-primary dark:text-gray-100 tabular-nums" id="stat-played">
-                {finishedGames.length}
-              </p>
-            </div>
-            <div class="rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50 p-4">
-              <p class="text-xs uppercase tracking-wider text-muted dark:text-gray-500">Live Now</p>
-              <p class="mt-1 text-2xl font-bold text-red-600 dark:text-red-400 tabular-nums" id="stat-live">
-                {liveGames.length}
-              </p>
-            </div>
-            <div class="rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50 p-4">
-              <p class="text-xs uppercase tracking-wider text-muted dark:text-gray-500">Upcoming</p>
-              <p class="mt-1 text-2xl font-bold text-primary dark:text-gray-100 tabular-nums" id="stat-upcoming">
-                {upcomingGames.length}
-              </p>
-            </div>
-            <div class="rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50 p-4">
-              <p class="text-xs uppercase tracking-wider text-muted dark:text-gray-500">Total Fixtures</p>
-              <p class="mt-1 text-2xl font-bold text-primary dark:text-gray-100 tabular-nums">
-                {games.length}
-              </p>
-            </div>
-          </div>
-        )
-      }
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50 p-4">
+          <p class="text-xs uppercase tracking-wider text-muted dark:text-gray-500">Matches Played</p>
+          <p class="mt-1 text-2xl font-bold text-primary dark:text-gray-100 tabular-nums" id="stat-played">
+            {finishedGames.length}
+          </p>
+        </div>
+        <div class="rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50 p-4">
+          <p class="text-xs uppercase tracking-wider text-muted dark:text-gray-500">Live Now</p>
+          <p class="mt-1 text-2xl font-bold text-red-600 dark:text-red-400 tabular-nums" id="stat-live">
+            {liveGames.length}
+          </p>
+        </div>
+        <div class="rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50 p-4">
+          <p class="text-xs uppercase tracking-wider text-muted dark:text-gray-500">Upcoming</p>
+          <p class="mt-1 text-2xl font-bold text-primary dark:text-gray-100 tabular-nums" id="stat-upcoming">
+            {upcomingGames.length}
+          </p>
+        </div>
+        <div class="rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50 p-4">
+          <p class="text-xs uppercase tracking-wider text-muted dark:text-gray-500">Total Fixtures</p>
+          <p class="mt-1 text-2xl font-bold text-primary dark:text-gray-100 tabular-nums" id="stat-total">
+            {games.length}
+          </p>
+        </div>
+      </div>
 
       {
         fetchError && (
@@ -103,127 +99,127 @@ const pageDescription =
       </p>
     </section>
 
-    {
-      data && (
-        <>
+    <section
+      class="section-animate space-y-4"
+      id="live-section"
+      style={liveGames.length === 0 ? 'display: none' : undefined}
+    >
+      <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider">
+        Live Matches
+      </h2>
+      <div id="live-grid" class="grid gap-4 md:grid-cols-2">
+        {
+          liveGames.map((game) => (
+            <WorldCupMatchCard game={game} teamMap={teamMap} stadiumMap={stadiumMap} />
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section-animate space-y-6">
+      <div>
+        <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-2">
+          Recent Results
+        </h2>
+        <div id="recent-grid" class="grid gap-4 md:grid-cols-2">
           {
-            liveGames.length > 0 && (
-              <section class="section-animate space-y-4">
-                <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider">
-                  Live Matches
-                </h2>
-                <div class="grid gap-4 md:grid-cols-2">
-                  {
-                    liveGames.map((game) => (
-                      <WorldCupMatchCard game={game} teamMap={teamMap} stadiumMap={stadiumMap} />
-                    ))
-                  }
-                </div>
-              </section>
-            )
+            recentResults.map((game) => (
+              <WorldCupMatchCard game={game} teamMap={teamMap} stadiumMap={stadiumMap} />
+            ))
           }
+        </div>
+      </div>
 
-          <section class="section-animate space-y-6">
-            <div>
-              <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-2">
-                Recent Results
-              </h2>
-              <div class="grid gap-4 md:grid-cols-2">
-                {
-                  recentResults.map((game) => (
-                    <WorldCupMatchCard game={game} teamMap={teamMap} stadiumMap={stadiumMap} />
-                  ))
-                }
-              </div>
-            </div>
+      <div>
+        <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-2">
+          Next Fixtures
+        </h2>
+        <div id="next-grid" class="grid gap-4 md:grid-cols-2">
+          {
+            nextMatches.map((game) => (
+              <WorldCupMatchCard game={game} teamMap={teamMap} stadiumMap={stadiumMap} />
+            ))
+          }
+        </div>
+      </div>
+    </section>
 
-            <div>
-              <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider mb-2">
-                Next Fixtures
-              </h2>
-              <div class="grid gap-4 md:grid-cols-2">
-                {
-                  nextMatches.map((game) => (
-                    <WorldCupMatchCard game={game} teamMap={teamMap} stadiumMap={stadiumMap} />
-                  ))
-                }
-              </div>
-            </div>
-          </section>
+    <section class="section-animate space-y-4" id="all-matches">
+      <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider">
+        All Matches
+      </h2>
+      <div class="flex flex-wrap gap-2" id="match-filters" role="group" aria-label="Filter matches">
+        <button
+          type="button"
+          class="filter-btn active rounded-lg border border-accent bg-accent px-4 py-2 text-sm font-medium text-white"
+          data-filter="all"
+          aria-pressed="true"
+        >
+          All Matches
+        </button>
+        <button
+          type="button"
+          class="filter-btn rounded-lg border border-border dark:border-[#3d352d] px-4 py-2 text-sm font-medium text-primary dark:text-gray-200 hover:border-accent dark:hover:border-accent transition-colors"
+          data-filter="live"
+          aria-pressed="false"
+        >
+          Live
+        </button>
+        <button
+          type="button"
+          class="filter-btn rounded-lg border border-border dark:border-[#3d352d] px-4 py-2 text-sm font-medium text-primary dark:text-gray-200 hover:border-accent dark:hover:border-accent transition-colors"
+          data-filter="results"
+          aria-pressed="false"
+        >
+          Results
+        </button>
+        <button
+          type="button"
+          class="filter-btn rounded-lg border border-border dark:border-[#3d352d] px-4 py-2 text-sm font-medium text-primary dark:text-gray-200 hover:border-accent dark:hover:border-accent transition-colors"
+          data-filter="upcoming"
+          aria-pressed="false"
+        >
+          Upcoming
+        </button>
+        <button
+          type="button"
+          class="filter-btn rounded-lg border border-border dark:border-[#3d352d] px-4 py-2 text-sm font-medium text-primary dark:text-gray-200 hover:border-accent dark:hover:border-accent transition-colors"
+          data-filter="group"
+          aria-pressed="false"
+        >
+          Group Stage
+        </button>
+        <button
+          type="button"
+          class="filter-btn rounded-lg border border-border dark:border-[#3d352d] px-4 py-2 text-sm font-medium text-primary dark:text-gray-200 hover:border-accent dark:hover:border-accent transition-colors"
+          data-filter="knockout"
+          aria-pressed="false"
+        >
+          Knockout
+        </button>
+      </div>
 
-          <section class="section-animate space-y-4" id="all-matches">
-            <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider">
-              All Matches
-            </h2>
-            <div class="flex flex-wrap gap-2" id="match-filters" role="tablist" aria-label="Filter matches">
-              <button
-                type="button"
-                class="filter-btn active rounded-lg border border-accent bg-accent px-4 py-2 text-sm font-medium text-white"
-                data-filter="all"
-              >
-                All Matches
-              </button>
-              <button
-                type="button"
-                class="filter-btn rounded-lg border border-border dark:border-[#3d352d] px-4 py-2 text-sm font-medium text-primary dark:text-gray-200 hover:border-accent dark:hover:border-accent transition-colors"
-                data-filter="live"
-              >
-                Live
-              </button>
-              <button
-                type="button"
-                class="filter-btn rounded-lg border border-border dark:border-[#3d352d] px-4 py-2 text-sm font-medium text-primary dark:text-gray-200 hover:border-accent dark:hover:border-accent transition-colors"
-                data-filter="results"
-              >
-                Results
-              </button>
-              <button
-                type="button"
-                class="filter-btn rounded-lg border border-border dark:border-[#3d352d] px-4 py-2 text-sm font-medium text-primary dark:text-gray-200 hover:border-accent dark:hover:border-accent transition-colors"
-                data-filter="upcoming"
-              >
-                Upcoming
-              </button>
-              <button
-                type="button"
-                class="filter-btn rounded-lg border border-border dark:border-[#3d352d] px-4 py-2 text-sm font-medium text-primary dark:text-gray-200 hover:border-accent dark:hover:border-accent transition-colors"
-                data-filter="group"
-              >
-                Group Stage
-              </button>
-              <button
-                type="button"
-                class="filter-btn rounded-lg border border-border dark:border-[#3d352d] px-4 py-2 text-sm font-medium text-primary dark:text-gray-200 hover:border-accent dark:hover:border-accent transition-colors"
-                data-filter="knockout"
-              >
-                Knockout
-              </button>
-            </div>
+      <div id="matches-list" class="grid gap-4">
+        {
+          games.map((game) => (
+            <WorldCupMatchCard game={game} teamMap={teamMap} stadiumMap={stadiumMap} />
+          ))
+        }
+      </div>
+    </section>
 
-            <div id="matches-list" class="grid gap-4">
-              {
-                games.map((game) => (
-                  <WorldCupMatchCard game={game} teamMap={teamMap} stadiumMap={stadiumMap} />
-                ))
-              }
-            </div>
-          </section>
-
-          <section class="section-animate space-y-4">
-            <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider">
-              Group Standings
-            </h2>
-            <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3" id="standings-grid">
-              {
-                data.groups.map((group) => (
-                  <WorldCupGroupTable group={group} teamMap={teamMap} />
-                ))
-              }
-            </div>
-          </section>
-        </>
-      )
-    }
+    <section class="section-animate space-y-4">
+      <h2 class="text-sm font-medium text-muted dark:text-gray-400 uppercase tracking-wider">
+        Group Standings
+      </h2>
+      <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3" id="standings-grid">
+        {
+          (data?.groups ?? []).map((group) => (
+            <WorldCupGroupTable group={group} teamMap={teamMap} />
+          ))
+        }
+      </div>
+    </section>
 
     <section class="section-animate">
       <p class="text-xs text-muted dark:text-gray-500">
@@ -255,30 +251,34 @@ const pageDescription =
 
 <script>
   import {
+    buildStadiumMap,
     buildTeamMap,
     fetchWorldCupData,
     getTournamentResults,
     isFinished,
     isLive,
     isUpcoming,
+    type WCGame,
+    type WorldCupData,
+    type TournamentResults,
   } from '../lib/worldcup';
+  import {
+    createChampionBanner,
+    createGroupTable,
+    createMatchCard,
+  } from '../lib/worldcup-render';
 
   const REFRESH_INTERVAL_MS = 60_000;
+  const RECENT_LIMIT = 6;
+  const NEXT_LIMIT = 6;
 
-  function getMatchStatus(game) {
-    if (isLive(game)) return 'live';
-    if (isFinished(game)) return 'finished';
-    return 'upcoming';
-  }
+  let currentFilter = 'all';
 
   function applyFilter(filter: string) {
-    const matches = document.querySelectorAll('.worldcup-match');
     const allMatchesSection = document.getElementById('all-matches');
+    if (!allMatchesSection) return;
 
-    matches.forEach((match) => {
-      const inAllMatches = allMatchesSection?.contains(match) ?? false;
-      if (!inAllMatches) return;
-
+    allMatchesSection.querySelectorAll('.worldcup-match').forEach((match) => {
       const status = match.getAttribute('data-match-status');
       const type = match.getAttribute('data-match-type');
       let visible = true;
@@ -294,107 +294,94 @@ const pageDescription =
   }
 
   function setupFilters() {
-    const buttons = document.querySelectorAll('.filter-btn');
+    const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>('.filter-btn'));
     buttons.forEach((button) => {
       button.addEventListener('click', () => {
-        buttons.forEach((btn) => btn.classList.remove('active'));
-        button.classList.add('active');
-        applyFilter(button.getAttribute('data-filter') ?? 'all');
+        currentFilter = button.getAttribute('data-filter') ?? 'all';
+        buttons.forEach((btn) => {
+          const active = btn === button;
+          btn.classList.toggle('active', active);
+          btn.setAttribute('aria-pressed', String(active));
+        });
+        applyFilter(currentFilter);
       });
     });
   }
 
-  function updateStats(games) {
-    const played = games.filter(isFinished).length;
-    const live = games.filter(isLive).length;
-    const upcoming = games.filter(isUpcoming).length;
+  function setText(id: string, value: string | number) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = String(value);
+  }
 
-    const playedEl = document.getElementById('stat-played');
-    const liveEl = document.getElementById('stat-live');
-    const upcomingEl = document.getElementById('stat-upcoming');
-    const updatedEl = document.getElementById('last-updated');
+  function updateStats(games: WCGame[]) {
+    setText('stat-played', games.filter(isFinished).length);
+    setText('stat-live', games.filter(isLive).length);
+    setText('stat-upcoming', games.filter(isUpcoming).length);
+    setText('stat-total', games.length);
 
-    if (playedEl) playedEl.textContent = String(played);
-    if (liveEl) liveEl.textContent = String(live);
-    if (upcomingEl) upcomingEl.textContent = String(upcoming);
-    if (updatedEl) {
-      updatedEl.textContent = `Last updated ${new Date().toLocaleString('en-US', {
+    setText(
+      'last-updated',
+      `Last updated ${new Date().toLocaleString('en-US', {
         dateStyle: 'medium',
         timeStyle: 'short',
-      })}`;
-    }
+      })}`
+    );
   }
 
-  function updateMatchCards(games) {
-    games.forEach((game) => {
-      document.querySelectorAll(`[data-match-id="${game.id}"]`).forEach((card) => {
-        const status = getMatchStatus(game);
-        card.setAttribute('data-match-status', status);
-
-        const scoreEl = card.querySelector('[data-score]');
-        if (scoreEl && (isFinished(game) || isLive(game))) {
-          scoreEl.textContent = `${game.home_score} – ${game.away_score}`;
-        }
-      });
-    });
-  }
-
-  function renderChampionBanner(results) {
+  function renderChampionBanner(results: TournamentResults | null) {
     const existingBanner = document.getElementById('champion-banner');
     const slot = document.getElementById('champion-banner-slot');
 
     if (!results) {
-      if (existingBanner) existingBanner.remove();
-      if (slot) slot.innerHTML = '';
+      existingBanner?.remove();
       return;
     }
 
-    const thirdPlaceHtml = results.thirdPlace
-      ? `<div id="third-place-banner" class="mt-6 border-t border-border/70 dark:border-[#3d352d]/70 pt-5 text-center">
-          <p class="text-xs font-semibold uppercase tracking-wider text-muted dark:text-gray-500">Third Place</p>
-          <div class="mt-2 flex items-center justify-center gap-2">
-            ${results.thirdPlace.winner.flag ? `<img src="${results.thirdPlace.winner.flag}" alt="" width="28" height="21" class="h-[21px] w-7 rounded-sm object-cover" />` : ''}
-            <p id="third-place-name" class="font-medium text-primary dark:text-gray-200">${results.thirdPlace.winner.name}</p>
-            <span id="third-place-score" class="text-sm text-muted dark:text-gray-500 font-mono">(${results.thirdPlace.score})</span>
-          </div>
-        </div>`
-      : '';
-
-    const bannerHtml = `
-      <section id="champion-banner" class="section-animate rounded-xl border border-accent/40 bg-gradient-to-br from-accent/10 via-paper/80 to-paper/50 dark:from-accent/15 dark:via-[#2a2520]/80 dark:to-[#1f1b18]/50 p-6 sm:p-8" aria-label="Tournament champion">
-        <p class="text-center text-sm font-medium uppercase tracking-wider text-muted dark:text-gray-400">FIFA World Cup 2026 Champions</p>
-        <div class="mt-6 flex flex-col items-center gap-4 text-center">
-          ${results.champion.winner.flag ? `<img src="${results.champion.winner.flag}" alt="" width="80" height="60" class="h-14 w-20 rounded-md object-cover shadow-sm" />` : ''}
-          <h2 id="champion-name" class="text-3xl sm:text-4xl font-bold text-primary dark:text-gray-100 font-serif">${results.champion.winner.name}</h2>
-          <p id="champion-score" class="text-lg text-primary/80 dark:text-gray-300 font-mono tabular-nums">Final: ${results.champion.score} vs ${results.champion.runnerUp.name}</p>
-        </div>
-        ${thirdPlaceHtml}
-      </section>
-    `;
-
-    if (existingBanner) {
-      existingBanner.outerHTML = bannerHtml;
-    } else if (slot) {
-      slot.innerHTML = bannerHtml;
-    }
+    const banner = createChampionBanner(results);
+    if (existingBanner) existingBanner.replaceWith(banner);
+    else slot?.replaceChildren(banner);
   }
 
-  function updateChampionBanner(data) {
-    const results = getTournamentResults(data.games, buildTeamMap(data.teams));
-    renderChampionBanner(results);
+  function fillSection(id: string, nodes: Node[]) {
+    document.getElementById(id)?.replaceChildren(...nodes);
+  }
+
+  function render(data: WorldCupData) {
+    const teamMap = buildTeamMap(data.teams);
+    const stadiumMap = buildStadiumMap(data.stadiums);
+    const games = data.games;
+    const card = (game: WCGame) => createMatchCard(game, teamMap, stadiumMap);
+
+    const liveGames = games.filter(isLive);
+    const finishedGames = games.filter(isFinished);
+    const upcomingGames = games.filter(isUpcoming);
+
+    fillSection('live-grid', liveGames.map(card));
+    const liveSection = document.getElementById('live-section');
+    if (liveSection) liveSection.style.display = liveGames.length > 0 ? '' : 'none';
+
+    fillSection('recent-grid', [...finishedGames].reverse().slice(0, RECENT_LIMIT).map(card));
+    fillSection('next-grid', upcomingGames.slice(0, NEXT_LIMIT).map(card));
+    fillSection('matches-list', games.map(card));
+    fillSection(
+      'standings-grid',
+      data.groups.map((group) => createGroupTable(group, teamMap))
+    );
+
+    updateStats(games);
+    renderChampionBanner(getTournamentResults(games, teamMap));
+    applyFilter(currentFilter);
   }
 
   async function refreshData() {
     try {
-      const data = await fetchWorldCupData();
-      updateStats(data.games);
-      updateMatchCards(data.games);
-      updateChampionBanner(data);
+      render(await fetchWorldCupData());
     } catch {
-      // Keep existing rendered data if refresh fails.
+      // Keep the existing rendered snapshot if a refresh fails.
     }
   }
 
   setupFilters();
+  refreshData();
   window.setInterval(refreshData, REFRESH_INTERVAL_MS);
 </script>

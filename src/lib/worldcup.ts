@@ -157,12 +157,12 @@ export function parseMatchDate(localDate: string): Date {
 }
 
 export function isFinished(game: WCGame): boolean {
-  return game.finished.toUpperCase() === 'TRUE';
+  return String(game.finished ?? '').toUpperCase() === 'TRUE';
 }
 
 export function isLive(game: WCGame): boolean {
   if (isFinished(game)) return false;
-  const elapsed = game.time_elapsed.toLowerCase();
+  const elapsed = String(game.time_elapsed ?? '').toLowerCase();
   return elapsed !== 'notstarted' && elapsed !== 'finished' && elapsed !== '';
 }
 
@@ -214,12 +214,22 @@ export function buildStadiumMap(stadiums: WCStadium[]): Map<string, WCStadium> {
   return new Map(stadiums.map((stadium) => [stadium.id, stadium]));
 }
 
+const FETCH_TIMEOUT_MS = 10_000;
+
 async function fetchJson<T>(endpoint: string): Promise<T> {
-  const response = await fetch(`${WORLDCUP_API_BASE}/${endpoint}`);
-  if (!response.ok) {
-    throw new Error(`World Cup API error (${response.status}) for ${endpoint}`);
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+  try {
+    const response = await fetch(`${WORLDCUP_API_BASE}/${endpoint}`, {
+      signal: controller.signal,
+    });
+    if (!response.ok) {
+      throw new Error(`World Cup API error (${response.status}) for ${endpoint}`);
+    }
+    return (await response.json()) as T;
+  } finally {
+    clearTimeout(timeout);
   }
-  return response.json() as Promise<T>;
 }
 
 export async function fetchWorldCupData(): Promise<WorldCupData> {
