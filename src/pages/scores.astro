@@ -1,11 +1,13 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import WorldCupChampionBanner from '../components/WorldCupChampionBanner.astro';
 import WorldCupGroupTable from '../components/WorldCupGroupTable.astro';
 import WorldCupMatchCard from '../components/WorldCupMatchCard.astro';
 import {
   buildStadiumMap,
   buildTeamMap,
   fetchWorldCupData,
+  getTournamentResults,
   isFinished,
   isLive,
   isUpcoming,
@@ -30,6 +32,7 @@ const upcomingGames = games.filter(isUpcoming);
 
 const recentResults = [...finishedGames].reverse().slice(0, 6);
 const nextMatches = upcomingGames.slice(0, 6);
+const tournamentResults = data ? getTournamentResults(games, teamMap) : null;
 
 const pageTitle = 'World Cup 2026 Scores - Atiquzzaman Soikat';
 const pageDescription =
@@ -46,6 +49,10 @@ const pageDescription =
         Scores and standings from the 48-team tournament across the United States, Mexico, and Canada.
         Results refresh automatically during matches.
       </p>
+
+      {tournamentResults && <WorldCupChampionBanner results={tournamentResults} />}
+
+      <div id="champion-banner-slot"></div>
 
       {
         data && (
@@ -248,7 +255,9 @@ const pageDescription =
 
 <script>
   import {
+    buildTeamMap,
     fetchWorldCupData,
+    getTournamentResults,
     isFinished,
     isLive,
     isUpcoming,
@@ -330,11 +339,57 @@ const pageDescription =
     });
   }
 
+  function renderChampionBanner(results) {
+    const existingBanner = document.getElementById('champion-banner');
+    const slot = document.getElementById('champion-banner-slot');
+
+    if (!results) {
+      if (existingBanner) existingBanner.remove();
+      if (slot) slot.innerHTML = '';
+      return;
+    }
+
+    const thirdPlaceHtml = results.thirdPlace
+      ? `<div id="third-place-banner" class="mt-6 border-t border-border/70 dark:border-[#3d352d]/70 pt-5 text-center">
+          <p class="text-xs font-semibold uppercase tracking-wider text-muted dark:text-gray-500">Third Place</p>
+          <div class="mt-2 flex items-center justify-center gap-2">
+            ${results.thirdPlace.winner.flag ? `<img src="${results.thirdPlace.winner.flag}" alt="" width="28" height="21" class="h-[21px] w-7 rounded-sm object-cover" />` : ''}
+            <p id="third-place-name" class="font-medium text-primary dark:text-gray-200">${results.thirdPlace.winner.name}</p>
+            <span id="third-place-score" class="text-sm text-muted dark:text-gray-500 font-mono">(${results.thirdPlace.score})</span>
+          </div>
+        </div>`
+      : '';
+
+    const bannerHtml = `
+      <section id="champion-banner" class="section-animate rounded-xl border border-accent/40 bg-gradient-to-br from-accent/10 via-paper/80 to-paper/50 dark:from-accent/15 dark:via-[#2a2520]/80 dark:to-[#1f1b18]/50 p-6 sm:p-8" aria-label="Tournament champion">
+        <p class="text-center text-sm font-medium uppercase tracking-wider text-muted dark:text-gray-400">FIFA World Cup 2026 Champions</p>
+        <div class="mt-6 flex flex-col items-center gap-4 text-center">
+          ${results.champion.winner.flag ? `<img src="${results.champion.winner.flag}" alt="" width="80" height="60" class="h-14 w-20 rounded-md object-cover shadow-sm" />` : ''}
+          <h2 id="champion-name" class="text-3xl sm:text-4xl font-bold text-primary dark:text-gray-100 font-serif">${results.champion.winner.name}</h2>
+          <p id="champion-score" class="text-lg text-primary/80 dark:text-gray-300 font-mono tabular-nums">Final: ${results.champion.score} vs ${results.champion.runnerUp.name}</p>
+        </div>
+        ${thirdPlaceHtml}
+      </section>
+    `;
+
+    if (existingBanner) {
+      existingBanner.outerHTML = bannerHtml;
+    } else if (slot) {
+      slot.innerHTML = bannerHtml;
+    }
+  }
+
+  function updateChampionBanner(data) {
+    const results = getTournamentResults(data.games, buildTeamMap(data.teams));
+    renderChampionBanner(results);
+  }
+
   async function refreshData() {
     try {
       const data = await fetchWorldCupData();
       updateStats(data.games);
       updateMatchCards(data.games);
+      updateChampionBanner(data);
     } catch {
       // Keep existing rendered data if refresh fails.
     }

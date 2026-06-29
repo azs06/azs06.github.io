@@ -60,6 +60,79 @@ export interface WorldCupData {
   stadiums: WCStadium[];
 }
 
+export interface TeamSummary {
+  name: string;
+  flag?: string;
+}
+
+export interface MatchOutcome {
+  winner: TeamSummary;
+  runnerUp: TeamSummary;
+  score: string;
+}
+
+export interface TournamentResults {
+  champion: MatchOutcome;
+  thirdPlace?: MatchOutcome;
+}
+
+export function getFinalMatch(games: WCGame[]): WCGame | undefined {
+  return games.find((game) => game.type === 'final');
+}
+
+export function getThirdPlaceMatch(games: WCGame[]): WCGame | undefined {
+  return games.find((game) => game.type === 'third');
+}
+
+export function getMatchOutcome(
+  game: WCGame,
+  teamMap: Map<string, WCTeam>
+): MatchOutcome | null {
+  if (!isFinished(game)) return null;
+
+  const homeScore = Number(game.home_score);
+  const awayScore = Number(game.away_score);
+  if (Number.isNaN(homeScore) || Number.isNaN(awayScore)) return null;
+
+  const home: TeamSummary = {
+    name: getTeamName(game, 'home', teamMap),
+    flag: getTeamFlag(game, 'home', teamMap),
+  };
+  const away: TeamSummary = {
+    name: getTeamName(game, 'away', teamMap),
+    flag: getTeamFlag(game, 'away', teamMap),
+  };
+  const score = `${game.home_score} – ${game.away_score}`;
+
+  if (homeScore > awayScore) {
+    return { winner: home, runnerUp: away, score };
+  }
+  if (awayScore > homeScore) {
+    return { winner: away, runnerUp: home, score };
+  }
+
+  return null;
+}
+
+export function getTournamentResults(
+  games: WCGame[],
+  teamMap: Map<string, WCTeam>
+): TournamentResults | null {
+  const finalMatch = getFinalMatch(games);
+  if (!finalMatch) return null;
+
+  const champion = getMatchOutcome(finalMatch, teamMap);
+  if (!champion) return null;
+
+  const thirdPlaceMatch = getThirdPlaceMatch(games);
+  const thirdPlace = thirdPlaceMatch ? getMatchOutcome(thirdPlaceMatch, teamMap) : null;
+
+  return {
+    champion,
+    ...(thirdPlace ? { thirdPlace } : {}),
+  };
+}
+
 const STAGE_LABELS: Record<MatchType, string> = {
   group: 'Group Stage',
   r32: 'Round of 32',
