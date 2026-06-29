@@ -1,0 +1,121 @@
+---
+// Server-render path for a match card. The live-refresh path rebuilds the same
+// markup client-side in src/lib/worldcup-render.ts (createMatchCard) — keep both in sync.
+import type { WCGame, WCTeam, WCStadium } from '../lib/worldcup';
+import {
+  getStageLabel,
+  getStadiumName,
+  getTeamFlag,
+  getTeamName,
+  isFinished,
+  isLive,
+  parseMatchDate,
+} from '../lib/worldcup';
+
+interface Props {
+  game: WCGame;
+  teamMap: Map<string, WCTeam>;
+  stadiumMap: Map<string, WCStadium>;
+}
+
+const { game, teamMap, stadiumMap } = Astro.props;
+
+const homeName = getTeamName(game, 'home', teamMap);
+const awayName = getTeamName(game, 'away', teamMap);
+const homeFlag = getTeamFlag(game, 'home', teamMap);
+const awayFlag = getTeamFlag(game, 'away', teamMap);
+const stadium = getStadiumName(game.stadium_id, stadiumMap);
+const matchDate = parseMatchDate(game.local_date);
+const finished = isFinished(game);
+const live = isLive(game);
+
+const dateLabel = matchDate.toLocaleDateString('en-US', {
+  weekday: 'short',
+  month: 'short',
+  day: 'numeric',
+});
+const timeLabel = matchDate.toLocaleTimeString('en-US', {
+  hour: 'numeric',
+  minute: '2-digit',
+});
+
+const stageLabel = getStageLabel(game.type);
+const groupLabel = game.type === 'group' ? `Group ${game.group}` : game.group;
+---
+
+<article
+  class="worldcup-match card-lift rounded-lg border border-border dark:border-[#3d352d] bg-paper/50 dark:bg-[#2a2520]/50 p-4 sm:p-5"
+  data-match-id={game.id}
+  data-match-type={game.type}
+  data-match-status={live ? 'live' : finished ? 'finished' : 'upcoming'}
+  data-match-date={matchDate.toISOString()}
+>
+  <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+    <div class="flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-wider text-muted dark:text-gray-400">
+      <span>{stageLabel}</span>
+      <span aria-hidden="true">·</span>
+      <span>{groupLabel}</span>
+    </div>
+    {
+      live ? (
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-red-500/15 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-red-600 dark:text-red-400">
+          <span class="h-2 w-2 animate-pulse rounded-full bg-red-500" />
+          Live {game.time_elapsed}
+        </span>
+      ) : finished ? (
+        <span class="rounded-full bg-accent/10 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-accent">
+          Full Time
+        </span>
+      ) : (
+        <span class="rounded-full border border-border dark:border-[#3d352d] px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-muted dark:text-gray-400">
+          Upcoming
+        </span>
+      )
+    }
+  </div>
+
+  <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-6">
+    <div class="flex flex-col items-end gap-2 text-right min-w-0">
+      <div class="flex items-center justify-end gap-2 min-w-0">
+        <span class="font-medium text-primary dark:text-gray-100 truncate">{homeName}</span>
+        {
+          homeFlag && (
+            <img src={homeFlag} alt="" width="24" height="18" class="h-[18px] w-6 rounded-sm object-cover shrink-0" loading="lazy" />
+          )
+        }
+      </div>
+    </div>
+
+    <div class="text-center shrink-0">
+      {
+        finished || live ? (
+          <p class="text-2xl sm:text-3xl font-bold tabular-nums text-primary dark:text-gray-100 font-mono" data-score>
+            {game.home_score} – {game.away_score}
+          </p>
+        ) : (
+          <p class="text-lg font-semibold text-muted dark:text-gray-400">vs</p>
+        )
+      }
+      <p class="mt-1 text-xs text-muted dark:text-gray-500">
+        {dateLabel} · {timeLabel}
+      </p>
+    </div>
+
+    <div class="flex flex-col items-start gap-2 text-left min-w-0">
+      <div class="flex items-center gap-2 min-w-0">
+        {
+          awayFlag && (
+            <img src={awayFlag} alt="" width="24" height="18" class="h-[18px] w-6 rounded-sm object-cover shrink-0" loading="lazy" />
+          )
+        }
+        <span class="font-medium text-primary dark:text-gray-100 truncate">{awayName}</span>
+      </div>
+    </div>
+  </div>
+
+  {
+    stadium && (
+      <p class="mt-4 text-center text-xs text-muted dark:text-gray-500">{stadium}</p>
+    )
+  }
+</article>
